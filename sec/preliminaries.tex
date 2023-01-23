@@ -1,2 +1,146 @@
 % !TEX root = ../odd_cartan.tex
 
+\section{Preliminaries}
+
+\subsection{Eilenberg--Zilber contraction}
+
+\TBW
+
+\subsection{Barratt--Eccles operad}
+
+We review the main constructions of \cite{berger2004combinatorial}.
+
+\sssec
+
+Let $\Set$ and $\sSet$ denote the categories of sets and simplicial sets respectively.
+The symmetric monoidal functor $\rE \colon \Set \to \sSet$ is defined on objects by $\rE X_n = X^{n+1}$ with
+\[
+\begin{split}
+	\face_i(x_0,\dots,x_n) &= (x_0,\dots,\widehat{x}_i,\dots,x_n), \\
+	\dege_i(x_0,\dots,x_n) &= (x_0, \dots, x_i, x_i, \dots, x_n),
+\end{split}
+\]
+and on morphisms by $\rE f_n = f^{\times n}$.
+
+We notice that if $X$ is equipped with a group action $X \times G \to X$ then $\rE X$ is as well with
+\[
+(x_0,\dots,x_n) \cdot g = (x_0 \cdot g, \dots, x_n \cdot g).
+\]
+
+\sssec
+
+Let $\sym_r$ be the symmetric group and
+\[
+\bcirc_{\sym} \colon \sym_r \times \sym_{s_1} \times \cdots \times \sym_{s_r} \to \sym_{s_1+\dots+s_r}
+\]
+the usual block permutation map.
+It provides $\sym = \{\sym_r\}_{r>0}$ with the structure of an operad in $\Set$.
+
+\sssec
+
+The simplicial Barratt--Eccles operad $\rE\sym$ is obtained by applying the functor $\rE$ to the operad $\sym$.
+We denote $\rE\sym(r) = \rE\sym_r$ simply by $\rE(r)$ and its compositions by
+\[
+\bcirc_{\rE} \colon \rE(r) \times \rE(s_1) \times\dots\times \rE(s_r) \to \rE(s_1+\dots+s_r).
+\]
+
+\sssec
+
+Let $\chains \colon \sSet \to \Ch$ be the functor of (normalized) chains with integer coefficients.
+The linear Barratt--Eccles operad $\cE$ is given by $\cE(r) = \chains\rE(r)$ with compositions
+\[
+\bcirc_{\cE} \colon \cE(r) \ot \cE(s_1) \ot\dotsb\ot \cE(s_r) \to \cE(s_1+\dots+s_r)
+\]
+defined by $\bcirc_{\cE} = \bcirc_{\rE} \circ \EZ$.
+
+\sssec
+
+The table reduction morphism \TBW
+
+\subsection{May--Steenrod cup-$(p,i)$ products}
+
+We review the main constructions of \cite{medina2021may_st} making explicit the definitions of \cite{steenrod1953cyclic} from the viewpoint of \cite{may1970general}.
+
+\sssec
+
+Let $\cyc_r$ denote the cyclic group of order $r$ thought of as a subgroup of $\sym_r$ with a preferred generator $\rho$.
+Let $\cW(r)$ by the non-negatively graded chain complex
+\begin{equation} \label{eq: minimal resolution}
+	\k[\cyc_r]\{e_0\} \xla{T} \k[\cyc_r]\{e_1\} \xla{N} \k[\cyc_r]\{e_2\} \xla{T} \cdots
+\end{equation}
+where
+\begin{equation} \label{eq: T and R definition}
+	\begin{split}
+		T &= \rho - 1, \\
+		N &= 1 + \rho + \cdots + \rho^{n-1}.
+	\end{split}
+\end{equation}
+
+\sssec
+
+Let $\Fp(q)$ \TBW.
+It follows from a straightforward computation that for any prime $p$ and integer $q$
+\begin{equation*}
+	H_i(\cyc_p; \mathbb{F}_p(q)) = \mathbb{F}_p.
+\end{equation*}
+
+\sssec
+
+Let $\psi(r) \colon \cW(r) \to \cE(r)$ be the $\k[\cyc_r]$-linear map defined on basis elements by
+\begin{equation*}
+	\psi(r)(e_{n}) = \begin{cases}
+		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^{r_1}, \rho^{r_1+1}, \rho^{r_2}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m, \\
+		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^1, \rho^{r_1}, \rho^{r_1+1}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m+1,
+	\end{cases}
+\end{equation*}
+where the sum is over all $r_1, \dots, r_m \in \{0, \dots, r-1\}$.
+This is a quasi-isomorphism.
+We remark that $\psi(r)$ factors through the subcomplex $\chains\rE\cyc_r$ of $\cE(r)$.
+
+\begin{table}
+	\centering
+	\input{aux/table}
+	\caption{The elements $\psi(r)(e_n)$ for small values of $r$ and $n$ where we are denoting $(\rho^{r_0}, \dots, \rho^{r_n})$ simply by $(r_0, \dots, r_n)$.}
+	\label{f:small values of psi}
+\end{table}
+
+\sssec
+
+Given an $\cE$-algebra structure $\cE \to \End(A)$ on $A$, its cup-$(r,i)$ product
+\[
+\smallsmile_i^r \colon A^{\ot r} \to A
+\]
+is the image of $\psi(e_i)$.
+For $a \in A$, we denote by $\rD_i^r(a)$ the element $\smallsmile_i^p(a \ot\dotsb\ot a)$ if $i \geq 0$ and $0$ if $i<0$.
+We notice that if $a$ is of degree $q$ then $D^r_i(a)$ is of degree $q + (r-1)q + i$.
+
+\sssec
+Let $p$ be an odd prime.
+%Let us fix $\Fp$ for an odd prime $p$ as the base ring and notice that
+%\begin{equation*}
+%	D^p_i \colon A \to A
+%\end{equation*}
+%is linear.
+For any integer $s$, the Steenrod operations
+\begin{equation*}
+	P_s \colon H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(A; \mathbb{F}_p)
+\end{equation*}
+and
+\begin{equation*}
+	\beta P_s \colon H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1) - 1}(A; \mathbb{F}_p)
+\end{equation*}
+are defined by sending the class represented by a cycle $a \in (A \otimes \mathbb{F}_p)$ of degree $q$ to the classes represented respectively for $\varepsilon \in\{0,1\}$ by
+\begin{equation*}
+	(-1)^s \nu(q) \rD^p_{(2s-q)(p-1)-\varepsilon}(a)
+\end{equation*}
+where $\nu(q) = (-1)^{q(q-1)m/2}(m!)^q$ and $m = (p-1)/2$.
+
+%In a similar way, the operations $P$ and $\beta P$ defined below for odd primes are determined by the Steenrod cup-$\big(p, k(p-1)-\varepsilon\big)$ products for $\varepsilon \in \{0,1\}$.
+%We can explain the appearance of these specific Steenrod cup-$(p,i)$ products as follows.
+%The increase on the degree of a $q$-cycle after applying $D^p_{k(p-1)-\varepsilon}$ to it is $(p-1)(q+k) - \varepsilon$, which can be rewritten as $2t(p-1) - \varepsilon$ if $q$ is even, and $(2t+1)(p-1) - \varepsilon$ if $q$ is odd.
+%According to Lemma \ref{lem: Thom's theorem}, these are the only homologically non-trivial cases.
+
+\begin{remark*}
+	The use of the coefficient function $\nu(q)$ is motivated by the identity $D_{q(p-1)}^p(a) = \nu(q)a$ in the case of spaces (see \cite[(6.1)]{steenrod1953cyclic}).
+	The notation $\beta P_s$ is motivated by the relationship of this operator and the Bockstein of the reduction $\Z \to \Z/p\Z$.
+\end{remark*}
