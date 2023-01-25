@@ -33,8 +33,7 @@ Let $\sym_r$ be the symmetric group and
 \[
 \bcirc_{\sym} \colon \sym_r \times \sym_{s_1} \times \cdots \times \sym_{s_r} \to \sym_{s_1+\dots+s_r}
 \]
-the usual block permutation map.
-It provides $\sym = \{\sym_r\}_{r>0}$ with the structure of an operad in $\Set$.
+the usual block permutation map, which provides $\sym = \{\sym_r\}_{r>0}$ with the structure of an operad in $\Set$.
 
 \sssec
 
@@ -59,7 +58,7 @@ The table reduction morphism \TBW
 
 \subsection{May--Steenrod cup-$(p,i)$ products}
 
-We review the main constructions of \cite{medina2021may_st} making explicit the definitions of \cite{steenrod1953cyclic} from the viewpoint of \cite{may1970general}.
+We review the main constructions of \cite{medina2021may_st}, which make explicit the definitions of \cite{steenrod1953cyclic} from the viewpoint of \cite{may1970general}.
 
 \sssec
 
@@ -75,6 +74,14 @@ where
 		N &= 1 + \rho + \cdots + \rho^{n-1}.
 	\end{split}
 \end{equation}
+
+This complex is equipped with a counital coproduct given by
+\begin{align*}
+	\Delta(e_{2i}) &=
+	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k} \\
+	\Delta(e_{2i+1}) &=
+	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r < s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}.
+\end{align*}
 
 \sssec
 
@@ -111,16 +118,38 @@ Given an $\cE$-algebra structure $\cE \to \End(A)$ on $A$, its cup-$(r,i)$ produ
 \smallsmile_i^r \colon A^{\ot r} \to A
 \]
 is the image of $\psi(e_i)$.
-For $a \in A$, we denote by $\rD_i^r(a)$ the element $\smallsmile_i^p(a \ot\dotsb\ot a)$ if $i \geq 0$ and $0$ if $i<0$.
+For $a \in A$, we denote by $\rD_i^r(a)$ the element $\smallsmile_i^r(a \ot\dotsb\ot a)$ if $i \geq 0$ and $0$ if $i<0$.
 We notice that if $a$ is of degree $q$ then $D^r_i(a)$ is of degree $q + (r-1)q + i$.
 
+%if $p > 2$ and $i < n$, then D = 0 unless either
+%i
+%(a) q is even andi = 2t(p-l) ori = gt(p-l)-I
+%(b) q i s o d d a n di = (2t+l)(p-1)or
+%If (K, 8) i s r e d u c e d m o d p a n d
+%for s o m e t, or
+%i = (Zt+l)(p-1)-i
+%~ is the Bockstein,
+%then
+%(a) ~Dzi = D2i_lif either p > 2 or q is even, and
+%(b) ~D2i+l = Dziif p = 2 and
+%q is odd, and
+%for some
+%2i < n
+%2i+i < n
+
+The association $a \mapsto \rD_i^r(a)$ is in general not linear.
+But for a prime ....
+Using mod $p$ coefficients, it is and it descends to cohomology
+\[
+\begin{split}
+	\rH_q(A; \Fp) &\to \rH_q(A; \Fp) \\
+	[a] &\mapsto \big[\rD^p_i(a)\big]
+\end{split}
+\]
+
 \sssec
+
 Let $p$ be an odd prime.
-%Let us fix $\Fp$ for an odd prime $p$ as the base ring and notice that
-%\begin{equation*}
-%	D^p_i \colon A \to A
-%\end{equation*}
-%is linear.
 For any integer $s$, the Steenrod operations
 \begin{equation*}
 	P_s \colon H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(A; \mathbb{F}_p)
@@ -141,6 +170,6 @@ where $\nu(q) = (-1)^{q(q-1)m/2}(m!)^q$ and $m = (p-1)/2$.
 %According to Lemma \ref{lem: Thom's theorem}, these are the only homologically non-trivial cases.
 
 \begin{remark*}
-	The use of the coefficient function $\nu(q)$ is motivated by the identity $D_{q(p-1)}^p(a) = \nu(q)a$ in the case of spaces (see \cite[(6.1)]{steenrod1953cyclic}).
+	The use of the coefficient function $\nu(q)$ is motivated by the identity $D_{q(p-1)}^p(a) = \nu(q)a$ for spaces \cite[(6.1)]{steenrod1953cyclic}.
 	The notation $\beta P_s$ is motivated by the relationship of this operator and the Bockstein of the reduction $\Z \to \Z/p\Z$.
 \end{remark*}

@@ -1,3 +1,24 @@
 % !TEX root = ../odd_cartan.tex
 
-\section{Cartan relation at the cochain level}\label{s:cartan}
+\section{Cartan relation at the chain level}\label{s:cartan}
+
+\sssec
+
+Let us recall the Cartan relation in the homology of an $E_\infty$-algebra:
+\begin{align}
+	\rP_s\big([a][b]\big) =&
+	\sum_{i+j=s} \rP_i[a] \, \rP_j[b] \\
+	\beta\rP_s\big([a][b]\big) =&
+	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
+\end{align}
+
+\sssec
+
+We now lift these to the chain level
+
+\begin{align}
+	\rD_{2i}(ab) =\ &
+	(-1)^{mqr} \sum_{i=j+k} \rD_{2j}(a) \, \rD_{2k}(b) \\
+	\rD_{2i+1}(ab) =\ &
+	(-1)^{mqr} \sum_{i=j+k} \rD_{2j+1}(a) \, \rD_{2k}(b) \ +\ (-1)^{\bars{a}}\rD_{2j}(a) \, \rD_{2k+1}(b)
+\end{align}
