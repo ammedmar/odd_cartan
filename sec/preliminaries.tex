@@ -2,6 +2,9 @@
 
 \section{Preliminaries}
 
+Throughout this work $p$ will denote an odd prime, $\Fp$ the field with $p$ elements, and $\k$ a commutative ring, typically either $\Z$ or $\Fp$.
+We use homological grading, with the linear dual of an element in degree $d$ placed in degree $-d$.
+
 \subsection{Eilenberg--Zilber contraction}
 
 \TBW
@@ -46,7 +49,7 @@ We denote $\rE\sym(r) = \rE\sym_r$ simply by $\rE(r)$ and its compositions by
 \sssec
 
 Let $\chains \colon \sSet \to \Ch$ be the functor of (normalized) chains with integer coefficients.
-The linear Barratt--Eccles operad $\cE$ is given by $\cE(r) = \chains\rE(r)$ with compositions
+The linear Barratt--Eccles operad $\cE$ is defined in arity $r$ by $\cE(r) = \chains\rE(r)$ with compositions,
 \[
 \bcirc_{\cE} \colon \cE(r) \ot \cE(s_1) \ot\dotsb\ot \cE(s_r) \to \cE(s_1+\dots+s_r)
 \]
@@ -71,16 +74,15 @@ where
 \begin{equation} \label{eq: T and R definition}
 	\begin{split}
 		T &= \rho - 1, \\
-		N &= 1 + \rho + \cdots + \rho^{n-1}.
+		N &= 1 + \rho + \cdots + \rho^{r-1}.
 	\end{split}
 \end{equation}
-
 This complex is equipped with a counital coproduct given by
 \begin{align*}
 	\Delta(e_{2i}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k} \\
+	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r < s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}, \\
 	\Delta(e_{2i+1}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r < s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}.
+	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}
 \end{align*}
 
 \sssec
@@ -102,7 +104,8 @@ Let $\psi(r) \colon \cW(r) \to \cE(r)$ be the $\k[\cyc_r]$-linear map defined on
 \end{equation*}
 where the sum is over all $r_1, \dots, r_m \in \{0, \dots, r-1\}$.
 This is a quasi-isomorphism.
-We remark that $\psi(r)$ factors through the subcomplex $\chains\rE\cyc_r$ of $\cE(r)$.
+We remark that $\psi(r)$ factors through the subcomplex $\chains\rE\cyc_r$ of $\chains\rE\sym_r = \cE(r)$.
+Please consult \cref{f:small values of psi} for a few examples.
 
 \begin{table}
 	\centering
@@ -115,12 +118,29 @@ We remark that $\psi(r)$ factors through the subcomplex $\chains\rE\cyc_r$ of $\
 
 Given an $\cE$-algebra structure $\cE \to \End(A)$ on $A$, its cup-$(r,i)$ product
 \[
-\smallsmile_i^r \colon A^{\ot r} \to A
+\psi_i^r \colon A^{\ot r} \to A
 \]
-is the image of $\psi(e_i)$.
-For $a \in A$, we denote by $\rD_i^r(a)$ the element $\smallsmile_i^r(a \ot\dotsb\ot a)$ if $i \geq 0$ and $0$ if $i<0$.
-We notice that if $a$ is of degree $q$ then $D^r_i(a)$ is of degree $q + (r-1)q + i$.
+is the image of $\psi(e_i)$ in $\Hom(A^{\ot r})$ where $e_i$ is the basis of $\cW(r)_i$.
+When $r$ is clear from the context we will omit it from the notation.
 
+We write $a \smallsmile b$ for $\psi_0^2(a \ot b)$, which induces a commutative coassociative coalgebra structure on the homology of $A$.
+Explicitly, its product is defined by
+\[
+[a][b] \defeq \big[a \smallsmile b\big].
+\]
+
+Although we do not use the following level of generality, we mention that the above definition is applicable for algebras over any $E_\infty$-operad $\cO$ with a May--Steenrod structure $\cW \to \cO$.
+
+\sssec
+
+When the ground ring is $\Fp$, the assignment sending $a$ to $\psi_i^p(a^{\ot p})$ is linear and maps cycles to cycles.
+We denote the induced map on homology by $\rD_i^p$.
+Explicitly, it is given by
+\[
+\rD_i^p[a] \defeq \big[\psi_i^p(a \ot\dotsb\ot a)\big].
+\]
+%For $a \in A$, we denote by $\rD_i^r(a)$ the element $\smallsmile_i^r(a \ot\dotsb\ot a)$ if $i \geq 0$ and $0$ if $i<0$.
+%We notice that if $a$ is of degree $q$ then $\rD^r_i(a)$ is of degree $q + (r-1)q + i$.
 %if $p > 2$ and $i < n$, then D = 0 unless either
 %i
 %(a) q is even andi = 2t(p-l) ori = gt(p-l)-I
@@ -136,33 +156,28 @@ We notice that if $a$ is of degree $q$ then $D^r_i(a)$ is of degree $q + (r-1)q 
 %for some
 %2i < n
 %2i+i < n
-
-The association $a \mapsto \rD_i^r(a)$ is in general not linear.
-But for a prime ....
-Using mod $p$ coefficients, it is and it descends to cohomology
-\[
-\begin{split}
-	\rH_q(A; \Fp) &\to \rH_q(A; \Fp) \\
-	[a] &\mapsto \big[\rD^p_i(a)\big]
-\end{split}
-\]
+%The association $a \mapsto \rD_i^r(a)$ is in general not linear.
+%But for a prime ....
+%Using mod $p$ coefficients, it is and it descends to cohomology
+%\[
+%\begin{split}
+%	\rH_q(A; \Fp) &\to \rH_q(A; \Fp) \\
+%	[a] &\mapsto \big[\rD^p_i(a)\big]
+%\end{split}
+%\]
 
 \sssec
 
-Let $p$ be an odd prime.
-For any integer $s$, the Steenrod operations
-\begin{equation*}
-	P_s \colon H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(A; \mathbb{F}_p)
-\end{equation*}
-and
-\begin{equation*}
-	\beta P_s \colon H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1) - 1}(A; \mathbb{F}_p)
-\end{equation*}
+For any integer $s$, define the Steenrod operations
+\begin{align*}
+	P_s \colon& H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(A; \mathbb{F}_p), \\
+	\beta P_s \colon& H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1) - 1}(A; \mathbb{F}_p),
+\end{align*}
 are defined by sending the class represented by a cycle $a \in (A \otimes \mathbb{F}_p)$ of degree $q$ to the classes represented respectively for $\varepsilon \in\{0,1\}$ by
 \begin{equation*}
-	(-1)^s \nu(q) \rD^p_{(2s-q)(p-1)-\varepsilon}(a)
+	(-1)^s \nu(q) \rD^p_{(2s-q)(p-1)-\varepsilon}[a]
 \end{equation*}
-where $\nu(q) = (-1)^{q(q-1)m/2}(m!)^q$ and $m = (p-1)/2$.
+where $\nu(q) = (-1)^{q(q-1)m/2}(m!)^q$ and $m = \floor{p/2} = (p-1)/2$.
 
 %In a similar way, the operations $P$ and $\beta P$ defined below for odd primes are determined by the Steenrod cup-$\big(p, k(p-1)-\varepsilon\big)$ products for $\varepsilon \in \{0,1\}$.
 %We can explain the appearance of these specific Steenrod cup-$(p,i)$ products as follows.
@@ -170,6 +185,9 @@ where $\nu(q) = (-1)^{q(q-1)m/2}(m!)^q$ and $m = (p-1)/2$.
 %According to Lemma \ref{lem: Thom's theorem}, these are the only homologically non-trivial cases.
 
 \begin{remark*}
-	The use of the coefficient function $\nu(q)$ is motivated by the identity $D_{q(p-1)}^p(a) = \nu(q)a$ for spaces \cite[(6.1)]{steenrod1953cyclic}.
+	For spaces one has the identity $\rD_{q(p-1)}^p[a] = \nu(q)[a]$ \cite[(6.1)]{steenrod1953cyclic}.
+\end{remark*}
+
+\begin{remark*}
 	The notation $\beta P_s$ is motivated by the relationship of this operator and the Bockstein of the reduction $\Z \to \Z/p\Z$.
 \end{remark*}

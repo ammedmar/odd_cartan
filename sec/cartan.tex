@@ -2,9 +2,13 @@
 
 \section{Cartan relation at the chain level}\label{s:cartan}
 
+\subsection{The Cartan relation}
+
+We recall two presentation of the Cartan relation in the mod $p$ homology of an $E_\infty$-algebra.
+
 \sssec
 
-Let us recall the Cartan relation in the homology of an $E_\infty$-algebra:
+For any integer $s$:
 \begin{align}
 	\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \rP_i[a] \, \rP_j[b] \\
@@ -14,11 +18,88 @@ Let us recall the Cartan relation in the homology of an $E_\infty$-algebra:
 
 \sssec
 
-We now lift these to the chain level
-
+A straightforward computation shows that the Cartan relation is equivalent to the following identities holding for any integer $i$:
 \begin{align}
-	\rD_{2i}(ab) =\ &
-	(-1)^{mqr} \sum_{i=j+k} \rD_{2j}(a) \, \rD_{2k}(b) \\
-	\rD_{2i+1}(ab) =\ &
-	(-1)^{mqr} \sum_{i=j+k} \rD_{2j+1}(a) \, \rD_{2k}(b) \ +\ (-1)^{\bars{a}}\rD_{2j}(a) \, \rD_{2k+1}(b)
+	\rD_{2i}\big([a][b]\big) =\ &
+	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
+	\rD_{2i+1}\big([a][b]\big) =\ &
+	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b].
 \end{align}
+
+\anibal{Maybe write a proof?}
+
+\subsection{Cartan relation at the chain level}
+
+We can lift these relations to the chain level.
+...
+\begin{align*}
+	\bd\zeta_{2i}(a,b) = \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) +
+	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big),
+\end{align*}
+\begin{multline*}
+	\bd\zeta_{2i+1}(a,b) =
+	\psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big) + (-1)^{\floor{p/2}\bars{a}\bars{b}} \\
+	\cdot \sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big) \ +\
+	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big).
+\end{multline*}
+
+\subsection{The basic reordering}
+
+The element $\tau \in \sym_{2n}$ is the shuffle permutation mapping the first and second ``decks'' to odd and even integers respectively.
+Explicitly, it is defined for $\ell \in \{1,\dots,2p\}$ by
+\begin{equation*}
+	\tau(\ell) =
+	\begin{cases}
+		2\ell-1 & \ell \leq p, \\
+		2(\ell-p) & \ell > p.
+	\end{cases}
+\end{equation*}
+Notice that for two elements $a$ and $b$ in a chain complex we have
+\[
+\tau(a^{\ot p} \ot b^{\ot p}) = (-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} (a \ot b)^{\ot p}.
+\]
+
+\subsection{The main maps}
+
+\sssec
+
+Let $F$ be the composition
+\[
+\cW(p) \xra{\psi} \cE(p) \xra{\id\, \ot e_0 \ot e_0} \cE(p) \ot \cE(2) \ot \cE(2) \xra{\bcirc_{\cE}} \cE(2p).
+\]
+For any element $a$ and $b$ in an $\cE$-algebra we have
+\[
+\tau F(e_s)\big(a^{\ot p} \ot b^{\ot p}\big) =
+(-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} \, \psi_{s}\big((a \smallsmile b)^{\ot p}\big).
+\]
+
+\sssec
+
+Let $G$ be the composition
+\[
+\cW(p) \xra{\Delta}
+\cW(p) \ot \cW(p) \xra{\psi \ot \psi}
+\cE(p) \ot \cE(p) \xra{e_0 \ot\, \id}
+\cE(2) \ot \cE(p) \ot \cE(p) \xra{\bcirc_{\cE}}
+\cE(2p).
+\]
+For elements $a$ and $b$ in an $\cE$-algebra and an integer $i$ we have that
+\begin{equation}
+	G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) =
+	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big),
+\end{equation}
+\begin{equation}
+	\begin{split}
+		&G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) = \\
+		&\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big) \ +\
+		(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big)
+	\end{split}
+\end{equation}
+
+RECALL
+\begin{align*}
+	\Delta(e_{2i}) &=
+	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r < s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}, \\
+	\Delta(e_{2i+1}) &=
+	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}
+\end{align*}
