@@ -19,14 +19,21 @@ This difference consists on those summands $a\otimes b$ of $\sum_i\Delta_2\Psi(e
 
 
 Consider first the homotopy
-\[h\colon \cE(r)\to \cE(r)\]
-that sends a tuple $(\sigma_0,\ldots,\sigma_k)$ to the tuple $(-1)^{k+1}(\sigma_0\ldots,\sigma_k,e)$, where $e\in \Sigma_r$ is the identity.
+\[h^i\colon \cE(r)\to \cE(r)\]
+that sends a tuple $(\sigma_0,\ldots,\sigma_k)$ to the tuple $(-1)^{k+1}(\sigma_0\ldots,\sigma_k,\rho^i)$.
 
 
 Here it is:
-\[H(e_k) = \sum_{i+j=k-1} (h\psi(e_i))\otimes \psi(e_j)\]
+\[H(e_k) = \sum_{i+j=k-1} (h^0\psi(e_i))\otimes \psi(e_j)\]
 Now, $\partial H(e_k) = A + B$ where $A$ consists of the summands that result from a summand $a\otimes b$ of $H(e_k)$ by removing the last element of the tuple $a$ (this element is always $e$), and $B$ is the sum of the remaining summands. Then a closer look reveals that 
 \begin{align*}
 A &=  \sum_{i} \Psi(e_i)\otimes \Psi(e_{k-i}) - \sum_{i} \Delta_2\Psi(e_i) \\
 B &= -H\partial(e_k). %(yes quite, the signs seem to match completely)
+\end{align*}
+
+\subsection{With the May diagonal}
+\begin{align*}
+H(e_{2k}) &= \begin{cases}
+\sum_{i+j = k}  h^0(\psi(e_{2i}))\otimes \psi(e_{2j}) + h^1(\psi(e_{2i}))\otimes \psi(e_{2j})
+\end{cases}
 \end{align*}
