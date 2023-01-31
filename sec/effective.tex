@@ -1,0 +1,23 @@
+
+\section{Effective constructions}
+
+\subsection{May--Steenrod structure on the Barratt--Eccles operad}
+
+Let $\psi(r) \colon \cW(r) \to \cE(r)$ be the $\k[\cyc_r]$-linear map defined on basis elements by
+\begin{equation*}
+	\psi(r)(e_{n}) = \begin{cases}
+		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^{r_1}, \rho^{r_1+1}, \rho^{r_2}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m, \\
+		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^1, \rho^{r_1}, \rho^{r_1+1}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m+1,
+	\end{cases}
+\end{equation*}
+where the sum is over all $r_1, \dots, r_m \in \{0, \dots, r-1\}$.
+This is a quasi-isomorphism.
+We remark that $\psi(r)$ factors through the subcomplex $\chains\rE\cyc_r$ of $\chains\rE\sym_r = \cE(r)$.
+Please consult \cref{f:small values of psi} for a few examples.
+
+\begin{table}
+	\centering
+	\input{aux/table}
+	\caption{The elements $\psi(r)(e_n)$ for small values of $r$ and $n$ where we are denoting $(\rho^{r_0}, \dots, \rho^{r_n})$ simply by $(r_0, \dots, r_n)$.}
+	\label{f:small values of psi}
+\end{table}

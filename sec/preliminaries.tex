@@ -3,6 +3,7 @@
 \section{Preliminaries}
 
 Throughout this work $p$ will denote an odd prime, $\Fp$ the field with $p$ elements, and $\k$ a commutative ring, typically either $\Z$ or $\Fp$.
+Let us assume the ground ring to be $\Z$ unless stated otherwise.
 We use homological grading, with the linear dual of an element in degree $d$ placed in degree $-d$.
 
 \subsection{Eilenberg--Zilber contraction}
@@ -61,7 +62,7 @@ The table reduction morphism \TBW
 
 \subsection{May--Steenrod cup-$(p,i)$ products}
 
-We review the main constructions of \cite{medina2021may_st}, which make explicit the definitions of \cite{steenrod1953cyclic} from the viewpoint of \cite{may1970general}.
+We summarize the paper \cite{medina2021may_st}, which makes explicit the definitions of \cite{steenrod1953cyclic} from the general viewpoint of \cite{may1970general}.
 
 \sssec
 
@@ -82,7 +83,7 @@ This complex is equipped with a counital coproduct given by
 	\Delta(e_{2i}) &=
 	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r < s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}, \\
 	\Delta(e_{2i+1}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}
+	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}.
 \end{align*}
 
 \sssec
@@ -90,33 +91,30 @@ This complex is equipped with a counital coproduct given by
 Let $\Fp(q)$ \TBW.
 It follows from a straightforward computation that for any prime $p$ and integer $q$
 \begin{equation*}
-	H_i(\cyc_p; \mathbb{F}_p(q)) = \mathbb{F}_p.
+	H_i(\cyc_p; \Fp(q)) = \Fp.
 \end{equation*}
 
 \sssec
 
-Let $\psi(r) \colon \cW(r) \to \cE(r)$ be the $\k[\cyc_r]$-linear map defined on basis elements by
-\begin{equation*}
-	\psi(r)(e_{n}) = \begin{cases}
-		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^{r_1}, \rho^{r_1+1}, \rho^{r_2}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m, \\
-		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^1, \rho^{r_1}, \rho^{r_1+1}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m+1,
-	\end{cases}
-\end{equation*}
-where the sum is over all $r_1, \dots, r_m \in \{0, \dots, r-1\}$.
-This is a quasi-isomorphism.
-We remark that $\psi(r)$ factors through the subcomplex $\chains\rE\cyc_r$ of $\chains\rE\sym_r = \cE(r)$.
-Please consult \cref{f:small values of psi} for a few examples.
-
-\begin{table}
-	\centering
-	\input{aux/table}
-	\caption{The elements $\psi(r)(e_n)$ for small values of $r$ and $n$ where we are denoting $(\rho^{r_0}, \dots, \rho^{r_n})$ simply by $(r_0, \dots, r_n)$.}
-	\label{f:small values of psi}
-\end{table}
+A May--Steenrod structure on an operad $\cO$ is a collection
+\[
+\set[\big]{\psi(r) \colon \cW(r) \to \cO(r)}_{r>0}
+\]
+with each $\psi(r)$ a chain map of $\Z[\cyc_r]$-modules factoring through the arity $r$ part of an $E_\infty$-operad
+\[
+\psi(r) \colon \cW(r) \xra{\iota(r)} \cR(r) \xra{\phi(r)} \cO(r)
+\]
+%\begin{equation*}
+%	\begin{tikzcd}[column sep = normal, row sep = small]
+%		& \cR(r) \arrow[dr, "\phi(r)", out=0] & \\
+%		\cW(r) \arrow[ur, "\iota(r)", in=180] \arrow[rr, "\psi(r)"] & & \cO(r)
+%	\end{tikzcd}
+%\end{equation*}
+such that $\iota(r)$ is a quasi-isomorphism and $\{\phi(r)\}_{r>0}$ is a morphism of operads.
 
 \sssec
 
-Given an $\cE$-algebra structure $\cE \to \End(A)$ on $A$, its cup-$(r,i)$ product
+Given an $\cO$-algebra structure $\cO \to \End(A)$ on $A$, its cup-$(r,i)$ product
 \[
 \psi_i^r \colon A^{\ot r} \to A
 \]
@@ -128,8 +126,6 @@ Explicitly, its product is defined by
 \[
 [a][b] \defeq \big[a \smallsmile b\big].
 \]
-
-Although we do not use the following level of generality, we mention that the above definition is applicable for algebras over any $E_\infty$-operad $\cO$ with a May--Steenrod structure $\cW \to \cO$.
 
 \sssec
 
