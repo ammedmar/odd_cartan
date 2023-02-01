@@ -7,7 +7,7 @@ In particular, for the cochains of simplicial sets.
 
 \subsection{May--Steenrod structure on the Barratt--Eccles operad}
 
-The following maps were introduced in \cite{medina2021may_st}.
+The following maps were introduced in \cite{medina2021may_st} and shown to define a May--Steenrod structure on $\cE$ using the identity factorization.
 Let $\psi(r) \colon \cW(r) \to \cE(r)$ be the $\k[\cyc_r]$-linear map defined on basis elements by
 \begin{equation*}
 	\psi(r)(e_{n}) = \begin{cases}
@@ -16,7 +16,6 @@ Let $\psi(r) \colon \cW(r) \to \cE(r)$ be the $\k[\cyc_r]$-linear map defined on
 	\end{cases}
 \end{equation*}
 where the sum is over all $r_1, \dots, r_m \in \{0, \dots, r-1\}$.
-This is a quasi-isomorphism.
 We remark that $\psi(r)$ factors through the subcomplex $\chains\EE\cyc_r$ of $\chains\EE\sym_r = \cE(r)$.
 Please consult \cref{f:small values of psi} for a few examples.
 
@@ -42,10 +41,12 @@ Let
 \end{split}
 \]
 Explicitly, if $\rho = (1,2,\dots,p)$ in $\sym_p$ then in $\sym_{2p}$
-\begin{align*}
+\begin{align}
+	\label{eq:explicitl little f}
 	f(\rho) &= (1,3,\dots,2p-1)(2,4,\dots,2p), \\
+	\label{eq:explicitl little g}
 	g(\rho) &= (1,2,\dots,p)(p+1,p+2,\dots,2p).
-\end{align*}
+\end{align}
 We notice that
 \begin{equation}\label{eq:conjugation of little maps}
 	f(\rho) \tau = \tau g(\rho)
@@ -54,12 +55,61 @@ where $\tau$ is as in \cref{ss:reordering}.
 
 \sssec
 
-Let $H_1 \colon \chains\EE\cyc_p(p) \to \cE(2p)$ be the degree $1$ linear map defined by
+Let $H_1 \colon \chains\EE\cyc_p \to \chains\EE\sym_{2p}$ be the degree $1$ linear map defined by
 \[
 H_1(\sigma_0,\dots,\sigma_n) =
-\sum_{i=0}^n (-1)^i (f(\sigma_0) \tau, \dots, f(\sigma_i) \tau, g(\sigma_i), \dots, g(\sigma_n)).
+\sum_{i=0}^n \ (-1)^i (f(\sigma_0) \tau, \dots, f(\sigma_i) \tau, g(\sigma_i), \dots, g(\sigma_n)).
 \]
 It can be easily verified that $H_1$ is a homotopy between $\chains \EE f \cdot \tau$ and $\chains \EE g$.
-To check it is $\cyc_p$-equivariant we use \cref{eq:conjugation of little maps} and the fact that, according to \cref{ss:cyclic action}, $\rho$ acts on $\cE(2p)$ by right multiplication by $g(\rho)$.
+To check it is $\cyc_p$-equivariant we use \cref{eq:conjugation of little maps} and the fact that, according to \cref{ss:cyclic action} and \eqref{eq:explicitl little g}, $\rho$ acts on $\chains\EE\sym_{2p}$ by right multiplication by $g(\rho)$.
 
-%We have that the induced chain map $\chains \EE f$ is equal to $F$.
+\subsection{Comparing coproducts}
+
+We now study the failure of the May--Steenrod structure map $\psi(p)$ to be a coalgebra map.
+More precisely, we will construct a $\cyc_p$-equivariant chain homotopy making the following diagram commute
+\[
+\begin{tikzcd}[column sep=large]
+	\cW(p) \arrow[r,"\psi(p)"] \arrow[d,"\Delta"] & \chains\EE\cyc_p \arrow[d,"\Delta_{\AW}"]\\
+	\cW(p)^{\ot 2} \arrow[r,"\psi(p)^{\ot 2}"] & \chains\EE\cyc_p^{\ \ot 2}.
+\end{tikzcd}
+\]
+We will then use this homotopy to deform $G$ equivariantly to another map $G'$.
+
+\sssec
+
+\TBW
+
+\sssec
+
+Given $K$ as above the composition
+\[
+H_2 \colon \cW(p) \xra{K} \cE(p)^{\ot 2} \xra{\psi^2_0 \ot \id} \cE(2) \ot \cE(p)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2p)
+\]
+is easily seen to be a $\cyc_p$-equivariant chain homotopy between $G$, as defined in \cref{ss:main maps}, and
+\[
+G' \colon \cW(p) \xra{\psi(p)} \cE(p) \xra{\psi^2_0 \ot \Delta_{\AW}} \cE(2) \ot \cE(p)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2p).
+\]
+
+\subsection{Lower and upper case maps}
+
+We now relate $f$ and $g$ to $F$ and $G$.
+
+\sssec
+
+It is immediate that
+\[
+\chains\EE f = F.
+\]
+
+\sssec
+
+The composition
+
+\[
+H_3 \colon \cW(p) \xra{\psi(p)} \cE(p) \xra{\psi^2_0 \ot \Delta_{\mathrm{SHI}}} \cE(2) \ot \cE(p)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2p)
+\]
+is easily seen to be a $\cyc_p$-equivariant chain homotopy between $G'$ and $\chains\EE g$.
+
+\subsection{Main construction}
+
+The map $H = H_1 + H_2 + H_3$ satisfies the conditions of \cref{ss:main theorem} and consequently defines Cartan relators.

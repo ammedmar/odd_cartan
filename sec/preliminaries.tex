@@ -41,11 +41,12 @@ the usual block permutation map, which provides $\sym = \{\sym_r\}_{r>0}$ with t
 
 \sssec
 
-The simplicial Barratt--Eccles operad $\EE\sym$ is obtained by applying the functor $\EE$ to the operad $\sym$.
-We denote $\EE\sym(r) = \EE\sym_r$ simply by $\EE(r)$ and its compositions by
+The simplicial Barratt--Eccles operad $\rE\sym$ is obtained by applying the functor $\EE$ to the operad $\sym$.
+We denote its composition by
 \[
-\bcirc_{\EE} \colon \EE(r) \times \EE(s_1) \times\dots\times \EE(s_r) \to \EE(s_1+\dots+s_r).
+\bcirc_{\rE\sym} \colon \rE\sym(r) \times \rE\sym(s_1) \times\dots\times \rE\sym(s_r) \to \rE\sym(s_1+\dots+s_r)
 \]
+for any $r,s_1,\dots,s_r \in \N$.
 
 \sssec
 
@@ -96,26 +97,21 @@ It follows from a straightforward computation that for any prime $p$ and integer
 
 \sssec
 
-A May--Steenrod structure on an operad $\cO$ is a collection
-\[
-\set[\big]{\psi(r) \colon \cW(r) \to \cO(r)}_{r>0}
-\]
-with each $\psi(r)$ a chain map of $\Z[\cyc_r]$-modules factoring through the arity $r$ part of an $E_\infty$-operad
+A May--Steenrod structure $\psi$ on an operad $\cO$ is a collection indexed by $r>0$ of $\cyc_r$-equivariant chain maps
 \[
 \psi(r) \colon \cW(r) \xra{\iota(r)} \cR(r) \xra{\phi(r)} \cO(r)
 \]
-such that $\iota(r)$ is a quasi-isomorphism and $\{\phi(r)\}_{r>0}$ is a morphism of operads.
-When $r$ is clear from the context we will omit it from the notation.
+factoring through the arity $r$ part of an $E_\infty$-operad such that $\iota(r)$ is a quasi-isomorphism and the collection $\{\phi(r)\}_{r>0}$ defines a morphism of operads.
 
 \sssec
 
-Let $\cO$ be endowed with a May--Steenrod structure $\{\psi(r)\}_{r>0}$.
+Let $\cO$ be endowed with a May--Steenrod structure $\psi$.
 Given an $\cO$-algebra structure $\cO \to \End(A)$ on a chain complex $A$, its cup-$(r,i)$ product
 \[
 \psi_i^r \colon A^{\ot r} \to A
 \]
 is the image of $\psi(r)(e_i)$ in $\Hom(A^{\ot r})$. %where $e_i$ is the basis of $\cW(r)_i$.
-When $r$ is clear from the context we will omit it from the notation.
+When the superscript $r$ is clear from the context we will omit it from the notation.
 
 \sssec
 
