@@ -2,51 +2,51 @@
 
 \section{Cartan relation at the chain level}\label{s:cartan}
 
-\subsection{The Cartan relation}
+Throughout this section let $A$ be an algebra over an operad $\cO$ equipped with a May--Steenrod structure $\psi$.
 
-We recall two presentation of the Cartan relation in the mod $p$ homology of an $E_\infty$-algebra.
+\subsection{The Cartan relations}
 
-\sssec
-
-For any integer $s$:
-\begin{align}
+We recall two equivalent presentation of the Cartan relation in the mod $p$ homology of $A$.
+For an integer $s$ and cycles $a, b \in A \ot \Fp$ these state that
+\begin{align*}
 	\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \rP_i[a] \, \rP_j[b] \\
+	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
 	\beta\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
-\end{align}
+\end{align*}
 
-\sssec
-
-A straightforward computation shows that the Cartan relation is equivalent to the following identities holding for any integer $i$:
+A straightforward computation shows that the Cartan relations are equivalent to the following identities holding for any integer $i$:
 \begin{align}
+	\label{eq:even degree cartan}
 	\rD_{2i}\big([a][b]\big) =\ &
 	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
+	\label{eq:odd degree cartan}
 	\rD_{2i+1}\big([a][b]\big) =\ &
 	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b].
 \end{align}
+We refer to Identities \eqref{eq:even degree cartan} and \eqref{eq:odd degree cartan} as the even and odd degree Cartan relations respectively.
 
 \anibal{Maybe write a proof?}
 
 \subsection{Cartan relation at the chain level}
 
-We can lift these relations to the chain level.
-...
+We now lift the even and odd degree Cartan relations to the chain level.
+An \textit{even degree Cartan relator} is an element $\zeta_{2i}(a,b) \in A$, natural in $a,b \in A$, whose boundary $\bd\zeta_{2i}(a,b)$ is equal to
 \begin{align*}
-	\bd\zeta_{2i}(a,b) = \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) +
-	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big),
+	(-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) +
+	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big).
 \end{align*}
+Similarly, the boundary of an \textit{odd degree Cartan relator} $\zeta_{2i+1}(a,b)$ is equal to
 \begin{multline*}
-	\bd\zeta_{2i+1}(a,b) =
-	\psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big) + (-1)^{\floor{p/2}\bars{a}\bars{b}} \\
-	\cdot \sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big) \ +\
+	(-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big)\\ +
+	\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big)\ +\
 	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big).
 \end{multline*}
 
-\subsection{The basic reordering}
+\subsection{The basic reordering}\label{ss:reordering}
 
-The element $\tau \in \sym_{2n}$ is the shuffle permutation mapping the first and second ``decks'' to odd and even integers respectively.
-Explicitly, it is defined for $\ell \in \{1,\dots,2p\}$ by
+The element $\tau \in \sym_{2p}$ is the shuffle permutation mapping the first and second ``decks'' to odd and even integers respectively.
+Explicitly, for $\ell \in \{1,\dots,2p\}$
 \begin{equation*}
 	\tau(\ell) =
 	\begin{cases}
@@ -54,24 +54,26 @@ Explicitly, it is defined for $\ell \in \{1,\dots,2p\}$ by
 		2(\ell-p) & \ell > p.
 	\end{cases}
 \end{equation*}
-Notice that for two elements $a$ and $b$ in a chain complex we have
+Notice that
 \[
-\tau(a^{\ot p} \ot b^{\ot p}) = (-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} (a \ot b)^{\ot p}.
+\tau(a^{\ot p} \ot b^{\ot p}) = (-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} (a \ot b)^{\ot p}
 \]
+for any $a,b \in A$.
 
-\subsection{The main maps}
+\subsection{The main maps}\label{ss:main maps}
 
 \sssec
 
 Let $F$ be the composition
 \[
-\cW(p) \xra{\psi} \cE(p) \xra{\id\, \ot e_0 \ot e_0} \cE(p) \ot \cE(2) \ot \cE(2) \xra{\bcirc_{\cE}} \cE(2p).
+\cW(p) \xra{\psi} \cO(p) \xra{\id\, \ot e_0 \ot e_0} \cO(p) \ot \cO(2) \ot \cO(2) \xra{\bcirc_{\cO}} \cO(2p).
 \]
-For any element $a$ and $b$ in an $\cE$-algebra we have
+Notice that
 \[
 \tau F(e_s)\big(a^{\ot p} \ot b^{\ot p}\big) =
-(-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} \, \psi_{s}\big((a \smallsmile b)^{\ot p}\big).
+(-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} \, \psi_{s}\big((a \smallsmile b)^{\ot p}\big)
 \]
+for any $s \in \N$ and $a,b \in A$.
 
 \sssec
 
@@ -79,27 +81,35 @@ Let $G$ be the composition
 \[
 \cW(p) \xra{\Delta}
 \cW(p) \ot \cW(p) \xra{\psi \ot \psi}
-\cE(p) \ot \cE(p) \xra{e_0 \ot\, \id}
-\cE(2) \ot \cE(p) \ot \cE(p) \xra{\bcirc_{\cE}}
-\cE(2p).
+\cO(p) \ot \cO(p) \xra{e_0 \ot\, \id}
+\cO(2) \ot \cO(p) \ot \cO(p) \xra{\bcirc_{\cO}}
+\cO(2p).
 \]
-For elements $a$ and $b$ in an $\cE$-algebra and an integer $i$ we have that
-\begin{equation}
-	G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) =
-	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big),
-\end{equation}
-\begin{equation}
+Notice that
+\begin{equation*}
 	\begin{split}
-		&G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) = \\
-		&\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big) \ +\
-		(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big)
+		G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) =&
+		\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big), \\
+		G(e_{2i+1})\big(a^{\ot p} \ot b^{\ot p}\big) =&
+		\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big) \\ \ +&
+		\sum_{i=j+k} (-1)^{\bars{a}} \big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big),
 	\end{split}
-\end{equation}
+\end{equation*}
+for any $i \in \N$ and $a,b \in A \ot \Fp$.
+This follows directly from \cref{sss:minimal resolution} using that the number of pairs $r<s$ between $0$ and $p$ is divisible by $p$.
 
-RECALL
-\begin{align*}
-	\Delta(e_{2i}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r < s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}, \\
-	\Delta(e_{2i+1}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}
-\end{align*}
+\subsection{The $\cyc_p$ action on $\cO(2p)$}\label{ss:cyclic action}
+
+We will consider $\cO(2p)$ endowed with an action of $\cyc_p$ given by the obvious group homomorphism
+\[
+\cyc_p \xra{\mathrm{diag}} \cyc_p \times \cyc_p \xra{\mathrm{incl}} \sym_p \times \sym_p \xra{\mathrm{split}} \sym_{2p}.
+\]
+
+\subsection{Main theorem}
+
+If $H \colon \cW(p) \to \cO(p)$ is a $\cyc_p$-equivariant homotopy between $\tau F$ and $G$ then
+$H(e_s)$ is a Cartan relator.
+
+\begin{proof}
+	\TBW
+\end{proof}
