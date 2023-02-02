@@ -2,12 +2,12 @@
 
 \section{Cartan relation at the chain level}\label{s:cartan}
 
-Throughout this section let $A$ be an algebra over an operad $\cO$ equipped with a May--Steenrod structure $\psi$.
+Throughout this section let $\End(A)$ be equipped with a May--Steenrod structure~$\psi$.
 
-\subsection{The Cartan relations}
+\subsection{The Cartan relation}
 
 We recall two equivalent presentation of the Cartan relation in the mod $p$ homology of $A$.
-For an integer $s$ and cycles $a, b \in A \ot \Fp$ these state that
+For an integer $s$ and cycles $a, b \in A \ot \Fp$ it states
 \begin{align*}
 	\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
@@ -15,7 +15,7 @@ For an integer $s$ and cycles $a, b \in A \ot \Fp$ these state that
 	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
 \end{align*}
 
-A straightforward computation shows that the Cartan relations are equivalent to the following identities holding for any integer $i$:
+A straightforward computation shows that the Cartan relation to be equivalent to the following identities holding for every integer $i$
 \begin{align}
 	\label{eq:even degree cartan}
 	\rD_{2i}\big([a][b]\big) =\ &
@@ -26,22 +26,21 @@ A straightforward computation shows that the Cartan relations are equivalent to 
 \end{align}
 We refer to Identities \eqref{eq:even degree cartan} and \eqref{eq:odd degree cartan} as the even and odd degree Cartan relations respectively.
 
-\anibal{Maybe write a proof?}
-
 \subsection{Cartan relation at the chain level}
 
 We now lift the even and odd degree Cartan relations to the chain level.
-An \textit{even degree Cartan relator} is an element $\zeta_{2i}(a,b) \in A$, natural in $a,b \in A$, whose boundary $\bd\zeta_{2i}(a,b)$ is equal to
+An \textit{Cartan relator} is a collection indexed by $s$ of elements $\zeta_{s}(a,b) \in A \ot \Fp$, natural on cocycles $a,b \in A \ot \Fp$, with $\bd\zeta_{2i}(a,b)$ equal to
 \begin{align*}
-	(-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) +
-	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big).
+	(-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) -
+	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big),
 \end{align*}
-Similarly, the boundary of an \textit{odd degree Cartan relator} $\zeta_{2i+1}(a,b)$ is equal to
+and $\bd \zeta_{2i+1}(a,b)$ equal to
 \begin{multline*}
-	(-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big)\\ +
+	(-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big)\\ -
 	\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big)\ +\
-	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big).
+	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big),
 \end{multline*}
+for all $i$.
 
 \subsection{The basic reordering}\label{ss:reordering}
 
@@ -85,7 +84,7 @@ Let $G$ be the composition
 \cO(2) \ot \cO(p) \ot \cO(p) \xra{\bcirc_{\cO}}
 \cO(2p).
 \]
-Notice that
+Notice that mod $p$
 \begin{equation*}
 	\begin{split}
 		G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) =&
@@ -111,5 +110,13 @@ If $H \colon \cW(p) \to \cO(p)$ is a $\cyc_p$-equivariant homotopy between $\tau
 $H(e_s)$ is a Cartan relator.
 
 \begin{proof}
-	\TBW
+	Let $a, b \in A \ot \Fp$ be cocycles.
+	By assumption
+	\[
+	\bd H(e_s) + H(\bd e_s) = (\tau F - G)(e_s).
+	\]
+	Since $\rho H(e_s)()$
+	If $s$ is even then $H(\bd e_s) = H(1+\rho+\dots+\rho^{p-1})e_{s-1} = (1+\rho+\dots+\rho^{p-1})H(e_{s-1})$.
+	Since
+	\anibal{finish this}
 \end{proof}
