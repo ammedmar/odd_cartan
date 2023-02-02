@@ -1,34 +1,35 @@
 % !TEX root = ../odd_cartan.tex
 
-\section{Cartan relation at the chain level}\label{s:cartan}
+\section{The Cartan relation}\label{s:cartan}
 
-Throughout this section let $\End(A)$ be equipped with a May--Steenrod structure~$\psi$.
+Throughout this section let $A$ be equipped with a May--Steenrod structure~$\psi$.
 
-\subsection{The Cartan relation}
+\subsection{Homology level}
 
 We recall two equivalent presentation of the Cartan relation in the mod $p$ homology of $A$.
-For an integer $s$ and cycles $a, b \in A \ot \Fp$ it states
+The first states that
 \begin{align*}
 	\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
 	\beta\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
+	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b],
 \end{align*}
-
-A straightforward computation shows that the Cartan relation to be equivalent to the following identities holding for every integer $i$
-\begin{align}
-	\label{eq:even degree cartan}
+for any integer $s$ and classes $[a],[b] \in \rH(A;\Fp)$.
+The second, that
+%A straightforward computation shows that the Cartan relation is equivalent to the following identities
+\begin{align*}
+%	\label{eq:even degree cartan}
 	\rD_{2i}\big([a][b]\big) =\ &
 	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
-	\label{eq:odd degree cartan}
+%	\label{eq:odd degree cartan}
 	\rD_{2i+1}\big([a][b]\big) =\ &
 	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b].
-\end{align}
-We refer to Identities \eqref{eq:even degree cartan} and \eqref{eq:odd degree cartan} as the even and odd degree Cartan relations respectively.
+\end{align*}
+for any $i \geq 0$ and classes $[a],[b] \in \rH(A;\Fp)$.
+%We refer to Identities \eqref{eq:even degree cartan} and \eqref{eq:odd degree cartan} as the even and odd degree Cartan relations respectively.
 
-\subsection{Cartan relation at the chain level}
+\subsection{Chain level}
 
-We now lift the even and odd degree Cartan relations to the chain level.
 An \textit{Cartan relator} is a collection indexed by $s$ of elements $\zeta_{s}(a,b) \in A \ot \Fp$, natural on cocycles $a,b \in A \ot \Fp$, with $\bd\zeta_{2i}(a,b)$ equal to
 \begin{align*}
 	(-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) -
@@ -42,24 +43,7 @@ and $\bd \zeta_{2i+1}(a,b)$ equal to
 \end{multline*}
 for all $i$.
 
-\subsection{The basic reordering}\label{ss:reordering}
-
-The element $\tau \in \sym_{2p}$ is the shuffle permutation mapping the first and second ``decks'' to odd and even integers respectively.
-Explicitly, for $\ell \in \{1,\dots,2p\}$
-\begin{equation*}
-	\tau(\ell) =
-	\begin{cases}
-		2\ell-1 & \ell \leq p, \\
-		2(\ell-p) & \ell > p.
-	\end{cases}
-\end{equation*}
-Notice that
-\[
-\tau(a^{\ot p} \ot b^{\ot p}) = (-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} (a \ot b)^{\ot p}
-\]
-for any $a,b \in A$.
-
-\subsection{The main maps}\label{ss:main maps}
+\subsection{The uppercase maps}\label{ss:main maps}
 
 \sssec
 
@@ -84,7 +68,7 @@ Let $G$ be the composition
 \cO(2) \ot \cO(p) \ot \cO(p) \xra{\bcirc_{\cO}}
 \cO(2p).
 \]
-Notice that mod $p$
+Notice that if $\cO = \End(A)$ then
 \begin{equation*}
 	\begin{split}
 		G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) =&
@@ -99,7 +83,7 @@ This follows directly from \cref{sss:minimal resolution} using that the number o
 
 \subsection{The $\cyc_p$ action on $\cO(2p)$}\label{ss:cyclic action}
 
-We will consider $\cO(2p)$ endowed with an action of $\cyc_p$ given by the obvious group homomorphism
+We will consider $\cO(2p)$ endowed with an action of $\cyc_p$ induced by the group homomorphism
 \[
 \cyc_p \xra{\mathrm{diag}} \cyc_p \times \cyc_p \xra{\mathrm{incl}} \sym_p \times \sym_p \xra{\mathrm{split}} \sym_{2p}.
 \]
