@@ -18,7 +18,7 @@ where
 		N &= 1 + \rho + \cdots + \rho^{r-1}.
 	\end{split}
 \end{equation}
-It is equipped with the structure of a coalgebra in the category of $\cyc_r$-equivariant chain complexes, explicitly defined by
+It is equipped with the structure of a coalgebra in the category of $\cyc_r$-equivariant chain complexes, defined explicitly by
 \begin{align*}
 	\varepsilon(e_0) &= 1, \\
 	\Delta(e_{2i}) &=
@@ -27,17 +27,17 @@ It is equipped with the structure of a coalgebra in the category of $\cyc_r$-equ
 	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}.
 \end{align*}
 
-\sssec
+%\sssec
+%
+%Let $\Fp(q)$ \TBW.
+%It follows from a straightforward computation that for any prime $p$ and integer $q$
+%\begin{equation*}
+%	H_i(\cyc_p; \Fp(q)) = \Fp.
+%\end{equation*}
 
-Let $\Fp(q)$ \TBW.
-It follows from a straightforward computation that for any prime $p$ and integer $q$
-\begin{equation*}
-	H_i(\cyc_p; \Fp(q)) = \Fp.
-\end{equation*}
+\subsection{Cyclic modules}
 
-\sssec
-
-Similarly to how a group can be regarded as category, we assemble the cyclic groups into a groupoid $\cyc$ whose set of objects is $\N_{>0}$ and morphisms are given by
+Similarly to how a group can be regarded as category, we assemble the cyclic groups into a groupoid $\cyc$ whose set of objects is $\N$ and morphisms are given by
 \[
 \cyc(r,s) =
 \begin{cases}
@@ -45,6 +45,7 @@ Similarly to how a group can be regarded as category, we assemble the cyclic gro
 	\hfil \emptyset & r \neq s.
 \end{cases}
 \]
+
 The category of $\cyc$-modules is that of contravariant functors from $\cyc$ to the category of chain complexes.
 Explicitly, a $\cyc$-module $\cP$ is the data of a chain complex $\cP(r)$ with a right $\cyc_r$-action for each $r > 0$, and a morphism is given by a collection of equivariant maps.
 The main example of a $\cyc$-module is given by $\cW = \{\cW(r)\}_{r>0}$.
@@ -52,43 +53,24 @@ We say that a $\cyc$-module morphisms is a chain complex or a quasi-isomorphism 
 The definition of $\sym$-modules is similar.
 Notice that an $\sym$-module is canonically a $\cyc$-module, and that (algebraic) operads are examples.
 
-\sssec
+\subsection{May--Steenrod structures}
 
-A May--Steenrod structure on an operad $\cO$ is the data of a $\cyc$-module morphism
+A May--Steenrod structure on an chain complex $A$ is the data of a $\cyc$-module morphism
 \[
-\psi \colon \cW \xra{\iota} \cR \xra{\phi} \cO
+\psi \colon \cW \xra{\iota} \cR \xra{\phi} \End(A)
 \]
-factoring through an $E_\infty$-operad with the properties that $\iota$ is a quasi-isomorphism and $\phi$ is a morphism of operads.
+factoring through an $E_\infty$-operad such that $\iota$ is a quasi-isomorphism and $\phi$ is a morphism of operads.
+In particular, this structure makes $A$ into an $E_\infty$-algebra with a preferred product $\psi(2)(e_0) \colon A \ot A \to A$ which we denote for elements $a,b \in A$ simply as $a \smallsmile b$.
+Generalizing this, we refer to $\psi(r)(e_i) \colon A^{\ot r} \to A$ as the cup-$(r,i)$ product of $A$, denoting it $\psi_i^r$ or simply $\psi_i$ when $r$ is clear from the context.
 
-The main examples will arise when $\cO$ is the endomorphism operad $\End(A)$ of a chain complex $A$, which we will refer to as a May--Steenrod structure on $A$.
-In particular, this structure makes $A$ into an $E_\infty$-algebra.
+\subsection{Homology operations}
 
-\sssec
-
-Let $\cO$ be endowed with a May--Steenrod structure $\psi$.
-Its cup-$(r,i)$ product
-%\[
-%\psi_i^r \colon A^{\ot r} \to A
-%\]
-is the element $\psi(r)(e_i)$ denoted $\psi_i^r$ or simply $\psi_i$ if $r$ is clear from the context.
-
-\sssec
-
-For the rest of this section let $A$ be endowed with a May--Steenrod structure $\psi$.
-We denote $\psi_0^2(a \ot b)$ simply by $a \smallsmile b$, which induces a commutative and associative product on the homology of $A$, explicitly defined by
+Let $A$ be equipped with a May--Steenrod structure $\psi$.
+The assignment in $A \ot \Fp$ sending $a$ to $\psi_i^p(a^{\ot p})$ is linear and maps cycles to cycles.
+We denote the induced map on the mod p homology of $A$ by
 \[
-[a][b] \defeq \big[a \smallsmile b\big].
+\rD_i^p[a] = \big[\psi_i^p(a \ot\dotsb\ot a)\big].
 \]
-
-\sssec
-
-The assignment sending $a \in A \ot \Fp$ to $\psi_i^p(a^{\ot p}) \in A \ot \Fp$ is linear and maps cycles to cycles.
-We denote the induced map on the mod p homology of $A$ by $\rD_i^p$, explicitly defined by
-\[
-\rD_i^p[a] \defeq \big[\psi_i^p(a \ot\dotsb\ot a)\big].
-\]
-
-\sssec
 
 For an integer $s$, the Steenrod operations
 \begin{align*}

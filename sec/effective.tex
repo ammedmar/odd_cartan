@@ -2,8 +2,7 @@
 
 \section{Effective constructions}
 
-In this section we construct explicit Cartan relators for algebras over the Barratt--Eccles operad.
-In particular, for the cochains of simplicial sets.
+In this section we construct explicit Cartan relators for algebras over the Barratt--Eccles operad, of which the cochains of simplicial sets are natural examples.
 
 \subsection{Barratt--Eccles operad}
 
@@ -56,18 +55,21 @@ defined by $\bcirc_{\cE} = \bcirc_{\EE} \circ \EZ$.
 
 The table reduction morphism \TBW
 
-\subsection{May--Steenrod structure on the Barratt--Eccles operad}
+\subsection{May--Steenrod structure on Barratt--Eccles algebras}
 
-The following maps were introduced in \cite{medina2021may_st} and shown to define a May--Steenrod structure on $\cE$ using the identity factorization.
-Let $\psi(r) \colon \cW(r) \to \cE(r)$ be the $\k[\cyc_r]$-linear map defined on basis elements by
+To provide an $\cE$-algebra $A$ with a May--Steenrod structure, it suffices to define a $\cyc$-equivariant quasi-isomorphism
+\[
+\iota \colon \cW \to \cE.
+\]
+We recall from \cite{medina2021may_st} a closed form formula for such a map.
 \begin{equation*}
-	\psi(r)(e_{n}) = \begin{cases}
+	\iota(r)(e_{n}) = \begin{cases}
 		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^{r_1}, \rho^{r_1+1}, \rho^{r_2}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m, \\
 		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^1, \rho^{r_1}, \rho^{r_1+1}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m+1,
 	\end{cases}
 \end{equation*}
 where the sum is over all $r_1, \dots, r_m \in \{0, \dots, r-1\}$.
-We remark that $\psi(r)$ factors through the subcomplex $\chains\EE\cyc_r$ of $\chains\EE\sym_r = \cE(r)$.
+Notice that $\iota$ factors through the $\cyc$-module $\{\chains\EE\cyc_r\}_{r\in\N}$.
 Please consult \cref{f:small values of psi} for a few examples.
 
 \begin{table}
