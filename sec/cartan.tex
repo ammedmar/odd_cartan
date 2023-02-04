@@ -3,48 +3,13 @@
 \section{The Cartan relation}\label{s:cartan}
 
 Throughout this section we assume that $A$ is equipped with a May--Steenrod structure~$\psi$.
-
-\subsection{Homology level}
-
-We recall two equivalent presentation of the Cartan relation in the mod $p$ homology of $A$.
-The first states that
-\begin{align*}
-	\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
-	\beta\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b],
-\end{align*}
-for any integer $s$ and classes $[a],[b] \in \rH(A;\Fp)$.
-The second, that
-%A straightforward computation shows that the Cartan relation is equivalent to the following identities
-\begin{align*}
-	%	\label{eq:even degree cartan}
-	\rD_{2i}\big([a][b]\big) =\ &
-	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
-	%	\label{eq:odd degree cartan}
-	\rD_{2i+1}\big([a][b]\big) =\ &
-	(-1)^{\floor{p/2}\bars{a}\bars{b}} \sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b].
-\end{align*}
-for any $i \geq 0$ and classes $[a],[b] \in \rH(A;\Fp)$.
-
-For $a,b \in A \ot \Fp$ and $i \in \N$, let
-\begin{multline*}
-	C_{2i}^p(a \ot b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) \ -
-	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big), \hfill \\
-	C_{2i+1}^p(a \ot b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big) \hfill \\ -
-	\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big)\ +\
-	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big).
-\end{multline*}
-
-\subsection{Main theorem}\label{ss:main maps}
-
-Let $A$ be equipped with a May--Steenrod structure $\psi$.
-We will define for each prime $p$ two chain maps
+For each prime $p$ we will define two chain maps
 \[
-F_\psi^p,\, G_\psi^p \colon \cW(p) \to \Hom(A^{\ot 2p}, A).
+F_\psi^p,\, G_\psi^p \colon \cW(p) \to \Hom(A^{\ot 2p}, A)
 \]
+which control the two sides of the Cartan relations.
 To simplify notation let us denote the operad $\End(A)$ by $\cO$.
-These maps are then defined by the following compositions:
+Then,
 \begin{align*}
 	F_\psi^p \colon& \cW(p) \xra{\psi(p)} \cO(p) \xra{\id\, \ot (\psi_0^2)^{\ot p}}
 	\cO(p) \ot \cO(2)^{\ot p} \xra{\bcirc_{\cO}}
@@ -61,46 +26,61 @@ Considering $\cO(2p) = \Hom(A^{\ot 2p}, A)$ endowed the action of $\cyc_p$ induc
 \]
 it can be observed that both $F$ and $G$ are $\cyc_p$-equivariant.
 
-A Cartan relator for $A$ at $p$ is a $\cyc_p$-equivariant homotopy $H_\psi^p \colon \cW(p) \to \Hom(A^{\ot 2p}, A)$ between $\tau F$ and $G$.
-
+A Cartan relator for $A$ at $p$ is a $\cyc_p$-equivariant chain homotopy
+\[
+H_\psi^p \colon \cW(p) \to \Hom(A^{\ot 2p}, A)
+\]
+between $\tau F$ and $G$, where $\tau$ is the canonical reordering (\cref{ss:reordering}).
+The existence of a Cartan relator for $A$ at $p$ implies the Cartan relations on the mod $p$ homology of $A$
+\begin{align*}
+	\rP_s\big([a][b]\big) =&
+	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
+	\beta\rP_s\big([a][b]\big) =&
+	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
+\end{align*}
+More precisely, let us observes that the Cartan relations are equivalent to
+\begin{align*}
+	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
+	\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
+	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \,-\!
+	\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
+\end{align*}
+and that
+\[
+\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) = C^p_\psi(i)(a,b)
+\]
+where
+\begin{multline*}
+	C_\psi^p(2i)(a,b) = (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) \ -
+	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big), \hfill \\
+	C_\psi^p(2i+1)(a,b) = (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big) \hfill \\ -
+	\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big)\ +\
+	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big).
+\end{multline*}
+Then, if $a,b \in A \ot \Fp$ are cycles,
+\begin{align*}
+	\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) =&
+	\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
+	\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
+	H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
+	C^p_\psi(i)(a,b),
+\end{align*}
+using that
+\begin{align*}
+	H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
+	(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
+	H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
+	(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
+\end{align*}
+in $A \ot \Fp$.
+We record this analysis in the following.
 \begin{theorem*}
 	If $H_\psi^p$ is Cartan relator for $A$ at $p$ then
 	\[
-	\bd \big(H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})\big) = C_\psi^p(a \ot b)
+	\bd_A \big(H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})\big) = C_\psi^p(i)(a \ot b)
 	\]
-	for any $i \in \N$ and cycles $a,b \in A \ot \Fp$
+	for any $i \in \N$ and cycles $a,b \in A \ot \Fp$.
 \end{theorem*}
 
-%\begin{proof}
-%	Let $a, b \in A \ot \Fp$ be cocycles.
-%	By assumption
-%	\[
-%	\bd H(e_s) + H(\bd e_s) = (\tau F - G)(e_s).
-%	\]
-%	Since $\rho H(e_s)()$
-%	If $s$ is even then $H(\bd e_s) = H(1+\rho+\dots+\rho^{p-1})e_{s-1} = (1+\rho+\dots+\rho^{p-1})H(e_{s-1})$.
-%	Since
-%	\anibal{finish this}
-%
-%	Notice that
-%	\[
-%	\tau F(e_s)\big(a^{\ot p} \ot b^{\ot p}\big) =
-%	(-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} \, \psi_{s}\big((a \smallsmile b)^{\ot p}\big)
-%	\]
-%	for any $s \in \N$ and $a,b \in A$.
-%
-%
-%	Notice that if $\cO = \End(A)$ then
-%	\begin{equation*}
-%		\begin{split}
-%			G(e_{2i})\big(a^{\ot p} \ot b^{\ot p}\big) =&
-%			\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big), \\
-%			G(e_{2i+1})\big(a^{\ot p} \ot b^{\ot p}\big) =&
-%			\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big) \\ \ +&
-%			\sum_{i=j+k} (-1)^{\bars{a}} \big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big),
-%		\end{split}
-%	\end{equation*}
-%	for any $i \in \N$ and $a,b \in A \ot \Fp$.
-%	This follows directly from \cref{sss:minimal resolution} using that the number of pairs $r<s$ between $0$ and $p$ is divisible by $p$.
-%\end{proof}
+\anibal{Question: How to prove the existence of relators in general using a specific construction? Is it true that modifying the may-st structure gives equivariantly homotopic $F$'s and $G$'s. Probably one needs to fix the basic algebra structure on $A$.}
 
