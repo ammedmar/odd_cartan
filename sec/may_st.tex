@@ -68,25 +68,21 @@ Generalizing this, we refer to $\psi(r)(e_i) \colon A^{\ot r} \to A$ as the cup-
 Let $A$ be equipped with a May--Steenrod structure $\psi$.
 The assignment in $A \ot \Fp$ sending $a$ to $\psi_i^p(a^{\ot p})$ is linear and maps cycles to cycles.
 We denote the induced map on the mod p homology of $A$ by
-\[
-\rD_i^p[a] = \big[\psi_i^p(a \ot\dotsb\ot a)\big].
-\]
-
-For an integer $s$, the Steenrod operations
+\begin{equation}\label{eq:diagonal operations}
+	\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
+\end{equation}
+We will emphasize these homology operations, with the way the operations $P_s$ and $\beta P_s$ are deduced from them being discussed next.
+The map \eqref{eq:diagonal operations} is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
+Please consult \cite[Proposition 2.3. (iv)]{may1970general} for a proof.
+Considering only the non-zero values one defines the Steenrod operations
 \begin{align*}
 	P_s \colon& H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(A; \mathbb{F}_p), \\
 	\beta P_s \colon& H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1) - 1}(A; \mathbb{F}_p),
 \end{align*}
-are defined by sending the class represented by a cycle $a \in (A \otimes \mathbb{F}_p)$ of degree $q$ to the classes represented respectively for $\varepsilon \in\{0,1\}$ by
+by sending the class represented by a cycle $a \in (A \otimes \mathbb{F}_p)$ of degree $n$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
 \begin{equation*}
-	(-1)^s \nu(q) \rD^p_{(2s-q)(p-1)-\varepsilon}[a]
+	(-1)^s \nu(n) \rD^p_{(2s-n)(p-1)-\varepsilon}[a]
 \end{equation*}
-where $\nu(q) = (-1)^{q(q-1)m/2}(m!)^q$ and $m = \floor{p/2} = (p-1)/2$.
-
-%\begin{remark*}[{\cite[(6.1)]{steenrod1953cyclic}}]
-%	For a degree $-q$ cohomology class $[\alpha]$ of a space one has the identity $\rD_{q(p-1)}^p[\alpha] = \nu(q)[\alpha]$.
-%\end{remark*}
-%
-%\begin{remark*}
-%	The notation $\beta P_s$ is motivated by the relationship of this operator and the Bockstein of the reduction $\Z \to \Z/p\Z$.
-%\end{remark*}
+where $\nu(n) = (-1)^{n(n-1)m/2}(m!)^n$ and $m = \floor{p/2} = (p-1)/2$.
+Here the constant $\nu(n)$ and notation $\beta P_s$ are respectively motivated by the unstable
+$\rD_{n(p-1)}^p[\alpha] = \nu(n)[\alpha]$ and Bockstein $\beta P_s = \beta \circ P_s$ relations, the first holding in the cohomology of spaces and the second in general.
