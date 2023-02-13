@@ -1,6 +1,6 @@
 % !TEX root = ../odd_cartan.tex
 
-\section{The Cartan relation}\label{s:cartan}
+\section{The Cartan formula}\label{s:cartan}
 
 Throughout this section we assume that $A$ is chain complex equipped with a May--Steenrod structure~$\psi$.
 For any $r \in \N$ consider the group homomorphism
@@ -31,21 +31,21 @@ Then,
 	A Cartan relator for $(A, \psi)$ is a $\cyc$-module chain homotopy between $\tau F_\tau$ and $G_\tau$ where $\tau$ is the canonical reordering (\cref{ss:reordering}).
 \end{definition}
 
-As we will explain, the existence of a Cartan relator implies the Cartan relations on the mod $p$ homology of $A$, which are given by
+As we will explain, the existence of a Cartan relator implies the Cartan formulas on the mod $p$ homology of $A$, which are given by
 \begin{align*}
 	\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
 	\beta\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
 \end{align*}
-Let us observes that the Cartan relations are equivalent to
+Let us observes that the Cartan formulas are equivalent to
 \begin{align*}
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
 	\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \,-\!
 	\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
 \end{align*}
-which, somewhat abusively, we also refer to as Cartan relations.
+which, somewhat abusively, we also refer to as Cartan formulas.
 Notice also that
 \[
 \big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}) = C^p_\psi(i)(a,b)
@@ -58,7 +58,7 @@ where
 	\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big)\ +\
 	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big).
 \end{multline*}
-Then, if $a,b \in A \ot \Fp$ are cycles, the expression $C_\psi^p(i)(a,b)$ is a cocycle representing the non-zero side of the Cartan relations, which we make into a coboundary explicitly by
+Then, if $a,b \in A \ot \Fp$ are cycles, the expression $C_\psi^p(i)(a,b)$ is a cocycle representing the non-zero side of the Cartan formulas, which we make into a coboundary explicitly by
 \begin{align*}
 	\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) =&
 	\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
@@ -76,7 +76,7 @@ where we used that
 in $A \ot \Fp$.
 We record this analysis in the following.
 \begin{theorem}
-	If $H_\psi$ is Cartan relator for $(A, \psi)$ then
+	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then
 	\[
 	\bd_A \big(H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})\big) = C_\psi^p(i)(a, b)
 	\]
