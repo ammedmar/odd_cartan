@@ -69,42 +69,42 @@ Please consult \cref{f:small values of psi} for a few examples.
 \begin{table}
 	\centering
 	\input{aux/table}
-	\caption{The elements $\psi^{(r)}(e_n)$ for small values of $r$ and $n$ where we are denoting $(\rho^{r_0}, \dots, \rho^{r_n})$ simply by $(r_0, \dots, r_n)$.}
+	\caption{The elements $\psi^r(e_n)$ for small values of $r$ and $n$ where we are denoting $(\rho^{r_0}, \dots, \rho^{r_n})$ simply by $(r_0, \dots, r_n)$.}
 	\label{f:small values of psi}
 \end{table}
 
 \subsection{The lowercase homomorphisms}
 
 We now describe group homomorphisms inducing two chain homotopic $\cyc$-module chain maps.
-We will later relate these to the $\cyc-$module chain maps $F_\psi$ and $G_\psi$ associated to the May--Steenrod structure on $\cE$-algebras.
+We will later relate these to the $\cyc$-module chain maps $F_\psi$ and $G_\psi$ associated to the May--Steenrod structure on $\cE$-algebras.
 For $r \in \N$, let
 \[
 \begin{split}
-	&f^{(r)} \colon \cyc_r \to \sym_r \xra{\id \times e^{\times r}} \sym_r \times \sym_2^{\times r} \xra{\bcirc_{\sym}} \sym_{2r}, \\
-	&g^{(r)} \colon \cyc_r \to \sym_r \xra{e \times \mathrm{diag}} \sym_2 \times \sym_r \times \sym_r \xra{\bcirc_{\sym}} \sym_{2r}.
+	&f^r \colon \cyc_r \to \sym_r \xra{\id \times e^{\times r}} \sym_r \times \sym_2^{\times r} \xra{\bcirc_{\sym}} \sym_{2r}, \\
+	&g^r \colon \cyc_r \to \sym_r \xra{e \times \mathrm{diag}} \sym_2 \times \sym_r \times \sym_r \xra{\bcirc_{\sym}} \sym_{2r}.
 \end{split}
 \]
 Explicitly, if $\rho = (1,2,\dots,r)$ in $\sym_r$ then in $\sym_{2r}$
 \begin{align*}
-	f^{(r)}(\rho) &= (1,3,\dots,2r-1)(2,4,\dots,2r), \\
-	g^{(r)}(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r).
+	f^r(\rho) &= (1,3,\dots,2r-1)(2,4,\dots,2r), \\
+	g^r(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r).
 \end{align*}
 We notice that
 \begin{equation}\label{eq:conjugation of little maps}
-	f^{(r)}(\rho) \tau = \tau g^{(r)}(\rho)
+	f^r(\rho) \tau = \tau g^r(\rho)
 \end{equation}
 where $\tau$ is as in \cref{ss:reordering}.
 We obtain two $\cyc$-module chain maps $\chains\EE f$ and $\chains\EE g$ where the $\cyc_r$ action on $\chains\EE\sym_{2r}$ is induced from Homomorphism \eqref{eq:cyclic to 2-symetric}.
 
-We define a $\cyc$-module chain homotopy $H_1$ between $\chains \EE f \cdot \tau$ and $\chains \EE g$
+We define a $\cyc$-module chain homotopy $H_{\psi,1}$ between $\chains \EE f \cdot \tau$ and $\chains \EE g$
 explicitly as follows.
-For $r \in \N$, let $H_1^{(r)} \colon \chains\EE\cyc_r \to \chains\EE\sym_{2r}$ be given by
+For $r \in \N$, let $H_{\psi,1}^r \colon \chains\EE\cyc_r \to \chains\EE\sym_{2r}$ be given by
 \[
-H_1^{(r)}(\sigma_0,\dots,\sigma_n) =
-\sum_{i=0}^n \ (-1)^i (f^{(r)}(\sigma_0) \tau, \dots, f^{(r)}(\sigma_i) \tau, g^{(r)}(\sigma_i), \dots, g^{(r)}(\sigma_n)).
+H_{\psi,1}^r(\sigma_0,\dots,\sigma_n) =
+\sum_{i=0}^n \ (-1)^i (f^r(\sigma_0) \tau, \dots, f^r(\sigma_i) \tau, g^r(\sigma_i), \dots, g^r(\sigma_n)).
 \]
-It can be easily verified that $H_1^{(r)}$ is a homotopy between $\chains \EE f^{(r)} \cdot \tau$ and $\chains \EE g^{(r)}$.
-To check that it is $\cyc_r$-equivariant we use \cref{eq:conjugation of little maps} and the fact that $\rho$ acts on $\chains\EE\sym_{2r}$ by right multiplication by $g(\rho)$.
+It can be easily verified that $H_{\psi,1}^r$ is a homotopy between $\chains \EE f^r \cdot \tau$ and $\chains \EE g^r$.
+To check that it is $\cyc_r$-equivariant we use \cref{eq:conjugation of little maps} and the fact that $\rho$ acts on $\chains\EE\sym_{2r}$ multiplying on the right by $g(\rho)$.
 
 \subsection{Comparing coproducts}
 
@@ -112,15 +112,15 @@ We now study the failure of the $\cyc$-module quasi-isomorphism $\iota$ to prese
 More precisely, we will construct a $\cyc$-module chain homotopy making the following diagram commute
 \[
 \begin{tikzcd}[column sep=large]
-	\cW(r) \arrow[r,"\iota^{(r)}"] \arrow[d,"\Delta"] & \chains\EE\cyc_r \arrow[d,"\Delta_{\AW}"]\\
-	\cW(r)^{\ot 2} \arrow[r,"(\iota^{(r)})^{\ot 2}"] & \chains\EE\cyc_r^{\ \ot 2}.
+	\cW(r) \arrow[r,"\iota^r"] \arrow[d,"\Delta"] & \chains\EE\cyc_r \arrow[d,"\Delta_{\AW}"]\\
+	\cW(r)^{\ot 2} \arrow[r,"(\iota^r)^{\ot 2}"] & \chains\EE\cyc_r^{\ \ot 2}.
 \end{tikzcd}
 \]
 for every $r \in \N$.\todo{Please fill this out.}
 
-Given $K$ as above, the $\cyc$-module map $H_2$ given for each $r \in \N$ by
+Given $K$ as above, the $\cyc$-module map $H_{\psi,2}$ given for each $r \in \N$ by
 \[
-H_2^r \colon \cW(p) \xra{K^r} \cE(p)^{\ot 2} \xra{\psi^2_0 \ot \id} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
+H_{\psi,2}^r \colon \cW(p) \xra{K^r} \cE(p)^{\ot 2} \xra{\psi^2_0 \ot \id} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
 \]
 is easily seen to be a $\cyc$-module chain homotopy between $G_\psi$ and $\widetilde G_\psi$ given by
 \[
@@ -136,16 +136,16 @@ It is immediate that
 \]
 and that the composition
 \[
-H_3^r \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\mathrm{SHI}}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
+H_{\psi,3}^r \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\mathrm{SHI}}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
 \]
 is a $\cyc_r$-equivariant chain homotopy between $\chains\EE g$ and $\widetilde G_\psi^p$.
 
-Let $H_3^r$ be the $\cyc$-module map defined by these maps, which is a chain homotopy
+Let $H_{\psi,3}^r$ be the $\cyc$-module map defined by these maps, which is a chain homotopy
 
 \subsection{Main construction}
 
 \begin{theorem}
-	For any algebra over the Barratt--Eccles operad $\phi \colon \cE \to \End(A)$, the map $H = \phi \circ (H_1 + H_2 + H_3)$ is a Cartan relator for $(A,\psi\circ\iota)$.\todo{Maybe the signs are not right here.}
+	For any algebra over the Barratt--Eccles operad $\phi \colon \cE \to \End(A)$, the map $H_\psi = \phi \circ (H_{\psi,1} + H_{\psi,2} + H_{\psi,3})$ is a Cartan relator for $(A,\phi\circ\iota)$.\todo{Maybe the signs are not right here.}
 \end{theorem}
 
 \subsection{Examples}
