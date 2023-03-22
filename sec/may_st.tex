@@ -20,10 +20,11 @@ It is equipped with the structure of a coalgebra in the category of $\cyc_r$-equ
 \begin{align*}
 	\varepsilon(e_0) &= 1, \\
 	\Delta(e_{2i}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r < s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}, \\
+	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \sum_{i-1=j+k} \ \sum_{0 \leq r \leq s \leq p} \rho^r e_{2j+1} \ot \rho^s e_{2k+1}, \\
 	\Delta(e_{2i+1}) &=
 	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}.
 \end{align*}
+\footnote{fc:replaced $r<s$ by $r\leq s$}
 
 %Let $\Fp(q)$ \TBW.
 %It follows from a straightforward computation that for any prime $p$ and integer $q$
@@ -51,7 +52,7 @@ Notice that an $\sym$-module is canonically a $\cyc$-module, and that (algebraic
 
 \subsection{May--Steenrod structures}
 
-A May--Steenrod structure on an chain complex $A$ is an $E_\infty$-structure $\phi \colon \cR \to \End(A)$ on $A$ together $\cyc$-module quasi-isomorphism $\iota \colon \cW \to \cR$.
+A May--Steenrod structure on an chain complex $A$ is an $E_\infty$-structure $\phi \colon \cR \to \End(A)$ on $A$ together with a $\cyc$-module quasi-isomorphism $\iota \colon \cW \to \cR$.
 We usually write $\psi$ for $\phi \circ \iota$.
 
 This structure defines a preferred product $\psi(2)(e_0) \colon A \ot A \to A$ which we denote for elements $a,b \in A$ simply as $a \smallsmile b$.
