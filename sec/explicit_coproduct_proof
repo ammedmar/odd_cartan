@@ -1,0 +1,72 @@
+\appendix
+\section{Handicraft proof of the homotopy K}
+
+In order to prove that this is a chain homotopy we will check that
+\[\partial(K(e_{i})) + K(\partial e_{i})-f(e_{i}) + g(e_{i}) = 0\]
+\subsection*{Proof in odd degrees} Here are the values of these summands: Unless otherwise written, the first tensor factor of each summand has as last terms $s_j,s_j+1$ and the second tensor factor has as last terms $s_k,s_k+1$. The subscript $q$ is there for indexing purposes only.
+\begin{align*}
+	-f(e_{2i+1}) &= -\sum_{j+k=i}\sum (0,s_1,s_1+1,\ldots)\otimes (0,1,t_1,t_1+1,\ldots) +
+	\\
+	&+(0,1,s_1,s_1+1,\ldots)\otimes (1,2,t_1,t_1+1,\ldots)
+	\\
+	g(e_{2i+1}) &= \sum_{j+k=i}\sum (0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(s_j+1,t_1,t_1+1,\ldots) +
+	\\
+	&+ (0,1,s_1,s_1+1,\ldots,t_1)\otimes(t_1,t_1+1,\ldots)
+	\\
+	K\partial(e_{2i+1}) &= \sum_{j+k=i}\sum_{q=1}^j\sum_{s_q^-<s_q<t_1<s_q^-} \left[(1,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q\right. -
+	\\
+	&- \left.(0,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q\right]
+	\\
+	\partial K(e_{2i+1}) &= -\partial\sum_{j+k=i}\sum_{q=1}^j\sum_{s_q^-<s_q<t_1<s_q^-}(0,1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q
+\end{align*}
+We will define an involution on the set of all summands, showing that each summand appears twice with opposite sign. The \emph{left caesuras} of a sequence is the first $i$ such that $s_i\neq 2i-1$. The \emph{right caesuras} of a sequence is the last $i$ such that $s_i\neq s_j-2(j-i)$. We refer to the caesuras of the first factor of a tensor product as the \emph{first caesuras} and to the caesuras of the second factor of the tensor product as the \emph{second caesuras}. The \emph{left follower} of an element $s_i$ of a sequence is the first entry to the left of that element that is not the predecessor of the element to its right. The \emph{right follower} of an element $s_{i}$ is the first entry to the right of that element that is not the succesor of the element to its left. Here are some examples:
+\begin{itemize}
+	\item The right follower of $5$ in the sequence $(0,1,5,6,7,8,11,12,0,1)$ is $8$.
+	\item The left follower of $8$ in that sequence is $5$.
+\end{itemize}
+We treat first the summands in $f(e_{2i+1}), g(e_{2i+1})$ and $K(\partial(e_{2i+1}))$:
+\begin{itemize}
+	\item The summand $(1,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q$ of $K\partial(e_{2i+1})$ cancels with the summand
+	\[-(\widehat{0},1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q\]
+	of $\partial K(e_{2i+1})$.
+	\item The summand $A = -(0,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q$ of $K\partial(e_{2i+1})$ cancels with the summand
+	\[+(0,1,\ldots,\widehat{2i-1},s_i,s_i+1,\ldots)\otimes (t_1,t_1+1,\ldots)_{q'}\]
+	of $\partial K(e_{2i+1})$, where $i$ is the first left caesuras of $A$ and $q'=q$ unless $q<i$ and $t_1=2q-2$, in which case $q'=q+1$.
+	\item The summand $A = -(0,s_1,s_1+1,\ldots)\otimes (0,1,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$ cancels with the summand
+	\[(0,1,\ldots,\widehat{2i-1},s_i,s_i+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q\]
+	of $\partial K(e_{2i+1})$, where $i$ is the first left caesuras of $A$ and $q=1$ and $t_1=0$.
+	\item The summand $(0,1,s_1,s_1+1,\ldots)\otimes (1,2,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$ cancels with the summand
+	\[(0,1,s_1,s_1+1,\ldots)\otimes (\widehat{t}_1,t_1+1,\ldots)_q\]
+	of $\partial K(e_{2i+1})$, where $q=1$ and $t_1=0$.
+	\item The summand $A = (0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(s_j+1,t_1,t_1+1,\ldots)$ of $g(e_{2i+1})$ cancels with the summand
+	\[(0,1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots,t_{\ell-1},\widehat{t_{\ell-1}+1},t_\ell,t_\ell+1,\ldots)_q\]
+	of $\partial K(e_{2i+1})$, where $q=j$ and $t_1=s_j+1$ and $\ell$ is the second left caesuras of $A$.
+	\item The summand $A = (0,1,s_1,s_1+1,\ldots,s_j,s_j+1,t_1)\otimes(t_1,t_1+1,\ldots)$ of $g(e_{2i+1})$ cancels with the summand
+	\[(0,1,s_1,s_1+1,\ldots,s_i,s_i+1,\widehat{s_{i+1}-1},s_{i+1},\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q\]
+	of $\partial K(e_{2i+1})$, where $q=j$ and $s_j+1=t_1$ and $i$ is the first right caesuras of $A$.
+\end{itemize}
+Now, the summands of $\partial K(e_{2i+1})$.
+\begin{itemize}
+	\item The summand $-(\hat{0},1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q$ cancels with the summand
+	\[+(1,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q\]
+	of $K\partial(e_{2i+1})$.
+	\item The summand $+(0,1,\ldots,\widehat{2i-1},s_i,s_i+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q$ with $i$ the first left caesuras cancels with the summand
+	\[(0,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_{q'}\]
+	of $K\partial(e_{2i+1})$, where $q'=q$ unless $t_1 = 2q-2$, in which case $q'=q-1$. This is well defined except for $q=1,t_1 = 0$ in which case it cancels with the summand $-(0,s_1,s_1+1,\ldots)\otimes (0,1,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$.
+	\item The summand $(0,1,\ldots,\widehat{s_{i-1}},\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q$ with $t_1=s_j+1$ and $i$ the first right caesuras, cancels with the summand
+	\[(0,1,s_1,s_1+1,\ldots,s_j,s_j+1,t_1)\otimes(t_1,t_1+1,\ldots) \]
+	of $g(e_{2i+1})$.
+	\item The summand $(0,1,\ldots,\widehat{s}_r,s_r+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q$ cancels with the summand
+	\[(0,1,\ldots,\widehat{s'_t+1},\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_{q'}\]
+	of $K\partial(e_{2i+1})$, where the second summand is obtained from the first one by removing $s_r$ and adding the succesor of the right follower of $s_r$ to its right, which is denoted $s'_t+1$. The number $q'$ equals $q$ unless $t_1 = s_r+1$ and $q=r$, in which case it equals $q+1$. This is well-defined unless $t=j$, $q=j$ and $t_1=s_t+1$, in which case it cancels with a summand of the form $(0,1,\ldots,s_{j},s_{j}+1,t_1)\otimes (t_1,t_1+1,\ldots)$ in $f(e_{2i+1})$.
+	\item The summand $(0,1,\ldots,s_t,\widehat{s}_t+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q$ cancels with the summand
+	\[(0,1,\ldots,\widehat{s'_r},s'_r+1\ldots,s'_j,s'_j+1)\otimes (t_1,t_1+1,\ldots)_{q'}\]
+	of $K\partial(e_{2i+1})$, where the second summand is obtained from the first one by removing $s_t+1$ and adding the predecessor of the left follower of $s_t+1$ to its left, which is denoted $s'_r$. The number $q'$ equals $q$ unless $t_1 = s'_r+1$ and $q=r$, in which case it equals $q-1$. This is well-defined, because the exceptional case when $q=1$ is the case of the global caesuras.
+	\item The summand $(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,\hat{t}_r,t_r+1,\ldots)_q$ cancels with the summand
+	\[(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,t_s,\widehat{t_s+1},\ldots)_{q'}\]
+	of $K\partial(e_{2i+1})$, where the second summand is obtained by removing $t_r$ and adding the successor of the right follower to its right, which is denoted $t_{s}+1$. The value of $q'$ is $q$ unless $r=1$ and $t_1 = s_q^--1$, in which case $q'=q-1$. The exceptional case when $q=1$ cancels with the summand $(0,1,s_1,s_1+1,\ldots)\otimes (1,2,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$.
+	\item The summand $(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,t_s,\widehat{t_s+1},\ldots)_q$ cancels with the summand
+	\[(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,\widehat{t}_r,t_r+1,\ldots)_{q'}\]
+	of $K\partial(e_{2i+1})$, where the second summand is obtained by removing $t_s+1$ and adding the predecessor of the left follower of $t_{s}+1$ to its left, which is denoted $t_{r}$. The value of $q'$ is $q$ unless $r=1$ and $t_1 = s_q^--1$, in which case $q'=q+1$. The exceptional case when $q=j$ cancels with the summand $(0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(s_j+1,t_1,t_1+1,\ldots)$ of $g(e_{2i+1})$.
+\end{itemize}
+\subsection*{Proof in even degrees} TO BE WRITTEN.

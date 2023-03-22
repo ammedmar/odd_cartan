@@ -55,22 +55,21 @@ To provide the cochains of simplicial sets, or more generally any $\cE$-algebra,
 \[
 \iota \colon \cW \to \cE.
 \]
-We recall from \cite{medina2021may_st} a closed form formula for one such map.
-For $r,n\in\N$, let
+We recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module $\{\chains\EE\cyc_r\}_{r\in\N}$.
+For $r,n\in\N$
 \begin{equation*}
 	\iota^{r}(e_{n}) = \begin{cases}
-		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^{r_1}, \rho^{r_1+1}, \rho^{r_2}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m, \\
-		\displaystyle{\sum_{r_1, \dots, r_m}} \big(\rho^0, \rho^1, \rho^{r_1}, \rho^{r_1+1}, \dots, \rho^{r_{m}}, \rho^{r_{m}+1} \big) & n = 2m+1,
+		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, {s_1}, {s_1+1}, {s_2}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m, \\
+		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, 1, {s_1}, {s_1+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m+1,
 	\end{cases}
 \end{equation*}
-where the sum is over all $r_1, \dots, r_m \in \{0, \dots, r-1\}$.
-Notice that $\iota$ factors through the $\cyc$-module $\{\chains\EE\cyc_r\}_{r\in\N}$.
+where the sum is over all $s_1, \dots, s_m \in \{0, \dots, r-1\}$ and we are simplifying notation by removing $\rho \in \cyc_r \subset \sym_r$.
 Please consult \cref{f:small values of psi} for a few examples.
 
 \begin{table}
 	\centering
 	\input{aux/table}
-	\caption{The elements $\psi^r(e_n)$ for small values of $r$ and $n$ where we are denoting $(\rho^{r_0}, \dots, \rho^{r_n})$ simply by $(r_0, \dots, r_n)$.}
+	\caption{The elements $\psi^r(e_n)$ for small values of $r$ and $n$.}
 	\label{f:small values of psi}
 \end{table}
 
@@ -110,24 +109,95 @@ To check that it is $\cyc_r$-equivariant we use \cref{eq:conjugation of little m
 \subsection{Comparing coproducts}
 
 We now study the failure of the $\cyc$-module quasi-isomorphism $\iota$ to preserve coalgebra structures.
-More precisely, we will construct a $\cyc$-module chain homotopy making the following diagram commute
+More precisely, we will construct a $\cyc$-module chain homotopy $K$ making the following diagram commute
 \[
 \begin{tikzcd}[column sep=large]
 	\cW(r) \arrow[r,"\iota^r"] \arrow[d,"\Delta"] & \chains\EE\cyc_r \arrow[d,"\Delta_{\AW}"]\\
 	\cW(r)^{\ot 2} \arrow[r,"(\iota^r)^{\ot 2}"] & \chains\EE\cyc_r^{\ \ot 2}.
 \end{tikzcd}
 \]
-for every $r \in \N$.\todo{Please fill this out.}
-
-Given $K$ as above, the $\cyc$-module map $H_{\psi,2}$ given for each $r \in \N$ by
+for every $r \in \N$.
+Given $K$, the $\cyc$-module map $H_{\psi,2}$ defined for each $r \in \N$ by
 \[
 H_{\psi,2}^r \colon \cW(p) \xra{K^r} \cE(p)^{\ot 2} \xra{\psi^2_0 \ot \id} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
 \]
-is easily seen to be a $\cyc$-module chain homotopy between $G_\psi$ and $\widetilde G_\psi$ given by
+is a $\cyc$-module chain homotopy between $G_\psi$ and the $\cyc$-module chain map $\widetilde G_\psi$ defined for $r \in \N$ by
 \[
-\widetilde G_\psi^r \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\AW}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
+\widetilde G_\psi^r \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\AW}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r).
 \]
-for $r \in \N$.
+
+To construct $K$ we have the following general procedure.
+
+\begin{lemma}
+	Let $G$ be a group, $C$ a non-negatively graded chain complex of free $\Z[G]$-modules with basis, and $h$ a $\Z$-linear map satisfying
+	\[
+	\bd \circ \, h + h \circ \bd = \id_C - \varepsilon
+	\]
+	for some chain map $\varepsilon$.
+	Then, for any pair of $\Z[G]$-linear chain maps $f,g \colon C \to C$ with $\varepsilon \circ (f-g) = 0$, the recursively defined $\Z[G]$-linear $K \colon C \to C$, given on basis elements by
+	\[
+	K(b) = h \circ (f - g - K \circ \bd)(b),
+	\]
+	satisfies
+	\[
+	\bd \circ \, K + K \circ \bd = f - g.
+	\]
+\end{lemma}
+
+\begin{proof}
+	We have the following computation where we suppressed composition symbols.
+	\begin{align*}
+		(\bd K + K \bd)(a)
+		&= \bd h(f - g - K \bd)(a) + (K \bd)(a) \\
+		&= \bd h(f-g)(a) + (\id_C - \bd h)(K \bd)(a) \\
+		&= \bd h(f-g)(a) + (h \bd +\, \varepsilon)(K \bd)(a) \\
+%
+		&= -h(\bd(f(a))) + f(a) -c(f(a))+ h(\bd(g(a))) - g(a)+c(g(a))  + \\
+		&\quad + h(\bd(K(\bd(a)))) - K(\bd(a)) + K(\bd(a)) \\
+		&= f(a) - g(a) + h\left(-f(\bd a) + g(\bd a) + \bd K(\bd(a)) + K(\bd(\bd(a)))\right) \\
+		&= (f - g)(a)
+	\end{align*}
+\end{proof}
+
+\noindent OLD PROOF
+\begin{align*}
+	\partial K(a) + K\partial(a)
+	&= \partial(h(f(a)-g(a)-K(\partial a))) + K\partial(a) \\
+	&= \partial(h(f(a)))-\partial(h(g(a)))-\partial(h(K(\partial a))) + K\partial(a) \\
+	&= -h(\partial(f(a))) + f(a) -c(f(a))+ h(\partial(g(a))) - g(a)+c(g(a))  + \\
+	&\quad + h(\partial(K(\partial(a)))) - K(\partial(a)) + K(\partial(a)) \\
+	&= f(a) - g(a) + h\left(-f(\partial a) + g(\partial a) + \partial K(\partial(a)) + K(\partial(\partial(a)))\right) \\
+	&= f(a) - g(a)
+\end{align*}
+
+\subsection{Closed form formula for $K$}
+
+We can apply this lemma to find the required homotopy $K$. For that we consider the non-equivariant homotopy $h\colon N_*EC_r\otimes N_*EC_r\to EC_r\otimes N_*EC_r\otimes N_*EC_r$ given by $h((a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)) = (0,a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)$, which is a contraction to the endomorphism $c$ of $N_*EC_r\otimes N_*EC_r$ that sends $a\otimes b$ to $0\otimes b$ in degree $0$ and all other generators are sent to zero. Since $f(e_0) = g(e_0)$, it holds that $c(f-g) = 0$. We claim that the homotopy $K$ so defined as the following form: We assume $j,k>0$, and denote by $s_q^-$ the entry to the left of the entry $s_q$. Explicitely, we have
+\begin{align*}
+	s_q^- &= \begin{cases}s_{q-1}+1 & \text{if $q>1$}\\
+		s_q^- = 0 & \text{ if $q=1$ and even degree} \\
+		s_q^- = 1 &\text{ if $q=1$ and odd degree.}
+	\end{cases}
+\end{align*}
+The condition $s_q^-<s_q<t_1<s_q^-$ makes sense with the cyclic order in $\{0,1,\ldots,p-1\}$. In the following sums, we are suming along all possible values of $s_1,\ldots,s_j,t_1,\ldots,t_k$ in $\{0,1,\ldots,p-1\}$.
+\begin{align*}
+	K(e_{2i}) &= \sum_{j+k = i+1}{\sum_{q=1}^j{\sum_{s_q^-<s_q<t_1<s_q^-}{(0,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(t_1,t_1+1,\ldots,t_k,t_k+1)}}} \\
+	K(e_{2i+1}) &= -\sum_{j+k = i+1}{\sum_{q=1}^j{\sum_{s_q^-<s_q<t_1<s_q^-}{(0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(t_1,t_1+1,\ldots,t_k,t_k+1)}}}
+\end{align*}
+
+Let us check these formulae inductively.
+\begin{align*}
+	K(e_{2i+1}) &= h(f(e_{2i+1})-g(e_{2i+1})-K(\bd(e_{2i+1})))
+\end{align*}
+Now, all the summands in $f(e_{2i+1})$ and $g(e_{2i+1})$ start with a zero, therefore we are left with
+\[K(e_{2i+1}) = -h(K(\rho e_{2i}))+h(K(e_{2i}))\]
+and the second summand is zero, while the first one agrees with the definition of $K(e_{2i+1})$.
+
+\begin{align*}
+	K(e_{2i}) &= h(f(e_{2i})-g(e_{2i})-K(\bd(e_{2i})))
+\end{align*}
+Here, the summand $h(g(e_{2i}))$ is zero, the summand $K(\bd(e_{2i}))$ corresponds to the summation with $q>1$ and the summand $h(f(e_{2i}))$ corresponds to the summations with $q=1$.
+
 
 \subsection{Lower and upper case maps}
 
@@ -141,138 +211,12 @@ H_{\psi,3}^r \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\mathr
 \]
 is a $\cyc_r$-equivariant chain homotopy between $\chains\EE g$ and $\widetilde G_\psi^p$.
 
-Let $H_{\psi,3}^r$ be the $\cyc$-module map defined by these maps, which is a chain homotopy
-
-\subsection{The chain homotopy $K$}
-
-\begin{definition} Let $C_*$ be a chain complex and $c\colon C_*\to C_*$ a homomorphism. A \emph{contraction} of $C_*$ to $c$ is a homotopy $h\colon C_*\to C_{*+1}$ between the identity and $c$, i.e.,
-\[\partial h + h\partial = \id-c\] 
-\end{definition}
-\begin{lemma} Let $D_*$ be a $RG$-chain complex and $h\colon D_*\to D_{*+1}$ an $R$-contraction to some map $c\colon D_*\to D_*$. Let $f,g\colon C_*\to D_*$ be a pair of homotopic chain maps such that $c(f-g) = 0$. Suppose that $C_*$ is a free $RG$-complex with a choice of $RG$-basis $A_\bullet\subset C_*$. Then define recursively the $G$-equivariant map
-\begin{align*}
-K(a) &= h(f(a)-g(a)-K(\partial a)),
-\end{align*} 
-and extend linearly and equivariantly. Then $K$ is an $RG$-homotopy between $f$ and $g$.
-\end{lemma}
-\begin{proof} By construction it is linear and equivariant. We now check that it is a homotopy between $f$ and $g$. Let $a$ have positive degree. Then:
-\begin{align*}
-\partial K(a) + K\partial(a) 
-&= \partial(h(f(a)-g(a)-K(\partial a))) + K\partial(a) \\
-&= \partial(h(f(a)))-\partial(h(g(a)))-\partial(h(K(\partial a))) + K\partial(a) \\
-&= -h(\partial(f(a))) + f(a) -c(f(a))+ h(\partial(g(a))) - g(a)+c(g(a))  + \\
-&\quad + h(\partial(K(\partial(a)))) - K(\partial(a)) + K(\partial(a)) \\
-&= f(a) - g(a) + h\left(-f(\partial a) + g(\partial a) + \partial K(\partial(a)) + K(\partial(\partial(a)))\right) \\
-&= f(a) - g(a)
-\end{align*}
-\end{proof}
-We can apply this lemma to find the required homotopy $K$. For that we consider the non-equivariant homotopy $h\colon N_*EC_r\otimes N_*EC_r\to EC_r\otimes N_*EC_r\otimes N_*EC_r$ given by $h((a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)) = (0,a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)$, which is a contraction to the endomorphism $c$ of $N_*EC_r\otimes N_*EC_r$ that sends $a\otimes b$ to $0\otimes b$ in degree $0$ and all other generators are sent to zero. Since $f(e_0) = g(e_0)$, it holds that $c(f-g) = 0$. We claim that the homotopy $K$ so defined as the following form: We assume $j,k>0$, and denote by $s_q^-$ the entry to the left of the entry $s_q$. Explicitely, we have 
-\begin{align*}
-    s_q^- &= \begin{cases}s_{q-1}+1 & \text{if $q>1$}\\
-    s_q^- = 0 & \text{ if $q=1$ and even degree} \\
-    s_q^- = 1 &\text{ if $q=1$ and odd degree.}
-    \end{cases}
-\end{align*} 
-The condition $s_q^-<s_q<t_1<s_q^-$ makes sense with the cyclic order in $\{0,1,\ldots,p-1\}$. In the following sums, we are suming along all possible values of $s_1,\ldots,s_j,t_1,\ldots,t_k$ in $\{0,1,\ldots,p-1\}$.
-\begin{align*}
-K(e_{2i}) &= \sum_{j+k = i+1}{\sum_{q=1}^j{\sum_{s_q^-<s_q<t_1<s_q^-}{(0,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(t_1,t_1+1,\ldots,t_k,t_k+1)}}} \\ 
-K(e_{2i+1}) &= -\sum_{j+k = i+1}{\sum_{q=1}^j{\sum_{s_q^-<s_q<t_1<s_q^-}{(0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(t_1,t_1+1,\ldots,t_k,t_k+1)}}}
-\end{align*}
-
-
-Let us check these formulae inductively. 
-\begin{align*}
-K(e_{2i+1}) &= h(f(e_{2i+1})-g(e_{2i+1})-K(\partial(e_{2i+1})))
-\end{align*}
-Now, all the summands in $f(e_{2i+1})$ and $g(e_{2i+1})$ start with a zero, therefore we are left with
-\[K(e_{2i+1}) = -h(K(\rho e_{2i}))+h(K(e_{2i}))\]
-and the second summand is zero, while the first one agrees with the definition of $K(e_{2i+1})$.
-
-\begin{align*}
-K(e_{2i}) &= h(f(e_{2i})-g(e_{2i})-K(\partial(e_{2i})))
-\end{align*}
-Here, the summand $h(g(e_{2i}))$ is zero, the summand $K(\partial(e_{2i}))$ corresponds to the summation with $q>1$ and the summand $h(f(e_{2i}))$ corresponds to the summations with $q=1$.
-
-
-
 \subsection{Main construction}
 
 \begin{theorem}
-	For any algebra over the Barratt--Eccles operad $\phi \colon \cE \to \End(A)$, the map $H_\psi = \phi \circ (H_{\psi,1} + H_{\psi,2} + H_{\psi,3})$ is a Cartan relator for $(A,\phi\circ\iota)$.\todo{Maybe the signs are not right here.}
+	For any algebra over the Barratt--Eccles operad $\phi \colon \cE \to \End(A)$, the map $H_\psi = \phi \circ (H_{\psi,1} + H_{\psi,2} + H_{\psi,3})$ is a Cartan relator for $(A,\psi)$.\todo{Maybe the signs are not right here.}
 \end{theorem}
 
 \subsection{Examples}
 
 We now show some examples computed using the specialized computer algebra system \texttt{ComCH} \cite{medina2021comch} when $A$ is given by the normalized cochains of a standard simplex, and $\phi$ is the $\cE$-algebra structure of Berger and Fresse.
-
-\appendix
-\section{Handicraft proof of the homotopy K}
-
-In order to prove that this is a chain homotopy we will check that 
-\[\partial(K(e_{i})) + K(\partial e_{i})-f(e_{i}) + g(e_{i}) = 0\]
-\subsection*{Proof in odd degrees} Here are the values of these summands: Unless otherwise written, the first tensor factor of each summand has as last terms $s_j,s_j+1$ and the second tensor factor has as last terms $s_k,s_k+1$. The subscript $q$ is there for indexing purposes only.
-\begin{align*}
--f(e_{2i+1}) &= -\sum_{j+k=i}\sum (0,s_1,s_1+1,\ldots)\otimes (0,1,t_1,t_1+1,\ldots) + 
-\\
-&+(0,1,s_1,s_1+1,\ldots)\otimes (1,2,t_1,t_1+1,\ldots) 
-\\
-g(e_{2i+1}) &= \sum_{j+k=i}\sum (0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(s_j+1,t_1,t_1+1,\ldots) + 
-\\
-&+ (0,1,s_1,s_1+1,\ldots,t_1)\otimes(t_1,t_1+1,\ldots)
-\\
-K\partial(e_{2i+1}) &= \sum_{j+k=i}\sum_{q=1}^j\sum_{s_q^-<s_q<t_1<s_q^-} \left[(1,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q\right. -
-\\
-&- \left.(0,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q\right]
-\\
-\partial K(e_{2i+1}) &= -\partial\sum_{j+k=i}\sum_{q=1}^j\sum_{s_q^-<s_q<t_1<s_q^-}(0,1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q
-\end{align*}
-We will define an involution on the set of all summands, showing that each summand appears twice with opposite sign. The \emph{left caesuras} of a sequence is the first $i$ such that $s_i\neq 2i-1$. The \emph{right caesuras} of a sequence is the last $i$ such that $s_i\neq s_j-2(j-i)$. We refer to the caesuras of the first factor of a tensor product as the \emph{first caesuras} and to the caesuras of the second factor of the tensor product as the \emph{second caesuras}. The \emph{left follower} of an element $s_i$ of a sequence is the first entry to the left of that element that is not the predecessor of the element to its right. The \emph{right follower} of an element $s_{i}$ is the first entry to the right of that element that is not the succesor of the element to its left. Here are some examples:
-\begin{itemize}
-\item The right follower of $5$ in the sequence $(0,1,5,6,7,8,11,12,0,1)$ is $8$.
-\item The left follower of $8$ in that sequence is $5$.
-\end{itemize}
-We treat first the summands in $f(e_{2i+1}), g(e_{2i+1})$ and $K(\partial(e_{2i+1}))$:
-\begin{itemize}
-\item The summand $(1,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q$ of $K\partial(e_{2i+1})$ cancels with the summand
-\[-(\widehat{0},1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q\]
-of $\partial K(e_{2i+1})$.
-\item The summand $A = -(0,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q$ of $K\partial(e_{2i+1})$ cancels with the summand
-\[+(0,1,\ldots,\widehat{2i-1},s_i,s_i+1,\ldots)\otimes (t_1,t_1+1,\ldots)_{q'}\]
-of $\partial K(e_{2i+1})$, where $i$ is the first left caesuras of $A$ and $q'=q$ unless $q<i$ and $t_1=2q-2$, in which case $q'=q+1$.
-\item The summand $A = -(0,s_1,s_1+1,\ldots)\otimes (0,1,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$ cancels with the summand
-\[(0,1,\ldots,\widehat{2i-1},s_i,s_i+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q\]
-of $\partial K(e_{2i+1})$, where $i$ is the first left caesuras of $A$ and $q=1$ and $t_1=0$.
-\item The summand $(0,1,s_1,s_1+1,\ldots)\otimes (1,2,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$ cancels with the summand
-\[(0,1,s_1,s_1+1,\ldots)\otimes (\widehat{t}_1,t_1+1,\ldots)_q\]
-of $\partial K(e_{2i+1})$, where $q=1$ and $t_1=0$.
-\item The summand $A = (0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(s_j+1,t_1,t_1+1,\ldots)$ of $g(e_{2i+1})$ cancels with the summand
-\[(0,1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots,t_{\ell-1},\widehat{t_{\ell-1}+1},t_\ell,t_\ell+1,\ldots)_q\]
-of $\partial K(e_{2i+1})$, where $q=j$ and $t_1=s_j+1$ and $\ell$ is the second left caesuras of $A$. 
-\item The summand $A = (0,1,s_1,s_1+1,\ldots,s_j,s_j+1,t_1)\otimes(t_1,t_1+1,\ldots)$ of $g(e_{2i+1})$ cancels with the summand
-\[(0,1,s_1,s_1+1,\ldots,s_i,s_i+1,\widehat{s_{i+1}-1},s_{i+1},\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q\]
-of $\partial K(e_{2i+1})$, where $q=j$ and $s_j+1=t_1$ and $i$ is the first right caesuras of $A$.
-\end{itemize}
-Now, the summands of $\partial K(e_{2i+1})$.
-\begin{itemize}
-\item The summand $-(\hat{0},1,s_1,s_1+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q$ cancels with the summand
-\[+(1,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_q\]
- of $K\partial(e_{2i+1})$.
-\item The summand $+(0,1,\ldots,\widehat{2i-1},s_i,s_i+1,\ldots)\otimes (t_1,t_1+1,\ldots)_q$ with $i$ the first left caesuras cancels with the summand
-\[(0,s_1,s_1+1,\ldots)\otimes(t_1,t_1+1,\ldots)_{q'}\]
-of $K\partial(e_{2i+1})$, where $q'=q$ unless $t_1 = 2q-2$, in which case $q'=q-1$. This is well defined except for $q=1,t_1 = 0$ in which case it cancels with the summand $-(0,s_1,s_1+1,\ldots)\otimes (0,1,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$.
-\item The summand $(0,1,\ldots,\widehat{s_{i-1}},\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q$ with $t_1=s_j+1$ and $i$ the first right caesuras, cancels with the summand
-\[(0,1,s_1,s_1+1,\ldots,s_j,s_j+1,t_1)\otimes(t_1,t_1+1,\ldots) \]
-of $g(e_{2i+1})$. 
-\item The summand $(0,1,\ldots,\widehat{s}_r,s_r+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q$ cancels with the summand
-\[(0,1,\ldots,\widehat{s'_t+1},\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_{q'}\]
-of $K\partial(e_{2i+1})$, where the second summand is obtained from the first one by removing $s_r$ and adding the succesor of the right follower of $s_r$ to its right, which is denoted $s'_t+1$. The number $q'$ equals $q$ unless $t_1 = s_r+1$ and $q=r$, in which case it equals $q+1$. This is well-defined unless $t=j$, $q=j$ and $t_1=s_t+1$, in which case it cancels with a summand of the form $(0,1,\ldots,s_{j},s_{j}+1,t_1)\otimes (t_1,t_1+1,\ldots)$ in $f(e_{2i+1})$. 
-\item The summand $(0,1,\ldots,s_t,\widehat{s}_t+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots)_q$ cancels with the summand
-\[(0,1,\ldots,\widehat{s'_r},s'_r+1\ldots,s'_j,s'_j+1)\otimes (t_1,t_1+1,\ldots)_{q'}\]
-of $K\partial(e_{2i+1})$, where the second summand is obtained from the first one by removing $s_t+1$ and adding the predecessor of the left follower of $s_t+1$ to its left, which is denoted $s'_r$. The number $q'$ equals $q$ unless $t_1 = s'_r+1$ and $q=r$, in which case it equals $q-1$. This is well-defined, because the exceptional case when $q=1$ is the case of the global caesuras.
-\item The summand $(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,\hat{t}_r,t_r+1,\ldots)_q$ cancels with the summand
-\[(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,t_s,\widehat{t_s+1},\ldots)_{q'}\]
-of $K\partial(e_{2i+1})$, where the second summand is obtained by removing $t_r$ and adding the successor of the right follower to its right, which is denoted $t_{s}+1$. The value of $q'$ is $q$ unless $r=1$ and $t_1 = s_q^--1$, in which case $q'=q-1$. The exceptional case when $q=1$ cancels with the summand $(0,1,s_1,s_1+1,\ldots)\otimes (1,2,t_1,t_1+1,\ldots)$ of $f(e_{2i+1})$.
-\item The summand $(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,t_s,\widehat{t_s+1},\ldots)_q$ cancels with the summand
-\[(0,1,s_1,s_1+1\ldots)\otimes (t_1,t_1+1,\ldots,\widehat{t}_r,t_r+1,\ldots)_{q'}\]
-of $K\partial(e_{2i+1})$, where the second summand is obtained by removing $t_s+1$ and adding the predecessor of the left follower of $t_{s}+1$ to its left, which is denoted $t_{r}$. The value of $q'$ is $q$ unless $r=1$ and $t_1 = s_q^--1$, in which case $q'=q+1$. The exceptional case when $q=j$ cancels with the summand $(0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(s_j+1,t_1,t_1+1,\ldots)$ of $g(e_{2i+1})$.
-\end{itemize}
-\subsection*{Proof in even degrees} TO BE WRITTEN.
