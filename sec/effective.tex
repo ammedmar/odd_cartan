@@ -125,16 +125,15 @@ is a $\cyc$-module chain homotopy between $G_\psi$ and the $\cyc$-module chain m
 \[
 \widetilde G_\psi^r \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\AW}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r).
 \]
-
 To construct $K$ we have the following general procedure.
 
 \begin{lemma}
-	Let $G$ be a group, $C$ a non-negatively graded chain complex of free $\Z[G]$-modules with basis, and $h$ a $\Z$-linear map satisfying
-	\[
-	\bd \circ \, h + h \circ \bd = \id_C - \varepsilon
-	\]
-	for some chain map $\varepsilon$.
-	Then, for any pair of $\Z[G]$-linear chain maps $f,g \colon C \to C$ with $\varepsilon \circ (f-g) = 0$, the recursively defined $\Z[G]$-linear $K \colon C \to C$, given on basis elements by
+	Let $G$ be a group, $C$ a bounded-below graded chain complex of free $\Z[G]$-modules with a basis, and $D$ a graded chain complex of $\Z[G]$-modules together with a $\Z$-linear endomorphism $h$ satisfying for some chain endomorphism $\varepsilon$ that:
+	\begin{enumerate}
+		\item $\bd \circ \, h + h \circ \bd = \id_C - \varepsilon$,
+		\item $\varepsilon\circ h = 0$.
+	\end{enumerate}
+	Then, for any pair of $\Z[G]$-linear chain maps $f,g \colon C \to D$ with $\varepsilon \circ (f-g) = 0$, the $\Z[G]$-linear map $K \colon C \to D$ recursively defined on basis elements by
 	\[
 	K(b) = h \circ (f - g - K \circ \bd)(b),
 	\]
@@ -145,70 +144,30 @@ To construct $K$ we have the following general procedure.
 \end{lemma}
 
 \begin{proof}
-	We have the following computation where we suppressed composition symbols.
+	We will use an induction argument.
+	Suppressing composition symbols we have
 	\begin{align*}
-		(\bd K + K \bd)(a)
-		&= \bd h(f - g - K \bd)(a) + (K \bd)(a) \\
-		&= \bd h(f-g)(a) + (\id_C - \bd h)(K \bd)(a) \\
-		&= \bd h(f-g)(a) + (h \bd +\, \varepsilon)(K \bd)(a) \\
-%
-		&= -h(\bd(f(a))) + f(a) -c(f(a))+ h(\bd(g(a))) - g(a)+c(g(a))  + \\
-		&\quad + h(\bd(K(\bd(a)))) - K(\bd(a)) + K(\bd(a)) \\
-		&= f(a) - g(a) + h\left(-f(\bd a) + g(\bd a) + \bd K(\bd(a)) + K(\bd(\bd(a)))\right) \\
-		&= (f - g)(a)
+		(\bd K+ K\bd)(b)
+		&= \bd h(f-g-K\bd)(b) + K\bd(b) \\
+		&= (\id_C - \varepsilon - h\bd)(f-g - K\bd)(b) + K\bd(b).
 	\end{align*}
-\end{proof}
-
-\noindent REFORMULATED PROOF AND LEMMA: NEED TO ADD THE HYPOTHESIS $\epsilon h =0$.
-
-\begin{lemma}
-	Let $G$ be a group, $C$ a graded chain complex of $\Z[G]$-modules, and $h$ a $\Z$-linear endomorphism of $C$ satisfying
+	If $b$ is a cycle we are done since $\varepsilon(f-g) = 0$ by assumption, in particular if $b$ is of lowest degree.
+	Since $\varepsilon h = 0$ we have $\varepsilon K \bd(b) \defeq \varepsilon h(f-g-K)(\bd b) = 0$ for any $b$.
+	Additionally, by the induction assumption $\bd K (\bd b) = (f-g-K\bd)(\bd b) = (f-g)(\bd b)$ we have $h \bd (f-g - K\bd)(b) = 0$.
+	Therefore, we are left with
 	\begin{align*}
-	\bd \circ \, h + h \circ \bd &= \id_C - \varepsilon
-    &
-    \varepsilon\circ h &= 0
+		(\bd K+ K\bd)(b) &=
+		\id_C(f-g-K\bd)(b)+K\bd(b) \\&=
+		(f-g)(b)
 	\end{align*}
-	for some chain endomorphism $\varepsilon$. Let $D$ be a non-negatively graded chain complex of free $\Z[G]$-modules with basis.
-	Then, for any pair of $\Z[G]$-linear chain maps $f,g \colon D \to C$ with $\varepsilon \circ (f-g) = 0$, the recursively defined $\Z[G]$-linear $K \colon D \to C$, given on basis elements by
-	\[
-	K(b) = h \circ (f - g - K \circ \bd)(b),
-	\]
-	satisfies
-	\[
-	\bd \circ \, K + K \circ \bd = f - g.
-	\]
-\end{lemma}
-
-\begin{proof} Let us convene that $K(0) = 0$ in negative degrees, in which case the conclusions of the lemma are trivially satisfied. Let us now suppose that we have proven that $K$ is well-defined for degrees smaller than $\ell$, and let us prove that it is well-defined in degree $\ell$ too. Let $b$ be a basis element in degree $\ell$.
-\begin{align*}
-    (\partial K+ K\partial)(b)
-    &= \partial h(f-g-K\partial)(b) + K\partial(b) \\
-    &= (\id_C-\varepsilon-h\partial)(f-g-K\partial)(b)+K\partial(b)
-\end{align*}
-Now, we have that $\varepsilon(f-g-K\partial)(b) = \varepsilon(f-g)(b) - \varepsilon h(f-g-K)(\partial b) = 0$. Additionally, we have that 
-\[h\partial (f-g-K\partial)(b) = h(f\partial-g\partial-\partial K\partial - K\partial\partial)(b) = h(f-g-\partial K - K\partial)(\partial b),
-\] 
-which vanishes by induction hypothesis. Therefore we are left with
-\begin{align*}
-    \id_C(f-g-K\partial)(b)+K\partial(b) &= (f-g)(b) \qedhere
-\end{align*}
+	as desired.
 \end{proof}
-
-\noindent OLD PROOF
-\begin{align*}
-	\partial K(a) + K\partial(a)
-	&= \partial(h(f(a)-g(a)-K(\partial a))) + K\partial(a) \\
-	&= \partial(h(f(a)))-\partial(h(g(a)))-\partial(h(K(\partial a))) + K\partial(a) \\
-	&= \id_C-\e
- -h(\partial(f(a))) + f(a) -c(f(a))+ h(\partial(g(a))) - g(a)+c(g(a))  + \\
-	&\quad + h(\partial(K(\partial(a)))) - K(\partial(a)) + K(\partial(a)) \\
-	&= f(a) - g(a) + h\left(-f(\partial a) + g(\partial a) + \partial K(\partial(a)) + K(\partial(\partial(a)))\right) \\
-	&= f(a) - g(a)
-\end{align*}
 
 \subsection{Closed form formula for $K$}
 
-We can apply this lemma to find the required homotopy $K$. For that we consider the non-equivariant homotopy $h\colon N_*EC_r\otimes N_*EC_r\to EC_r\otimes N_*EC_r\otimes N_*EC_r$ given by $h((a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)) = (0,a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)$, which is a contraction to the endomorphism $c$ of $N_*EC_r\otimes N_*EC_r$ that sends $a\otimes b$ to $0\otimes b$ in degree $0$ and all other generators are sent to zero. Since $f(e_0) = g(e_0)$, it holds that $c(f-g) = 0$. In addition $c\circ h = 0$, since $c$ vanishes in positive degrees. We claim that the homotopy $K$ so defined as the following form: We assume $j,k>0$, and denote by $s_q^-$ the entry to the left of the entry $s_q$. Explicitely, we have
+We can apply this lemma to find the required homotopy $K$.
+For that we consider the non-equivariant homotopy $h\colon N_*EC_r\otimes N_*EC_r\to EC_r\otimes N_*EC_r\otimes N_*EC_r$ given by $h((a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)) = (0,a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)$, which is a contraction to the endomorphism $c$ of $N_*EC_r\otimes N_*EC_r$ that sends $a\otimes b$ to $0\otimes b$ in degree $0$ and all other generators are sent to zero. Since $f(e_0) = g(e_0)$, it holds that $c(f-g) = 0$. In addition $c\circ h = 0$, since $c$ vanishes in positive degrees. We claim that the homotopy $K$ so defined as the following form: We assume $j,k>0$, and denote by $s_q^-$ the entry to the left of the entry $s_q$.
+Explicitly, we have
 \begin{align*}
 	s_q^- &= \begin{cases}s_{q-1}+1 & \text{if $q>1$}\\
 		s_q^- = 0 & \text{ if $q=1$ and even degree} \\
