@@ -194,18 +194,6 @@ which vanishes by induction hypothesis. Therefore we are left with
 \end{align*}
 \end{proof}
 
-\noindent OLD PROOF
-\begin{align*}
-	\partial K(a) + K\partial(a)
-	&= \partial(h(f(a)-g(a)-K(\partial a))) + K\partial(a) \\
-	&= \partial(h(f(a)))-\partial(h(g(a)))-\partial(h(K(\partial a))) + K\partial(a) \\
-	&= \id_C-\e
- -h(\partial(f(a))) + f(a) -c(f(a))+ h(\partial(g(a))) - g(a)+c(g(a))  + \\
-	&\quad + h(\partial(K(\partial(a)))) - K(\partial(a)) + K(\partial(a)) \\
-	&= f(a) - g(a) + h\left(-f(\partial a) + g(\partial a) + \partial K(\partial(a)) + K(\partial(\partial(a)))\right) \\
-	&= f(a) - g(a)
-\end{align*}
-
 \subsection{Closed form formula for $K$}
 
 We can apply this lemma to find the required homotopy $K$. For that we consider the non-equivariant homotopy $h\colon N_*EC_r\otimes N_*EC_r\to EC_r\otimes N_*EC_r\otimes N_*EC_r$ given by $h((a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)) = (0,a_0,\ldots,a_j)\otimes(b_0,\ldots,b_k)$, which is a contraction to the endomorphism $c$ of $N_*EC_r\otimes N_*EC_r$ that sends $a\otimes b$ to $0\otimes b$ in degree $0$ and all other generators are sent to zero. Since $f(e_0) = g(e_0)$, it holds that $c(f-g) = 0$. In addition $c\circ h = 0$, since $c$ vanishes in positive degrees. We claim that the homotopy $K$ so defined as the following form: We assume $j,k>0$, and denote by $s_q^-$ the entry to the left of the entry $s_q$. Explicitely, we have
