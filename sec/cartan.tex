@@ -2,25 +2,27 @@
 
 \section{The Cartan formula}\label{s:cartan}
 
-Throughout this section we assume that $A$ is chain complex equipped with a May--Steenrod structure.
-For any $r \in \N$ consider the group homomorphism
+Given an $\sym$-module $\cS$ we denote by $\cS^\wedge$ the $\cyc$-module $\cS^\wedge(r) = \cS(2r)$ with
+action defined by
 \begin{equation}\label{eq:cyclic to 2-symetric}
-	\cyc_r \xra{\mathrm{diag}} \cyc_r \times \cyc_r \xra{\mathrm{incl}} \sym_r \times \sym_r \xra{\mathrm{split}} \sym_{2r},
+	\cyc_r \xra{\mathrm{diag}}
+	\cyc_r \times \cyc_r \xra{\mathrm{incl}}
+	\sym_r \times \sym_r \xra{\mathrm{split}}
+	\sym_{2r}.
 \end{equation}
-which we use to endow $\Hom(A^{\ot 2r}, A)$ with a $\cyc_r$-action.
 
-We will define two $\cyc$-module chain maps $F_\psi$ and $G_\psi$ with
+For a May--Steenrod complex $(A,\psi)$ we define the $\cyc$-module chain maps
 \[
-F_\psi^r,\, G_\psi^r \colon \cW(r) \to \Hom(A^{\ot 2r}, A)
+F_\psi,\, G_\psi \colon \cW \to \End(A)^\wedge
 \]
-for each $r \in \N$.
-To simplify notation let us denote the operad $\End(A)$ by $\cO$.
+as follows.
+Let us denote the operad $\End(A)$ by $\cO$.
 Then,
 \begin{align*}
-	F_\psi^r \colon& \cW(r) \xra{\psi(r)} \cO(r) \xra{\id\, \ot (\psi_0^2)^{\ot r}}
+	F_\psi \colon& \cW(r) \xra{\psi(r)} \cO(r) \xra{\id\, \ot (\psi_0^2)^{\ot r}}
 	\cO(r) \ot \cO(2)^{\ot r} \xra{\bcirc_{\cO}}
 	\cO(2r), \\
-	G_\psi^r \colon& \cW(r) \xra{\Delta}
+	G_\psi \colon& \cW(r) \xra{\Delta}
 	\cW(r)^{\ot 2} \xra{\psi(r)^{\ot 2}}
 	\cO(r)^{\ot 2} \xra{\psi_0^2 \ot\, \id}
 	\cO(2) \ot \cO(r)^{\ot 2} \xra{\bcirc_{\cO}}
@@ -28,7 +30,7 @@ Then,
 \end{align*}
 
 \begin{definition}
-	A Cartan relator for $(A, \psi)$ is a $\cyc$-module chain homotopy between $\tau F_\tau$ and $G_\tau$ where $\tau$ is the canonical reordering (\cref{ss:reordering}).
+	A \textit{Cartan relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-module chain homotopy between $\tau F_\psi$ and $G_\psi$ where $\tau$ is the canonical reordering (\cref{ss:reordering}).
 \end{definition}
 
 As we will explain, the existence of a Cartan relator implies the Cartan formulas on the mod $p$ homology of $A$, which are given by
@@ -45,43 +47,45 @@ Let us observes that the Cartan formulas are equivalent to
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \,-\!
 	\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
 \end{align*}
-which, somewhat abusively, we also refer to as Cartan formulas.
+which, somewhat abusively, we also refer to as the Cartan formulas.
 Notice also that
 \[
 \big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}) = C^p_\psi(i)(a,b)
 \]
 where
 \begin{align*}
-	&C_\psi^p(2i)(a,b) = (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) \ -
+	&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \smallsmile b)^{\ot p}\big) \ -
 	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big), \\
-	&C_\psi^p(2i+1)(a,b) = (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big) \\
+	&C_\psi^p(2i+1)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \smallsmile b)^{\ot p}\big) \\
 	&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \smallsmile \big(\psi_{2k}(b^{\ot p})\big)\ +\
 	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \smallsmile \big(\psi_{2k+1}(b^{\ot p})\big).
 \end{align*}
-Then, if $a,b \in A \ot \Fp$ are cycles, the expression $C_\psi^p(i)(a,b)$ is a cycle representing the non-zero side of the Cartan formulas, which is an explicit boundary
-\begin{align*}
-	\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) =&
-	\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
-	\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
-	H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
-	C^p_\psi(i)(a,b),
-\end{align*}
-where we used that
-\begin{align*}
-	H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
-	(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
-	H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
-	(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
-\end{align*}
-in $A \ot \Fp$.
-We record this analysis in the following.
+Then, if $a,b \in A \ot \Fp$ are cycles, the element $C_\psi^p(i)(a,b)$ is a chain level lift of the Cartan formulas parameterized by $i \in \N$.
+
 \begin{theorem}
-	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then
+	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then for any odd prime $p$, cycles $a,b \in A \ot \Fp$ and integer $i \in \N$ we have
 	\[
-	\bd_A \big(H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})\big) = C_\psi^p(i)(a, b)
+	\bd_A\!\big(H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})\big) = C_\psi^p(i)(a, b).
 	\]
-	for any odd prime $p$, cycles $a,b \in A \ot \Fp$ and integer $i \in \N$.
 \end{theorem}
 
-A lifting argument shows that for any $A$ with a May--Steenrod structure there are Cartan relators for $A$.
+\begin{proof}
+	Using that in $A \ot \Fp$
+	\begin{align*}
+		H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
+		(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
+		H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
+		(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
+	\end{align*}
+	we have
+	\begin{align*}
+		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) =&
+		\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
+		\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
+		H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
+		C^p_\psi(i)(a,b).\qedhere
+	\end{align*}
+\end{proof}
+
+A lifting argument shows that there are Cartan relators for any May--Steenrod complex.
 We now turn to the question of effectively constructing one for the cochains of spaces.

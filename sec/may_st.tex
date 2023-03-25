@@ -51,32 +51,33 @@ Notice that an $\sym$-module is canonically a $\cyc$-module, and that (algebraic
 
 \subsection{May--Steenrod structures}
 
-A May--Steenrod structure on an chain complex $A$ is an $E_\infty$-structure $\phi \colon \cR \to \End(A)$ on $A$ together with a $\cyc$-module quasi-isomorphism $\iota \colon \cW \to \cR$.
-We usually write $\psi$ for $\phi \circ \iota$.
+A \textit{May--Steenrod structure} on an chain complex $A$ is an $E_\infty$-structure $\phi \colon \cR \to \End(A)$ on $A$ together with a $\cyc$-module quasi-isomorphism $\iota \colon \cW \to \cR$.
+We write $\psi$ for $\phi \circ \iota$ and abusively use it to denote the May--Steenrod structure.
+We refer to a chain complex with a May--Steenrod structure as a \textit{May--Steenrod complex}.
 
-This structure defines a preferred product $\psi(2)(e_0) \colon A \ot A \to A$ which we denote for elements $a,b \in A$ simply as $a \smallsmile b$.
-Generalizing this, we refer to $\psi(r)(e_i) \colon A^{\ot r} \to A$ as the cup-$(r,i)$ product of $A$, denoting it $\psi_i^r$ or simply $\psi_i$ when $r$ is clear from the context.
+A May--Steenrod complex $(A,\psi)$ has a preferred product $\psi(2)(e_0) \colon A \ot A \to A$ which we denote for elements $a, b \in A$ simply as $a \smallsmile b$.
+Generalizing this, we refer to $\psi(r)(e_i) \colon A^{\ot r} \to A$ as the \textit{cup-$(r,i)$ product} denoting it $\psi_i^r$ or simply $\psi_i$ when $r$ is clear from the context.
 
 \subsection{Homology operations}
 
-Let $A$ be equipped with a May--Steenrod structure.
-The assignment in $A \ot \Fp$ sending $a$ to $\psi_i(a^{\ot p})$ is linear and maps cycles to cycles.
-We denote the induced map on the mod p homology of $A$ by
-\[
-\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
-\]
-We will emphasize these homology operations as opposed to the operations $P_s$ and $\beta P_s$ defined as follows.
-The map $\rD_i^p$ is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
+Let $(A,\psi)$ be a May--Steenrod complex.
+After extending scalars to $\Fp$ the assignment sending $a$ to $\psi_i(a^{\ot p})$ is linear and maps cycles to cycles.
+We denote its induced map on the mod $p$ homology of $A$ by
+\begin{equation}\label{e:D_i^p}
+	\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
+\end{equation}
+We will emphasize these homology operations as opposed to the operations $P_s$ and $\beta P_s$ that we now define.
+The map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
 Please consult \cite[Proposition 2.3. (iv)]{may1970general} for a proof.
-Considering only the non-zero values one defines the Steenrod operations
+With this in mind one defines the \textit{Steenrod operations}
 \begin{align*}
 	P_s \colon& H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(A; \mathbb{F}_p), \\
 	\beta P_s \colon& H_\bullet(A; \mathbb{F}_p) \to H_{\bullet + 2s(p-1) - 1}(A; \mathbb{F}_p),
 \end{align*}
-by sending the class represented by a cycle $a \in A \otimes \mathbb{F}_p$ of degree $n$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
+by sending the class represented by a cycle $a \in A \ot \mathbb{F}_p$ of degree $n$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
 \begin{equation*}
 	(-1)^s \nu(n) \, \rD^p_{(2s-n)(p-1)-\varepsilon}[a]
 \end{equation*}
 where $\nu(n) = (-1)^{n(n-1)m/2}(m!)^n$ and $m = \floor{p/2} = (p-1)/2$.
-Here the constant $\nu(n)$ and the notation $\beta P_s$ are respectively motivated by the unstable and Bockstein relations $\rD_{n(p-1)}^p[\alpha] = \nu(n)[\alpha]$ and $\beta P_s = \beta \circ P_s$.
+The constant $\nu(n)$ and notation $\beta P_s$ are motivated respectively by the unstable $\rD_{n(p-1)}^p[\alpha] = \nu(n)[\alpha]$ and Bockstein relations $\beta P_s = \beta \circ P_s$ respectively.
 The first holding in the cohomology of spaces and the second in general.
