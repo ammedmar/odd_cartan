@@ -1,0 +1,278 @@
+% !TEX root = ../odd_cartan.tex
+
+\appendix
+\newpage
+\section{The chain map $K$}\label{s:chain homotopy K}
+
+\subsection{March 28}
+
+\begin{table}
+	\begin{align*}
+		K(e_0) =& 0 \\
+		K(e_1) =& 0 \\
+		K(e_2) =& (0,1,2)\otimes(2,0) \\
+		K(e_3) =& (0,1,2,0)\otimes (0,1) \\
+		K(e_4) =& (0,1,2,0,1)\otimes (1,2) + (0,1,2,0,1)\otimes (2,0) + (0,1,2,1,2)\otimes(2,0)  \\
+		&+ (0,2,0,1,2)\otimes(2,0) + (0,1,2)\otimes (2,0,1,2) + (0,1,2)\otimes (2,0,2,0) \\
+		K(e_5) =& (0,1,2,0,1,2)\otimes (2,0) + (0,1,2,0,1,2)\otimes (0,1) + (0,1,2,0,2,0)\otimes(0,1)  \\
+		&+ (0,1,0,1,2,0)\otimes(0,1) + (0,1,2,0)\otimes (0,1,2,0) + (0,1,2,0)\otimes (0,1,0,1).
+	\end{align*}
+	\caption{For $p=3$ ... anibal: maybe this can be made to look more like \cref{f:small values of psi}}
+\end{table}
+
+In order to prove that $K \colon W(r) \to \chains\EE\cyc_r \ot \chains\EE\cyc_r$ defined in \cref{ss:coproduct} by the expression
+\begin{align}
+	\label{eq:homotopy1}
+	K(e_{2i})   &= \sum \, \varphi(0,s_1,\dots,s_j;t_1,\dots,t_k), \\
+	\label{eq:homotopy2}
+	K(e_{2i+1}) &= \sum \, \varphi(1,s_1,\dots,s_j;t_1,\dots,t_k),
+\end{align}
+is a homotopy between $(\iota\otimes \iota)\circ \Delta$ and $\Delta_{\AW}\circ \iota$ we will proceed as follows: In \cref{l:homotopyK} we will give a general procedure to construct equivariant homotopies, in \cref{l:homotopyK'} we will use this procedure to describe an explicit homotopy between $(\iota\otimes \iota)\circ \Delta$ and $\Delta_{\AW}\circ \iota$. Finally, in Lemma \ref{l:homotopyK''}, that explicit homotopy will be shown to coincide with the formulas \eqref{eq:homotopy1} and \eqref{eq:homotopy2}.
+
+\begin{lemma}\label{l:homotopyK}
+	Let $G$ be a group, $C$ a bounded-below graded chain complex of free $\Z[G]$-modules with a basis, and $D$ a graded chain complex of $\Z[G]$-modules together with a $\Z$-linear endomorphism $\eta$ satisfying for some chain endomorphism $\varepsilon$ that:
+	\begin{enumerate}
+		\item $\bd \circ \, \eta + \eta \circ \bd = \id_C - \varepsilon$,
+		\item $\varepsilon\circ \eta = 0$.
+	\end{enumerate}
+	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\varepsilon \circ (\mu-\nu) = 0$, the $\Z[G]$-linear map $K \colon C \to D$ recursively defined on basis elements by
+	\[
+	K(b) = \eta \circ (\mu - \nu - K \circ \bd)(b),
+	\]
+	satisfies
+	\[
+	\bd \circ \, K + K \circ \bd = \mu - \nu.
+	\]
+\end{lemma}
+
+\begin{proof}
+	We will use an induction argument.
+	Suppressing composition symbols we have
+	\begin{align*}
+		(\bd K+ K\bd)(b)
+		&= \bd \eta(\mu-\nu-K\bd)(b) + K\bd(b) \\
+		&= (\id_C - \varepsilon - \eta\bd)(\mu-\nu - K\bd)(b) + K\bd(b).
+	\end{align*}
+	If $b$ is a cycle we are done since $\varepsilon(\mu-\nu) = 0$ by assumption, in particular if $b$ is of lowest degree.
+	Since $\varepsilon \eta = 0$ we have $\varepsilon K \bd(b) \defeq \varepsilon \eta(\mu-\nu-K)(\bd b) = 0$ for any $b$.
+	Additionally, by the induction assumption $\bd K (\bd b) = (\mu-\nu-K\bd)(\bd b) = (\mu-\nu)(\bd b)$ we have $\eta \bd (\mu-\nu - K\bd)(b) = 0$.
+	Therefore, we are left with
+	\begin{align*}
+		(\bd K+ K\bd)(b) &=
+		\id_C(\mu-\nu-K\bd)(b)+K\bd(b) \\&=
+		(\mu-\nu)(b)
+	\end{align*}
+	as desired.
+\end{proof}
+
+We can apply this lemma to obtain a homotopy $K$ making diagram \eqref{d:coproducts} commute.
+Specifically, using the same notation as in the lemma, we have $\mu = (\iota \ot \iota) \circ \Delta$ and $\nu = \Delta_{\AW} \circ \iota$ with
+\[
+\mu,\nu \colon \cW(r) \to \chains\EE\cyc_r \ot \chains\EE\cyc_r
+\]
+and
+\begin{align*}
+	\eta \colon \chains\EE\cyc_r \ot \chains\EE\cyc_r &\to \chains\EE\cyc_r \ot \chains\EE\cyc_r \\
+	(s_0,\dots,s_j) \ot (t_0,\dots,t_k) &\mapsto (0,s_0,\dots,s_j) \ot (t_0,\dots,t_k),
+\end{align*}
+with
+\[
+\varepsilon(a \ot b) =
+\begin{cases}
+	\rho^0 \ot b & \text{if } \deg(a \ot b) = 0, \\
+	\hfil0 & \text{otherwise}.
+\end{cases}
+\]
+
+\begin{definition}
+	Given a sequence $(s_1,\ldots,s_j)$, denote
+	\begin{align*}
+		s_q^- &= \begin{cases}s_{q-1}+1 & \text{if $q>1$}\\
+			s_q^- = 0 & \text{ if $q=1$.}
+		\end{cases}
+	\end{align*}
+\end{definition}
+
+Consider now the set $\{0,1,\dots,p-1\}$ endowed with its cyclic order. This cyclic order is a ternary relation given as follows: $a\prec b\prec c$
+if there are representatives $\bar{a},\bar{b},\bar{c}$ of the classes $[a],[b],[c]$ in $\bZ_p$ such that $\bar{a}<\bar{b}<\bar{c}<\bar{a}+p$.
+
+\begin{definition}
+	Let us write $\theta_q(0,s_1,\ldots,s_j;t_1,\ldots,t_k)$ for
+	\[(0,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots,t_k,t_k+1)\]
+	if $s_q^-\prec s_q\prec t_1$ and $0$ otherwise. Let us write $\theta_q(1,s_1,\ldots,s_j;t_1,\ldots,t_k)$ for
+	\[(0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots,t_k,t_k+1)\]
+	if $\rho^{-1} s_q^-\prec \rho^{-1} s_q\prec \rho^{-1} t_1$ and $0$ otherwise.
+\end{definition}
+
+\begin{lemma}\label{l:homotopyK'}
+	The homotopy $K$ obtained above from Lemma \ref{l:homotopyK} has the following form:
+	\begin{align} \label{eq:homotopyK'1}
+		K(e_{2i}) &= \sum_{j+k = i+1}{\sum_{q=1}^j{\theta_q(0,s_1,\ldots,s_j;t_1,\ldots,t_k)}} \\ \label{eq:homotopyK'2}
+		K(e_{2i+1}) &= -\sum_{j+k = i+1}{\sum_{q=1}^j{\theta_q(1,s_1,\ldots,s_j;t_1,\ldots,t_k)}}
+	\end{align}
+	where the sum is taken over all $s_1,\ldots,s_j,t_1,\ldots,t_k\in \{0,1,\ldots,p-1\}$.
+\end{lemma}
+
+\begin{proof}
+	We have that
+	\begin{align*}
+		\mu(e_{2i}) &= \sum_{i=j+k} \iota(e_{2j})\otimes \iota(e_{2k}) + \sum_{i-1=j+k}\sum_{0\leq r<s<p} \rho^r\iota(e_{2j+1})\otimes \rho^s\iota(e_{2k+1}) \\
+		\mu(e_{2i+1}) &= \sum_{i=j+k} \iota(e_{2j})\otimes \iota(e_{2k+1}) + \iota(e_{2j+1})\otimes \rho \iota(e_{2k}),
+	\end{align*}
+	and that\footnote{The only thing that is used about $\nu$ is that $\eta\circ \nu = 0$ always. One could replace the definition of $\nu(e_i)$ here by this observation. What do you think?}
+	\begin{align*}
+		\nu(e_{2i}) =&\  (0)\otimes(0,s_1,s_1+1,\ldots,s_k,s_k+1) \\
+		&+ \sum_{k=1}^i(0,s_1,s_1+1,\ldots,s_k)\otimes(s_k,s_k+1\ldots,s_i,s_i+1) \\
+		&+ \sum_{k=1}^i(0,s_1,s_1+1,\ldots,s_k,s_{k+1})\otimes(s_k+1\ldots,s_i,s_i+1) \\
+		\nu(e_{2i+1}) =&\ (0)\otimes(0,1,s_1,s_1+1,\ldots,s_k,s_k+1) \\
+		&+ (0,1)\otimes(1,s_1,s_1+1,\ldots,s_k,s_k+1) \\
+		&+ \sum_{k=1}^i(0,1,s_1,s_1+1,\ldots,s_k)\otimes(s_k,s_k+1\ldots,s_i,s_i+1) \\
+		&+ \sum_{k=1}^i(0,1,s_1,s_1+1,\ldots,s_k,s_{k+1})\otimes(s_k+1\ldots,s_i,s_i+1).
+	\end{align*}
+	Let us proceed by induction. In degree $0$ we have that $\mu(e_0) = \nu(e_0) = 0\otimes 0$, therefore we have that
+	\[K(e_0) = \eta\circ (\mu-\nu-K\circ\partial)(e_0) = 0.\]
+	which agrees with \eqref{eq:homotopyK'1} for $i=0$. Assume now that we have proven that the homotopy has that form up to degree $2i$ with $i\geq 0$. Then
+	\[K(e_{2i+1}) = \eta\circ (\mu-\nu-K\circ\partial)(e_{2i+1}).\]
+	Since $\eta\circ \nu(e_{2i+1}) = 0$ and $\eta\circ\mu(e_{2i+1}) = 0$, we are left with
+	\[-\eta\circ K\circ\partial(e_{2i+1}) = -\eta\circ K (\rho e_{2i+1}) + \eta\circ K (e_{2i+1}).
+	\]
+	The second summand vanishes, because all terms in $K(e_{2i+1})$ start with $0$, and the first summand is precisely the formula \eqref{eq:homotopyK'2}.
+
+	Assume now that we have proven that the homotopy has that form up to degree $2i-1$ with $i>0$. Then
+	\[K(e_{2i}) = \eta\circ (\mu-\nu-K\circ\partial)(e_{2i}).\]
+	Again, $\eta\circ\nu(e_{2i}) = 0$, but now a careful look reveals that
+	\begin{equation}\label{eq:hK1}\eta\circ\mu(e_{2i}) = \sum_{j+k=i+1}\theta_1(0,s_1,\ldots,s_j;t_1,\ldots,t_j).
+	\end{equation}
+	Regarding the summand $\eta\circ K\circ \partial(e_{2i})$, we have
+	\[\eta(N\theta_q(1,s_1,\ldots,s_j,t_1,\ldots,t_k)) = \sum_{s_1' = 1}^{p-1}\theta_{q+1}(0,s_1',s_2',\ldots,s_{j+1}';t_1,\ldots,t_k),\]
+	where $s_{i+1}' = s_i$ for $i\geq 1$, and therefore
+	\begin{align*} \label{eq:hK2}
+		-\eta\circ K\circ\partial(e_{2i})
+		&= -\eta\left(-\sum_{j+k = i}\sum_{q=1}^j N\theta_q(1,s_1,\ldots,s_j;t_1,\ldots,t_k)\right) \\
+		&= \sum_{j+k = i+1}\sum_{q=2}^{j+1}\theta_q(0,s_1,\ldots,s_{j+1};t_1,\ldots,t_k).
+	\end{align*}
+	Putting together this last formula and \eqref{eq:hK1}, we obtain the formula \eqref{eq:homotopyK'1}.
+\end{proof}
+
+\begin{lemma}\label{l:homotopyK''}
+	For any two sequences $(s_1,\ldots,s_j)$ and $(t_1,\ldots,t_k)$ of elements of $\{0,1,\ldots,p-1\}$, the following holds:
+	\begin{align*}
+		\varphi(0,s_1,\ldots,s_j;t_1,\ldots,t_k) &= \sum_{q=1}^j \theta_q(0,s_1,\ldots,s_j;t_1,\ldots,t_k) \\
+		\varphi(1,s_1,\ldots,s_j;t_1,\ldots,t_k) &= \sum_{q=1}^j \theta_q(1,s_1,\ldots,s_j;t_1,\ldots,t_k).
+	\end{align*}
+\end{lemma}
+
+\begin{proof}
+	Observe first that if $s_{i+1} = s_i+1$ for some $i$, or $s_1 = 0$ (in the first case) or $s_1=1$ (in the second case) we get degenerate summands, so we do not treat these cases in the following computations. For a number $a\in \{0,1,\ldots,p-1\}$, we will write $[a]$ for the class of $a$ in $\Z_{p}$.
+
+	{\em First case.} Let $(s_1',\ldots,s'_k)$ be the only sequence of integers such that
+	\begin{itemize}
+		\item $s_1'$ is the only integral representative of $[s_1]$ with $0< s_1'< p$.
+		\item $1<s_{i+1}'-s_i'\leq p$ for all $1\leq i<j$.
+	\end{itemize}
+	Then $\theta_q(0,s_1,\ldots,s_j;t_1,\ldots,t_k)$ will vanish for $q>1$ if and only if the interval $(s_{q-1}',s_q']$ contains a representative of $[t_1]$, and will vanish for $q=1$ if and only if the interval $[0,s_1']$ contains a representative of $[t_1]$. Therefore the number of vanishing summands in $\sum_{q=1}^j\theta_q(0,s_1,\ldots,s_j;t_1,\ldots,t_k)$ equals the number $Q$ of representatives of $[t_1]$ that lie in the interval $[0,s_j']$, which in turn is computed by
+	\[
+	Q = \begin{cases}
+		r & \text{if $t_1>s_j$} \\
+		r+1 & \text{if $t_1\leq s_j$}
+	\end{cases}
+	\]
+	where $r = |\{i\mid s_i\geq s_{i+1}\}|$. As a consequence, the number of non-vanishing summands in $\sum_{q=1}^j\theta_q(0,s_1,\ldots,s_j;t_1,\ldots,t_k)$ is $j-Q$, which equals $\alpha(s_1,\ldots,s_j,t_1)$.
+	%\[\varphi(0,s_1,\ldots,s_j;t_1,\ldots,t_k) = \sum_{q=1}^j\theta_q(0,s_1,\ldots,s_j;t_1,\ldots,t_k).\]
+
+	{\em Second case.} It follows from the definition of $\theta_q$ that the number of non-vanishing summands in $\sum_{q=1}^j \theta_q(1,s_1,\ldots,s_j;t_1,\ldots,t_k)$ equals the number of non-vanishing summands in
+	\[\sum_{q=1}^j \theta_q(0,\rho^{-1}s_1,\ldots,\rho^{-1}s_j;\rho^{-1}t_1,\ldots,\rho^{-1}t_k),\] which by the previous case equals $\alpha(\rho^{-1}s_1,\ldots,\rho^{-1}s_j,\rho^{-1}t_1)$.% therefore
+	%\[\varphi(1,s_1,\ldots,s_j;t_1,\ldots,t_k) = \sum_{q=1}^j\theta_q(1,s_1,\ldots,s_j;t_1,\ldots,t_k).\qedhere\]
+\end{proof}
+
+\subsection*{old}
+
+\begin{align*}
+	K(e_{2i}) &= \sum_{j,k} \, \sum_{q \leq j} \, \sum \,
+	(0,s_1,s_1+1,\dots,s_j,s_j+1) \ot (t_1,t_1+1,\dots,t_k,t_k+1) \\
+	K(e_{2i+1}) &= - \sum_{j,k} \, \sum_{q \leq j} \, \sum \,
+	(0,1,s_1,s_1+1,\dots,s_j,s_j+1) \ot (t_1,t_1+1,\dots,t_k,t_k+1)
+\end{align*}
+where the first sum is over positive integers $j,k$ with $i+1 = j+k$, the second over $q$ in $\set{1,\dots,j}$, and the third over all $s_1,\dots,s_j, t_1,\dots,t_k$ in $\{0,1,\dots,p-1\}$ satisfying the following condition:
+
+We claim that the homotopy $K$ so defined as the following form: We assume $j,k>0$, and denote by $s_q^-$ the entry to the left of the entry $s_q$.
+Explicitly, we have
+\begin{align*}
+	s_q^- &= \begin{cases}s_{q-1}+1 & \text{if $q>1$}\\
+		s_q^- = 0 & \text{ if $q=1$ and even degree} \\
+		s_q^- = 1 &\text{ if $q=1$ and odd degree.}
+	\end{cases}
+\end{align*}
+The condition $s_q^-<s_q<t_1<s_q^-$ makes sense with the cyclic order in $\{0,1,\dots,p-1\}$.
+In the following sums, we are summing along all possible values of $s_1,\dots,s_j,t_1,\dots,t_k$ in $\{0,1,\dots,p-1\}$.
+\begin{align*}
+	K(e_{2i}) &= \sum_{j+k = i+1}{\sum_{q=1}^j{\sum_{s_q^-<s_q<t_1<s_q^-}{(0,s_1,s_1+1,\dots,s_j,s_j+1)\ot(t_1,t_1+1,\dots,t_k,t_k+1)}}} \\
+	K(e_{2i+1}) &= -\sum_{j+k = i+1}{\sum_{q=1}^j{\sum_{s_q^-<s_q<t_1<s_q^-}{(0,1,s_1,s_1+1,\dots,s_j,s_j+1)\ot(t_1,t_1+1,\dots,t_k,t_k+1)}}}
+\end{align*}
+
+Let us check these formulae inductively.
+\begin{align*}
+	K(e_{2i+1}) &= h(f(e_{2i+1})-g(e_{2i+1})-K(\bd(e_{2i+1})))
+\end{align*}
+Now, all the summands in $f(e_{2i+1})$ and $g(e_{2i+1})$ start with a zero, therefore we are left with
+\[K(e_{2i+1}) = -h(K(\rho e_{2i}))+h(K(e_{2i}))\]
+and the second summand is zero, while the first one agrees with the definition of $K(e_{2i+1})$.
+
+\begin{align*}
+	K(e_{2i}) &= h(f(e_{2i})-g(e_{2i})-K(\bd(e_{2i})))
+\end{align*}
+Here, the summand $h(g(e_{2i}))$ is zero, the summand $K(\bd(e_{2i}))$ corresponds to the summation with $q>1$ and the summand $h(f(e_{2i}))$ corresponds to the summations with $q=1$.
+
+\subsection{new}
+
+	The formulas can be written as
+\begin{align*}
+	K(e_{2i}) &= \sum_{j+k = i+1} \varphi(0,s_1,\ldots,s_j;t_1)\cdot (0,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(t_1,t_1+1,\ldots,t_k,t_k+1) \\
+	K(e_{2i+1}) &= \sum_{j+k = i+1} \varphi(0,1,s_1,\ldots,s_j;t_1)\cdot (0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes(t_1,t_1+1,\ldots,t_k,t_k+1)
+\end{align*}
+for certain coefficients $\varphi(0,s_1,\ldots,s_j;t_1)$ and $\varphi(0,1,s_1,\ldots,s_j;t_1)$. We will deduce three formulas for these coefficients, the third being the more compact.
+
+Observe that if $s_{i+1} = s_i$ or $s_1 = 0$ (in the even case) or $s_1=1$ (in the odd case) we get degenerate summands, which are zero. So we do not treat these cases in the following computations.
+
+\subsection*{First computation} Given a summand $(0,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots,t_k,t_k+1)$, let $(s_1',\ldots,s'_k)$ be the only sequence of integers such that
+\begin{itemize}
+	\item $s_1'$ is the only integral representative of $s_1$ with $0< s_1'< p$.
+	\item $1<s_{i+1}'-s_i'\leq p$ for all $1\leq i<j$.
+\end{itemize}
+Then, that summand satisfies the condition $s_q^-<s_q<t_1<s_q^-$ for $q>1$ if and only if the interval $(s_{q-1}',s_q']$ does not contain a representative of $t_1$, and satisfies that condition for $q=1$ if and only if the interval $[0,s_1']$ does not contain a representative of $t_1$. Writing $\hat{\varphi}(0,s_1,\ldots,s_j;t_1)$ for the number of representatives of $t_1$ that lie in the interval $[0,s_j']$, we obtain that the number
+\[\varphi(0,s_1,\ldots,s_j;t_1) = j-\hat{\varphi}(s_1,\ldots,s_j;t_1)\]
+counts how many times the condition $s_q^-<s_q<t_1<s_q^-$ is satisfied.
+
+For a summand $(0,1,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots,t_k,t_k+1)$, let $(s_1',\ldots,s'_k)$ be the only sequence of integers such that
+\begin{itemize}
+	\item $s_1'$ is the only integral representative of $s_1$ with $1< s_1'\leq p$.
+	\item $1<s_{i+1}'-s_i'\leq p$ for all $1\leq i<j$.
+\end{itemize}
+Then, that summand satisfies the condition $s_q^-<s_q<t_1<s_q^-$ for $q>1$ if and only if the interval $(s_{q-1}',s_q']$ does not contain a representative of $t_1$, and satisfies that condition for $q=1$ if and only if the interval $(0,s_1]$ does not contain a representative of $t_1$. Writing $\hat{\varphi}(1,s_1,\ldots,s_j;t_1)$ for the number of representatives of $t_1$ that lie in the interval $(0,s_j']$, we obtain that the number
+\[\varphi(1,s_1,\ldots,s_j;t_1) = j-\hat{\varphi}(1,s_1,\ldots,s_j;t_1)\]
+counts how many times the condition $s_q^-<s_q<t_1<s_q^-$ is satisfied.
+
+\subsection*{Second computation} Let us write $\bar{s}_i$ for the only representative of $s_i$ that lies in the interval $[0,p)$. Let us write $\bar{t}_1$ for the representative of $t_1$ that lies in the interval $[0,p)$ and $\check{t}_1$ for the representative of $t_1$ that lies in the interval $(0,p]$. Let $r$ be the number of consecutive pairs in the sequence $(0,\bar{s}_1,\ldots,\bar{s}_j)$ that are non-increasing and observe that $s'_j = \bar{s}_j + rp$. Then we have that
+\begin{align*}
+	\hat{\varphi}(0,s_1,\ldots,s_j;t_1) &= \begin{cases}
+		r & \text{if $\bar{t}_1>\bar{s}_j$} \\
+		r+1 & \text{if $\bar{t}_1\leq \bar{s}_j$}
+	\end{cases}
+	&
+	\hat{\varphi}(1,s_1,\ldots,s_j;t_1) &= \begin{cases}
+		r & \text{if $\check{t}_1>\bar{s}_j$} \\
+		r+1 & \text{if $\check{t}_1\leq \bar{s}_j$}
+	\end{cases}
+\end{align*}
+
+\subsection*{Third computation} From the latter formulas, we deduce that $\varphi(0,s_1,\ldots,s_j;t_1)$ is one less than the number of strictly increasing consecutive pairs in the sequence $(0,\bar{s}_1,\ldots,\bar{s}_j,\bar{t}_1)$ and $\varphi(1,s_1,\ldots,s_j;t_1)$ is one less than the number of strictly increasing consecutive pairs in the sequence $(1,\bar{s}_1,\ldots,\bar{s}_j,\check{t}_1)$.
+
+\subsection*{Examples} For $p=7$ we have:
+\begin{align*}
+	\varphi(0,3,5,2,6,1,0,0;3) &= 3 \\
+	\varphi(0,3,1,1,0,2,0,3;0) &= 2 \\
+	\varphi(1,0,0,0,0,0,0,0;2) &= 0 \\
+	\varphi(1,4,6,4,1,3,6,0;2) &= 3 \\
+	\varphi(1,0,3,0,6,6,0,6;0) &= 3
+\end{align*}
+In the first example the strictly increasing consecutive pairs are $(0,3),(3,5),(2,6),(0,3)$. In the second example the strictly increasing consecutive pairs are $(0,3),(0,2),(0,3)$. In the third example the only such pair is $(0,2)$. In the fourth example we have $(1,4),(4,6),(1,3),(0,2)$. In the last one, $(0,3),(0,6),(0,6),(6,7)$.

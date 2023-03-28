@@ -1,5 +1,79 @@
 % !TEX root = ../odd_cartan.tex
 
-\section{Introduction} \label{s:introduction}
+\section{Introduction WIP} \label{s:introduction}
 
-\TBW
+In \cite{steenrod1947products}, Steenrod introduced his celebrated squares
+\begin{equation*}
+	\Sq^k \colon \rH^\vee(X; \Ftwo) \to \rH^\vee(X; \Ftwo)
+\end{equation*}
+acting naturally on the mod-$2$ cohomology of a space $X$.
+To do so, he presented explicit formulas defining cup-$i$ products on its complex of integral cochains
+\[
+\smallsmile_i \colon \cochains(X) \ot \cochains(X) \to \cochains(X)
+\]
+with $\Sq^{i-\bars{\alpha}}[\alpha] \defeq [\alpha \smallsmile_i \alpha]$.
+The relationship between the Steenrod squares and the cup product in cohomology is encoded by the \textit{Cartan formula}
+\[
+\Sq^k\!\big([\alpha] [\beta]\big) = \sum_{i+j=k} \Sq^i [\alpha] \Sq^j[\beta].
+\]
+Since the algebra structure on cohomology is induced by the cup-$0$ product, it is natural to ask for a proof of the Cartan relation at the cochain level.
+Specifically, an effective construction of a
+%Motivated by its use in the study of symmetry protected topological phases, A. Kapustin asked for such proof.
+which was given in \cite{medina2020cartan}.
+The purpose of this work is to extend the constructions of that paper from the even to odd primes.
+To explain our result further let us return to the 1950's.
+
+Soon after Steenrod's construction, a viewpoint grounded on group homology was used to define Steenrod squares and their generalizations to odd primes, the Steenrod operations
+\begin{align*}
+	P_s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp), \\
+	\beta P_s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp),
+\end{align*}
+
+The interaction between the Steenrod squares and the cup product in cohomology is constrained the \textit{Cartan formula}
+\[
+\Sq^k(x y) = \sum_{i+j=k} \Sq^i (x) \Sq^j(y)
+\]
+%\begin{enumerate}
+%	\item $Sq^k$ is natural,
+%	\item $Sq^0$ is the identity,
+%	\item $Sq^k(x) = x^2$ for $x \in H^{-k}(X; \Ftwo)$,
+%	\item $Sq^k(x) = 0$ for $x \in H^{-n}(X; \Ftwo)$ with $n<k$,
+%	\item $Sq^k(xy) = \sum_{i+j=k} Sq^i (x) Sq^j(y)$.
+%\end{enumerate}
+Axiom 5., known as the \textbf{Cartan formula}, is the focus of this work.
+
+To describe our viewpoint and present the contributions of this paper in context, let us revisit some of the history of Steenrod's construction.
+
+In the late thirties, Alexander, Whitney, and \v{C}ech defined the ring structure on cohomology
+\begin{equation} \label{equation: definition cup product}
+	[\alpha] [\beta] = [\alpha \smallsmile_{0} \beta]
+\end{equation}
+using a cochain level construction
+\begin{equation*}
+	\smallsmile_0 \, : N^*(X; \mathbb Z) \otimes N^*(X; \mathbb Z) \to N^*(X; \mathbb Z)
+\end{equation*}
+dual to a choice of simplicial chain approximation to the diagonal inclusion. Here $N^*$ means the normalized cochains, which will be defined in the next section, and $[\alpha]$ denotes the cohomology class represented by a cocycle $\alpha$.
+
+Steenrod then showed that $\smallsmile_0$ is commutative up to coherent homotopies by effectively constructing for $i \geq 0$ \textbf{cup-$i$ products}
+\begin{equation*}
+	\smallsmile_i\, : N^*(X; \mathbb Z) \otimes N^*(X; \mathbb Z) \to N^*(X; \mathbb Z)
+\end{equation*}
+enforcing its derived commutativity. (Axioms for these and connections with higher category theory can be found in \cite{medina2018axiomatic} and \cite{medina2019globular}). Then, with coefficients in $\Ftwo$, Steenrod defined
+\begin{equation} \label{equation: definition steenrod squares}
+	Sq^k\big([\alpha]\big) = [\alpha \smallsmile_{n-k} \alpha]
+\end{equation}
+where $[\alpha] \in H^{-n}(X; \Ftwo)$. This definition of the Steenrod squares makes the Cartan formula equivalent to
+\begin{equation} \label{equation: Cartan 1}
+	0 =
+	\Big[ (\alpha \smallsmile_0 \beta) \smallsmile_i (\alpha \smallsmile_0 \beta)\ + \sum_{i=j+k} (\alpha \smallsmile_j \alpha) \smallsmile_0 (\beta \smallsmile_k \beta) \Big].
+\end{equation}
+The goal of this work is to effectively construct for any $i \geq 0$ and an arbitrary pair of cocycles $\alpha, \beta \in N^*(X; \Ftwo)$ a natural cochain $\zeta_i(\alpha, \beta)$ such that
+\begin{equation} \label{equation: Cartan 2}
+	\delta \zeta_i(\alpha, \beta) =
+	(\alpha \smallsmile_0 \beta) \smallsmile_i (\alpha \smallsmile_0 \beta)\ + \sum_{i=j+k} (\alpha \smallsmile_j \alpha) \smallsmile_0 (\beta \smallsmile_k \beta).
+\end{equation}
+Following \cite{may70generalapproach}, we take a more general approach and in doing so we describe a non-necessarily effective construction for any \mbox{$E_\infty$-algebra}. We work over a fixed algebraic model $\mathcal E$ of the \mbox{$E_\infty$-operad }known as the Barratt-Eccles operad. This model, introduced by Berger-Fresse in \cite{berger04combinatorial}, is equipped with a diagonal map and the natural $\mathcal E$-algebra structure defined by these authors on the normalized cochains of simplicial sets is suitable for effective constructions.
+
+This paper is part of an ongoing effort spearheaded by Greg Brumfiel and John Morgan to build effective models of classical homotopy-theoretic concepts, see for example \cite{brumfiel2016threedimensional, brumfiel2018quadratic, brumfiel2018fourdimensional}. Motivation for this specific project came from a question of physicist Anton Kapustin. See \cite{kapustin2017fermionic} for an instance where one of our formulas is used in the context of topological phases of matter.
+
+Open-source software implementing the constructions of this paper as well as state-of-the-art algorithms for the computation of Steenrod squares and cup-$i$ products, as introduced in \cite{medina2018persistence}, can be found in the author's website.

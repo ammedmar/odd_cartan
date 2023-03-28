@@ -64,9 +64,10 @@ For $r,n\in\N$
 		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, 1, {s_1}, {s_1+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m+1,
 	\end{cases}
 \end{equation*}
-where the sum is over all $s_1, \dots, s_m \in \{0, \dots, r-1\}$ and we are simplifying notation by removing $\rho \in \cyc_r \subset \sym_r$.
+where the sum is over all $s_1, \dots, s_m \in \{0, \dots, r-1\} \cong \cyc_r$.
 Please consult \cref{f:small values of psi} for a few examples.
-All construction in this section will be respect to an Barratt--Eccles algebra together with the May--Steenrod structure $\psi$ defined by this map, we will therefore remove $\psi$ from the notation.
+
+All construction in this section will be with respect to a Barratt--Eccles algebra together with the May--Steenrod structure $\psi$ defined by this map, we will therefore remove $\psi$ from the notation.
 
 \begin{table}
 	\centering
@@ -114,77 +115,40 @@ We now study the failure of the $\cyc$-module quasi-isomorphism $\iota$ to prese
 More precisely, we will construct a $\cyc$-module chain homotopy $K$ making the following diagram commute
 \begin{equation}\label{d:coproducts}
 	\begin{tikzcd}[column sep=large]
-		\cW \arrow[r,"\iota"] \arrow[d,"\Delta"] & \chains\EE\cyc \arrow[d,"\Delta_{\AW}"]\\
-		\cW^{\ot 2} \arrow[r,"\iota^{\ot 2}"] & \chains\EE\cyc^{\ot 2}.
-	\end{tikzcd}
+			\cW \arrow[r,"\iota"] \arrow[d,"\Delta"] & \chains\EE\cyc \arrow[d,"\Delta_{\AW}"]\\
+			\cW^{\ot 2} \arrow[r,"\iota^{\ot 2}"] & \chains\EE\cyc^{\ot 2}.
+		\end{tikzcd}
 \end{equation}
-for every $r \in \N$.
-Given $K$, the $\cyc$-module map $H_2$ defined for each $r \in \N$ by
+Given $K$, we define the $\cyc$-module chain homotopy
 \[
 H_2 \colon \cW(r) \xra{K} \cE(r)^{\ot 2} \xra{\psi^2_0 \ot \id} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
 \]
-is a $\cyc$-module chain homotopy between $G$ and the $\cyc$-module chain map $\widetilde G$ defined for $r \in \N$ by
+between $G$ and the $\cyc$-module chain map
 \[
 \widetilde G \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\AW}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r).
 \]
-To construct $K$ we have the following general procedure.
 
-\begin{lemma}
-	Let $G$ be a group, $C$ a bounded-below graded chain complex of free $\Z[G]$-modules with a basis, and $D$ a graded chain complex of $\Z[G]$-modules together with a $\Z$-linear endomorphism $\eta$ satisfying for some chain endomorphism $\varepsilon$ that:
-	\begin{enumerate}
-		\item $\bd \circ \, \eta + \eta \circ \bd = \id_C - \varepsilon$,
-		\item $\varepsilon\circ \eta = 0$.
-	\end{enumerate}
-	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\varepsilon \circ (\mu-\nu) = 0$, the $\Z[G]$-linear map $K \colon C \to D$ recursively defined on basis elements by
-	\[
-	K(b) = \eta \circ (\mu - \nu - K \circ \bd)(b),
-	\]
-	satisfies
-	\[
-	\bd \circ \, K + K \circ \bd = \mu - \nu.
-	\]
-\end{lemma}
-
-\begin{proof}
-	We will use an induction argument.
-	Suppressing composition symbols we have
-	\begin{align*}
-		(\bd K+ K\bd)(b)
-		&= \bd \eta(\mu-\nu-K\bd)(b) + K\bd(b) \\
-		&= (\id_C - \varepsilon - \eta\bd)(\mu-\nu - K\bd)(b) + K\bd(b).
-	\end{align*}
-	If $b$ is a cycle we are done since $\varepsilon(\mu-\nu) = 0$ by assumption, in particular if $b$ is of lowest degree.
-	Since $\varepsilon \eta = 0$ we have $\varepsilon K \bd(b) \defeq \varepsilon \eta(\mu-\nu-K)(\bd b) = 0$ for any $b$.
-	Additionally, by the induction assumption $\bd K (\bd b) = (\mu-\nu-K\bd)(\bd b) = (\mu-\nu)(\bd b)$ we have $\eta \bd (\mu-\nu - K\bd)(b) = 0$.
-	Therefore, we are left with
-	\begin{align*}
-		(\bd K+ K\bd)(b) &=
-		\id_C(\mu-\nu-K\bd)(b)+K\bd(b) \\&=
-		(\mu-\nu)(b)
-	\end{align*}
-	as desired.
-\end{proof}
-
-We can apply this lemma to obtain a homotopy making diagram \eqref{d:coproducts} commute.
-Specifically, using the same notation as in the lemma, we have $\mu = (\iota \ot \iota) \circ \Delta$ and $\nu = \Delta_{\AW} \circ \iota$ with
+Let us now give a formula for $K$ using the bijection $\cyc_r \cong \set{0,\dots,r-1}$.
+For $(a_1,\dots,a_\ell) \in \EE\cyc_r$ let $\alpha(a_1,\dots,a_\ell)$ denote the number of increasing consecutive pairs $a_i < a_{i+1}$.
+For $(s_1,\dots,s_j)$ and $(t_1,\dots,t_k)$ in $\EE\cyc_r$ we denote by $\varphi(0,s_1,\dots,s_j;t_1,\dots,t_k)$ the expression in $\chains \EE \cyc_r \ot \chains \EE \cyc_r$ given by
 \[
-\mu,\nu \colon \cW(r) \to \chains\EE\cyc_r \ot \chains\EE\cyc_r
+\alpha(s_1,\dots,s_j,t_1) \cdot
+(0,s_1,s_1+1,\dots,s_j,s_j+1) \ot
+(t_1,t_1+1,\dots,t_k,t_k+1),
 \]
-and
-\begin{align*}
-	\eta \colon \chains\EE\cyc_r \ot \chains\EE\cyc_r &\to \chains\EE\cyc_r \ot \chains\EE\cyc_r \\
-	(s_0,\dots,s_j) \ot (t_0,\dots,t_k) &\mapsto (0,s_0,\dots,s_j) \ot (t_0,\dots,t_k),
-\end{align*}
-with
+and by $\varphi(1,s_1,\dots,s_j;t_1,\dots,t_k)$ the expression
+\begin{equation*}
+	- \alpha(s_1-1,\dots,s_j-1,t_1-1) \cdot
+	(0,1,s_1,s_1+1,\dots,s_j,s_j+1)\otimes (t_1,t_1+1,\dots,t_k,t_k+1).
+\end{equation*}
+Then, the chain homotopy $K$ from $(\iota\otimes \iota) \circ \Delta$ to $\Delta_{\AW}\circ \iota$ is defined by
 \[
-\varepsilon(a \ot b) =
-\begin{cases}
-	\rho^0 \ot b & \text{if } \deg(a \ot b) = 0, \\
-	\hfil0 & \text{otherwise}.
-\end{cases}
+\begin{split}
+	K(e_{2i})   &= \sum \, \varphi(0,s_1,\dots,s_j;t_1,\dots,t_k), \\
+	K(e_{2i+1}) &= \sum \, \varphi(1,s_1,\dots,s_j;t_1,\dots,t_k),
+\end{split}
 \]
-The hypothesis of the lemma are readily verified so we get a recursively defined homotopy $K$.
-We present a closed formula in \cref{s:closed formula}.
+where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
 
 \subsection{Lower and upper case maps}
 
@@ -194,14 +158,14 @@ It is immediate that
 \]
 and that the composition
 \[
-H_3 \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\mathrm{SHI}}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
+H_3 \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\Shi}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
 \]
-is a $\cyc_r$-equivariant chain homotopy between $\chains\EE g$ and $\widetilde G^p$.
+is a $\cyc_r$-equivariant chain homotopy between $\chains\EE g$ and $\widetilde G$.
 
 \subsection{Main construction}
 
 \begin{theorem}
-	For any algebra over the Barratt--Eccles operad $\phi \colon \cE \to \End(A)$, the map $H = \phi \circ (H_1 + H_2 + H_3)$ is a Cartan relator for $(A,\psi)$.\todo{Maybe the signs are not right here.}
+	For any algebra over the Barratt--Eccles operad $\phi \colon \cE \to \End(A)$, the map $H = \phi \circ (H_1 + H_2 + H_3)$ is a Cartan relator for $(A,\psi)$.
 \end{theorem}
 
 \subsection{Examples}
