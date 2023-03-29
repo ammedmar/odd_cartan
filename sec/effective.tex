@@ -2,11 +2,11 @@
 
 \section{Effective constructions}
 
-In this section we construct an explicit Cartan relator for algebras over the Barratt--Eccles operad, of which the cochains of simplicial sets are natural examples.
+In this section we construct an explicit Cartan relator for the cochains of simplicial sets and, more generally, for algebras over the Barratt--Eccles operad.
 
 \subsection{Barratt--Eccles operad}
 
-We review the main constructions introduced by Berger--Fresse in \cite{berger2004combinatorial}.
+We review the main constructions introduced by Berger and Fresse in \cite{berger2004combinatorial}.
 
 Let $\Set$ and $\sSet$ denote the categories of sets and simplicial sets respectively.
 The symmetric monoidal functor $\EE \colon \Set \to \sSet$ is defined on objects by $\EE X_n = X^{n+1}$ with
@@ -36,24 +36,24 @@ We denote its composition by
 for any $r,s_1,\dots,s_r \in \N$.
 
 Let $\chains \colon \sSet \to \Ch$ be the functor of (normalized) chains with integer coefficients.
-The linear Barratt--Eccles operad $\cE$ is defined by $\cE(r) = \chains\EE(r)$ and
+The linear Barratt--Eccles operad $\BE$ is defined by $\BE(r) = \chains\EE(r)$ and
 \[
-\bcirc_{\cE} \defeq \bcirc_{\EE} \circ \EZ \colon \cE(r) \ot \cE(s_1) \ot\dotsb\ot \cE(s_r) \to \cE(s_1+\dots+s_r)
+\bcirc_{\BE} \defeq \bcirc_{\EE} \circ \EZ \colon \BE(r) \ot \BE(s_1) \ot\dotsb\ot \BE(s_r) \to \BE(s_1+\dots+s_r)
 \]
 for any $r,s_1,\dots,s_r \in \N$.
 
 For any simplicial set $X$, Berger and Fresse explicitly constructed a natural operad morphism
 \[
-\phi \colon \cE \to \End(\cochains(X))
+\phi \colon \BE \to \End(\cochains(X))
 \]
 on its (normalized) cochains.
 Since only the existence of this effective construction will be used here, we refer to the original source for details, and to the specialized computer algebra system \texttt{ComCH} for an implementation.
 
 \subsection{May--Steenrod structure on Barratt--Eccles algebras}
 
-To provide the cochains of simplicial sets, or more generally any $\cE$-algebra, with a natural May--Steenrod structure, it suffices to define a $\cyc$-module quasi-isomorphism
+To provide the cochains of simplicial sets, or more generally any $\BE$-algebra, with a natural May--Steenrod structure, it suffices to define a $\cyc$-module quasi-isomorphism
 \[
-\iota \colon \cW \to \cE.
+\iota \colon \cW \to \BE.
 \]
 We recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module $\chains\EE\cyc = \{\chains\EE\cyc_r\}_{r\in\N}$.
 For $r,n\in\N$
@@ -67,8 +67,6 @@ For $r,n\in\N$
 where the sum is over all $s_1, \dots, s_m \in \{0, \dots, r-1\} \cong \cyc_r$.
 Please consult \cref{f:small values of psi} for a few examples.
 
-All construction in this section will be with respect to a Barratt--Eccles algebra together with the May--Steenrod structure $\psi$ defined by this map, we will therefore remove $\psi$ from the notation.
-
 \begin{table}
 	\centering
 	\input{aux/table}
@@ -76,18 +74,25 @@ All construction in this section will be with respect to a Barratt--Eccles algeb
 	\label{f:small values of psi}
 \end{table}
 
-\subsection{The lowercase homomorphisms}
+Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider it with the May--Steenrod structure $\psi = \phi \circ \iota$, removing $\psi$ from the notation.
 
-We now describe group homomorphisms inducing two chain homotopic $\cyc$-module chain maps.
-We will later relate these to the $\cyc$-module chain maps $F$ and $G$ associated to the May--Steenrod structure on $\cE$-algebras.
-For $r \in \N$, let
+\subsection{Summary}
+
+Our goal is to construct a $\cyc$-module chain homotopy $H \colon \cW \to \End(A)^\vee$ from $F$ to $G$ for any $\BE$-algebra $A$.
+We will do so by constructing the chain homotopies $K_1$, $K_2$, and $K_3$ in the following diagram where the top and bottom compositions are respectively $\tau F$ and $G$.
+
+\input{sec/diagram}
+
+\subsection{The chain homotopy $K_1$}
+
+For $r \in \N$, consider the following group homomorphisms where $e$ denotes the identity element:
 \[
 \begin{split}
 	&f \colon \cyc_r \to \sym_r \xra{\id \times e^{\times r}} \sym_r \times \sym_2^{\times r} \xra{\bcirc_{\sym}} \sym_{2r}, \\
 	&g \colon \cyc_r \to \sym_r \xra{e \times \mathrm{diag}} \sym_2 \times \sym_r \times \sym_r \xra{\bcirc_{\sym}} \sym_{2r}.
 \end{split}
 \]
-Explicitly, if $\rho = (1,2,\dots,r)$ in $\sym_r$ then in $\sym_{2r}$
+Explicitly, the images in $\sym_{2r}$ of the preferred generator $\rho = (1,2,\dots,r)$ are:
 \begin{align*}
 	f(\rho) &= (1,3,\dots,2r-1)(2,4,\dots,2r), \\
 	g(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r).
@@ -97,16 +102,19 @@ We notice that
 	f(\rho) \tau = \tau g(\rho)
 \end{equation}
 where $\tau$ is as in \cref{ss:reordering}.
-We obtain two $\cyc$-module chain maps $\chains\EE f$ and $\chains\EE g$ where the $\cyc_r$ action on $\chains\EE\sym_{2r}$ is induced from Homomorphism \eqref{eq:cyclic to 2-symetric}.
 
-We define a $\cyc$-module chain homotopy $H_1$ between $\chains \EE f \cdot \tau$ and $\chains \EE g$
-explicitly as follows.
-For $r \in \N$, let $H_1 \colon \chains\EE\cyc_r \to \chains\EE\sym_{2r}$ be given by
+%Applying the functor $\chains\EE$ we obtain $\cyc_r$-equivariant chain maps $\chains\EE f$ and $\chains\EE g$, where the $\cyc_r$ action on $\chains\EE\sym_{2r}$ is defined by \eqref{eq:cyclic to 2-symetric}.
+
+We define a $\cyc$-module chain homotopy
 \[
-H_1(\sigma_0,\dots,\sigma_n) =
-\sum_{i=0}^n \ (-1)^i (f(\sigma_0) \tau, \dots, f(\sigma_i) \tau, g(\sigma_i), \dots, g(\sigma_n)).
+K_1 \colon \chains\EE\cyc \to \BE^\vee
 \]
-It can be easily verified that $H_1$ is a homotopy between $\chains \EE f \cdot \tau$ and $\chains \EE g$.
+between $(\chains\EE f) \cdot \tau$ and $\chains\EE g$ by
+\[
+K_1(a_0,\dots,a_n) =
+\sum_{i=0}^n \ (-1)^i (f(a_0) \tau, \dots, f(a_i) \tau, g(a_i), \dots, g(a_n)).
+\]
+It can be easily verified that $K_1$ is a homotopy between $(\chains \EE f) \cdot \tau$ and $\chains \EE g$.
 To check that it is $\cyc_r$-equivariant we use \cref{eq:conjugation of little maps} and the fact that $\rho$ acts on $\chains\EE\sym_{2r}$ multiplying on the right by $g(\rho)$.
 
 \subsection{Comparing coproducts}
@@ -121,11 +129,11 @@ More precisely, we will construct a $\cyc$-module chain homotopy $K$ making the 
 \end{equation}
 Given $K$, we define the $\cyc$-module chain homotopy
 \[
-H_2 \colon \cW(r) \xra{K} \cE(r)^{\ot 2} \xra{\psi^2_0 \ot \id} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
+H_2 \colon \cW(r) \xra{K} \BE(r)^{\ot 2} \xra{\psi^2_0 \ot \id} \BE(2) \ot \BE(r)^{\ot 2} \xra{\bcirc_{\BE}} \BE(2r)
 \]
 between $G$ and the $\cyc$-module chain map
 \[
-\widetilde G \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\AW}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r).
+\widetilde G \colon \cW(r) \xra{\psi(r)} \BE(r) \xra{\psi^2_0 \ot \Delta_{\AW}} \BE(2) \ot \BE(r)^{\ot 2} \xra{\bcirc_{\BE}} \BE(2r).
 \]
 
 Let us now give a formula for $K$ using the bijection $\cyc_r \cong \set{0,\dots,r-1}$.
@@ -158,7 +166,7 @@ It is immediate that
 \]
 and that the composition
 \[
-H_3 \colon \cW(r) \xra{\psi(r)} \cE(r) \xra{\psi^2_0 \ot \Delta_{\Shi}} \cE(2) \ot \cE(r)^{\ot 2} \xra{\bcirc_{\cE}} \cE(2r)
+H_3 \colon \cW(r) \xra{\psi(r)} \BE(r) \xra{\psi^2_0 \ot \Delta_{\Shi}} \BE(2) \ot \BE(r)^{\ot 2} \xra{\bcirc_{\BE}} \BE(2r)
 \]
 is a $\cyc_r$-equivariant chain homotopy between $\chains\EE g$ and $\widetilde G$.
 
@@ -167,9 +175,9 @@ is a $\cyc_r$-equivariant chain homotopy between $\chains\EE g$ and $\widetilde 
 \subsection{Main construction}
 
 \begin{theorem}
-	For any algebra over the Barratt--Eccles operad $\phi \colon \cE \to \End(A)$, the map $H = \phi \circ (H_1 + H_2 + H_3)$ is a Cartan relator for $(A,\psi)$.
+	For any algebra over the Barratt--Eccles operad $\phi \colon \BE \to \End(A)$, the map $H = \phi \circ (K_1 + H_2 + H_3)$ is a Cartan relator for $(A,\psi)$.
 \end{theorem}
 
 \subsection{Examples}
 
-We now show some examples computed using the specialized computer algebra system \texttt{ComCH} \cite{medina2021comch} when $A$ is given by the normalized cochains of a standard simplex, and $\phi$ is the $\cE$-algebra structure of Berger and Fresse.
+We now show some examples computed using the specialized computer algebra system \texttt{ComCH} \cite{medina2021comch} when $A$ is given by the normalized cochains of a standard simplex, and $\phi$ is the $\BE$-algebra structure of Berger and Fresse.
