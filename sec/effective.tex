@@ -76,10 +76,10 @@ Please consult \cref{f:small values of psi} for a few examples.
 
 Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $A$ as a May--Steenrod complex with the structure induced by $\phi$ and $\iota$.
 
-\subsection{Summary}
+\subsection{Main diagram}
 
 Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-module chain homotopy $H \colon \cW \to \End(A)^\vee$ from $\tau F$ to $G$ for any such $A$.
-We will do so by constructing the chain homotopies $K_1$, $K_2$, and $K_3$ in the following diagram:
+We will do so by constructing $\cyc_r$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$ in the following diagram:
 \begin{equation}\label{d:big diagram}
 	\input{sec/diagram}
 \end{equation}
@@ -97,8 +97,7 @@ Let us focus on the following part of Diagram \eqref{d:big diagram}:
 	& \BE(2r).
 \end{tikzcd}
 \]
-
-For $r \in \N$, we define the following group homomorphisms:
+For $r \in \N$, let $f,g \colon \cyc_r \to \sym_{2r}$ be the following group homomorphisms:
 \[
 \begin{split}
 	&f \colon \cyc_r \hookrightarrow \sym_r \xra{\id \times e^r} \sym_r \times \sym_2^r \xra{\bcirc_{\sym}} \sym_{2r}\,, \\
@@ -111,12 +110,11 @@ Explicitly,
 	f(\rho) &= (1,3,\dots,2r-1)(2,4,\dots,2r), \\
 	g(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r),
 \end{align*}
-where $\rho = (1,2,\dots,r)$ is the chosen generator.
-Please notice the following identity:
+where $\rho = (1,2,\dots,r)$ is the chosen order-$r$ permutation.
+Please notice the following identity involving the reordering $\tau$ of \cref{ss:reordering}:
 \begin{equation}\label{eq:conjugation of little maps}
-	f(\rho) \tau = \tau g(\rho)
+	f(\rho) \tau = \tau g(\rho).
 \end{equation}
-where $\tau$ is the reordering of \cref{ss:reordering}.
 
 The map defined by
 \[
@@ -125,51 +123,7 @@ K_1(a_0,\dots,a_n) =
 \]
 can be directly seen to be a chain homotopy from $(\chains \EE f) \cdot \tau$ to $\chains \EE g$, and we can use \cref{eq:conjugation of little maps} together with the fact that $\rho$ acts on $\BE(2r)$ multiplying on the right by $g(\rho)$ to observe that $K_1$ is $\cyc_r$-equivariant.
 
-\subsection{The chain homotopy $K_2$} \label{ss:coproduct}
-
-We now study the failure of the $\cyc$-module quasi-isomorphism $\iota$ to preserve coalgebra structures.
-More precisely, we will construct a $\cyc$-module chain homotopy $K_2$ making the following diagram commute:
-\begin{equation}\label{d:coproducts}
-	\begin{tikzcd}[column sep=large]
-			\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K_2"]&
-			\cC \arrow[d,"\Delta_{\AW}"] \\
-			\cW^{\ot 2} \arrow[r,"\iota^{\ot 2}"'] &
-			\cC^{\ot 2}.
-		\end{tikzcd}
-\end{equation}
-
-Using the bijection $\cyc_r \cong \set{0,\dots,r-1}$, we denote by $\alpha(a_1,\dots,a_\ell)$ the number of increasing consecutive pairs $a_i < a_{i+1}$ in a basis element of $\cC(r)$.
-For two such elements $(s_1,\dots,s_j)$ and $(t_1,\dots,t_k)$ we denote respectively by $\varphi(0,s_1,\dots,s_j;t_1,\dots,t_k)$ and $\varphi(1,s_1,\dots,s_j;t_1,\dots,t_k)$ the following expressions in $\cC(r) \ot \cC(r)$:
-\[
-\alpha(s_1,\dots,s_j,t_1) \cdot
-(0,s_1,s_1+1,\dots,s_j,s_j+1) \ot
-(t_1,t_1+1,\dots,t_k,t_k+1),
-\]
-and
-\[
-- \alpha(s_1-1,\dots,s_j-1,t_1-1) \cdot
-(0,1,s_1,s_1+1,\dots,s_j,s_j+1)\otimes (t_1,t_1+1,\dots,t_k,t_k+1).
-\]
-Then, the chain homotopy $K_2$ is defined by
-\[
-\begin{split}
-	K_2(e_{2i})   &= \sum \, \varphi(0,s_1,\dots,s_j;t_1,\dots,t_k), \\
-	K_2(e_{2i+1}) &= \sum \, \varphi(1,s_1,\dots,s_j;t_1,\dots,t_k),
-\end{split}
-\]
-where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
-Please consult \cref{f:small values of K} for a few example.
-
-The verification that $K_2$ is a $\cyc_r$-equivariant chain homotopy from $(\iota\otimes \iota)\circ \Delta$ to $\Delta_{\AW}\circ \iota$ is done through an arduous computation, which we postpone it until \cref{s:postponed}.
-
-\begin{table}
-	\centering
-	\input{aux/table2}
-	\caption{The elements $K(e_n)$ for small values of $r$ and $n$. For $r=2$ or $n<2$ all vanish. Notice that the indices are flipped with respect to \cref{f:small values of psi}.}
-	\label{f:small values of K}
-\end{table}
-
-\subsection{The chain homotopy $K_3$}
+\subsection{The chain homotopy $K_2$}
 
 Let us now focus on the following part of Diagram~\eqref{d:big diagram}:
 \[
@@ -177,14 +131,14 @@ Let us now focus on the following part of Diagram~\eqref{d:big diagram}:
 	\cC(r)
 	\arrow[r,"\chains\EE g"]
 	\arrow[d,"\Delta_{\AW}"']
-	\arrow[ddr,phantom,"K_3",shift left=0pt]
+	\arrow[ddr,phantom,"K_2",shift left=0pt]
 	&[15pt] \BE(2r)
 	\\
 	\cC(r)^{\ot 2}
 	\arrow[d,hook] & \\
 	\BE(r)^{\ot 2}
-	\arrow[r,"e\, \ot\, \id^{\ot 2}"]
-	& \BE(2) \ot \BE(r)^{\ot 2}
+	\arrow[r,"e\, \ot\, \id"]
+	& \BE(2) \ot \BE(r)^{\ot 2}.
 	\arrow[uu,"\bcirc_\BE"']
 \end{tikzcd}
 \]
@@ -203,43 +157,80 @@ Using that the functor $\EE$ is symmetric monoidal, this diagram can be seen to 
 	\dar["\AW"'] &[0pt]
 	\chains\EE(\sym_2 \times \sym_r^2)
 	\rar["\chains\bcirc_{\EE\!\sym}"]
-	\dar["\AW"']&
+	\dar["\AW"']
+	\drar["\id",out=-10,in=150] &
 	\chains\EE\sym_{2r} \\ & &
 	\chains\EE\sym_r^{\ \ot 2}
 	\rar["e \,\ot\, \id"] &
 	\chains\EE\sym_2 \ot \chains\EE\sym_r^{\ \ot 2}
 	\rar["\EZ"]
-	\urar["\Shi",phantom] &
+	\uar["\Shi",phantom,shift right=30pt] &
 	\chains\EE(\sym_2 \times \sym_r^2)
 	\uar["\chains\bcirc_{\EE\!\sym}"']
 \end{tikzcd}
 \]
 Therefore, it suffices to define
 \[
-K_3 = \chains\bcirc_{\EE\sym} \circ \Shi \circ \chains\EE(e \times \id) \circ \chains\EE\rD.
+K_2 = \chains\bcirc_{\EE\sym} \circ \Shi \circ \chains\EE(e \times \id) \circ \chains\EE\rD
 \]
+as the desired $\cyc_r$-equivariant chain homotopy.
+
+\subsection{The chain homotopy $K_3$} \label{ss:coproduct}
+
+We now study the failure of the $\cyc$-module quasi-isomorphism $\iota$ to preserve coalgebra structures.
+More precisely, we will construct a $\cyc$-module chain homotopy $K_3$ making the following diagram commute:
+\begin{equation}\label{d:coproducts}
+	\begin{tikzcd}[column sep=large]
+			\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K_3"]&
+			\cC \arrow[d,"\Delta_{\AW}"] \\
+			\cW^{\ot 2} \arrow[r,"\iota^{\ot 2}"'] &
+			\cC^{\ot 2}.
+		\end{tikzcd}
+\end{equation}
+
+Using the bijection $\cyc_r \cong \set{0,\dots,r-1}$, we denote by $\alpha(a_1,\dots,a_\ell)$ the number of increasing consecutive pairs $a_i < a_{i+1}$ in a basis element of $\cC(r)$.
+For two such elements $(s_1,\dots,s_j)$ and $(t_1,\dots,t_k)$ we denote respectively by $\varphi(0,s_1,\dots,s_j;t_1,\dots,t_k)$ and $\varphi(1,s_1,\dots,s_j;t_1,\dots,t_k)$ the following expressions in $\cC(r) \ot \cC(r)$:
+\[
+\alpha(s_1,\dots,s_j,t_1) \cdot
+(0,s_1,s_1+1,\dots,s_j,s_j+1) \ot
+(t_1,t_1+1,\dots,t_k,t_k+1),
+\]
+and
+\[
+- \alpha(s_1-1,\dots,s_j-1,t_1-1) \cdot
+(0,1,s_1,s_1+1,\dots,s_j,s_j+1)\otimes (t_1,t_1+1,\dots,t_k,t_k+1).
+\]
+Then, the chain homotopy $K_3$ is defined by
+\[
+\begin{split}
+	K_3(e_{2i})   &= \sum \, \varphi(0,s_1,\dots,s_j;t_1,\dots,t_k), \\
+	K_3(e_{2i+1}) &= \sum \, \varphi(1,s_1,\dots,s_j;t_1,\dots,t_k),
+\end{split}
+\]
+where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
+Please consult \cref{f:small values of K} for a few example.
+
+The verification that $K_3$ is a $\cyc_r$-equivariant chain homotopy from $(\iota\otimes \iota)\circ \Delta$ to $\Delta_{\AW}\circ \iota$ is done through an arduous computation presented in \cref{s:postponed}.
+
+\begin{table}
+	\centering
+	\input{aux/table2}
+	\caption{The elements $K_3(e_n)$ for small values of $r$ and $n$. For $r=2$ or $n<2$ all vanish. Notice that the indices are flipped with respect to \cref{f:small values of psi}.}
+	\label{f:small values of K}
+\end{table}
 
 \subsection{Main construction}
 
-\begin{theorem}
-	For any algebra over the Barratt--Eccles operad $\phi \colon \BE \to \End(A)$, the map $H = \phi \circ (K_1 + H_2 + H_3)$ is a Cartan relator for $(A,\psi)$.
-\end{theorem}
+We now bring these constructions together using Diagram~\eqref{d:big diagram}.
 
-\begin{proof}
-	%Given $K$, we define the $\cyc$-module chain homotopy
-	%\[
-	%H_2 \colon \cW(r) \xra{K} \BE(r)^{\ot 2} \xra{\psi^2_0 \ot \id} \BE(2) \ot \BE(r)^{\ot 2} \xra{\bcirc_{\BE}} \BE(2r)
-	%\]
-	%between $G$ and the $\cyc$-module chain map
-	%\[
-	%\widetilde G \colon \cW(r) \xra{\psi(r)} \BE(r) \xra{\psi^2_0 \ot \Delta_{\AW}} \BE(2) \ot \BE(r)^{\ot 2} \xra{\bcirc_{\BE}} \BE(2r).
-	%\]
-
-	Please notice that
+\begin{theorem*}
+	Let $A$ be a Barratt--Eccles algebra with structure map $\phi$.
+	Then,
 	\[
-	\chains\EE f = F
+	H = \phi \circ K_1 \circ \iota \ +\ \phi \circ K_2 \circ \iota \ +\ \phi \circ \bcirc_{\BE} \circ (e \ot \id)\circ K_3
 	\]
-\end{proof}
+	is a natural Cartan relator for $A$.
+\end{theorem*}
 
 \subsection{Examples}
 
