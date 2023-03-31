@@ -29,17 +29,19 @@ Then,
 	\cO(2r).
 \end{align*}
 
-\begin{definition}
+\begin{definition*}
 	A \textit{Cartan relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-module chain homotopy between $\tau F_\psi$ and $G_\psi$ where $\tau$ is the canonical reordering of \cref{ss:reordering}.
-\end{definition}
+	Given a Cartan relator $H_\psi$ and mod $p$ cycles $a$ and $b$, their \textit{$i^\th$ Cartan boundary} is the boundary of the chain $\zeta_i(a,b) = H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})$.
+\end{definition*}
 
-As we will see, the existence of a Cartan relator implies the Cartan formulas on the mod $p$ homology of $A$, which are given by
+As we will see, the existence of a Cartan relator implies the Cartan formulas
 \begin{align*}
 	\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
 	\beta\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
+	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b],
 \end{align*}
+holding for each integer $s$ and mod $p$ cycles $a$ and $b$.
 Let us observes that the Cartan formulas are equivalent to
 \begin{align*}
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
@@ -47,12 +49,8 @@ Let us observes that the Cartan formulas are equivalent to
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \,-\!
 	\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
 \end{align*}
-which, somewhat abusively, we also refer to as the Cartan formulas.
-Notice also that
-\[
-\big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}) = C^p_\psi(i)(a,b)
-\]
-where
+which, somewhat abusively, we also refer to as Cartan formulas.
+A lift of the right hand side of these to the chain level is given by the following formulas:
 \begin{align*}
 	&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
 	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big), \\
@@ -60,16 +58,19 @@ where
 	&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
 	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
 \end{align*}
-Please notice that if $a,b \in A \ot \Fp$ are cycles, then the element $C_\psi^p(i)(a,b)$ is a chain level lift of the $i^\th$ Cartan formula for these.
 
-\begin{theorem}
-	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then for any odd prime $p$, cycles $a,b \in A \ot \Fp$ and integer $i \in \N$ we have
+\begin{theorem*}
+	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then for any mod $p$ cycles $a,b$ and integer $i \in \N$ we have
 	\[
-	\bd_A\!\big(H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})\big) = C_\psi^p(i)(a, b).
+	\bd \zeta_i(a,b) = C_\psi^p(i)(a, b).
 	\]
-\end{theorem}
+\end{theorem*}
 
 \begin{proof}
+	Let us first observe that
+	\[
+	\big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}) = C^p_\psi(i)(a,b).
+	\]
 	Using that in $A \ot \Fp$
 	\begin{align*}
 		H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
@@ -79,7 +80,8 @@ Please notice that if $a,b \in A \ot \Fp$ are cycles, then the element $C_\psi^p
 	\end{align*}
 	we have
 	\begin{align*}
-		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) =&
+		\bd_A \zeta_i(a,b) =&
+		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
 		\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
 		\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
 		H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,

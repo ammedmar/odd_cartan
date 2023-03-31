@@ -2,7 +2,7 @@
 
 \section{Effective constructions}
 
-In this section we construct an explicit Cartan relator for the cochains of simplicial sets and, more generally, for algebras over the Barratt--Eccles operad.
+In this section we effectively construct natural Cartan coboundaries for the cochains of spaces and, more generally, for algebras over the Barratt--Eccles operad.
 
 \subsection{Barratt--Eccles operad}
 
@@ -55,8 +55,8 @@ To provide the cochains of simplicial sets, or more generally any $\BE$-algebra,
 \[
 \iota \colon \cW \to \BE.
 \]
-We recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module $\cC = \{\cC(r)\}_{r\in\N}$.
-For $r,n\in\N$
+We recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module $\cC = \{\chains\EE\cyc_r\}_{r\in\N}$.
+For $r,n\in\N$, let
 \begin{equation*}
 	\iota(e_{n}) =
 	\begin{cases}
@@ -74,64 +74,61 @@ Please consult \cref{f:small values of psi} for a few examples.
 	\label{f:small values of psi}
 \end{table}
 
-Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider it with the May--Steenrod structure $\psi = \phi \circ \iota$, removing $\psi$ from the notation.
+Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $A$ as a May--Steenrod complex with the structure induced by $\phi$ and $\iota$.
 
 \subsection{Summary}
 
-Our goal is to construct a $\cyc$-module chain homotopy $H \colon \cW \to \End(A)^\vee$ from $\tau F$ to $G$ for any $\BE$-algebra $A$.
-We will do so by constructing the chain homotopies $K_1$, $K_2$, and $K_3$ in the following diagram where the top and bottom compositions are respectively $\tau F$ and $G$, and $\iota_0^2$ denotes $\iota(e_0) \in \BE(2)$.
-
-\input{sec/diagram}
+Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-module chain homotopy $H \colon \cW \to \End(A)^\vee$ from $\tau F$ to $G$ for any such $A$.
+We will do so by constructing the chain homotopies $K_1$, $K_2$, and $K_3$ in the following diagram:
+\begin{equation}\label{d:big diagram}
+	\input{sec/diagram}
+\end{equation}
+where the top and bottom compositions are respectively $\tau F$ and $G$, and $e$ denotes the identity in degree $0$.
 
 \subsection{The chain homotopy $K_1$}
 
-For $r \in \N$, consider the following group homomorphisms where $e$ denotes the identity element:
+Let us focus on the following part of Diagram \eqref{d:big diagram}:
+\[
+\begin{tikzcd}[column sep=large]
+	\cC(r)
+	\arrow[r,bend left,"\chains\EE f \cdot \tau"]
+	\arrow[r,bend right,"\chains\EE g"']
+	\arrow[r,phantom,"K_1"]
+	& \BE(2r).
+\end{tikzcd}
+\]
+
+For $r \in \N$, we define the following group homomorphisms:
 \[
 \begin{split}
-	&f \colon \cyc_r \to \sym_r \xra{\id \times e^{\times r}} \sym_r \times \sym_2^{\times r} \xra{\bcirc_{\sym}} \sym_{2r}, \\
-	&g \colon \cyc_r \to \sym_r \xra{e \times \mathrm{diag}} \sym_2 \times \sym_r \times \sym_r \xra{\bcirc_{\sym}} \sym_{2r}.
+	&f \colon \cyc_r \hookrightarrow \sym_r \xra{\id \times e^r} \sym_r \times \sym_2^r \xra{\bcirc_{\sym}} \sym_{2r}\,, \\
+	&g \colon \cyc_r \hookrightarrow \sym_r \xra{e \times \rD} \sym_2 \times \sym_r \times \sym_r \xra{\bcirc_{\sym}} \sym_{2r}\,,
 \end{split}
 \]
-Explicitly, the images in $\sym_{2r}$ of the preferred generator $\rho = (1,2,\dots,r)$ are:
+where $e$ denotes the identity element.
+Explicitly,
 \begin{align*}
 	f(\rho) &= (1,3,\dots,2r-1)(2,4,\dots,2r), \\
-	g(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r).
+	g(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r),
 \end{align*}
-We notice that
+where $\rho = (1,2,\dots,r)$ is the chosen generator.
+Please notice the following identity:
 \begin{equation}\label{eq:conjugation of little maps}
 	f(\rho) \tau = \tau g(\rho)
 \end{equation}
-where $\tau$ is as in \cref{ss:reordering}.
-
-%Applying the functor $\chains\EE$ we obtain $\cyc_r$-equivariant chain maps $\chains\EE f$ and $\chains\EE g$, where the $\cyc_r$ action on $\chains\EE\sym_{2r}$ is defined by \eqref{eq:cyclic to 2-symetric}.
+where $\tau$ is the reordering of \cref{ss:reordering}.
 
 The map defined by
 \[
 K_1(a_0,\dots,a_n) =
 \sum_{i=0}^n \ (-1)^i (f(a_0) \tau, \dots, f(a_i) \tau, g(a_i), \dots, g(a_n))
 \]
-can be easily seen to fit in the diagram
-\[
-\begin{tikzcd}[column sep=large]
-	\cC(r)
-	\arrow[r,bend left,"(\chains\EE f) \cdot \tau"]
-	\arrow[r,bend right,"(\chains\EE g)"']
-	\arrow[r,phantom,"K_1"]
-	& \BE(2r)
-\end{tikzcd}
-\]
-as a chain homotopy from $(\chains \EE f) \cdot \tau$ to $\chains \EE g$.
-%
-%\[
-%K_1 \colon \cC \to \BE^\vee
-%\]
-%from $(\chains\EE f) \cdot \tau$ to $\chains\EE g$
-We can use \cref{eq:conjugation of little maps} and the fact that $\rho$ acts on $\BE(2r)$ multiplying on the right by $g(\rho)$ to observe that $K_1$ is $\cyc_r$-equivariant.
+can be directly seen to be a chain homotopy from $(\chains \EE f) \cdot \tau$ to $\chains \EE g$, and we can use \cref{eq:conjugation of little maps} together with the fact that $\rho$ acts on $\BE(2r)$ multiplying on the right by $g(\rho)$ to observe that $K_1$ is $\cyc_r$-equivariant.
 
 \subsection{The chain homotopy $K_2$} \label{ss:coproduct}
 
 We now study the failure of the $\cyc$-module quasi-isomorphism $\iota$ to preserve coalgebra structures.
-More precisely, we will construct a $\cyc$-module chain homotopy $K_2$ making the following diagram commute
+More precisely, we will construct a $\cyc$-module chain homotopy $K_2$ making the following diagram commute:
 \begin{equation}\label{d:coproducts}
 	\begin{tikzcd}[column sep=large]
 			\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K_2"]&
@@ -161,9 +158,9 @@ Then, the chain homotopy $K_2$ is defined by
 \end{split}
 \]
 where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
-
-Since it is an arduous computation, we postpone the proof showing that $K_2$ is as claimed until \cref{s:postponed}.
 Please consult \cref{f:small values of K} for a few example.
+
+The verification that $K_2$ is a $\cyc_r$-equivariant chain homotopy from $(\iota\otimes \iota)\circ \Delta$ to $\Delta_{\AW}\circ \iota$ is done through an arduous computation, which we postpone it until \cref{s:postponed}.
 
 \begin{table}
 	\centering
@@ -174,14 +171,53 @@ Please consult \cref{f:small values of K} for a few example.
 
 \subsection{The chain homotopy $K_3$}
 
-
-and that the composition
+Let us now focus on the following part of Diagram~\eqref{d:big diagram}:
 \[
-H_3 \colon \cW(r) \xra{\psi(r)} \BE(r) \xra{\psi^2_0 \ot \Delta_{\Shi}} \BE(2) \ot \BE(r)^{\ot 2} \xra{\bcirc_{\BE}} \BE(2r)
+\begin{tikzcd}
+	\cC(r)
+	\arrow[r,"\chains\EE g"]
+	\arrow[d,"\Delta_{\AW}"']
+	\arrow[ddr,phantom,"K_3",shift left=0pt]
+	&[15pt] \BE(2r)
+	\\
+	\cC(r)^{\ot 2}
+	\arrow[d,hook] & \\
+	\BE(r)^{\ot 2}
+	\arrow[r,"e\, \ot\, \id^{\ot 2}"]
+	& \BE(2) \ot \BE(r)^{\ot 2}
+	\arrow[uu,"\bcirc_\BE"']
+\end{tikzcd}
 \]
-is a $\cyc_r$-equivariant chain homotopy between $\chains\EE g$ and $\widetilde G$.
 
-\anibal{@self - Check this}
+Using that the functor $\EE$ is symmetric monoidal, this diagram can be seen to be equivalent to the following one in the sense that the top and bottom compositions agree:
+\[
+\begin{tikzcd}
+	\chains\EE\cyc_r
+	\rar[hook]
+	&[-10pt]
+	\chains\EE\sym_r
+	\rar["\chains\EE\rD"]
+	\arrow[dr,in=180,out=-90,"\Delta_{\AW}"'] &
+	\chains\EE\sym_r^2
+	\rar["\chains\EE \, e \times \id"]
+	\dar["\AW"'] &[0pt]
+	\chains\EE(\sym_2 \times \sym_r^2)
+	\rar["\chains\bcirc_{\EE\!\sym}"]
+	\dar["\AW"']&
+	\chains\EE\sym_{2r} \\ & &
+	\chains\EE\sym_r^{\ \ot 2}
+	\rar["e \,\ot\, \id"] &
+	\chains\EE\sym_2 \ot \chains\EE\sym_r^{\ \ot 2}
+	\rar["\EZ"]
+	\urar["\Shi",phantom] &
+	\chains\EE(\sym_2 \times \sym_r^2)
+	\uar["\chains\bcirc_{\EE\!\sym}"']
+\end{tikzcd}
+\]
+Therefore, it suffices to define
+\[
+K_3 = \chains\bcirc_{\EE\sym} \circ \Shi \circ \chains\EE(e \times \id) \circ \chains\EE\rD.
+\]
 
 \subsection{Main construction}
 
