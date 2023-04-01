@@ -26,21 +26,20 @@ The usual block permutation map
 \[
 \bcirc_{\sym} \colon \sym_r \times \sym_{s_1} \times \cdots \times \sym_{s_r} \to \sym_{s_1+\dots+s_r}
 \]
-defined for any $r,s_1,\dots,s_r \in \N$ provides $\sym = \{\sym_r\}_{r>0}$ with the structure of an operad in $\Set$.
+provides $\sym = \{\sym_r\}_{r>0}$ with the structure of an operad in $\Set$.
 
 The simplicial Barratt--Eccles operad $\rE\sym$ is obtained by applying the functor $\EE$ to the operad $\sym$.
 We denote its composition by
 \[
-\bcirc_{\rE\sym} \colon \rE\sym(r) \times \rE\sym(s_1) \times\dots\times \rE\sym(s_r) \to \rE\sym(s_1+\dots+s_r)
+\bcirc_{\rE\sym} \colon
+\rE\sym(r) \times \rE\sym(s_1) \times\dots\times \rE\sym(s_r) \to
+\rE\sym(s_1+\dots+s_r).
 \]
-for any $r,s_1,\dots,s_r \in \N$.
 
-Let $\chains \colon \sSet \to \Ch$ be the functor of (normalized) chains with integer coefficients.
-The linear Barratt--Eccles operad $\BE$ is defined by $\BE(r) = \chains\EE(r)$ and
+The (algebraic) Barratt--Eccles operad $\BE$ is defined by $\BE(r) = \chains\EE\sym_r$ with composition given by
 \[
-\bcirc_{\BE} \defeq \bcirc_{\EE} \circ \EZ \colon \BE(r) \ot \BE(s_1) \ot\dotsb\ot \BE(s_r) \to \BE(s_1+\dots+s_r)
+\bcirc_{\BE} \defeq \bcirc_{\EE} \circ \EZ \colon \BE(r) \ot \BE(s_1) \ot\dotsb\ot \BE(s_r) \to \BE(s_1+\dots+s_r).
 \]
-for any $r,s_1,\dots,s_r \in \N$.
 
 For any simplicial set $X$, Berger and Fresse explicitly constructed a natural operad morphism
 \[
@@ -51,11 +50,14 @@ Since only the existence of this effective construction will be used here, we re
 
 \subsection{May--Steenrod structure on Barratt--Eccles algebras}
 
-To provide the cochains of simplicial sets, or more generally any $\BE$-algebra, with a natural May--Steenrod structure, it suffices to define a $\cyc$-module quasi-isomorphism
+To provide the cochains of simplicial sets, or more generally any $\BE$-algebra, with a natural May--Steenrod structure, it suffices to define a $\cyc$-equivariant quasi-isomorphism
 \[
 \iota \colon \cW \to \BE.
 \]
-We recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module $\cC = \{\chains\EE\cyc_r\}_{r\in\N}$.
+We recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module
+\[
+\cC = \{\chains\EE\cyc_r\}_{r\in\N}.
+\]
 For $r,n\in\N$, let
 \begin{equation*}
 	\iota(e_{n}) =
@@ -74,11 +76,11 @@ Please consult \cref{f:small values of psi} for a few examples.
 	\label{f:small values of psi}
 \end{table}
 
-Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $A$ as a May--Steenrod complex with the structure induced by $\phi$ and $\iota$.
+Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $A$ as a May--Steenrod complex with the structure defined by $\phi$ and $\iota$.
 
 \subsection{Main diagram}
 
-Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-module chain homotopy $H \colon \cW \to \End(A)^\vee$ from $\tau F$ to $G$ for any such $A$.
+Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant chain homotopy $H \colon \cW \to \End(A)^\vee$ from $\tau F$ to $G$ for any such $A$.
 We will do so by constructing $\cyc_r$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$ in the following diagram:
 \begin{equation}\label{d:big diagram}
 	\input{sec/diagram}
@@ -142,8 +144,7 @@ Let us now focus on the following part of Diagram~\eqref{d:big diagram}:
 	\arrow[uu,"\bcirc_\BE"']
 \end{tikzcd}
 \]
-
-Using that the functor $\EE$ is symmetric monoidal, this diagram can be seen to be equivalent to the following one in the sense that the top and bottom compositions agree:
+Since the functor $\EE$ is symmetric monoidal, the top and bottom compositions of this diagram agree with those in:
 \[
 \begin{tikzcd}
 	\chains\EE\cyc_r
@@ -177,8 +178,8 @@ as the desired $\cyc_r$-equivariant chain homotopy.
 
 \subsection{The chain homotopy $K_3$} \label{ss:coproduct}
 
-We now study the failure of the $\cyc$-module quasi-isomorphism $\iota$ to preserve coalgebra structures.
-More precisely, we will construct a $\cyc$-module chain homotopy $K_3$ making the following diagram commute:
+We now study the failure of the $\cyc$-equivariant quasi-isomorphism $\iota$ to preserve coalgebra structures.
+More precisely, we will construct a $\cyc$-equivariant chain homotopy $K_3$ making the following diagram commute:
 \begin{equation}\label{d:coproducts}
 	\begin{tikzcd}[column sep=large]
 			\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K_3"]&
@@ -210,7 +211,7 @@ Then, the chain homotopy $K_3$ is defined by
 where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
 Please consult \cref{f:small values of K} for a few example.
 
-The verification that $K_3$ is a $\cyc_r$-equivariant chain homotopy from $(\iota\otimes \iota)\circ \Delta$ to $\Delta_{\AW}\circ \iota$ is done through an arduous computation presented in \cref{s:postponed}.
+The verification that $K_3$ is a $\cyc_r$-equivariant chain homotopy from $(\iota\otimes \iota)\circ \Delta$ to $\Delta_{\AW}\circ \iota$ is done through a somewhat arduous computation presented in \cref{s:postponed}.
 
 \begin{table}
 	\centering
@@ -221,7 +222,7 @@ The verification that $K_3$ is a $\cyc_r$-equivariant chain homotopy from $(\iot
 
 \subsection{Main construction}
 
-We now bring these constructions together using Diagram~\eqref{d:big diagram}.
+Bringing these constructions together using Diagram~\eqref{d:big diagram} we obtain the following.
 
 \begin{theorem*}
 	Let $A$ be a Barratt--Eccles algebra with structure map $\phi$.
@@ -234,4 +235,4 @@ We now bring these constructions together using Diagram~\eqref{d:big diagram}.
 
 \subsection{Examples}
 
-We now show some examples computed using the specialized computer algebra system \texttt{ComCH} \cite{medina2021comch} when $A$ is given by the normalized cochains of a standard simplex, and $\phi$ is the $\BE$-algebra structure of Berger and Fresse.
+We now show some examples computed using \texttt{ComCH}.
