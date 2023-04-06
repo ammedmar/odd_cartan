@@ -2,7 +2,7 @@
 
 \section{Effective constructions}
 
-In this section we effectively construct natural Cartan coboundaries for the cochains of spaces and, more generally, for algebras over the Barratt--Eccles operad.
+In this section we effectively construct natural Cartan coboundaries for the cochains of spaces and, more generally, for $E_\infty$-algebras defined using the Barratt--Eccles operad.
 
 \subsection{Barratt--Eccles operad}
 
@@ -40,7 +40,7 @@ The (algebraic) Barratt--Eccles operad $\BE$ is defined by $\BE(r) = \chains\EE\
 \[
 \bcirc_{\BE} \defeq \bcirc_{\EE} \circ \EZ \colon \BE(r) \ot \BE(s_1) \ot\dotsb\ot \BE(s_r) \to \BE(s_1+\dots+s_r).
 \]
-
+It is an $E_\infty$-operad.
 For any simplicial set $X$, Berger and Fresse explicitly constructed a natural operad morphism
 \[
 \phi \colon \BE \to \End(\cochains(X))
@@ -81,7 +81,7 @@ Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $
 \subsection{Main diagram}
 
 Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant chain homotopy $H \colon \cW \to \End(A)^\vee$ from $\tau F$ to $G$ for any such $A$.
-We will do so by constructing $\cyc_r$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$ in the following diagram:
+We will do so by constructing $\cyc_r$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$, and group homomorphisms $f$ and $g$ in the following diagram:
 \begin{equation}\label{d:big diagram}
 	\input{sec/diagram}
 \end{equation}
@@ -112,7 +112,7 @@ Explicitly,
 	f(\rho) &= (1,3,\dots,2r-1)(2,4,\dots,2r), \\
 	g(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r),
 \end{align*}
-where $\rho = (1,2,\dots,r)$ is the chosen order-$r$ permutation.
+where $\rho = (1,2,\dots,r)$.
 Please notice the following identity involving the reordering $\tau$ of \cref{ss:reordering}:
 \begin{equation}\label{eq:conjugation of little maps}
 	f(\rho) \tau = \tau g(\rho).
@@ -153,10 +153,10 @@ Since the functor $\EE$ is symmetric monoidal, the top and bottom compositions o
 	\chains\EE\sym_r
 	\rar["\chains\EE\rD"]
 	\arrow[dr,in=180,out=-90,"\Delta_{\AW}"'] &
-	\chains\EE\sym_r^2
+	\chains\EE\sym_r^{\times 2}
 	\rar["\chains\EE \, e \times \id"]
 	\dar["\AW"'] &[0pt]
-	\chains\EE(\sym_2 \times \sym_r^2)
+	\chains\EE(\sym_2 \times \sym_r^{\times 2})
 	\rar["\chains\bcirc_{\EE\!\sym}"]
 	\dar["\AW"']
 	\drar["\id",out=-10,in=150] &
@@ -166,7 +166,7 @@ Since the functor $\EE$ is symmetric monoidal, the top and bottom compositions o
 	\chains\EE\sym_2 \ot \chains\EE\sym_r^{\ \ot 2}
 	\rar["\EZ"]
 	\uar["\Shi",phantom,shift right=30pt] &
-	\chains\EE(\sym_2 \times \sym_r^2)
+	\chains\EE(\sym_2 \times \sym_r^{\times 2})
 	\uar["\chains\bcirc_{\EE\!\sym}"']
 \end{tikzcd}
 \]

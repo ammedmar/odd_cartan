@@ -2,11 +2,13 @@
 
 \section{The Cartan formula}\label{s:cartan}
 
-Given an $\sym$-module $\cS$ we denote by $\cS^\wedge$ the $\cyc$-equivariant $\cS^\wedge(r) = \cS(2r)$ with
+\subsection{Cartan relators}
+
+Given an $\sym$-module $\cS$ we denote by $\cS^\wedge$ the $\cyc$-module $\cS^\wedge(r) = \cS(2r)$ with
 action defined by
 \begin{equation}\label{eq:cyclic to 2-symetric}
 	\cyc_r \xra{\rD}
-	\cyc_r \times \cyc_r \xra{\mathrm{incl}}
+	\cyc_r \times \cyc_r \hookrightarrow
 	\sym_r \times \sym_r \xra{\mathrm{split}}
 	\sym_{2r}.
 \end{equation}
@@ -22,7 +24,7 @@ Then,
 	\cO(r) \ot \cO(2)^{\ot r} \xra{\bcirc_{\cO}}
 	\cO(2r), \\
 	G_\psi \colon& \cW(r) \xra{\Delta}
-	\cW(r)^{\ot 2} \xra{\psi(r)^{\ot 2}}
+	\cW(r)^{\ot 2} \xra{\psi^{\ot 2}}
 	\cO(r)^{\ot 2} \xra{\psi_0 \ot\, \id}
 	\cO(2) \ot \cO(r)^{\ot 2} \xra{\bcirc_{\cO}}
 	\cO(2r).
@@ -32,9 +34,9 @@ Then,
 	A \textit{Cartan relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\tau F_\psi$ and $G_\psi$ where $\tau$ is the canonical reordering of \cref{ss:reordering}.
 \end{definition*}
 
-Given a Cartan relator $H_\psi$ for $(A,\psi)$ and mod $p$ cycles $a$ and $b$ in $A$, their \textit{$i^\th$ Cartan boundary} is the boundary of the chain $\zeta_i(a,b) = H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})$.
+\subsection{Cartan boundary constructions}
 
-As we will see, the existence of a Cartan relator implies the Cartan formulas
+As we will see, the existence of a Cartan relator implies the Cartan formulas:
 \begin{align*}
 	\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
@@ -42,14 +44,14 @@ As we will see, the existence of a Cartan relator implies the Cartan formulas
 	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b],
 \end{align*}
 holding for each integer $s$ and mod $p$ cycles $a$ and $b$.
-Please observe that the Cartan formulas are equivalent to
+Please observe that the Cartan formulas are equivalent to the following equations:
 \begin{align*}
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
 	\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \,-\!
 	\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
 \end{align*}
-which, somewhat abusively, we also refer to as Cartan formulas.
+ranging over $i \in \N$.
 A lift of the right hand side of these to the chain level is given by the following formulas:
 \begin{align*}
 	&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
@@ -59,11 +61,23 @@ A lift of the right hand side of these to the chain level is given by the follow
 	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
 \end{align*}
 
-\begin{theorem*}
-	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then for any mod $p$ cycles $a,b$ and integer $i \in \N$ we have
+\begin{definition*}
+	Let $(A,\psi)$ be a May--Steenrod complex.
+	A \textit{Cartan $i$-boundary construction} is a map $\zeta_i$ from pairs of mod~$p$ cycles to $A$, natural with respect to $E_\infty$-algebra chain maps, such that
 	\[
-	\bd \zeta_i(a,b) = C_\psi^p(i)(a, b).
+	\bd \zeta_i(a,b) = C_\psi^p(i)(a, b)
 	\]
+	in $A \ot \Fp$.
+
+%	Given a Cartan relator $H_\psi$ for $(A,\psi)$ and mod $p$ cycles $a$ and $b$ in $A$, their \textit{$i^\th$ Cartan boundary} .
+\end{definition*}
+
+\begin{theorem*}
+	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then
+	\[
+	\zeta_i(a,b) \defeq H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})
+	\]
+	defines a Cartan $i$-boundary construction.
 \end{theorem*}
 
 \begin{proof}
