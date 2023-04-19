@@ -32,8 +32,7 @@ In \cref{ss:closed formula for K} we give a closed form formula for $K$, and in 
 		&= \bd \eta(\mu-\nu-K\bd)(b) + K\bd(b) \\
 		&= (\id_C - \varepsilon - \eta\bd)(\mu-\nu - K\bd)(b) + K\bd(b).
 	\end{align*}
-	If $b$ is a cycle we are done since $\varepsilon(\mu-\nu) = 0$ by assumption, in particular if $b$ is of lowest degree.
-	Since $\varepsilon \eta = 0$ we have $\varepsilon K \bd(b) \defeq \varepsilon \eta(\mu-\nu-K)(\bd b) = 0$ for any $b$.
+	If $b$ is a cycle we are done since $\varepsilon(\mu-\nu) = 0$ by assumption, in particular if $b$ is of lowest degree. For an arbitrary $b$, since $\varepsilon \eta = 0$ we have $\varepsilon K \bd(b) \defeq \varepsilon \eta(\mu-\nu-K)(\bd b) = 0$, so $\varepsilon(\mu-\nu-K\partial) = 0$.
 	Additionally, by the induction assumption $\bd K (\bd b) = (\mu-\nu-K\bd)(\bd b) = (\mu-\nu)(\bd b)$ we have $\eta \bd (\mu-\nu - K\bd)(b) = 0$.
 	Therefore, we are left with
 	\begin{align*}
@@ -71,7 +70,7 @@ s_q^- =
 	0 & \text{if } q=1,
 \end{cases}
 \]
-and write $\theta_q(0,s_1,\dots,s_j;t_1,\dots,t_k)$ for
+and for each $1\leq q\leq j$, write $\theta_q(0,s_1,\dots,s_j;t_1,\dots,t_k)$ for
 \[
 (0,s_1,s_1+1,\dots,s_j,s_j+1)\ot (t_1,t_1+1,\dots,t_k,t_k+1)
 \]
@@ -92,31 +91,8 @@ if $s_q^--1 \prec s_q-1 \prec t_1-1$ and $0$ otherwise.
 	where the sum is taken over all $s_1,\dots,s_j,t_1,\dots,t_k\in \{0,1,\dots,r-1\}$.
 \end{lemma*}
 
-\begin{proof}
-	We have that
-	\begin{align*}
-		\mu(e_{2i}) &=
-		\sum_{i=j+k} \iota(e_{2j})\ot \iota(e_{2k}) \ + \!
-		\sum_{\substack{i-1=j+k \\ 0\leq s<t<r}} \rho^s\iota(e_{2j+1})\ot \rho^t\iota(e_{2k+1}) \\
-		\mu(e_{2i+1}) &=
-		\sum_{i=j+k} \iota(e_{2j})\ot \iota(e_{2k+1}) + \iota(e_{2j+1})\ot \rho \iota(e_{2k}),
-	\end{align*}
-	\anibal{I changed the 2nd sum in the 1st expression, please double check.\\}
-	and that
-	\footnote{The only thing that is used about $\nu$ is that $\eta \circ \nu = 0$ always.
-		One could replace the definition of $\nu(e_i)$ here by this observation.
-		What do you think?
-		\anibal{Yeah, I would use the minimal amount of information.}}
-	\begin{align*}
-		\nu(e_{2i}) =&\ (0)\ot(0,s_1,s_1+1,\dots,s_k,s_k+1) \\
-		&+ \sum_{k=1}^i(0,s_1,s_1+1,\dots,s_k)\ot(s_k,s_k+1\dots,s_i,s_i+1) \\
-		&+ \sum_{k=1}^i(0,s_1,s_1+1,\dots,s_k,s_{k+1})\ot(s_k+1\dots,s_i,s_i+1) \\
-		\nu(e_{2i+1}) =&\ (0)\ot(0,1,s_1,s_1+1,\dots,s_k,s_k+1) \\
-		&+ (0,1)\ot(1,s_1,s_1+1,\dots,s_k,s_k+1) \\
-		&+ \sum_{k=1}^i(0,1,s_1,s_1+1,\dots,s_k)\ot(s_k,s_k+1\dots,s_i,s_i+1) \\
-		&+ \sum_{k=1}^i(0,1,s_1,s_1+1,\dots,s_k,s_{k+1})\ot(s_k+1\dots,s_i,s_i+1).
-	\end{align*}
-	Let us proceed by induction.
+\begin{proof} 
+ 	Let us proceed by induction.
 	In degree $0$ we have that $\mu(e_0) = \nu(e_0) = 0\ot 0$, therefore we have that
 	\[K(e_0) = \eta \circ (\mu-\nu-K \circ \partial)(e_0) = 0.\]
 	which agrees with \eqref{eq:homotopyK'1} for $i=0$.
