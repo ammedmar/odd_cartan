@@ -40,7 +40,7 @@ It is equipped with the structure of a $\cyc_r$-equivariant coalgebra defined by
 \begin{align*}
 	\varepsilon(e_0) &= 1, \\
 	\Delta(e_{2i}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \! \sum_{i-1=j+k} \ \sum_{0 \leq s \leq t \leq r} \rho^s e_{2j+1} \ot \rho^t e_{2k+1}, \\
+	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \! \sum_{i-1=j+k} \ \sum_{0 \leq s < t < r} \rho^s e_{2j+1} \ot \rho^t e_{2k+1}, \\
 	\Delta(e_{2i+1}) &=
 	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k},
 \end{align*}
@@ -61,7 +61,7 @@ Generalizing this, we refer to $\psi(r)(e_i) \colon A^{\ot r} \to A$ as the \tex
 \subsection{Homology operations}
 
 Let $(A,\psi)$ be a May--Steenrod complex.
-After extending scalars to $\Fp$ the assignment sending $a$ to $\psi_i(a^{\ot p})$ is linear and maps cycles to cycles.
+After extending scalars to $\Fp$ the assignment sending $a$ to $\psi_i(a^{\ot p})$ sends cycles to cycles and induces a linear map in homology.
 We denote its induced map on the mod $p$ homology of $A$ by
 \begin{equation}\label{e:D_i^p}
 	\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
