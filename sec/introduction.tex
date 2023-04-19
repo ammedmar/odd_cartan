@@ -23,7 +23,7 @@ whose interaction with the Steenrod squares is given by the Cartan formula:
 \[
 \Sq^k\!\big([\alpha] \cdot [\beta]\big) = \sum_{i+j=k} \Sq^i [\alpha] \cdot \Sq^j[\beta].
 \]
-This relation in cohomology implies the existence  for any pair of mod $2$ cocycles of a coboundary $\delta\zeta_i(\alpha,\beta)$ satisfying:
+This relation in cohomology implies the existence, for any pair of mod $2$ cocycles, of a coboundary $\delta\zeta_i(\alpha,\beta)$ satisfying:
 \begin{equation}\label{e:lift cartan even}
 	\delta\zeta_i(\alpha, \beta) =
 	(\alpha \smallsmile_0 \beta) \cp_i (\alpha \cp_0 \beta) \ +
@@ -33,13 +33,12 @@ This relation in cohomology implies the existence  for any pair of mod $2$ cocyc
 Inspired by the application of cup-$i$ products in the theory of symmetry-protected topological phases (refer to \cite{kapustin2015cobordism, gaiotto2016spin, kapustin2017fermionic} for examples), Kapustin inquired about the construction of natural cochains $\zeta_i(\alpha, \beta)$ as in \eqref{e:lift cartan even}.
 This was presented in \cite{medina2020cartan} and later employed in \cite{barkeshli2021classification} to classify fermionic $(2+1)$-dimensional invertible phases.
 
-Not long after Steenrod's construction was introduced, a non-effective perspective based on group homology was developed.
-This new approach allowed the definition not only of Steenrod squares but also of their generalizations
+Not long after Steenrod's construction was introduced, a non-effective perspective based on group homology was developed, which allowed the definition not only of Steenrod squares but also of Steenrod operations
 \begin{align*}
-	P_s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp), \\
-	\beta P_s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp),
+	P^s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp), \\
+	\beta P^s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp),
 \end{align*}
-for odd primes, known as Steenrod operations.
+for odd primes.
 The interaction of these with the cup product are also controlled by Cartan formulas:
 \begin{align*}
 	\rP_s\big([a][b]\big) =&
@@ -50,9 +49,5 @@ The interaction of these with the cup product are also controlled by Cartan form
 
 By extending the concept of cup-$i$ products to other primes via the introduction of cup-$(p,i)$ products, an effective construction of Steenrod operations was introduced in \cite{medina2021may_st} and implemented in the specialized computer algebra system \texttt{ComCH} \cite{medina2021comch}.
 The goal of this paper is to utilize these cup-$(p,i)$ products to lift the Cartan formulas to the cochain level, and to effectively construct natural coboundaries that generalize $\zeta_i(a,b)$ in \cref{e:lift cartan even} for odd primes.
-
-\subsection*{Effectiveness}
-
-Since the adjective effective is used prominently, let us take a moment to discuss it.
-\TBW
-An effective procedure, sometimes called an algorithm, consists of a sequence of finite steps that can be carried by a Turing machine
+Our method for constructing these odd Cartan coboundaries is solely based on the combinatorial structure of simplices, which enables a computer to carry out the process locally, focusing on individual simplices sequentially.
+An actual implementation is left to future work.
