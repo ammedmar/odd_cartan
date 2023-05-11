@@ -1,6 +1,6 @@
 % !TEX root = ../odd_cartan.tex
 
-\section{Effective constructions}
+\section{Effective constructions}\label{s:effective}
 
 In this section we effectively construct natural Cartan coboundaries for the cochains of spaces and, more generally, for $E_\infty$-algebras defined using the Barratt--Eccles operad.
 
@@ -231,8 +231,9 @@ Bringing these constructions together using Diagram~\eqref{d:big diagram} we obt
 	H = \phi \circ K_1 \circ \iota \ +\ \phi \circ K_2 \circ \iota \ +\ \phi \circ \bcirc_{\BE} \circ (e \ot \id)\circ K_3
 	\]
 	is a natural Cartan relator for $A$.
+	Therefore, for $i \in \N$ and mod $p$ cocycles $a,b \in A$
+	\[
+	\bd H(e_i)(a^{\ot p} \ot b^{\ot p}) = C_\psi^p(i)(a, b)
+	\]
+	where $C_\psi^p(i)(a, b)$ is the lift of the Cartan formula defined in {\rm \cref{ss:cartan_coboundary}}.
 \end{theorem*}
-
-\subsection{Examples}
-
-We now show some examples computed using \texttt{ComCH}.
