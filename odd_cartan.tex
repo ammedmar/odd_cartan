@@ -1,14 +1,13 @@
 \immediate\write18{biber \jobname}
-
 \documentclass{amsart}
 \input{aux/style}
 \input{aux/usualcmds}
 \addbibresource{aux/usualpapers.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%
-\input{aux/commands}                   % add commands here
-\addbibresource{aux/bibliography.bib}  % add references here
-\usepackage{bm}
+\input{aux/packages} % add packages here
+\input{aux/commands} % add commands here
+\addbibresource{aux/bibliography.bib} % add references here
 
 %%%%%%%%%%%%%%%%%%%%%%
 \title[An effective proof of the Cartan formula: Odd primes]{An effective proof of the Cartan formula:\\Odd primes}
@@ -35,7 +34,10 @@
 	\input{sec/may_st}
 	\input{sec/cartan}
 	\input{sec/effective}
+	\input{sec/lemma}
 	\input{sec/postponed}
+	\todos
+	\newpage
 	\sloppy
 	\printbibliography
 \end{document}
