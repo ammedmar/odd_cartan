@@ -1,0 +1,105 @@
+% !TEX root = ../odd_cartan.tex
+
+\section{Equivariant homotopies recursively}\label{s:equivariant homotopy general}
+
+In this section we give a recursive procedure to construct equivariant homotopies for maps between a free chain complex of free $\Z[G]$-modules and a chain complex equipped with a idempotent homotopy identity.
+
+\begin{definition*}
+	A \textit{homotopy identity} is a pair $(\xi,\eta)$, where $\xi \colon D \to D$ is a chain map and $\eta$ is a chain homotopy from $\xi$ to $\id_D$.
+	Notice that $\xi \circ \eta$ is a chain homotopy from $\xi \circ \xi$ to $\xi$.
+	We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \circ \eta = 0$.
+\end{definition*}
+
+\begin{example*}
+	Chain contractions serve as a source of homotopy identities.
+	Recall that a \textit{contraction} is a triple $(\iota,\pi,\eta)$ of two chain maps
+	\[
+	\begin{tikzcd}
+		D \arrow[r,"\varepsilon", shift left=2pt] & \Z \arrow[l, "\iota", shift left=2pt]
+	\end{tikzcd}
+	\]
+	with $\varepsilon\circ\iota = \id_\Z$ and a chain homotopy $\eta \colon D \to D$ from $\iota\circ\varepsilon$ to $\id_D$.
+	Then, the pair $(\iota \circ \pi, \eta)$ is a homotopy identity which is idempotent if $D$ is non-negatively graded.
+\end{example*}
+
+\begin{theorem}\label{t:recursive construction}
+	Let $C$ a bounded-below chain complex of free $\Z[G]$-modules with a basis.
+	Let $D$ be a chain complex of $\Z[G]$-modules together with a $(\Z$-linear$)$ idempotent homotopy identity $(\xi, \eta)$.
+	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\xi \circ (\mu -\nu) = 0$, the $\Z[G]$-linear map $H \colon C \to D$ recursively defined on basis elements by
+	\begin{equation}\label{eq:lemma def}
+		H(b) = \eta \circ (\mu - \nu - H \circ \bd)(b)
+	\end{equation}
+	is a $G$-equivariant homotopy from $\mu$ to $\nu$.
+\end{theorem}
+
+\begin{proof}
+	We will use an induction argument on the degree of $b$.
+	Suppressing composition symbols we have
+	\begin{align*}
+		(\bd H + H \bd)(b)
+		&= \bd \eta(\mu - \nu - H \bd)(b) + H \bd (b) \\
+		&= (\id_D - \xi - \eta \bd)(\mu - \nu - H \bd)(b) + H \bd(b) \\
+		&= (\mu-\nu)(b) - (\xi + \eta \bd)(\mu - \nu - H \bd)(b).
+	\end{align*}
+	Therefore, the claim follows from proving the identity
+	\begin{equation}\label{eq:lemma want}
+		(\xi + \eta \bd)(\mu - \nu - H \bd)(b) = 0.
+	\end{equation}
+	If $b$ is a cycle, for example if it is in lowest degree, \eqref{eq:lemma want} follows from $\xi(\mu-\nu) = 0$.
+	Consequently, we have the base case of our induction argument.
+	Using \eqref{eq:lemma def} we have
+	\[
+	H\bd (b) = H(\bd b) = \eta(\mu-\nu-H\bd)(\bd b) = \eta(\mu-\nu)(\bd b),
+	\]
+	and, since $\xi \eta = 0$, \eqref{eq:lemma want} is equivalent to the identity
+	\[
+	\eta \bd (\mu-\nu - H\bd)(b) = 0,
+	\]
+	which in turn is equivalent to
+	\[
+	\eta (\mu-\nu - \bd H)(\bd b) = 0.
+	\]
+	By the induction hypothesis, this is a direct consequence of $\bd^2 = 0$.
+\end{proof}
+
+%OLD
+%
+%In \cref{ss:equivariant homotopy general} we give a general procedure to construct equivariant homotopies, which we use to define a $\cyc$-equivariant chain homotopy $K$ between $(\iota\ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
+%In \cref{ss:closed formula for K} we give a closed form formula for $K$, and in \cref{ss:comparins K and K3} we show that this formula agrees with the one defining $K_3$.
+%
+%\subsection{Equivariant homotopy construction}\label{ss:equivariant homotopy general}
+%
+%\begin{lemma}
+%	Let $G$ be a group, $C$ a bounded-below graded chain complex of free $\Z[G]$-modules with a basis, and $D$ a graded chain complex of $\Z[G]$-modules together with a $\Z$-linear endomorphism $\eta$ satisfying for some chain endomorphism $\varepsilon$ that:
+%	\begin{enumerate}
+%		\item $\bd \circ \, \eta + \eta \circ \bd = \id_C - \varepsilon$,
+%		\item $\varepsilon \circ \eta = 0$.
+%	\end{enumerate}
+%	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\varepsilon \circ (\mu-\nu) = 0$, the $\Z[G]$-linear map $K \colon C \to D$ recursively defined on basis elements by
+%	\[
+%	K(b) = \eta \circ (\mu - \nu - K \circ \bd)(b),
+%	\]
+%	satisfies
+%	\[
+%	\bd \circ \, K + K \circ \bd = \mu - \nu.
+%	\]
+%\end{lemma}
+%
+%\begin{proof}
+%	We will use an induction argument.
+%	Suppressing composition symbols we have
+%	\begin{align*}
+%		(\bd K+ 'bd)(b)
+%		&= \bd \eta(\mu-\nu-K\bd)(b) + K\bd(b) \\
+%		&= (\id_C - \varepsilon - \eta\bd)(\mu-\nu - K\bd)(b) + K\bd(b).
+%	\end{align*}
+%	If $b$ is a cycle we are done since $\varepsilon(\mu-\nu) = 0$ by assumption, in particular if $b$ is of lowest degree. For an arbitrary $b$, since $\varepsilon \eta = 0$ we have $\varepsilon K \bd(b) \defeq \varepsilon \eta(\mu-\nu-K)(\bd b) = 0$, so $\varepsilon(\mu-\nu-K\partial) = 0$.
+%	Additionally, by the induction assumption $\bd K (\bd b) = (\mu-\nu-K\bd)(\bd b) = (\mu-\nu)(\bd b)$ we have $\eta \bd (\mu-\nu - K\bd)(b) = 0$.
+%	Therefore, we are left with
+%	\begin{align*}
+%		(\bd K+ K\bd)(b) &=
+%		\id_C(\mu-\nu-K\bd)(b)+K\bd(b) \\&=
+%		(\mu-\nu)(b)
+%	\end{align*}
+%	as desired.
+%\end{proof}

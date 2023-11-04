@@ -1,24 +1,44 @@
 % !TEX root = ../odd_cartan.tex
 
-\section{A closed form formula for $K_3$}\label{s:postponed}
+\section{Revisiting $K_3$}\label{s:postponed}
 
-In this section we prove that $K_3 \colon \cW(r) \to \cC(r) \ot \cC(r)$ is a $\cyc$-equivariant chain homotopy between $(\iota \ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
-%In \cref{ss:closed formula for K} we give a closed form formula for $K$, and in \cref{ss:comparins K and K3} we show that this formula agrees with the one defining $K_3$.
+In this section we prove that $K_3 \colon \cW(r) \to \cC(r) \ot \cC(r)$, as defined in \cref{ss:coproduct}, is a $\cyc$-equivariant chain homotopy between $(\iota \ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
 
-We can apply this lemma to obtain a $\cyc$-equivariant homotopy $K$ from $\mu = (\iota \ot \iota) \circ \Delta$ to $\nu = \Delta_{\AW} \circ \iota$, using the endomorphisms of $\cC(r) \ot \cC(r)$ given by
+\subsection{The recursively defined chain homotopy $K$}
+
+We can apply the recursive construction of the previous section to obtain a $\cyc$-equivariant homotopy $K$ making the following diagram commute:
+\begin{equation*}
+	\begin{tikzcd}[column sep=large]
+		\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K"]&
+		\cC \arrow[d,"\Delta_{\AW}"] \\
+		\cW^{\ot 2} \arrow[r,"\iota^{\ot 2}"'] &
+		\cC^{\ot 2}.
+	\end{tikzcd}
+\end{equation*}
+To do so, we consider the map $\xi$ and $\eta$ on $\cC(r) \ot \cC(r)$ given by
 \[
-\eta \big((s_0,\dots,s_j) \ot (t_0,\dots,t_k)\big) = (0,s_0,\dots,s_j) \ot (t_0,\dots,t_k),
-\]
-and
-\[
-\varepsilon(s \ot t) =
+\xi(s \ot t) =
 \begin{cases}
 	\rho^0 \ot t & \text{if } \deg(s \ot t) = 0, \\
 	\hfil0 & \text{otherwise}.
 \end{cases}
 \]
+and
+\[
+\eta \big((s_0,\dots,s_j) \ot (t_0,\dots,t_k)\big) = (0,s_0,\dots,s_j) \ot (t_0,\dots,t_k)
+\]
+respectively, and denote by $\mu = (\iota \ot \iota) \circ \Delta$ and $\nu = \Delta_{\AW} \circ \iota$.
 
-%\subsection{A closed formula for $K$}\label{ss:closed formula for K}
+The following claim is easily verified.
+\begin{lemma*}
+	The pair $(\xi,\eta)$ is an idempotent homotopy identity and
+	\[
+	\xi \circ (\mu - \nu) = 0.
+	\]
+\end{lemma*}
+Since $\cW(r)$ has a preferred basis, \cref{t:recursive construction} applies and produces the desired equivariant chain homotopy $K$.
+
+\subsection{A closed formula for $K$}\label{ss:closed formula for K}
 
 Using the bijection $\cyc_r\cong\{0,1,\dots,r-1\}$ the group $\cyc_r$ receives a total order.
 Consider additionally the cyclic order on $\cyc_r$, which is a ternary relation given on elements $a,b,c\in \{0,1,\dots,r-1\}$ as follows: $a\prec b\prec c$
