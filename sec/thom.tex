@@ -1,0 +1,70 @@
+% !TEX root = ../odd_cartan.tex
+
+\appendix
+\section{An effective proof of Thom's theorem}\label{s:thom}
+
+%In this section we will provide an effective proof of Thom's theorem \cite[218]{steenrod1953cyclic} as stated in \cref{ss:homology_operations}.
+
+Let $(A,\psi)$ be a May--Steenrod complex.
+Recall that
+\[
+\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp)
+\]
+is defined, after extending scalar to $\Fp$, by sending an $n$-cycle $a$ to $\psi_i(a^{\ot p})$.
+Thom's theorem (\cite[218]{steenrod1953cyclic}) states that the map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
+
+\subsection{Thom $i$-boundary constructions}
+
+A \textit{Thom $i$-boundary construction} is a map $\theta_i$ from mod~$p$ cycles in $A$ to $A$, natural with respect to $E_\infty$-algebra maps, such that
+\[
+\bd \theta_i(a) = \psi_i(a^{\ot p})
+\]
+unless the degree of $a$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
+
+Clearly, the existence of a Thom $i$-boundary construction for each $i \in \N$ implies Thom's theorem.
+
+\subsection{The map $\lambda_\#$}
+
+Following Steenrod's proof of Thom's theorem we introduce the $\cyc$-module chain map $\lambda_\# \colon \cW \to \cW$ defined by
+\[
+\lambda_\#(e_{2i}) = 2^i e_{2i}, \qquad
+\lambda_\#(e_{2i+1}) = 2^i (1 + \rho) e_{2i+1}.
+\]
+
+\subsection{Thom relator}
+
+A \textit{Thom relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\psi$ and $\psi \circ \lambda_\#$.
+
+\begin{theorem*}
+	If $L_\psi$ is a Cartan relator for $(A, \psi)$ then
+	\[
+	\theta_i(a) \defeq L_\psi^p(e_i)(a^{\ot p})
+	\]
+	defines a Thom $i$-boundary construction.
+\end{theorem*}
+
+\begin{proof}
+	First, notice that $(1-2^i) \equiv 0$ mod $p$ if and only if $i$ is a multiple of $(p-1)$.
+
+
+	\[
+	C^p_\psi(i)(a,b) =
+	\big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
+	\]
+	Second, using that in $A \ot \Fp$
+	\begin{align*}
+		H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
+		(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
+		H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
+		(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
+	\end{align*}
+	we have
+	\begin{align*}
+		\bd_A \zeta_i(a,b) =&
+		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
+		\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
+		\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
+		H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
+		C^p_\psi(i)(a,b).\qedhere
+	\end{align*}
+\end{proof}
