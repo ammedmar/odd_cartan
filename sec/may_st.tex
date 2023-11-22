@@ -58,7 +58,7 @@ We refer to a chain complex with a May--Steenrod structure as a \textit{May--Ste
 A May--Steenrod complex $(A,\psi)$ has a preferred product $\psi(2)(e_0) \colon A \ot A \to A$ which we denote for elements $a, b \in A$ simply as $a \cp b$.
 Generalizing this, we refer to $\psi(r)(e_i) \colon A^{\ot r} \to A$ as the \textit{cup-$(r,i)$ product}, denoting it $\psi_i^r$ or simply $\psi_i$ when $r$ is clear from the context.
 
-\subsection{Homology operations}
+\subsection{Homology operations}\label{ss:homology_operations}
 
 Let $(A,\psi)$ be a May--Steenrod complex.
 After extending scalars to $\Fp$ the assignment sending $a$ to $\psi_i(a^{\ot p})$ sends cycles to cycles and induces a linear map in homology.
@@ -66,9 +66,14 @@ We denote its induced map on the mod $p$ homology of $A$ by
 \begin{equation}\label{e:D_i^p}
 	\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
 \end{equation}
-We will emphasize these homology operations as opposed to the operations $P_s$ and $\beta P_s$ that we now define.
-The map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
-Please consult \cite[Proposition 2.3. (iv)]{may1970general} for a proof.
+We will focus on these homology operations rather than the operations $P_s$ and $\beta P_s$ which we define below.
+An essential observation that underpins their definition is attributed by Steenrod to Thom \cite[Theorem~4.8]{steenrod1947products}.
+For completeness, we will provide an effective proof of this observation in \cref{s:thom}.
+%In the notation we use, it is expressed as follows.
+\begin{theorem*}
+	The map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
+\end{theorem*}
+%Please consult \cite[Proposition 2.3. (iv)]{may1970general} for a proof.
 With this in mind, one defines the \textit{Steenrod operations}
 \begin{align*}
 	P_s \colon& H_\bullet(A; \Fp) \to H_{\bullet + 2s(p-1)}(A; \Fp), \\
