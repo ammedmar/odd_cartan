@@ -10,17 +10,27 @@ In this section we give a recursive procedure to construct equivariant homotopie
 	We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \circ \eta = 0$.
 \end{definition*}
 
-\begin{example*}
-	Chain contractions serve as a source of homotopy identities.
-	Recall that a \textit{contraction} is a triple $(\iota,\pi,\eta)$ of two chain maps
-	\[
-	\begin{tikzcd}
-		D \arrow[r,"\varepsilon", shift left=2pt] & \Z \arrow[l, "\iota", shift left=2pt]
-	\end{tikzcd}
-	\]
-	with $\varepsilon\circ\iota = \id_\Z$ and a chain homotopy $\eta \colon D \to D$ from $\iota\circ\varepsilon$ to $\id_D$.
-	Then, the pair $(\iota \circ \pi, \eta)$ is a homotopy identity which is idempotent if $D$ is non-negatively graded.
-\end{example*}
+\begin{definition*}
+	A \emph{strong deformation retract} \cite{Lambe-Stasheff} of a chain complex $D$ is a quadruple $(D',f,g,\eta)$, where $f\colon D' \to D$ and $g\colon D\to D'$ are chain maps, $g\circ f = \id_{D'}$ and $\eta$ is a chain homotopy from $\xi=f\circ g$ to $\id_D$. A \emph{contraction} \cite{EML,gonzalez2003computation} is a strong deformation retract that additionally satisfies the following:
+	\begin{itemize}
+		\item[(i)] $\xi\circ \eta = 0$,
+		\item[(ii)] $\eta\circ \xi = 0$,
+		\item[(iii)] $\eta\circ\eta = 0$.
+	\end{itemize}
+\end{definition*}
+	The data of an idempotent homotopy identity is the same as that of a strong deformation retract satisfying Condition (i). The following construction is an adaptation of \cite[p.\ 367]{Lambe-Stasheff}.
+
+%\begin{example*}
+%	Chain contractions serve as a source of homotopy identities.
+%	Recall that a \textit{contraction} is a triple $(\iota,\pi,\eta)$ of two chain maps
+%	\[
+%	\begin{tikzcd}
+%		D \arrow[r,"\varepsilon", shift left=2pt] & \Z \arrow[l, "\iota", shift left=2pt]
+%	\end{tikzcd}
+%	\]
+%	with $\varepsilon\circ\iota = \id_\Z$ and a chain homotopy $\eta \colon D \to D$ from $\iota\circ\varepsilon$ to $\id_D$.
+%	Then, the pair $(\iota \circ \pi, \eta)$ is a homotopy identity which is idempotent if $D$ is non-negatively graded.
+%\end{example*}
 
 \begin{theorem}\label{t:recursive construction}
 	Let $C$ a bounded-below chain complex of free $\Z[G]$-modules with a basis.
@@ -51,7 +61,7 @@ In this section we give a recursive procedure to construct equivariant homotopie
 	\[
 	H\bd (b) = H(\bd b) = \eta(\mu-\nu-H\bd)(\bd b) = \eta(\mu-\nu)(\bd b),
 	\]
-	and, since $\xi \eta = 0$, \eqref{eq:lemma want} is equivalent to the identity
+	and, since $\xi \eta = 0$ and $\xi(\mu-\nu)=0$, \eqref{eq:lemma want} is equivalent to the identity
 	\[
 	\eta \bd (\mu-\nu - H\bd)(b) = 0,
 	\]
@@ -59,7 +69,7 @@ In this section we give a recursive procedure to construct equivariant homotopie
 	\[
 	\eta (\mu-\nu - \bd H)(\bd b) = 0.
 	\]
-	By the induction hypothesis, this is a direct consequence of $\bd^2 = 0$.
+	By the induction hypothesis, $\mu-\nu-\bd H = H\bd$, so the left had-side vanishes.
 \end{proof}
 
 %OLD
