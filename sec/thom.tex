@@ -31,12 +31,20 @@ Following Steenrod's proof of Thom's theorem we introduce the $\cyc$-module chai
 \lambda_\#(e_{2i+1}) = 2^i (1 + \rho) e_{2i+1}.
 \]
 
+\subsection{The element $\gamma$}
+
+Let $\gamma \in \sym_p$ be defined by
+\[
+\gamma(i) = 2i.
+\]
+We remark that it is an odd permutation.
+
 \subsection{Thom relator}
 
-A \textit{Thom relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\psi$ and $\psi \circ \lambda_\#$.
+A \textit{Thom relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda_\#$.
 
 \begin{theorem*}
-	If $L_\psi$ is a Cartan relator for $(A, \psi)$ then
+	If $L_\psi$ is a Thom relator for $(A, \psi)$ then
 	\[
 	\theta_i(a) \defeq L_\psi^p(e_i)(a^{\ot p})
 	\]
@@ -44,27 +52,60 @@ A \textit{Thom relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equi
 \end{theorem*}
 
 \begin{proof}
-	First, notice that $(1-2^i) \equiv 0$ mod $p$ if and only if $i$ is a multiple of $(p-1)$.
-
-
-	\[
-	C^p_\psi(i)(a,b) =
-	\big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
-	\]
-	Second, using that in $A \ot \Fp$
+	Let us write $L$ instead of $L_\psi^p$.
+	Since $a$ is a mod~$p$ cycle,
 	\begin{align*}
-		H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
-		(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
-		H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
-		(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
+		\bd \comp\, \theta_i(a) & =
+		\bd \comp L(e_i)(a^{\ot p}) \\ & =
+		\big(\bd \comp L(e_i) + L(e_i) \comp \bd \big) (a^{\ot p}) \\ & =
+		\bd \big(L(e_i)\big)(a^{\ot p}) \\ & =
+		\big((\bd L)(e_i) - L(\bd e_i)\big)(a^{\ot p}).
+	\end{align*}
+	Since
+	\begin{align*}
+		&L(\bd e_{2k})(a^{\ot p}) = L(e_{2k-1}) N(a^{\ot p}) = 0, \\
+		&L(\bd e_{2k+1})(a^{\ot p}) = L(e_{2k}) T(a^{\ot p}) = 0,
 	\end{align*}
 	we have
 	\begin{align*}
-		\bd_A \zeta_i(a,b) =&
-		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
-		\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
-		\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
-		H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
-		C^p_\psi(i)(a,b).\qedhere
+		\bd \comp\, \theta_i(a) & =
+		(\bd L)(e_i)(a^{\ot p}) \\ & =
+		(\psi \comp \lambda_\# - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
+		\begin{cases}
+			\big(2^k - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k, \\
+			\big(2^{k+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k+1,
+		\end{cases}
 	\end{align*}
+	where we used that $\gamma$ is an odd permutation and that $\rho$ is an even one.
+	The claim follows from the fact that $2^k \equiv 1$ mod $p$ if and only if $k = \ell(p-1)$ for some $\ell$, and $2^k \equiv -1$ mod $p$ if and only if $2k = (2\ell+1)(p-1)$ for some $\ell$.
 \end{proof}
+
+\subsection{The homotopy $M$}
+
+\TBW
+
+%\begin{proof}
+%	First, notice that $(1-2^i) \equiv 0$ mod $p$ if and only if $i$ is a multiple of $(p-1)$.
+%
+%
+%	\[
+%	C^p_\psi(i)(a,b) =
+%	\big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
+%	\]
+%	Second, using that in $A \ot \Fp$
+%	\begin{align*}
+%		H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
+%		(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
+%		H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
+%		(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
+%	\end{align*}
+%	we have
+%	\begin{align*}
+%		\bd_A \zeta_i(a,b) =&
+%		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
+%		\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
+%		\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
+%		H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
+%		C^p_\psi(i)(a,b).\qedhere
+%	\end{align*}
+%\end{proof}
