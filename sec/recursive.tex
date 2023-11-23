@@ -7,30 +7,8 @@ In this section we give a recursive procedure to construct equivariant homotopie
 \begin{definition*}
 	A \textit{homotopy identity} is a pair $(\xi,\eta)$, where $\xi \colon D \to D$ is a chain map and $\eta$ is a chain homotopy from $\xi$ to $\id_D$.
 	Notice that $\xi \circ \eta$ is a chain homotopy from $\xi \circ \xi$ to $\xi$.
-	We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \circ \eta = 0$.
+	We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \circ \eta = 0$, which implies $\xi \circ \xi = \xi$.
 \end{definition*}
-
-\begin{definition*}
-	A \emph{strong deformation retract} \cite{Lambe-Stasheff} of a chain complex $D$ is a quadruple $(D',f,g,\eta)$, where $f\colon D' \to D$ and $g\colon D\to D'$ are chain maps, $g\circ f = \id_{D'}$ and $\eta$ is a chain homotopy from $\xi=f\circ g$ to $\id_D$. A \emph{contraction} \cite{EML,gonzalez2003computation} is a strong deformation retract that additionally satisfies the following:
-	\begin{itemize}
-		\item[(i)] $\xi\circ \eta = 0$,
-		\item[(ii)] $\eta\circ \xi = 0$,
-		\item[(iii)] $\eta\circ\eta = 0$.
-	\end{itemize}
-\end{definition*}
-	The data of an idempotent homotopy identity is the same as that of a strong deformation retract satisfying Condition (i). The following construction is an adaptation of \cite[p.\ 367]{Lambe-Stasheff}.
-
-%\begin{example*}
-%	Chain contractions serve as a source of homotopy identities.
-%	Recall that a \textit{contraction} is a triple $(\iota,\pi,\eta)$ of two chain maps
-%	\[
-%	\begin{tikzcd}
-%		D \arrow[r,"\varepsilon", shift left=2pt] & \Z \arrow[l, "\iota", shift left=2pt]
-%	\end{tikzcd}
-%	\]
-%	with $\varepsilon\circ\iota = \id_\Z$ and a chain homotopy $\eta \colon D \to D$ from $\iota\circ\varepsilon$ to $\id_D$.
-%	Then, the pair $(\iota \circ \pi, \eta)$ is a homotopy identity which is idempotent if $D$ is non-negatively graded.
-%\end{example*}
 
 \begin{theorem}\label{t:recursive construction}
 	Let $C$ a bounded-below chain complex of free $\Z[G]$-modules with a basis.
@@ -72,8 +50,16 @@ In this section we give a recursive procedure to construct equivariant homotopie
 	By the induction hypothesis, $\mu-\nu-\bd H = H\bd$, so the left had-side vanishes.
 \end{proof}
 
-%OLD
-%
+\begin{remark*}
+	A \emph{strong deformation retract} \cite{Lambe-Stasheff} of a chain complex $D$ is a tuple $(D',f,g,\eta)$, where $f\colon D' \to D$ and $g\colon D\to D'$ are chain maps, $g\circ f = \id_{D'}$ and $\eta$ is a chain homotopy from $\xi=f\circ g$ to $\id_D$. A \emph{contraction} \cite{EML,gonzalez2003computation} is a strong deformation retract that additionally satisfies the following:
+	\[
+	\text{(i)}\ \xi \circ \eta = 0, \quad
+	\text{(ii)}\ \eta\circ \xi = 0, \quad
+	\text{(iii)}\ \eta\circ\eta = 0.
+	\]
+	Using this language, an idempotent homotopy identity is a strong deformation retract satisfying (i), and we remark that \cref{t:recursive construction} is an adaptation of \cite[p.367]{Lambe-Stasheff}.
+\end{remark*}
+%OLD remark*}
 %In \cref{ss:equivariant homotopy general} we give a general procedure to construct equivariant homotopies, which we use to define a $\cyc$-equivariant chain homotopy $K$ between $(\iota\ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
 %In \cref{ss:closed formula for K} we give a closed form formula for $K$, and in \cref{ss:comparins K and K3} we show that this formula agrees with the one defining $K_3$.
 %
