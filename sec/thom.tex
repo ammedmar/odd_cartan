@@ -11,42 +11,39 @@ Recall that
 \rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp)
 \]
 is defined, after extending scalar to $\Fp$, by sending an $n$-cycle $a$ to $\psi_i(a^{\ot p})$.
-Thom's theorem (\cite[218]{steenrod1953cyclic}) states that the map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
+Thom's theorem (\cite[218]{steenrod1953cyclic}) states that the map $\rD_i^p$ is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 
 \subsection{Thom $i$-boundary constructions}
 
-A \textit{Thom $i$-boundary construction} is a map $\theta_i$ from mod~$p$ cycles in $A$ to $A$, natural with respect to $E_\infty$-algebra maps, such that
+A \textit{Thom $i$-boundary construction} at the prime $p$ is a map $\theta_i$ from mod~$p$ cycles in $A$ to $A$, natural with respect to $E_\infty$-algebra maps, such that
 \[
-\bd \theta_i(a) = \psi_i(a^{\ot p})
+\bd \theta_i(a) = \kappa_i(a) \psi_i(a^{\ot p})
 \]
-unless the degree of $a$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
+for some invertible scalar $\kappa_i(a) \in \Fp$, unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 
 Clearly, the existence of a Thom $i$-boundary construction for each $i \in \N$ implies Thom's theorem.
 
-\subsection{The map $\lambda_\#$}
+\subsection{The map $\lambda$ and the element $\gamma$}
 
-Following Steenrod's proof of Thom's theorem we introduce the $\cyc$-module chain map $\lambda_\# \colon \cW \to \cW$ defined by
+Following Steenrod's proof of Thom's theorem we introduce the $\cyc$-module chain map $\lambda \colon \cW \to \cW$ defined by
 \[
-\lambda_\#(e_{2i}) = 2^i e_{2i}, \qquad
-\lambda_\#(e_{2i+1}) = 2^i (1 + \rho) e_{2i+1}.
+\lambda(e_{2i}) = 2^i e_{2i}, \qquad
+\lambda(e_{2i+1}) = 2^i (1 + \rho) e_{2i+1},
 \]
-
-\subsection{The element $\gamma$}
-
-Let $\gamma \in \sym_p$ be defined by
+and the element $\gamma \in \sym_p \cong \mathrm{Bij}(\Fp, \Fp)$ defined by
 \[
 \gamma(i) = 2i.
 \]
-We remark that it is an odd permutation.
+We remark that $\gamma$ is an odd permutation.
 
 \subsection{Thom relator}
 
-A \textit{Thom relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda_\#$.
+A \textit{Thom relator} $L_\psi^p \colon W \to \Hom(A^{\ot p}, A)$ for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda$.
 
 \begin{theorem*}
-	If $L_\psi$ is a Thom relator for $(A, \psi)$ then
+	If $L_\psi^p$ is a Thom relator for $(A, \psi)$ then
 	\[
-	\theta_i(a) \defeq L_\psi^p(e_i)(a^{\ot p})
+	\theta_i(a) = L_\psi^p(e_i)(a^{\ot p})
 	\]
 	defines a Thom $i$-boundary construction.
 \end{theorem*}
@@ -58,7 +55,7 @@ A \textit{Thom relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equi
 		\bd \comp\, \theta_i(a) & =
 		\bd \comp L(e_i)(a^{\ot p}) \\ & =
 		\big(\bd \comp L(e_i) + L(e_i) \comp \bd \big) (a^{\ot p}) \\ & =
-		\bd \big(L(e_i)\big)(a^{\ot p}) \\ & =
+		\big(\bd L(e_i)\big)(a^{\ot p}) \\ & =
 		\big((\bd L)(e_i) - L(\bd e_i)\big)(a^{\ot p}).
 	\end{align*}
 	Since
@@ -70,7 +67,7 @@ A \textit{Thom relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equi
 	\begin{align*}
 		\bd \comp\, \theta_i(a) & =
 		(\bd L)(e_i)(a^{\ot p}) \\ & =
-		(\psi \comp \lambda_\# - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
+		(\psi \comp \lambda - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
 		\begin{cases}
 			\big(2^k - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k, \\
 			\big(2^{k+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k+1,
