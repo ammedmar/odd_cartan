@@ -12,33 +12,66 @@ Recall that
 \]
 is defined, after extending scalar to $\Fp$, by sending an $n$-cycle $a$ to $\psi_i(a^{\ot p})$.
 Thom's theorem (\cite[218]{steenrod1953cyclic}) states that the map $\rD_i^p$ is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
+We will lift to the chain level Steenrod's proof of this statement.
+Throughout this section $k \in \Fp$ is a non-zero element.
 
 \subsection{Thom $i$-boundary constructions}
 
 A \textit{Thom $i$-boundary construction} at the prime $p$ is a map $\theta_i$ from mod~$p$ cycles in $A$ to $A$, natural with respect to $E_\infty$-algebra maps, such that
 \[
-\bd \theta_i(a) = \kappa_i(a) \psi_i(a^{\ot p})
+\bd \theta_i(a) = k_i(a) \psi_i(a^{\ot p})
 \]
-for some invertible scalar $\kappa_i(a) \in \Fp$, unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
+for some non-zero $k_i(a) \in \Fp$, unless for some $\varepsilon \in \set{0,1}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 
 Clearly, the existence of a Thom $i$-boundary construction for each $i \in \N$ implies Thom's theorem.
 
-\subsection{The map $\lambda$ and the element $\gamma$}
+\subsection{The map $\lambda$}
 
-Following Steenrod's proof of Thom's theorem we introduce the $\cyc$-module chain map $\lambda \colon \cW \to \cW$ defined by
+Let $\lambda \colon \cW \to \cW$ be defined by
 \[
-\lambda(e_{2i}) = 2^i e_{2i}, \qquad
-\lambda(e_{2i+1}) = 2^i (1 + \rho) e_{2i+1},
+\lambda(\rho^s e_{2i}) = k^i \rho^{ks} e_{2i}, \qquad
+\lambda(\rho^s e_{2i+1}) = k^i (1+\rho+\dots+\rho^{k-1}) \rho^{ks} e_{2i+1}.
 \]
-and the element $\gamma \in \sym_p \cong \mathrm{Bij}(\Fp, \Fp)$ defined by
+We verify that $\lambda$ is a chain map, which is $\cyc$-linear if the action of $\rho$ on the target is by $\rho^k$.
+Using that $\rho N = N$ we have
 \[
-\gamma(i) = 2i.
+\bd \comp \lambda(\rho^s e_{2i}) = k^i \rho^{ks} \bd (e_{2i}) = k^i \rho^{ks} N e_{2i-1} = k^i N e_{2i-1}
+\]
+and
+\begin{align*}
+	\lambda \comp \bd(\rho^s e_{2i}) &= \lambda(N e_{2i-1}) = k^{i-1}(1+\rho+\dots+\rho^{k-1}) (1+\rho^k+\dots+\rho^{kp-k}) e_{2i-1} \\ &=
+	k^i N e_{2i-1}
+\end{align*}
+since $(1+\rho+\dots+\rho^{k-1}) (1+\rho^k+\dots+\rho^{kp-k}) = kN$.
+This proves the claim for even degrees.
+For odd degrees, we have
+\begin{multline*}
+	\bd \comp \lambda(\rho^s e_{2i+1}) = k^i (1+\rho+\dots+\rho^{k-1}) \rho^{ks} \bd (e_{2i+1}) \\
+	= k^i (1+\rho+\dots+\rho^{k-1}) \rho^{ks} T e_{2i} = k^i \rho^{ks} (\rho^k-1) e_{2i}
+\end{multline*}
+and
+\[
+\lambda \comp \bd(\rho^s e_{2i+1}) = \lambda(\rho^s T e_{2i}) = k^i\rho^{ks}(\rho^k-1) e_{2i}.
+\]
+
+\subsection{The element $\gamma$}
+
+Let $\gamma \in \sym_p \cong \mathrm{Bij}(\Fp, \Fp)$ defined by
+\[
+\gamma(i) = ki.
 \]
 We remark that $\gamma$ is an odd permutation.
+We use the notation $\sigma^\gamma = \gamma \sigma \gamma^{-1}$
+%\begin{align*}
+%	(-)^\gamma \colon \sym_p &\to \sym_p \\
+%	\sigma &\mapsto \gamma \sigma \gamma^{-1}
+%\end{align*}
+and notice that $\rho^\gamma = \rho^k$.
+This implies that the $\EE\,(-)^\gamma \colon \EE\sym_p \to \EE\sym_p$ restricts to a simplicial map $\EE\cyc_p \to \EE\cyc_p$, and we denote the induced chain map by $\gamma_\ast$, which is $\cyc$-equivariant if the action of $\rho$ on the target is by $\rho^k$.
 
 \subsection{Thom relator}
 
-A \textit{Thom relator} $L_\psi^p \colon W \to \Hom(A^{\ot p}, A)$ for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda$.
+A \textit{Thom relator} $L_\psi^p \colon W \to \Hom(A^{\ot p}, A)$ for a May--Steenrod complex $(A, \psi)$ is a chain homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda$.
 
 \begin{theorem*}
 	If $L_\psi^p$ is a Thom relator for $(A, \psi)$ then
@@ -69,12 +102,12 @@ A \textit{Thom relator} $L_\psi^p \colon W \to \Hom(A^{\ot p}, A)$ for a May--St
 		(\bd L)(e_i)(a^{\ot p}) \\ & =
 		(\psi \comp \lambda - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
 		\begin{cases}
-			\big(2^k - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k, \\
+			\big(k^i - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k, \\
 			\big(2^{k+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k+1,
 		\end{cases}
 	\end{align*}
 	where we used that $\gamma$ is an odd permutation and that $\rho$ is an even one.
-	The claim follows from the fact that $2^k \equiv 1$ mod $p$ if and only if $k = \ell(p-1)$ for some $\ell$, and $2^k \equiv -1$ mod $p$ if and only if $2k = (2\ell+1)(p-1)$ for some $\ell$.
+	The claim follows from the fact that $k^i \equiv 1$ mod $p$ if and only if $k = \ell(p-1)$ for some $\ell$, and $k^i \equiv -1$ mod $p$ if and only if $2k = (2\ell+1)(p-1)$ for some $\ell$.
 \end{proof}
 
 \subsection{The homotopy $M$}
@@ -82,7 +115,7 @@ A \textit{Thom relator} $L_\psi^p \colon W \to \Hom(A^{\ot p}, A)$ for a May--St
 \TBW
 
 %\begin{proof}
-%	First, notice that $(1-2^i) \equiv 0$ mod $p$ if and only if $i$ is a multiple of $(p-1)$.
+%	First, notice that $(1-k^i) \equiv 0$ mod $p$ if and only if $i$ is a multiple of $(p-1)$.
 %
 %
 %	\[
