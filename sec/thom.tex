@@ -13,7 +13,8 @@ Recall that
 is defined, after extending scalar to $\Fp$, by sending an $n$-cycle $a$ to $\psi_i(a^{\ot p})$.
 Thom's theorem (\cite[218]{steenrod1953cyclic}) states that the map $\rD_i^p$ is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 We will lift to the chain level Steenrod's proof of this statement.
-Throughout this section $k \in \Fp$ is a non-zero element.
+
+Throughout this section $k \in \Fp$ is a fixed non-zero scalar.
 
 \subsection{Thom $i$-boundary constructions}
 
@@ -54,24 +55,28 @@ and
 \lambda \comp \bd(\rho^s e_{2i+1}) = \lambda(\rho^s T e_{2i}) = k^i\rho^{ks}(\rho^k-1) e_{2i}.
 \]
 
+\begin{remark*}
+	In both \cite[p.219]{steenrod1953cyclic} and \cite[p.159]{may1970general} the map $\cW \to \cW$ defined by the assignment
+	\[
+	e_{2i} \mapsto k^i e_{2i}, \qquad
+	e_{2i+1} \mapsto k^i (1+\rho+\dots+\rho^{k-1}) e_{2i+1}
+	\]
+	is claimed to be a chain map, but the $\cyc$-equivariant extension of this assignment is not a chain map with the usual action of $\cyc_p$ on the target $\cW$.
+\end{remark*}
+
 \subsection{The element $\gamma$}
 
-Let $\gamma \in \sym_p \cong \mathrm{Bij}(\Fp, \Fp)$ defined by
-\[
-\gamma(i) = ki.
-\]
+Let $\gamma \in \sym_p \cong \mathrm{Bij}(\Fp, \Fp)$ be defined by $\gamma(q) = kq$.
 We remark that $\gamma$ is an odd permutation.
 We use the notation $\sigma^\gamma = \gamma \sigma \gamma^{-1}$
-%\begin{align*}
-%	(-)^\gamma \colon \sym_p &\to \sym_p \\
-%	\sigma &\mapsto \gamma \sigma \gamma^{-1}
-%\end{align*}
 and notice that $\rho^\gamma = \rho^k$.
-This implies that the $\EE\,(-)^\gamma \colon \EE\sym_p \to \EE\sym_p$ restricts to a simplicial map $\EE\cyc_p \to \EE\cyc_p$, and we denote the induced chain map by $\gamma_\ast$, which is $\cyc$-equivariant if the action of $\rho$ on the target is by $\rho^k$.
+This implies that the induced simplicial map $\EE\sym_p \to \EE\sym_p$ restricts to a map $\EE\cyc_p \to \EE\cyc_p$.
+We denote its induced chain map by $\gamma_\ast \colon \cC(p) \to \cC(p)$, which is $\cyc$-equivariant if the action of $\rho$ on the target is by $\rho^k$.
 
 \subsection{Thom relator}
 
-A \textit{Thom relator} $L_\psi^p \colon W \to \Hom(A^{\ot p}, A)$ for a May--Steenrod complex $(A, \psi)$ is a chain homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda$.
+A \textit{Thom relator} $L_\psi^p \colon \cW \to \Hom(A^{\ot p}, A)$ for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda$ where the action of $\rho$ on the target is by $\rho^k$.
+Explicitly, this means that $L_\psi^p(\rho e_i) = \rho^k L_\psi^p(e_i)$.
 
 \begin{theorem*}
 	If $L_\psi^p$ is a Thom relator for $(A, \psi)$ then
@@ -89,53 +94,90 @@ A \textit{Thom relator} $L_\psi^p \colon W \to \Hom(A^{\ot p}, A)$ for a May--St
 		\bd \comp L(e_i)(a^{\ot p}) \\ & =
 		\big(\bd \comp L(e_i) + L(e_i) \comp \bd \big) (a^{\ot p}) \\ & =
 		\big(\bd L(e_i)\big)(a^{\ot p}) \\ & =
-		\big((\bd L)(e_i) - L(\bd e_i)\big)(a^{\ot p}).
+		\big((\bd L)(e_i) - L(\bd e_i)\big)(a^{\ot p}) \\ & =
+		\big((\psi \comp \lambda - \gamma \comp \psi)(e_i) - L(\bd e_i)\big) (a^{\ot p}).
 	\end{align*}
-	Since
+	Since for any $\ell \in \N$,
 	\begin{align*}
-		&L(\bd e_{2k})(a^{\ot p}) = L(e_{2k-1}) N(a^{\ot p}) = 0, \\
-		&L(\bd e_{2k+1})(a^{\ot p}) = L(e_{2k}) T(a^{\ot p}) = 0,
+		&L(\bd e_{2\ell})(a^{\ot p}) = L(N e_{2\ell-1}) = (1+\rho^k+\dots+\rho^{kp-k})L(e_{2\ell-1}) (a^{\ot p}) = 0, \\
+		&L(\bd e_{2\ell+1})(a^{\ot p}) = L(T e_{2\ell}) = (\rho^k - 1) L(e_{2\ell})(a^{\ot p}) = 0,
 	\end{align*}
 	we have
 	\begin{align*}
 		\bd \comp\, \theta_i(a) & =
-		(\bd L)(e_i)(a^{\ot p}) \\ & =
 		(\psi \comp \lambda - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
 		\begin{cases}
-			\big(k^i - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k, \\
-			\big(2^{k+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i=2k+1,
+			\big(k^\ell - \gamma\big) \psi_i(a^{\ot p}) & i = 2\ell, \\
+			\big(k^\ell (1+\rho\dots+\rho^k) - \gamma\big) \psi_i(a^{\ot p}) & i = 2\ell+1,
+		\end{cases}
+		\\ & =
+		\begin{cases}
+			\big(k^\ell - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i = 2\ell, \\
+			\big(k^{\ell+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i = 2\ell+1,
 		\end{cases}
 	\end{align*}
-	where we used that $\gamma$ is an odd permutation and that $\rho$ is an even one.
-	The claim follows from the fact that $k^i \equiv 1$ mod $p$ if and only if $k = \ell(p-1)$ for some $\ell$, and $k^i \equiv -1$ mod $p$ if and only if $2k = (2\ell+1)(p-1)$ for some $\ell$.
+	where we used that $\gamma$ and $\rho$ are an even and an odd permutation respectively.
+
+	The claim follows from the fact that $k^\ell \equiv 1$ mod $p$ if and only if $k = r(p-1)$ for some $r$, and $k^\ell \equiv -1$ mod $p$ if and only if $2\ell = (2r+1)(p-1)$ for some $r$.
 \end{proof}
 
-\subsection{The homotopy $M$}
+\subsection{Thom relators for Barratt--Eccles algebras}
 
-\TBW
+Recall that $\cC(p) = \chains \EE \cyc_p$ and $\BE(p) = \chains \EE \sym_p$.
+Let $A$ be a Barratt--Eccles algebra with structure map $\phi \colon \BE \to \End(A)$, and recall from \cref{ss:may-steenrod on barratt-eccles} the May--Steenrod structure on the Barratt--Eccles operad $\cW \xra{\iota} \cC \hookrightarrow \BE$.
+The goal of this subsection if to construct explicit equivariant homotopies making the following diagram commute:
+\[
+\begin{tikzcd}
+	\cW(p) \arrow[r, "\iota"] \arrow[d,"\lambda"] \arrow[dr,phantom,"L_1"] &
+	\cC(p) \arrow[r, hook] \arrow[d, "\gamma_\ast"] \arrow[dr,phantom,"L_2"] &
+	\BE(p) \arrow[r,"\phi"] \arrow[d,"\gamma"] &
+	\Hom(A^{\ot p}, A) \arrow[d,"\gamma"] \\
+	\cW(p) \arrow[r, "\iota"] &
+	\cC(p) \arrow[r, hook] &
+	\BE(p) \arrow[r,"\phi"] &
+	\Hom(A^{\ot p}, A),
+\end{tikzcd}
+\]
+where the last two vertical maps are given by the action of $\gamma \in \sym_p$.
 
-%\begin{proof}
-%	First, notice that $(1-k^i) \equiv 0$ mod $p$ if and only if $i$ is a multiple of $(p-1)$.
-%
-%
-%	\[
-%	C^p_\psi(i)(a,b) =
-%	\big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
-%	\]
-%	Second, using that in $A \ot \Fp$
-%	\begin{align*}
-%		H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
-%		(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
-%		H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
-%		(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
-%	\end{align*}
-%	we have
-%	\begin{align*}
-%		\bd_A \zeta_i(a,b) =&
-%		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
-%		\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
-%		\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
-%		H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
-%		C^p_\psi(i)(a,b).\qedhere
-%	\end{align*}
-%\end{proof}
+\subsubsection{The chain homotopy $L_1$}
+
+Let us consider the endomorphisms $\xi$ and $\eta$ of $\cC(p)$ given by
+\[
+\xi(\rho^{s_0},\dots,\rho^{s_n}) =
+\begin{cases}
+	(\rho^0) & \text{if } n = 0, \\
+	\hfil0 & \text{otherwise}.
+\end{cases}
+\]
+and
+\[
+\eta(\rho^{s_0},\dots,\rho^{s_n}) = (0,\rho^{s_0},\dots,\rho^{s_n})
+\]
+respectively, and denote by $\mu = \iota \comp \lambda$ and $\nu = \gamma \comp \iota$.
+The following claim is easily verified.
+
+\begin{lemma*}
+	The pair $(\xi,\eta)$ is an idempotent homotopy identity and
+	\[
+	\xi \circ (\mu - \nu) = 0.
+	\]
+\end{lemma*}
+Since $\cW$ has a preferred basis, \cref{t:recursive_homotopy} applies and produces the desired equivariant chain homotopy $L_1$.
+
+\subsubsection{The homotopy $L_2$}
+
+Since $\gamma_\ast$ is the restriction chain map $\chains\EE\,(-)^\gamma \colon \chains\EE\sym_p \to \chains\EE\sym_p$ induced by the conjugation $(-)^\gamma$, it suffices to construct a $\cyc$-equivariant chain map, where $\rho$ acts as $\rho^k$ on the target, from it to the map defined by the (right) action of $\gamma$.
+We proceed analogously to \cref{ss:K1}.
+We define the chain homotopy
+\[
+L_1(\sigma_0,\dots,\sigma_n) = \sum (-1)^i (\sigma_0\gamma,\dots,\sigma_i\gamma,\sigma_i^\gamma,\dots,\sigma_n^\gamma)
+\]
+and verify it is $\cyc$-equivariant as follows:
+\begin{align*}
+	(L_1 \comp \rho)(\rho^{s_0},\dots,\rho^{s_n}) &=
+	L_1(\rho^{s_0}\rho, \dots, \rho^{s_n}\rho) \\ &=
+	\sum (-1)^i (\rho^{s_0} \rho\,\gamma,\dots,\rho^{s_i} \rho\,\gamma,(\rho^{s_i} \rho)^\gamma,\dots,(\rho^{s_n} \rho)^\gamma) \\ &=
+	\sum (-1)^i (\rho^{s_0} \gamma \rho^k,\dots,\rho^{s_i} \gamma \rho^k,(\rho^{s_i})^\gamma \rho^k ,\dots,(\rho^{s_n})^\gamma \rho^k) \\ &=
+	(\rho^k \comp L_1)(\rho^{s_0},\dots,\rho^{s_n}).
+\end{align*}
