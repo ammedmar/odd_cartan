@@ -2,7 +2,7 @@
 
 \section{May--Steenrod structures}\label{s:may_st}
 
-We now present a summary of \cite{medina2021may_st}, which makes explicit the definitions of \cite{steenrod1953cyclic} from the general viewpoint of \cite{may1970general}.
+We now present a summary of \cite{medina2021may_st}, which makes explicit the definitions of \cite{steenrod1953cyclic} from the operadic viewpoint of \cite{may1970general}.
 We assume familiarity with the notion of operad as presented for example in \cite{may1997operads} or \cite{loday2012operads}.
 
 \subsection{\pdfC-modules}
@@ -17,7 +17,7 @@ When convenient, we will simplify our notation using the bijection
 \]
 A \textit{$\cyc$-module} $\cP$ is a set $\{\cP(r)\}_{r>0}$ with $\cP(r)$ a chain complex with a right action of $\cyc_r$.
 A \textit{$\cyc$-equivariant map} $\phi \colon \cP_1 \to \cP_2$ is a set $\set{\phi(r) \colon \cP_1(r) \to \cP_2(r)}_{r>0}$ with $\phi(r)$ a $\cyc_r$-equivariant map.
-We say $f$ is a chain map or a quasi-isomorphism if each $\phi(r)$ is.
+We say $f$ is a chain map or a quasi-isomorphism if each $\phi(r)$ is one.
 A similar convention is applied for chain homotopies.
 When convenient we will abuse notation and denote $\phi(r)$ simply as $\phi$.
 %$\sym$-modules and $\sym$-equivariant maps are defined similarly.
@@ -36,22 +36,29 @@ where
 		N &= 1 + \rho + \cdots + \rho^{r-1}.
 	\end{split}
 \end{equation}
-It is equipped with the structure of a $\cyc_r$-equivariant coalgebra defined by:
+
+The complex $\cW(r)$ is equipped with the structure of a $\cyc_r$-equivariant counital coalgebra
+\[
+\varepsilon \colon \cW(r) \to \Z, \qquad
+\Delta \colon \cW(r) \to \cW(r) \ot \cW(r)
+\]
+where $\Z$ is acted on trivially by $\cyc_r$ and $\cW(r) \ot \cW(r)$ diagonally.
+These maps are defined by $\varepsilon(e_0) = 1$ and
 \begin{align*}
-	\varepsilon(e_0) &= 1, \\
+%	\varepsilon(e_0) &= 1, \\
 	\Delta(e_{2i}) &=
 	\sum_{i=j+k} e_{2j} \ot e_{2k} \ + \! \sum_{i-1=j+k} \ \sum_{0 \leq s < t < r} \rho^s e_{2j+1} \ot \rho^t e_{2k+1}, \\
 	\Delta(e_{2i+1}) &=
-	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k},
+	\sum_{i=j+k} e_{2j} \ot e_{2k+1} \ +\ e_{2j+1} \ot \rho e_{2k}.
 \end{align*}
-where $\Z$ is acted on trivially and $\cW(r) \ot \cW(r)$ diagonally.
-We denote by $\cW$ the $\cyc$-module defined by $\set{\cW(r)}_{r > 0}$ which is a coalgebra in the category of $\cyc$-modules.
+
+We denote by $\cW$ the $\cyc$-module $\set{\cW(r)}_{r > 0}$.
 
 \subsection{May--Steenrod structures}
 
-Recall that an $E_\infty$-algebra structure on a chain complex $A$ is an operad morphism to $\End(A) = \{\Hom(A^{\ot r}, A)\}_{r>0}$ from an operad $\cR$ such that, for each $r > 0$, the chain complex $\cR(r)$ is contractible and its $\sym_r$-action is free.
+Recall that an $E_\infty$-algebra structure on a chain complex $A$ is an operad morphism to $\End(A) = \{\Hom(A^{\ot r}, A)\}_{r>0}$ from an operad $\cR$ such that, for each $r > 0$, the chain complex $\cR(r)$ has the homology of a point and its $\sym_r$-action is free.
 
-A \textit{May--Steenrod structure} on an chain complex $A$ is an $E_\infty$-structure $\phi \colon \cR \to \End(A)$ on $A$ together with a $\cyc$-equivariant quasi-isomorphism $\iota \colon \cW \to \cR$.
+A \textit{May--Steenrod structure} on an chain complex $A$ is an $E_\infty$-algebra structure $\phi \colon \cR \to \End(A)$ on $A$ together with a $\cyc$-equivariant quasi-isomorphism $\iota \colon \cW \to \cR$.
 We write $\psi$ for $\phi \circ \iota$ and abusively use it to denote the May--Steenrod structure.
 We refer to a chain complex with a May--Steenrod structure as a \textit{May--Steenrod complex}.
 
@@ -67,12 +74,12 @@ We denote its induced map on the mod $p$ homology of $A$ by
 	\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
 \end{equation}
 We will focus on these homology operations rather than the operations $P_s$ and $\beta P_s$ which we define below.
-An essential observation that underpins their definition is attributed by Steenrod to Thom \cite[Theorem~4.8]{steenrod1947products}.
-For completeness, we will provide an effective proof of this observation in \cref{s:thom}.
-%In the notation we use, it is expressed as follows.
-\begin{theorem*}
-	The map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless $n$ is even (resp. odd) and $i+\varepsilon$ is an even (resp. odd) multiple of $(p-1)$ for some $\varepsilon \in \{0,1\}$.
-\end{theorem*}
+An essential observation that underpins their definition is attributed by Steenrod to Thom \cite[Theorem~4.8]{steenrod1947products}, and is the following.
+
+\begin{theorem}[Thom]\label{t:thom}
+	The map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
+\end{theorem}
+For completeness, we will provide an effective proof of this theorem in \cref{s:thom}.
 %Please consult \cite[Proposition 2.3. (iv)]{may1970general} for a proof.
 With this in mind, one defines the \textit{Steenrod operations}
 \begin{align*}

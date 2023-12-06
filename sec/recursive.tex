@@ -4,11 +4,11 @@
 
 In this section we give a recursive procedure to construct equivariant homotopies for maps between a bounded-below chain complex of free $\Z[G]$-modules and a chain complex equipped with an idempotent homotopy identity.
 
-\begin{definition*}
-	A \textit{homotopy identity} is a pair $(\xi,\eta)$, where $\xi \colon D \to D$ is a chain map and $\eta$ is a chain homotopy from $\xi$ to $\id_D$.
-	Notice that $\xi \circ \eta$ is a chain homotopy from $\xi \circ \xi$ to $\xi$.
+\begin{definition}
+	A \textit{homotopy identity} is a pair $(\xi,\eta)$, where $\xi \colon D \to D$ is a chain map and $\eta$ is a homotopy from $\xi$ to $\id_D$.
+	Notice that $\xi \circ \eta$ is a homotopy from $\xi \circ \xi$ to $\xi$.
 	We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \circ \eta = 0$, which implies $\xi \circ \xi = \xi$.
-\end{definition*}
+\end{definition}
 
 \begin{theorem}\label{t:recursive_homotopy}
 	Let $C$ a bounded-below chain complex of free $\Z[G]$-modules with a basis.
@@ -51,7 +51,7 @@ In this section we give a recursive procedure to construct equivariant homotopie
 \end{proof}
 
 \begin{remark*}
-	A \emph{strong deformation retract} \cite{Lambe-Stasheff} of a chain complex $D$ is a tuple $(D',f,g,\eta)$, where $f\colon D' \to D$ and $g\colon D\to D'$ are chain maps, $g\circ f = \id_{D'}$ and $\eta$ is a chain homotopy from $\xi=f\circ g$ to $\id_D$. A \emph{contraction} \cite{EML,gonzalez2003computation} is a strong deformation retract that additionally satisfies the following:
+	A \emph{strong deformation retract} \cite{Lambe-Stasheff} of a chain complex $D$ is a tuple $(D',f,g,\eta)$, where $f\colon D' \to D$ and $g\colon D\to D'$ are chain maps, $g\circ f = \id_{D'}$ and $\eta$ is a homotopy from $\xi=f\circ g$ to $\id_D$. A \emph{contraction} \cite{EML,gonzalez2003computation} is a strong deformation retract that additionally satisfies the following:
 	\[
 	\text{(i)}\ \xi \circ \eta = 0, \quad
 	\text{(ii)}\ \eta\circ \xi = 0, \quad
@@ -60,7 +60,7 @@ In this section we give a recursive procedure to construct equivariant homotopie
 	Using this language, an idempotent homotopy identity is a strong deformation retract satisfying (i), and we remark that \cref{t:recursive_homotopy} is an adaptation of \cite[p.367]{Lambe-Stasheff}.
 \end{remark*}
 %OLD remark*}
-%In \cref{ss:equivariant homotopy general} we give a general procedure to construct equivariant homotopies, which we use to define a $\cyc$-equivariant chain homotopy $K$ between $(\iota\ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
+%In \cref{ss:equivariant homotopy general} we give a general procedure to construct equivariant homotopies, which we use to define a $\cyc$-equivariant homotopy $K$ between $(\iota\ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
 %In \cref{ss:closed formula for K} we give a closed form formula for $K$, and in \cref{ss:comparins K and K3} we show that this formula agrees with the one defining $K_3$.
 %
 %\subsection{Equivariant homotopy construction}\label{ss:equivariant homotopy general}

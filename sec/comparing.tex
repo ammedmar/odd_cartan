@@ -2,9 +2,9 @@
 
 \section{Revisiting $K_3$}\label{s:postponed}
 
-In this section we prove that $K_3 \colon \cW(r) \to \cC(r) \ot \cC(r)$, as defined in \cref{ss:coproduct}, is a $\cyc$-equivariant chain homotopy between $(\iota \ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
+In this section we prove that $K_3 \colon \cW(r) \to \cC(r) \ot \cC(r)$, as defined in \cref{ss:coproduct}, is a $\cyc$-equivariant homotopy between $(\iota \ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
 
-\subsection{The recursively defined chain homotopy $K$}
+\subsection{The recursively defined homotopy $K$}
 
 We can apply the recursive construction of the previous section to obtain a $\cyc$-equivariant homotopy $K$ making the following diagram commute:
 \begin{equation*}
@@ -30,13 +30,13 @@ and
 respectively, and denote by $\mu = (\iota \ot \iota) \circ \Delta$ and $\nu = \Delta_{\AW} \circ \iota$.
 
 The following claim is easily verified.
-\begin{lemma*}
+\begin{lemma}
 	The pair $(\xi,\eta)$ is an idempotent homotopy identity and
 	\[
 	\xi \circ (\mu - \nu) = 0.
 	\]
-\end{lemma*}
-Since $\cW(r)$ has a preferred basis, \cref{t:recursive_homotopy} applies and produces the desired equivariant chain homotopy $K$.
+\end{lemma}
+Since $\cW(r)$ has a preferred basis, \cref{t:recursive_homotopy} applies and produces the desired equivariant homotopy $K$.
 
 \subsection{A closed formula for $K$}\label{ss:closed formula for K}
 
@@ -62,7 +62,7 @@ if $s_q^- \prec s_q \prec t_1$ and $0$ otherwise, and $\theta_q(1,s_1,\dots,s_j;
 \]
 if $s_q^--1 \prec s_q-1 \prec t_1-1$ and $0$ otherwise.
 
-\begin{lemma*}
+\begin{lemma}
 	The map $K$ is defined by the following expressions
 	\begin{align} \label{eq:homotopyK'1}
 		K(e_{2i}) &= \sum_{i+1 = j+k} \sum_{q=1}^j \
@@ -71,7 +71,7 @@ if $s_q^--1 \prec s_q-1 \prec t_1-1$ and $0$ otherwise.
 		\theta_q(1,s_1,\dots,s_j;t_1,\dots,t_k),
 	\end{align}
 	where the sum is taken over all $s_1,\dots,s_j,t_1,\dots,t_k\in \{0,1,\dots,r-1\}$.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
  	Let us proceed by induction.
@@ -107,13 +107,13 @@ if $s_q^--1 \prec s_q-1 \prec t_1-1$ and $0$ otherwise.
 
 The agreement of $K$ and $K_3$ follows from the following.
 
-\begin{lemma*}
+\begin{lemma}
 	For any $(s_1,\dots,s_j)$ and $(t_1,\dots,t_k)$ in $\EE\cyc_r$ we have:
 	\begin{align*}
 		\varphi(0,s_1,\dots,s_j;t_1,\dots,t_k) &= \sum_{q=1}^j \theta_q(0,s_1,\dots,s_j;t_1,\dots,t_k) \\
 		\varphi(1,s_1,\dots,s_j;t_1,\dots,t_k) &= -\sum_{q=1}^j \theta_q(1,s_1,\dots,s_j;t_1,\dots,t_k).
 	\end{align*}
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
 	Observe first that if $s_{i+1} = s_i+1$ for some $i$, or $s_1 = 0$ (in the first case) or $s_1=1$ (in the second case) we get degenerate summands, so we do not treat these cases in the following computations.

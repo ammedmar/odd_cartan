@@ -3,7 +3,7 @@
 \section{Preliminaries}\label{s:preliminaries}
 
 Throughout this work $p$ will denote an odd prime and $\Fp$ the field with $p$ elements.
-We use $G$ to denote an arbitrary group.
+%We use $G$ to denote an arbitrary group.
 We will assume the ground ring to be $\Z$ unless stated otherwise.
 We use homological grading, with the linear dual of an element in degree $d$ placed in degree $-d$.
 
@@ -22,15 +22,15 @@ and a natural linear map
 \]
 satisfying
 \[
-\EZ \circ \AW = \id, \qquad
-\AW \circ \EZ = \id + \bd \circ \Shi + \Shi \circ \bd.
+\id - \AW \circ \EZ = 0, \qquad
+\id - \EZ \circ \AW = \bd \circ \Shi + \Shi \circ \bd.
 \]
 Closed form formulas describing these maps can be found for example in \cite[56]{real2000homological}.
 
 Let $\rD \colon X \to X \times X$ be the diagonal map of simplicial sets.
 We denote the compositions $\AW \circ \chains\rD$ by $\Delta_{\AW}$.
 
-\subsection{The basic reordering}\label{ss:reordering}
+\subsection{The shuffle $\tau$}\label{ss:shuffle}
 
 For any $r \in \N$, the element $\tau_r \in \sym_{2r}$ is the shuffle permutation mapping the first and second ``decks'' to odd and even integers respectively.
 Explicitly, for $\ell \in \{1,\dots,2r\}$ we have

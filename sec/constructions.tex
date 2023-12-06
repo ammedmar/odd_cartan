@@ -2,11 +2,9 @@
 
 \section{Effective constructions}\label{s:effective}
 
-In this section we effectively construct natural Cartan coboundaries for the cochains of spaces and, more generally, for $E_\infty$-algebras defined using the Barratt--Eccles operad.
+We now turn to the effective construction of natural Cartan relators for the cochains of simplicial sets, or, more generally, Barratt--Eccles algebras.
 
 \subsection{Barratt--Eccles operad}
-
-We review the main constructions introduced by Berger and Fresse in \cite{berger2004combinatorial}.
 
 Let $\Set$ and $\sSet$ denote the categories of sets and simplicial sets respectively.
 The symmetric monoidal functor $\EE \colon \Set \to \sSet$ is defined on objects by $\EE X_n = X^{n+1}$ with
@@ -41,7 +39,7 @@ The (algebraic) Barratt--Eccles operad $\BE$ is defined by $\BE(r) = \chains\EE\
 \bcirc_{\BE} \defeq \bcirc_{\EE} \circ \EZ \colon \BE(r) \ot \BE(s_1) \ot\dotsb\ot \BE(s_r) \to \BE(s_1+\dots+s_r).
 \]
 It is an $E_\infty$-operad.
-For any simplicial set $X$, Berger and Fresse explicitly constructed a natural operad morphism
+For any simplicial set $X$, Berger and Fresse \cite{berger2004combinatorial} explicitly constructed a natural operad morphism
 \[
 \phi \colon \BE \to \End(\cochains(X))
 \]
@@ -78,28 +76,9 @@ Please consult \cref{f:small values of psi} for a few examples.
 
 Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $A$ as a May--Steenrod complex with the structure defined by $\phi$ and $\iota$.
 
-\subsection{Main diagram}
+\subsection{The homomorphisms $f$ and $g$}\label{ss:f and g}
 
-Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant chain homotopy $H \colon \cW \to \End(A)^\vee$ from $\tau F$ to $G$ for any such $A$.
-We will do so by constructing $\cyc_r$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$, and group homomorphisms $f$ and $g$ in the following diagram:
-\begin{equation}\label{d:big diagram}
-	\input{sec/diagram}
-\end{equation}
-where the top and bottom compositions are respectively $\tau F$ and $G$, and $e$ denotes the identity in degree $0$.
-
-\subsection{The chain homotopy $K_1$}\label{ss:K1}
-
-Let us focus on the following part of Diagram \eqref{d:big diagram}:
-\[
-\begin{tikzcd}[column sep=large]
-	\cC(r)
-	\arrow[r,bend left,"\chains\EE f \cdot \tau"]
-	\arrow[r,bend right,"\chains\EE g"']
-	\arrow[r,phantom,"K_1"]
-	& \BE(2r).
-\end{tikzcd}
-\]
-For $r \in \N$, let $f,g \colon \cyc_r \to \sym_{2r}$ be the following group homomorphisms:
+For $r \in \N$, let $f,g \colon \cyc_r \to \sym_{2r}$ be the group homomorphisms:
 \[
 \begin{split}
 	&f \colon \cyc_r \hookrightarrow \sym_r \xra{\id \times e^r} \sym_r \times \sym_2^r \xra{\bcirc_{\sym}} \sym_{2r}\,, \\
@@ -113,73 +92,210 @@ Explicitly,
 	g(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r),
 \end{align*}
 where $\rho = (1,2,\dots,r)$.
-Please notice the following identity involving the reordering $\tau$ of \cref{ss:reordering}:
-\begin{equation}\label{eq:conjugation of little maps}
-	f(\rho) \tau = \tau g(\rho).
+We write $f$ and $g$ when $r$ is clear from context.
+
+\subsection{Main diagram}
+
+Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant homotopy $H \colon \cW \to \End(A)^\vee$ from $G$ to $\tau \comp F$ for any $\BE$-algebra $A$.
+We will do so by constructing $\cyc$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$ making the following diagram commute:
+\begin{equation}\label{d:big diagram}
+	\input{sec/diagram}
+\end{equation}
+where $e \in \sym_2$ is the identity element denoting, abusively, the element $(e) \in (\chains\EE\sym_2)_0$.
+
+\begin{lemma}
+	The top composition in diagram \eqref{d:big diagram} agrees with $\tau \circ F^r$ whereas the bottom one does so with $G^r$.
+\end{lemma}
+
+\begin{proof}
+	Let us write $\cO$ instead of $\End(A)$ for a Barratt--Eccles algebra $A$ as in  \cref{ss:cartan_relators}, where the maps $\tau \circ F_\psi^r$ and $G_\psi^r$ are defined.
+	The first claim is equivalent to the commutativity of
+	\[
+	\begin{tikzcd}
+		&
+		\BE(r) \arrow[d,"\phi"] \arrow[r,"\id\, \ot\, e^{\ot r}"] &[10pt]
+		\BE(r) \ot \BE(2)^{\ot r} \arrow[d,"\phi^{\ot 3}"] \arrow[r,"\bcirc_{\BE}"] &
+		\BE(2r) \arrow[d,"\phi"] \\
+		\cW(r) \arrow[r,"\psi"] \arrow[ur, in=180, out=60,"\iota"] &
+		\cO(r) \arrow[r,"\id\, \ot\, \psi_0^{\ot r}"] &
+		\cO(r) \ot \cO(2)^{\ot r} \arrow[r,"\bcirc_{\cO}"] &
+		\cO(2r),
+	\end{tikzcd}
+	\]
+	where the bottom composition is $F_\psi^r$\,, whereas the second is equivalent to the commutativity of
+	\[
+	\begin{tikzcd}
+		&[-10pt] &
+		\BE(r)^{\ot2} \arrow[d,"\phi^{\ot 2}"] \arrow[r,"e\,\ot\,\id"] &[10pt]
+		\BE(2) \ot \BE(r)^{\ot2} \arrow[d,"\phi^{\ot 3}"] \arrow[r,"\bcirc_{\BE}"] &
+		\BE(2r) \arrow[d,"\phi"] \\
+		\cW(r) \arrow[r,"\Delta"] &
+		\cW(r)^{\ot 2} \arrow[r,"\psi^{\ot 2}"] \arrow[ur, in=180, out=60,"\iota^{\ot 2}"] &
+		\cO(r)^{\ot 2} \arrow[r,"\psi_0\,\ot\,\id"] &
+		\cO(2) \ot \cO(r)^{\ot 2} \arrow[r,"\bcirc_{\cO}"] &
+		\cO(2r),
+	\end{tikzcd}
+	\]
+	where the bottom composition is $G_\psi^r$\,.
+	Both of these diagrams are commutative since $\phi$ is an operad map and, by definition, $\psi = \phi \comp \iota$.
+\end{proof}
+
+\subsection{Comparing $F$ and $\phi \comp \chains\EE f \comp \iota$}
+
+Let us focus on the following part of Diagram~\eqref{d:big diagram}:
+\[
+\begin{tikzcd}[row sep=small]
+	\BE(r) \arrow[r,"\id \ot e^{\ot r}"] &[5pt]
+	\BE(r) \ot \BE(2)^{\ot r} \arrow[d,"\bcirc_{\BE}"] \\ &
+	\BE(2r) \arrow[d, "\tau"] \\
+	\cC(r) \arrow[uu,hook] \arrow[r,"\tau \comp \chains\EE f"] & \BE(2r).
+\end{tikzcd}
+\]
+Its commutativity is a consequence of the proof of the following.
+
+\begin{lemma}
+	For any Barratt--Eccles algebra, with its canonical May--Steenrod structure, we have
+	\[
+	\tau \comp F_\psi = \tau \comp \phi \comp \chains\EE f \comp \iota.
+	\]
+\end{lemma}
+
+\begin{proof}
+	Consider the diagram
+	\begin{equation*}\label{d:F and f}
+		\begin{tikzcd}[column sep=small,row sep=tiny]
+			&& \chains\EE\sym_r \ot (\chains\EE\sym_2)^{\ot r}
+			\arrow[dr,"\bcirc_{\BE}",out=0,in=120]
+			\arrow[dd,"\EZ"] &&[10pt] \\
+			\cW(r) \arrow[r,"\iota"] &
+			\chains\EE\sym_r
+			\arrow[ur,"\id \ot e^{\ot r}", out=60,in=180]
+			\arrow[dr,"\chains\EE(\id \times e^r)"',out=-60,in=180]
+			& & \chains\EE\sym_{2r} \arrow[r,"\tau\comp\phi"] &
+			\End(A^{\ot r}, A). \\
+			&& \chains\EE(\sym_r \times \sym_2^r)
+			\arrow[ur, "\chains\EE(\bcirc_{\EE})"', out=0,in=-120]
+			&
+		\end{tikzcd}
+	\end{equation*}
+	Its top composition is $\tau \comp F_\psi^r$ and its bottom composition is $\tau \comp \phi \comp \chains\EE f \comp \iota$.
+	Additionally, it is commutative since for any pair of simplicial sets $X,Y$ and simplices $y \in Y_0$ and $x \in X$ one has $\EZ(x \ot y) = x \times y$.
+\end{proof}
+
+\subsection{The homotopy $K_1$}\label{ss:K1}
+
+Let us focus on the following part of Diagram \eqref{d:big diagram}:
+\[
+\begin{tikzcd}[column sep=large]
+	\cC(r)
+	\arrow[r,bend left,"\tau \comp \chains\EE f"]
+	\arrow[r,bend right,"\chains\EE g"']
+	\arrow[r,phantom,"K_1^r"]
+	& \BE^\vee(r).
+\end{tikzcd}
+\]
+
+\begin{definition}
+	Let $K_1 \colon \cC \to \BE^\vee$ be defined by
+	\[
+	K_1(a_0,\dots,a_n) =
+	\sum_{i=0}^n \ (-1)^i (g(a_o), \dots, g(a_i), f(a_i) \tau, \dots, f(a_n) \tau).
+	\]
+\end{definition}
+
+\begin{lemma}
+	The map $K_1$ is a $\cyc$-equivariant homotopy from $\chains \EE g$ to $\tau \comp \chains \EE f$.
+\end{lemma}
+
+\begin{proof}
+	\TBW
+	\[
+	\bd \circ K_1 + K_1 \circ \bd = \tau \comp \chains \EE f - \chains \EE g,
+	%	\qquad\text{and}\qquad
+	\qquad
+	K_1 \circ \rho = g(\rho) \circ K_1.
+	\]
+	\cref{eq:K1_homotopy} is verified through a direct computation, whereas \cref{eq:K1_equivariant} follows from the identity $f(\rho) \tau = \tau g(\rho)$.
+\end{proof}
+
+\subsection{The homotopy $K_2$}
+
+Let us focus on the following part of Diagram~\eqref{d:big diagram}:
+\begin{equation}\label{d:K2}
+	\begin{tikzcd}[row sep=small]
+		\cC(r)
+		\arrow[r,"\chains\EE g"]
+		\arrow[d,"\Delta_{\AW}"']
+		\arrow[ddr,phantom,"K_2^r",shift left=0pt]
+		&[5pt] \BE(2r)
+		\\
+		\cC(r)^{\ot 2}
+		\arrow[d,hook] & \\
+		\BE(r)^{\ot 2}
+		\arrow[r,"e\, \ot\, \id"]
+		& \BE(2) \ot \BE(r)^{\ot 2}.
+		\arrow[uu,"\bcirc_\BE"']
+	\end{tikzcd}
 \end{equation}
 
-The map defined by
-\[
-K_1(a_0,\dots,a_n) =
-\sum_{i=0}^n \ (-1)^i (f(a_0) \tau, \dots, f(a_i) \tau, g(a_i), \dots, g(a_n))
-\]
-can be directly seen to be a chain homotopy from $(\chains \EE f) \cdot \tau$ to $\chains \EE g$, and we can use \cref{eq:conjugation of little maps} together with the fact that $\rho$ acts on $\BE(2r)$ multiplying on the right by $g(\rho)$ to observe that $K_1$ is $\cyc_r$-equivariant.
+\begin{definition}
+	Let $K_2 \colon \cC \to \BE^\vee$ be the composition
+	\[
+	\chains\bcirc_{\EE\sym} \circ \Shi \circ \chains\EE(e \times \id) \circ \chains\EE\rD.
+	\]
+\end{definition}
 
-\subsection{The chain homotopy $K_2$}
+\begin{lemma}
+	The map $K_2$ is a $\cyc$-equivariant homotopy from CONTINUE HERE
+	\begin{align}
+		\label{eq:K2_homotopy}
+		\bd \circ K_2 + K_2 \circ \bd &=  \\
+		\label{eq:K2_equivariant}
+		K_2 \circ \rho &= g(\rho) \circ K_2.
+	\end{align}
+\end{lemma}
 
-Let us now focus on the following part of Diagram~\eqref{d:big diagram}:
-\[
-\begin{tikzcd}
-	\cC(r)
-	\arrow[r,"\chains\EE g"]
-	\arrow[d,"\Delta_{\AW}"']
-	\arrow[ddr,phantom,"K_2",shift left=0pt]
-	&[15pt] \BE(2r)
-	\\
-	\cC(r)^{\ot 2}
-	\arrow[d,hook] & \\
-	\BE(r)^{\ot 2}
-	\arrow[r,"e\, \ot\, \id"]
-	& \BE(2) \ot \BE(r)^{\ot 2}.
-	\arrow[uu,"\bcirc_\BE"']
-\end{tikzcd}
-\]
-Since the functor $\EE$ is symmetric monoidal, the top and bottom compositions of this diagram agree with those in:
-\[
-\begin{tikzcd}
-	\chains\EE\cyc_r
-	\rar[hook]
-	&[-10pt]
-	\chains\EE\sym_r
-	\rar["\chains\EE\rD"]
-	\arrow[dr,in=180,out=-90,"\Delta_{\AW}"'] &
-	\chains\EE\sym_r^{\times 2}
-	\rar["\chains\EE \, e \times \id"]
-	\dar["\AW"'] &[0pt]
-	\chains\EE(\sym_2 \times \sym_r^{\times 2})
-	\rar["\chains\bcirc_{\EE\!\sym}"]
-	\dar["\AW"']
-	\drar["\id",out=-10,in=150] &
-	\chains\EE\sym_{2r} \\ & &
-	\chains\EE\sym_r^{\ \ot 2}
-	\rar["e \,\ot\, \id"] &
-	\chains\EE\sym_2 \ot \chains\EE\sym_r^{\ \ot 2}
-	\rar["\EZ"]
-	\uar["\Shi",phantom,shift right=30pt] &
-	\chains\EE(\sym_2 \times \sym_r^{\times 2})
-	\uar["\chains\bcirc_{\EE\!\sym}"']
-\end{tikzcd}
-\]
-Therefore, it suffices to define
-\[
-K_2 = \chains\bcirc_{\EE\sym} \circ \Shi \circ \chains\EE(e \times \id) \circ \chains\EE\rD
-\]
-as the desired $\cyc_r$-equivariant chain homotopy.
+\begin{proof}
+	Recall that $g$ is the composition $\cyc_r \hookrightarrow \sym_r \xra{\rD} \sym_r^{\times 2} \xra{e \times \id} \sym_2 \times \sym_r^{\times 2} \xra{\bcirc_{\sym}} \sym_{2r}$\,, so $\chains\EE g$ is the top composition of
+	\[
+	\chains\EE\cyc_r \hookrightarrow \chains\EE\sym_r \xra{\chains\EE\rD} \chains\EE \sym_r^{\times 2} \xra{\chains\EE(e \times \id)} \chains\EE(\sym_2 \times \sym_r^{\times 2}) \xra{\chains \bcirc_{\EE\sym}} \chains\EE\sym_{2r}.
+	\]
+	 and that the functor $\EE$ is symmetric monoidal.
+	Therefore, the top and bottom compositions of Diagram \eqref{d:K2} agree with those in:
+	\[
+	\begin{tikzcd}
+		\chains\EE\cyc_r
+		\rar[hook]
+		&[-10pt]
+		\chains\EE\sym_r
+		\rar["\chains\EE\rD"]
+		\arrow[dr,in=180,out=-90,"\Delta_{\AW}"'] &
+		\chains\EE\sym_r^{\times 2}
+		\rar["\chains\EE(e \times \id)"]
+		\dar["\AW"'] &[7pt]
+		\chains\EE(\sym_2 \times \sym_r^{\times 2})
+		\rar["\chains\bcirc_{\EE\!\sym}"]
+		\dar["\AW"']
+		\drar["\id",out=-10,in=150] &
+		\chains\EE\sym_{2r} \\ & &
+		\chains\EE\sym_r^{\ \ot 2}
+		\rar["e \,\ot\, \id"] &
+		\chains\EE\sym_2 \ot \chains\EE\sym_r^{\ \ot 2}
+		\rar["\EZ"]
+		\uar["\Shi",phantom,shift right=30pt] &
+		\chains\EE(\sym_2 \times \sym_r^{\times 2}).
+		\uar["\chains\bcirc_{\EE\!\sym}"']
+	\end{tikzcd}
+	\]
+	From this, \cref{eq:K2_homotopy} follows directly.
 
-\subsection{The chain homotopy $K_3$}\label{ss:coproduct}
+	as the desired $\cyc_r$-equivariant homotopy.
+\end{proof}
+
+\subsection{The homotopy $K_3$}\label{ss:coproduct}
 
 We now study the failure of the $\cyc$-equivariant quasi-isomorphism $\iota$ to preserve coalgebra structures.
-More precisely, we will construct a $\cyc$-equivariant chain homotopy $K_3$ making the following diagram commute:
+More precisely, we will construct a $\cyc$-equivariant homotopy $K_3$ making the following diagram commute:
 \begin{equation}\label{d:coproducts}
 	\begin{tikzcd}[column sep=large]
 			\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K_3"]&
@@ -201,17 +317,17 @@ and
 - \alpha(s_1-1,\dots,s_j-1,t_1-1) \cdot
 (0,1,s_1,s_1+1,\dots,s_j,s_j+1)\otimes (t_1,t_1+1,\dots,t_k,t_k+1).
 \]
-Then, the chain homotopy $K_3$ is defined by
+Then, the homotopy $K_3$ is defined by
 \[
 \begin{split}
-	K_3(e_{2i})   &= \sum \, \varphi(0,s_1,\dots,s_j;t_1,\dots,t_k), \\
+	K_3(e_{2i})  &= \sum \, \varphi(0,s_1,\dots,s_j;t_1,\dots,t_k), \\
 	K_3(e_{2i+1}) &= \sum \, \varphi(1,s_1,\dots,s_j;t_1,\dots,t_k),
 \end{split}
 \]
 where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
 Please consult \cref{f:small values of K} for a few examples.
 
-The verification that $K_3$ is a $\cyc_r$-equivariant chain homotopy from $(\iota\otimes \iota)\circ \Delta$ to $\Delta_{\AW}\circ \iota$ is done through a somewhat arduous computation presented in \cref{s:postponed}.
+The verification that $K_3$ is a $\cyc_r$-equivariant homotopy from $(\iota\otimes \iota)\circ \Delta$ to $\Delta_{\AW}\circ \iota$ is done through a somewhat arduous computation presented in \cref{s:postponed}.
 
 \begin{table}
 	\centering
@@ -222,9 +338,9 @@ The verification that $K_3$ is a $\cyc_r$-equivariant chain homotopy from $(\iot
 
 \subsection{Main construction}
 
-Using Diagram~\eqref{d:big diagram} to bringing these constructions together we obtain the following.
+Using Diagram~\eqref{d:big diagram} to bring these constructions together we obtain the following.
 
-\begin{theorem*}
+\begin{theorem}
 	Let $A$ be a Barratt--Eccles algebra with structure map $\phi$.
 	Then,
 	\[
@@ -236,4 +352,4 @@ Using Diagram~\eqref{d:big diagram} to bringing these constructions together we 
 	\bd H(e_i)(a^{\ot p} \ot b^{\ot p}) = C_\psi^p(i)(a, b)
 	\]
 	where $C_\psi^p(i)(a, b)$ is the lift of the Cartan formula defined in {\rm \cref{ss:cartan_coboundary}}.
-\end{theorem*}
+\end{theorem}

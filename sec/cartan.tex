@@ -2,39 +2,59 @@
 
 \section{The Cartan formula}\label{s:cartan}
 
-\subsection{Cartan relators}
+Throughout this section $(A,\psi)$ denotes a May--Steenrod complex.
 
-Given an $\sym$-module $\cS$ we denote by $\cS^\wedge$ the $\cyc$-module $\cS^\wedge(r) = \cS(2r)$ with
-action defined by
-\begin{equation}\label{eq:cyclic to 2-symetric}
-	\cyc_r \xra{\rD}
-	\cyc_r \times \cyc_r \hookrightarrow
-	\sym_r \times \sym_r \xra{\mathrm{split}}
-	\sym_{2r}.
-\end{equation}
-For a May--Steenrod complex $(A,\psi)$ we define two $\cyc$-equivariant chain maps
+\subsection{The $(-)^\vee$ construction}
+
+Consider the group homomorphism $g \colon \cyc_r \to \sym_{2r}$ defined by
+\[
+\rho \mapsto (1,2,\dots,r)(r+1,r+2,\dots,2r).
+\]
+Given an $\sym$-module $\cS$ we denote by $\cS^\wedge$ the $\cyc$-module $\set{\cS(2r)}_{r\in\N}$ with $\cyc_r$-action on $\cS(2r)$ given by the action of $g(\rho)$.
+
+\subsection{The maps $F$ and $G$}
+
+We define two $\cyc$-equivariant chain maps
 \[
 F_\psi,\, G_\psi \colon \cW \to \End(A)^\wedge
 \]
 as follows.
 Let us denote the operad $\End(A)$ by $\cO$.
-Then,
+Then, for $r \in \N$,
 \begin{align*}
-	F_\psi \colon& \cW(r) \xra{\psi(r)} \cO(r) \xra{\id\, \ot \psi_0^{\ot r}}
+	F_\psi^r \colon& \cW(r) \xra{\psi} \cO(r) \xra{\id\, \ot \psi_0^{\ot r}}
 	\cO(r) \ot \cO(2)^{\ot r} \xra{\bcirc_{\cO}}
 	\cO(2r), \\
-	G_\psi \colon& \cW(r) \xra{\Delta}
+	G_\psi^r \colon& \cW(r) \xra{\Delta}
 	\cW(r)^{\ot 2} \xra{\psi^{\ot 2}}
 	\cO(r)^{\ot 2} \xra{\psi_0 \ot\, \id}
 	\cO(2) \ot \cO(r)^{\ot 2} \xra{\bcirc_{\cO}}
 	\cO(2r).
 \end{align*}
+We will remove $\psi$ from the notation when it is clear from context.
 
-\begin{definition*}
-	A \textit{Cartan relator} for a May--Steenrod complex $(A, \psi)$ is a $\cyc$-equivariant chain homotopy between $\tau F_\psi$ and $G_\psi$ where $\tau$ is the canonical reordering of \cref{ss:reordering}.
-\end{definition*}
+\subsection{Cartan relators}\label{ss:cartan_relators}
 
-\subsection{Cartan boundary constructions}\label{ss:cartan_coboundary}
+Recall the shuffle $\tau$ defined in \cref{ss:shuffle}.
+
+\begin{definition}
+	A \textit{Cartan relator} for $(A,\psi)$ is a $\cyc$-equivariant homotopy from $G_\psi$ to $\tau \comp F_\psi$.
+\end{definition}
+
+Explicitly, a Cartan relator for $(A,\psi)$ is a natural collection of linear maps
+\[
+\set{H^r \colon \cW(r) \to \Hom(A^{\ot 2r}, A)}_{r>0}
+\]
+satisfying, for every $r > 0$,
+\[
+\bd \circ H^r + H^r \comp \bd = \tau \comp F^r - G^r,
+\]
+and
+\[
+H^r \circ \rho = g(\rho) \circ H^r.
+\]
+
+\subsection{Cartan formulas}
 
 As we will see, the existence of a Cartan relator implies the Cartan formulas:
 \begin{align*}
@@ -43,8 +63,8 @@ As we will see, the existence of a Cartan relator implies the Cartan formulas:
 	\beta\rP_s\big([a][b]\big) =&
 	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b],
 \end{align*}
-holding for each integer $s$ and mod $p$ cycles $a$ and $b$.
-Please observe that the Cartan formulas are equivalent to the following equations:
+holding for each integer $s$ and mod $p$ cycles $a$ and $b$ in $A$.
+Please observe that by Thom's \cref{t:thom}, the Cartan formulas are equivalent to the following equations:
 \begin{align*}
 	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
 	\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
@@ -52,54 +72,64 @@ Please observe that the Cartan formulas are equivalent to the following equation
 	\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
 \end{align*}
 ranging over $i \in \N$.
-A lift of the right hand side of these to the chain level is given by the following formulas:
-\begin{align*}
-	&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
-	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big), \\
-	&C_\psi^p(2i+1)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \cp b)^{\ot p}\big) \\
-	&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
-	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
-\end{align*}
+A lift of the right hand side of these to the chain level is provided in the following.
 
-\begin{definition*}
-	Let $(A,\psi)$ be a May--Steenrod complex.
-	A \textit{Cartan $i$-boundary construction} is a map $\zeta_i$ from pairs of mod~$p$ cycles to $A$, natural with respect to $E_\infty$-algebra chain maps, such that
-	\[
-	\bd \zeta_i(a,b) = C_\psi^p(i)(a, b)
-	\]
-	in $A \ot \Fp$.
-\end{definition*}
+\begin{definition}
+	For any $a,b \in A$ and $i \in \N$ let
+	\begin{align*}
+		&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
+		\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big), \\
+		&C_\psi^p(2i+1)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \cp b)^{\ot p}\big) \\
+		&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
+		(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
+	\end{align*}
+\end{definition}
 
-\begin{theorem*}
-	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then
-	\[
-	\zeta_i(a,b) \defeq H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})
-	\]
-	defines a Cartan $i$-boundary construction.
-\end{theorem*}
-
-\begin{proof}
-	First, please observe that
+\begin{lemma}
+	For any $a,b \in A$ and $i \in \N$ we have
 	\[
 	C^p_\psi(i)(a,b) =
-	\big(\tau F_\psi^p - G_\psi^p\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
+	\big(\tau \comp F - G\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
 	\]
+\end{lemma}
+
+\begin{proof}
+	This follows from direct inspection.
+\end{proof}
+
+\subsection{Cartan boundary constructions}\label{ss:cartan_coboundary}
+
+\begin{definition}
+	A \textit{Cartan $i$-boundary construction} for $(A,\psi)$ at $p$ is an assignment of an element $\zeta_i^p(a,b)$ in $A$ to any pair $(a,b)$ of mod~$p$ cycles in $A$ such that, after extending scalars to $\Fp$, we have
+	\[
+	\bd \zeta_i^p(a,b) = C_\psi^p(i)(a, b).
+	\]
+\end{definition}
+
+\begin{theorem}
+	If $H_\psi^p$ is a Cartan relator for $(A, \psi)$ then
+	\[
+	\zeta_i^p(a,b) \defeq H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})
+	\]
+	is a Cartan $i$-boundary construction for $(A, \psi)$ at $p$.
+\end{theorem}
+
+\begin{proof}
+	Let us simplify our notation from $H_\psi^p, F_\psi^p, G_\psi^p$ to $H, F, G$.
 	Second, using that in $A \ot \Fp$
 	\begin{align*}
-		H_\psi^p(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
-		(\rho - 1) H_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
-		H_\psi^p(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
-		(1+\rho+\dots+\rho^{p-1}) H_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
+		H(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
+		(\rho - 1) H(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
+		H(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
+		(1+\rho+\dots+\rho^{p-1}) H(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
 	\end{align*}
 	we have
 	\begin{align*}
-		\bd_A \zeta_i(a,b) =&
-		\bd_A H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
-		\bd_{\End(A)} H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
-		\big(\tau F(e_i) - G(e_i)\big)(a^{\ot p} \ot b^{\ot p}) -
-		H_\psi^p(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
+		\bd_A \zeta_i^p(a,b) =&
+		\bd_A H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
+		\bd_{\End(A)} H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
+		\big(\tau F - G\big)(e_i)(a^{\ot p} \ot b^{\ot p}) -
+		H(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
 		C^p_\psi(i)(a,b).\qedhere
 	\end{align*}
 \end{proof}
-
-We now turn to the question of effectively constructing a natural one for the cochains of spaces.
