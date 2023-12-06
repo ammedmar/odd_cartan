@@ -76,24 +76,6 @@ Please consult \cref{f:small values of psi} for a few examples.
 
 Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $A$ as a May--Steenrod complex with the structure defined by $\phi$ and $\iota$.
 
-\subsection{The homomorphisms $f$ and $g$}\label{ss:f and g}
-
-For $r \in \N$, let $f,g \colon \cyc_r \to \sym_{2r}$ be the group homomorphisms:
-\[
-\begin{split}
-	&f \colon \cyc_r \hookrightarrow \sym_r \xra{\id \times e^r} \sym_r \times \sym_2^r \xra{\bcirc_{\sym}} \sym_{2r}\,, \\
-	&g \colon \cyc_r \hookrightarrow \sym_r \xra{e \times \rD} \sym_2 \times \sym_r \times \sym_r \xra{\bcirc_{\sym}} \sym_{2r}\,,
-\end{split}
-\]
-where $e$ denotes the identity element.
-Explicitly,
-\begin{align*}
-	f(\rho) &= (1,3,\dots,2r-1)(2,4,\dots,2r), \\
-	g(\rho) &= (1,2,\dots,r)(r+1,r+2,\dots,2r),
-\end{align*}
-where $\rho = (1,2,\dots,r)$.
-We write $f$ and $g$ when $r$ is clear from context.
-
 \subsection{Main diagram}
 
 Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant homotopy $H \colon \cW \to \End(A)^\vee$ from $G$ to $\tau \comp F$ for any $\BE$-algebra $A$.
@@ -237,6 +219,7 @@ Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 		\arrow[uu,"\bcirc_\BE"']
 	\end{tikzcd}
 \end{equation}
+We will show that its commutes up the following $\cyc$-equivariant homotopy.
 
 \begin{definition}
 	Let $K_2 \colon \cC \to \BE^\vee$ be the composition
@@ -246,38 +229,57 @@ Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 \end{definition}
 
 \begin{lemma}
-	The map $K_2$ is a $\cyc$-equivariant homotopy from CONTINUE HERE
-	\begin{align}
-		\label{eq:K2_homotopy}
-		\bd \circ K_2 + K_2 \circ \bd &=  \\
-		\label{eq:K2_equivariant}
-		K_2 \circ \rho &= g(\rho) \circ K_2.
-	\end{align}
+	The map $K_2$ is a $\cyc$-equivariant homotopy from $\bcirc_{\BE} \comp (e \ot \id) \comp \Delta_{\AW}$ to $\chains\EE g$.
 \end{lemma}
 
 \begin{proof}
-	Recall that $g$ is the composition $\cyc_r \hookrightarrow \sym_r \xra{\rD} \sym_r^{\times 2} \xra{e \times \id} \sym_2 \times \sym_r^{\times 2} \xra{\bcirc_{\sym}} \sym_{2r}$\,, so $\chains\EE g$ is the top composition of
+	We need to prove the following identities:
+	\begin{align}
+		\label{eq:K2_homotopy}
+		\bd K_2 &=  \chains\EE g - \bcirc_{\BE} \comp (e \ot \id) \comp \Delta_{\AW}\\
+		\label{eq:K2_equivariant}
+		K_2 \circ \rho &= g(\rho) \circ K_2.
+	\end{align}
+	Since $\bd \Shi = \id - \EZ \comp \AW$ we have that
 	\[
-	\chains\EE\cyc_r \hookrightarrow \chains\EE\sym_r \xra{\chains\EE\rD} \chains\EE \sym_r^{\times 2} \xra{\chains\EE(e \times \id)} \chains\EE(\sym_2 \times \sym_r^{\times 2}) \xra{\chains \bcirc_{\EE\sym}} \chains\EE\sym_{2r}.
+	\bd K_2 =
+	\chains\bcirc_{\EE\sym} \circ \chains\EE(e \times \id) \circ \chains\EE\rD -
+	\chains\bcirc_{\EE\sym} \circ \EZ \comp \AW \circ \chains\EE(e \times \id) \circ \chains\EE\rD.
 	\]
-	 and that the functor $\EE$ is symmetric monoidal.
-	Therefore, the top and bottom compositions of Diagram \eqref{d:K2} agree with those in:
+	Recall that $g$ is the composition $\cyc_r \hookrightarrow \sym_r \xra{\rD} \sym_r^{\times 2} \xra{e \times \id} \sym_2 \times \sym_r^{\times 2} \xra{\bcirc_{\sym}} \sym_{2r}$\,, and that $\bcirc_{\BE} = \chains\bcirc_{\EE\sym} \comp \EZ$, so
 	\[
+	\bd K_2 =
+	\chains\EE g -
+	\bcirc_{\BE} \comp \AW \circ \chains\EE(e \times \id) \circ \chains\EE\rD.
+	\]
+	Recall that $\Delta_{\AW} = \AW \comp \chains\EE\rD$.
+	Since for any triple of simplices $x,y,z$ we have $\AW(x \times y \times z) = x \ot \AW(y \times z)$ if $x$ is a $0$-simplex, we have
+	\[
+	\bd K_2 =
+	\chains\EE g -
+	\bcirc_{\BE} \comp \chains\EE(e \times \id) \comp \Delta_{\AW}
+	\]
+	as stated in the first identity to prove.
+	This computation is summarized in the following diagram:
+	\[
+	\hspace*{-4pt}
 	\begin{tikzcd}
 		\chains\EE\cyc_r
 		\rar[hook]
-		&[-10pt]
+		\arrow[dr,in=180,out=-90,"\Delta_{\AW}"]
+		&[-20pt]
 		\chains\EE\sym_r
-		\rar["\chains\EE\rD"]
-		\arrow[dr,in=180,out=-90,"\Delta_{\AW}"'] &
+		\rar["\chains\EE\rD"] &[-10pt]
 		\chains\EE\sym_r^{\times 2}
 		\rar["\chains\EE(e \times \id)"]
 		\dar["\AW"'] &[7pt]
 		\chains\EE(\sym_2 \times \sym_r^{\times 2})
 		\rar["\chains\bcirc_{\EE\!\sym}"]
 		\dar["\AW"']
-		\drar["\id",out=-10,in=150] &
-		\chains\EE\sym_{2r} \\ & &
+		\drar["\id",out=-10,in=150] &[-5pt]
+		\chains\EE\sym_{2r} \\ &
+		(\chains\EE\cyc_r)^{\ot 2}
+		\arrow[r,hook] &
 		\chains\EE\sym_r^{\ \ot 2}
 		\rar["e \,\ot\, \id"] &
 		\chains\EE\sym_2 \ot \chains\EE\sym_r^{\ \ot 2}
@@ -287,6 +289,15 @@ Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 		\uar["\chains\bcirc_{\EE\!\sym}"']
 	\end{tikzcd}
 	\]
+
+
+		so $\chains\EE g$ is the top composition of
+	\[
+	\chains\EE\cyc_r \hookrightarrow \chains\EE\sym_r \xra{\chains\EE\rD} \chains\EE \sym_r^{\times 2} \xra{\chains\EE(e \times \id)} \chains\EE(\sym_2 \times \sym_r^{\times 2}) \xra{\chains \bcirc_{\EE\sym}} \chains\EE\sym_{2r}.
+	\]
+	 and that the functor $\EE$ is symmetric monoidal.
+	Therefore, the top and bottom compositions of Diagram \eqref{d:K2} agree with those in:
+
 	From this, \cref{eq:K2_homotopy} follows directly.
 
 	as the desired $\cyc_r$-equivariant homotopy.

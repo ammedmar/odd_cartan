@@ -6,25 +6,25 @@ Throughout this section $(A,\psi)$ denotes a May--Steenrod complex.
 
 \subsection{The $(-)^\vee$ construction}
 
-Consider the group homomorphism $g \colon \cyc_r \to \sym_{2r}$ defined by
-\[
-\rho \mapsto (1,2,\dots,r)(r+1,r+2,\dots,2r).
-\]
-Given an $\sym$-module $\cS$ we denote by $\cS^\wedge$ the $\cyc$-module $\set{\cS(2r)}_{r\in\N}$ with $\cyc_r$-action on $\cS(2r)$ given by the action of $g(\rho)$.
+%Consider the group homomorphism $g \colon \cyc_r \to \sym_{2r}$ defined by
+%\[
+%\rho \mapsto (1,2,\dots,r)(r+1,r+2,\dots,2r).
+%\]
+Given an $\sym$-module $\cS$ we denote by $\cS^\vee$ the $\cyc$-module $\set{\cS(2r)}_{r>0}$ with $\cyc_r$-action on $\cS(2r)$ given by the action of $g(\rho)$, as defined in \cref{ss:f and g}.
 
 \subsection{The maps $F$ and $G$}
 
 We define two $\cyc$-equivariant chain maps
 \[
-F_\psi,\, G_\psi \colon \cW \to \End(A)^\wedge
+\tau \comp F_\psi,\, G_\psi \colon \cW \to \End(A)^\vee
 \]
 as follows.
 Let us denote the operad $\End(A)$ by $\cO$.
 Then, for $r \in \N$,
 \begin{align*}
-	F_\psi^r \colon& \cW(r) \xra{\psi} \cO(r) \xra{\id\, \ot \psi_0^{\ot r}}
+	\tau \comp F_\psi^r \colon& \cW(r) \xra{\psi} \cO(r) \xra{\id\, \ot \psi_0^{\ot r}}
 	\cO(r) \ot \cO(2)^{\ot r} \xra{\bcirc_{\cO}}
-	\cO(2r), \\
+	\cO(2r) \xra{\tau} \cO(2r), \\
 	G_\psi^r \colon& \cW(r) \xra{\Delta}
 	\cW(r)^{\ot 2} \xra{\psi^{\ot 2}}
 	\cO(r)^{\ot 2} \xra{\psi_0 \ot\, \id}
@@ -35,12 +35,7 @@ We will remove $\psi$ from the notation when it is clear from context.
 
 \subsection{Cartan relators}\label{ss:cartan_relators}
 
-Recall the shuffle $\tau$ defined in \cref{ss:shuffle}.
-
-\begin{definition}
-	A \textit{Cartan relator} for $(A,\psi)$ is a $\cyc$-equivariant homotopy from $G_\psi$ to $\tau \comp F_\psi$.
-\end{definition}
-
+A \textit{Cartan relator} for $(A,\psi)$ is a $\cyc$-equivariant homotopy from $G_\psi$ to $\tau \comp F_\psi$.
 Explicitly, a Cartan relator for $(A,\psi)$ is a natural collection of linear maps
 \[
 \set{H^r \colon \cW(r) \to \Hom(A^{\ot 2r}, A)}_{r>0}
@@ -65,25 +60,31 @@ As we will see, the existence of a Cartan relator implies the Cartan formulas:
 \end{align*}
 holding for each integer $s$ and mod $p$ cycles $a$ and $b$ in $A$.
 Please observe that by Thom's \cref{t:thom}, the Cartan formulas are equivalent to the following equations:
-\begin{align*}
-	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
-	\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
-	0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \,-\!
-	\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \ +\ (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
-\end{align*}
+\begin{equation}\label{eq:cartan_lift}
+	\begin{split}
+		0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
+		\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
+		0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big)  \\ & \quad
+		\,-\!\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \, +\, (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
+	\end{split}
+\end{equation}
 ranging over $i \in \N$.
-A lift of the right hand side of these to the chain level is provided in the following.
 
-\begin{definition}
-	For any $a,b \in A$ and $i \in \N$ let
-	\begin{align*}
-		&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
-		\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big), \\
-		&C_\psi^p(2i+1)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \cp b)^{\ot p}\big) \\
-		&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
-		(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
-	\end{align*}
-\end{definition}
+\subsection{Lift of the Cartan formulas}
+
+A lift to the chain level of the right hand side of \cref{eq:cartan_lift} is provided in the following expression:
+\begin{align*}
+	&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
+	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big), \\
+	&C_\psi^p(2i+1)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \cp b)^{\ot p}\big) \\
+	&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
+	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
+\end{align*}
+%
+%\begin{definition}
+%	For any $a,b \in A$ and $i \in \N$ let
+%
+%\end{definition}
 
 \begin{lemma}
 	For any $a,b \in A$ and $i \in \N$ we have
@@ -99,33 +100,35 @@ A lift of the right hand side of these to the chain level is provided in the fol
 
 \subsection{Cartan boundary constructions}\label{ss:cartan_coboundary}
 
-\begin{definition}
-	A \textit{Cartan $i$-boundary construction} for $(A,\psi)$ at $p$ is an assignment of an element $\zeta_i^p(a,b)$ in $A$ to any pair $(a,b)$ of mod~$p$ cycles in $A$ such that, after extending scalars to $\Fp$, we have
-	\[
-	\bd \zeta_i^p(a,b) = C_\psi^p(i)(a, b).
-	\]
-\end{definition}
+A \textit{Cartan $i$-boundary construction for $(A,\psi)$ at $p$} is an assignment of an element $\zeta_i^p(a,b)$ in $A$ to any pair $(a,b)$ of mod~$p$ cycles in $A$ such that, after extending scalars to $\Fp$, we have
+\[
+\bd \zeta_i^p(a,b) = C_\psi^p(i)(a, b).
+\]
 
 \begin{theorem}
-	If $H_\psi^p$ is a Cartan relator for $(A, \psi)$ then
+	If $H_\psi$ is a Cartan relator for $(A, \psi)$ then
 	\[
-	\zeta_i^p(a,b) \defeq H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})
+	(a,b) \mapsto H_\psi^p(e_i)(a^{\ot p} \ot b^{\ot p})
 	\]
 	is a Cartan $i$-boundary construction for $(A, \psi)$ at $p$.
 \end{theorem}
 
 \begin{proof}
 	Let us simplify our notation from $H_\psi^p, F_\psi^p, G_\psi^p$ to $H, F, G$.
-	Second, using that in $A \ot \Fp$
+	Second, since $\rho$ is an even permutation,
+	\[
+	(a^{\ot p} \ot b^{\ot p}) g(\rho) = (a^{\ot p} \rho \ot b^{\ot p} \rho ) = (a^{\ot p} \ot b^{\ot p}).
+	\]
+	consequently, over $\Fp$\,,
 	\begin{align*}
 		H(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
-		(\rho - 1) H(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
+		(g(\rho) - 1) \comp H(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
 		H(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
-		(1+\rho+\dots+\rho^{p-1}) H(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0,
+		(1+g(\rho)+\dots+g(\rho^{p-1})) \comp H(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0.
 	\end{align*}
-	we have
+	Therefore,
 	\begin{align*}
-		\bd_A \zeta_i^p(a,b) =&
+		\bd_A H(e_i)(a^{\ot p} \ot b^{\ot p}) =&
 		\bd_A H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
 		\bd_{\End(A)} H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
 		\big(\tau F - G\big)(e_i)(a^{\ot p} \ot b^{\ot p}) -
