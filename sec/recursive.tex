@@ -6,16 +6,16 @@ In this section we give a recursive procedure to construct equivariant homotopie
 
 \begin{definition}
 	A \textit{homotopy identity} is a pair $(\xi,\eta)$, where $\xi \colon D \to D$ is a chain map and $\eta$ is a homotopy from $\xi$ to $\id_D$.
-	Notice that $\xi \circ \eta$ is a homotopy from $\xi \circ \xi$ to $\xi$.
-	We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \circ \eta = 0$, which implies $\xi \circ \xi = \xi$.
+	Notice that $\xi \comp \eta$ is a homotopy from $\xi \comp \xi$ to $\xi$.
+	We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \comp \eta = 0$, which implies $\xi \comp \xi = \xi$.
 \end{definition}
 
 \begin{theorem}\label{t:recursive_homotopy}
 	Let $C$ a bounded-below chain complex of free $\Z[G]$-modules with a basis.
 	Let $D$ be a chain complex of $\Z[G]$-modules together with a $(\Z$-linear$)$ idempotent homotopy identity $(\xi, \eta)$.
-	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\xi \circ (\mu -\nu) = 0$, the $\Z[G]$-linear map $H \colon C \to D$ recursively defined on basis elements by
+	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\xi \comp (\mu -\nu) = 0$, the $\Z[G]$-linear map $H \colon C \to D$ recursively defined on basis elements by
 	\begin{equation}\label{eq:lemma def}
-		H(b) = \eta \circ (\mu - \nu - H \circ \bd)(b)
+		H(b) = \eta \comp (\mu - \nu - H \comp \bd)(b)
 	\end{equation}
 	is a $G$-equivariant homotopy from $\nu$ to $\mu$.
 \end{theorem}
@@ -51,16 +51,16 @@ In this section we give a recursive procedure to construct equivariant homotopie
 \end{proof}
 
 \begin{remark*}
-	A \emph{strong deformation retract} \cite{Lambe-Stasheff} of a chain complex $D$ is a tuple $(D',f,g,\eta)$, where $f\colon D' \to D$ and $g\colon D\to D'$ are chain maps, $g\circ f = \id_{D'}$ and $\eta$ is a homotopy from $\xi=f\circ g$ to $\id_D$. A \emph{contraction} \cite{EML,gonzalez2003computation} is a strong deformation retract that additionally satisfies the following:
+	A \emph{strong deformation retract} \cite{Lambe-Stasheff} of a chain complex $D$ is a tuple $(D',f,g,\eta)$, where $f\colon D' \to D$ and $g\colon D\to D'$ are chain maps, $g \comp f = \id_{D'}$ and $\eta$ is a homotopy from $\xi=f \comp g$ to $\id_D$. A \emph{contraction} \cite{EML,gonzalez2003computation} is a strong deformation retract that additionally satisfies the following:
 	\[
-	\text{(i)}\ \xi \circ \eta = 0, \quad
-	\text{(ii)}\ \eta\circ \xi = 0, \quad
-	\text{(iii)}\ \eta\circ\eta = 0.
+	\text{(i)}\ \xi \comp \eta = 0, \quad
+	\text{(ii)}\ \eta \comp \xi = 0, \quad
+	\text{(iii)}\ \eta \comp \eta = 0.
 	\]
 	Using this language, an idempotent homotopy identity is a strong deformation retract satisfying (i), and we remark that \cref{t:recursive_homotopy} is an adaptation of \cite[p.367]{Lambe-Stasheff}.
 \end{remark*}
 %OLD remark*}
-%In \cref{ss:equivariant homotopy general} we give a general procedure to construct equivariant homotopies, which we use to define a $\cyc$-equivariant homotopy $K$ between $(\iota\ot \iota) \circ \Delta$ and $\Delta_{\AW} \circ \iota$.
+%In \cref{ss:equivariant homotopy general} we give a general procedure to construct equivariant homotopies, which we use to define a $\cyc$-equivariant homotopy $K$ between $(\iota\ot \iota) \comp \Delta$ and $\Delta_{\AW} \comp \iota$.
 %In \cref{ss:closed formula for K} we give a closed form formula for $K$, and in \cref{ss:comparins K and K3} we show that this formula agrees with the one defining $K_3$.
 %
 %\subsection{Equivariant homotopy construction}\label{ss:equivariant homotopy general}
@@ -68,16 +68,16 @@ In this section we give a recursive procedure to construct equivariant homotopie
 %\begin{lemma}
 %	Let $G$ be a group, $C$ a bounded-below graded chain complex of free $\Z[G]$-modules with a basis, and $D$ a graded chain complex of $\Z[G]$-modules together with a $\Z$-linear endomorphism $\eta$ satisfying for some chain endomorphism $\varepsilon$ that:
 %	\begin{enumerate}
-%		\item $\bd \circ \, \eta + \eta \circ \bd = \id_C - \varepsilon$,
-%		\item $\varepsilon \circ \eta = 0$.
+%		\item $\bd \comp \, \eta + \eta \comp \bd = \id_C - \varepsilon$,
+%		\item $\varepsilon \comp \eta = 0$.
 %	\end{enumerate}
-%	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\varepsilon \circ (\mu-\nu) = 0$, the $\Z[G]$-linear map $K \colon C \to D$ recursively defined on basis elements by
+%	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\varepsilon \comp (\mu-\nu) = 0$, the $\Z[G]$-linear map $K \colon C \to D$ recursively defined on basis elements by
 %	\[
-%	K(b) = \eta \circ (\mu - \nu - K \circ \bd)(b),
+%	K(b) = \eta \comp (\mu - \nu - K \comp \bd)(b),
 %	\]
 %	satisfies
 %	\[
-%	\bd \circ \, K + K \circ \bd = \mu - \nu.
+%	\bd \comp \, K + K \comp \bd = \mu - \nu.
 %	\]
 %\end{lemma}
 %

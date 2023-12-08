@@ -10,25 +10,23 @@ We assume familiarity with the notion of operad as presented for example in \cit
 A \textit{$\cyc$-module} $\cP$ is a set $\{\cP(r)\}_{r>0}$ with $\cP(r)$ a chain complex with a right action of $\cyc_r$.
 A \textit{$\cyc$-equivariant map} $\phi \colon \cP_1 \to \cP_2$ is a set $\set{\phi(r) \colon \cP_1(r) \to \cP_2(r)}_{r>0}$ with $\phi(r)$ a $\cyc_r$-equivariant map.
 We say $f$ is a chain map or a quasi-isomorphism if each $\phi(r)$ is one.
-A similar convention is applied to (chain) homotopies.
-When convenient we will abuse notation and denote $\phi(r)$ simply as $\phi$.
-%$\sym$-modules and $\sym$-equivariant maps are defined similarly.
+A similar convention is applied to homotopies.
+When convenient, we will abuse notation and denote $\phi(r)$ simply as $\phi$.
 There are evident forgetful functors to the category of $\cyc$-modules from those of $\sym$-modules and operads, which we will use without further notice.
 
 \subsection{Minimal cyclic resolution}
 
 By $\cW(r)$ we denote the minimal free resolution of $\Z$ by $\Z[\cyc_r]$-modules
-\begin{equation}\label{eq: minimal resolution}
-	\Z[\cyc_r]\{e_0\} \xla{T} \Z[\cyc_r]\{e_1\} \xla{N} \Z[\cyc_r]\{e_2\} \xla{T} \cdots
-\end{equation}
+\[
+\Z[\cyc_r]\{e_0\} \xla{T} \Z[\cyc_r]\{e_1\} \xla{N} \Z[\cyc_r]\{e_2\} \xla{T} \cdots
+\]
 where
-\begin{equation} \label{eq: T and R definition}
-	\begin{split}
-		T &= \rho - 1, \\
-		N &= 1 + \rho + \cdots + \rho^{r-1}.
-	\end{split}
-\end{equation}
-
+\[
+\begin{split}
+	T &= \rho - 1, \\
+	N &= 1 + \rho + \cdots + \rho^{r-1}.
+\end{split}
+\]
 The complex $\cW(r)$ is equipped with the structure of a $\cyc_r$-equivariant counital coalgebra
 \[
 \varepsilon \colon \cW(r) \to \Z, \qquad
@@ -48,10 +46,10 @@ We denote by $\cW$ the $\cyc$-module $\set{\cW(r)}_{r > 0}$.
 
 \subsection{May--Steenrod structures}
 
-Recall that an $E_\infty$-algebra structure on a chain complex $A$ is an operad morphism to $\End(A) = \{\Hom(A^{\ot r}, A)\}_{r>0}$ from an operad $\cR$ such that, for each $r > 0$, the chain complex $\cR(r)$ has the homology of a point and its $\sym_r$-action is free.
+Recall that an $E_\infty$-algebra structure on a chain complex $A$ is an operad morphism to $\End(A) = \{\Hom(A^{\ot r}, A)\}_{r>0}$ from an operad $\cR$ such that, for each $r > 0$, the following holds: \textit{i}) the chain complex $\cR(r)$ has the homology of a point, and \textit{ii}) its $\sym_r$-action is free.
 
 A \textit{May--Steenrod structure} on an chain complex $A$ is an $E_\infty$-algebra structure $\phi \colon \cR \to \End(A)$ on $A$ together with a $\cyc$-equivariant quasi-isomorphism $\iota \colon \cW \to \cR$.
-We write $\psi$ for $\phi \circ \iota$ and abusively use it to denote the May--Steenrod structure.
+We write $\psi$ for $\phi \comp \iota$ and abusively use it to denote the May--Steenrod structure.
 We refer to a chain complex with a May--Steenrod structure as a \textit{May--Steenrod complex}.
 
 A May--Steenrod complex $(A,\psi)$ has a preferred product $\psi(2)(e_0) \colon A \ot A \to A$ which we denote for elements $a, b \in A$ simply as $a \cp b$.
@@ -60,28 +58,27 @@ Generalizing this, we refer to $\psi(r)(e_i) \colon A^{\ot r} \to A$ as the \tex
 \subsection{Homology operations}\label{ss:homology_operations}
 
 Let $(A,\psi)$ be a May--Steenrod complex.
-After extending scalars to $\Fp$ the assignment sending $a$ to $\psi_i(a^{\ot p})$ sends cycles to cycles and induces a linear map in homology.
-We denote its induced map on the mod $p$ homology of $A$ by
-\begin{equation}\label{e:D_i^p}
-	\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
-\end{equation}
+After extending scalars to $\Fp$ the assignment sending $a$ to $\psi_i(a^{\ot p})$ sends cycles to cycles and we denote its induced linear map in homology by
+\[
+\rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp).
+\]
 We will focus on these homology operations rather than the operations $P_s$ and $\beta P_s$ which we define below.
-An essential observation that underpins their definition is attributed by Steenrod to Thom \cite[Theorem~4.8]{steenrod1947products}, and is the following.
+An essential statement that underpins their definition was attributed to Thom by Steenrod in \cite[Theorem~4.8]{steenrod1947products}.
+For completeness, in \cref{s:thom} we will provide an effective proof of this.
 
 \begin{theorem}[Thom]\label{t:thom}
-	The map $\rD_i^p$ in \eqref{e:D_i^p} is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
+	The map $\rD_i^p$ is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 \end{theorem}
-For completeness, we will provide an effective proof of this theorem in \cref{s:thom}.
-%Please consult \cite[Proposition 2.3. (iv)]{may1970general} for a proof.
-With this in mind, one defines the \textit{Steenrod operations}
+
+With this in mind, one defines the Steenrod operations
 \begin{align*}
 	P_s \colon& H_\bullet(A; \Fp) \to H_{\bullet + 2s(p-1)}(A; \Fp), \\
 	\beta P_s \colon& H_\bullet(A; \Fp) \to H_{\bullet + 2s(p-1) - 1}(A; \Fp),
 \end{align*}
 by sending the class represented by a cycle $a \in A \ot \Fp$ of degree $n$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
 \begin{equation*}
-	(-1)^s \nu(n) \, \rD^p_{(2s-n)(p-1)-\varepsilon}[a]
+	(-1)^s \nu(n) \, \rD^p_{(2s-n)(p-1)-\varepsilon}[a] \,,
 \end{equation*}
 where $\nu(n) = (-1)^{n(n-1)m/2}(m!)^n$ and $m = \floor{p/2} = (p-1)/2$.
-The constant $\nu(n)$ and notation $\beta P_s$ are motivated respectively by the unstable $\rD_{n(p-1)}^p[\alpha] = \nu(n)[\alpha]$ and Bockstein relations $\beta P_s = \beta \circ P_s$ respectively.
+The constant $\nu(n)$ and notation $\beta P_s$ are motivated respectively by the unstable $\rD_{n(p-1)}^p[\alpha] = \nu(n)[\alpha]$ and Bockstein relations $\beta P_s = \beta \comp P_s$ respectively.
 The first holding in the cohomology of spaces and the second in general.
