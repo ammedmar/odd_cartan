@@ -14,29 +14,25 @@ is defined, after extending scalar to $\Fp$, by sending an $n$-cycle $a$ to $\ps
 Thom's \cref{t:thom} states that the map $\rD_i^p$ is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 We will lift to the chain level Steenrod's proof of this statement.
 
-Throughout this section, $k \in \Fp$ denotes a fixed non-zero scalar.
+Throughout this section we fix $k \in \Fp$ with $k \neq 1,0,-1$.
 
 \subsection{Thom $i$-boundary constructions}
 
-\begin{definition}
-	A \textit{Thom $i$-boundary construction} for $(A,\psi)$ at $p$ is an assignment of an element $\theta_i^p(a)$ in $A$ to every mod~$p$ cycle $a$ in $A$ such that, in $A \ot \Fp$,
-	\[
-	\bd \theta_i^p(a) = k_i^p(a) \psi_i(a^{\ot p})
-	\]
-	for some non-zero $k^p_i(a) \in \Fp$ unless, for some $\varepsilon \in \set{0,1}$, either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
-\end{definition}
+A \textit{Thom $i$-boundary construction for $(A,\psi)$ at $p$} is an assignment of an element $\theta_i^p(a)$ in $A$ to every mod~$p$ cycle $a$ in $A$ such that, in $A \ot \Fp$,
+\[
+\bd \theta_i^p(a) = k_i^p(a) \psi_i(a^{\ot p})
+\]
+for some non-zero $k^p_i(a) \in \Fp$ unless, for some $\varepsilon \in \set{0,1}$, either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 
 Clearly, the existence of a Thom $i$-boundary construction for each $i \in \N$ implies Thom's Theorem \cref{t:thom}.
 
 \subsection{The map $\lambda$}
 
-\begin{definition}
-	The linear map $\lambda \colon \cW(p) \to \cW(p)$ is defined by
-	\[
-	\lambda(\rho^s e_{2i}) = k^i \rho^{ks} e_{2i}, \qquad
-	\lambda(\rho^s e_{2i+1}) = k^i (1+\rho+\dots+\rho^{k-1}) \rho^{ks} e_{2i+1}.
-	\]
-\end{definition}
+The linear map $\lambda \colon \cW(p) \to \cW(p)$ is defined by
+\[
+\lambda(\rho^s e_{2i}) = k^i \rho^{ks} e_{2i}, \qquad
+\lambda(\rho^s e_{2i+1}) = k^i (1+\rho+\dots+\rho^{k-1}) \rho^{ks} e_{2i+1}.
+\]
 
 \begin{lemma}
 	$\lambda$ is a chain map, which is $\cyc_p$-linear if the action of $\rho$ on the target is by $\rho^k$.
@@ -81,18 +77,16 @@ Let $\gamma \in \sym_p \cong \mathrm{Bij}(\Fp, \Fp)$ be defined by $\gamma(q) = 
 We remark that $\gamma$ is an odd permutation.
 We use the notation $\sigma^\gamma = \gamma \sigma \gamma^{-1}$
 and notice that $\rho^\gamma = \rho^k$.
-This implies that the induced simplicial map $\EE\sym_p \to \EE\sym_p$ restricts to a map $\EE\cyc_p \to \EE\cyc_p$.
+This implies that the induced simplicial map $\EE\sym_p \to \EE\sym_p$ restricts to a simplicial map $\EE\cyc_p \to \EE\cyc_p$.
 We denote its induced chain map by $\gamma_\ast \colon \cC(p) \to \cC(p)$, which is $\cyc_p$-equivariant if the action of $\rho$ on the target is by $\rho^k$.
 
 \subsection{Thom relators}
 
-\begin{definition}
-	A \textit{Thom relator} for $(A, \psi)$ at $p$ is a map $L_\psi^p \colon \cW(p) \to \Hom(A^{\ot p}, A)$ with
-	\[
-	\bd \comp L_\psi^p + L_\psi^p \comp \bd = \gamma \comp \psi - \psi \comp \lambda, \qquad
-	L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
-	\]
-\end{definition}
+A \textit{Thom relator for $(A, \psi)$ at $p$} is a map $L_\psi^p \colon \cW(p) \to \Hom(A^{\ot p}, A)$ with
+\[
+\bd \comp L_\psi^p + L_\psi^p \comp \bd = \gamma \comp \psi - \psi \comp \lambda, \qquad
+L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
+\]
 
 % $\cyc_p$-equivariant homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda$ where the action of $\rho$ on the target is by $\rho^k$.
 %Explicitly, this means that $L_\psi^p(\rho e_i) = \rho^k L_\psi^p(e_i)$.
@@ -106,7 +100,7 @@ We denote its induced chain map by $\gamma_\ast \colon \cC(p) \to \cC(p)$, which
 \end{theorem}
 
 \begin{proof}
-	Let us write $L$ and $\theta_i$ instead of $L_\psi^p$ and $\theta_\psi^p$.
+	Let us write $L$ and $\theta_i$ instead of $L_\psi^p$ and $\theta_i^p$.
 	Since $a$ is a mod~$p$ cycle,
 	\begin{align*}
 		\bd_A \theta_i(a) & =
@@ -144,7 +138,7 @@ We denote its induced chain map by $\gamma_\ast \colon \cC(p) \to \cC(p)$, which
 
 Recall that $\cC(p) = \chains \EE \cyc_p$ and $\BE(p) = \chains \EE \sym_p$.
 Let $A$ be a Barratt--Eccles algebra with structure map $\phi \colon \BE \to \End(A)$, and recall from \cref{ss:may-steenrod on barratt-eccles} the map $\iota \colon \cW \to \cC \hookrightarrow \BE$.
-The goal of this subsection if to construct explicit equivariant homotopies making the following diagram commute:
+The goal of this subsection is to construct explicit equivariant homotopies making the following diagram commute:
 \[
 \begin{tikzcd}
 	\cW(p) \arrow[r, "\iota"] \arrow[d,"\lambda"] \arrow[dr,phantom,"L_1"] &
@@ -154,9 +148,10 @@ The goal of this subsection if to construct explicit equivariant homotopies maki
 	\cW(p) \arrow[r, "\iota"] &
 	\cC(p) \arrow[r, hook] &
 	\BE(p) \arrow[r,"\phi"] &
-	\Hom(A^{\ot p}, A).
+	\Hom(A^{\ot p}, A),
 \end{tikzcd}
 \]
+where the action of $\cyc_r$ on the complexes on the bottom line is by $\rho^k$.
 
 \subsubsection{The homotopy $L_1$}
 
@@ -170,7 +165,7 @@ Let us consider the endomorphisms $\xi$ and $\eta$ of $\cC(p)$ given by
 \]
 and
 \[
-\eta(\rho^{s_0},\dots,\rho^{s_n}) = (0,\rho^{s_0},\dots,\rho^{s_n})
+\eta(\rho^{s_0},\dots,\rho^{s_n}) = (\rho^0,\rho^{s_0},\dots,\rho^{s_n})
 \]
 respectively, and denote by $\mu = \iota \comp \lambda$ and $\nu = \gamma \comp \iota$.
 The following claim is easily verified.

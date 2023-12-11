@@ -70,7 +70,7 @@ Please observe that by Thom's \cref{t:thom}, the Cartan formulas are equivalent 
 \end{equation}
 ranging over $i \in \N$.
 
-\subsection{Lift of the Cartan formulas}
+\subsection{Chain level lift}
 
 A lift to the chain level of the right hand side of \cref{eq:cartan_lift} is provided by the following expressions:
 \begin{align*}
@@ -81,6 +81,8 @@ A lift to the chain level of the right hand side of \cref{eq:cartan_lift} is pro
 	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
 \end{align*}
 
+Direct inspection establishes the following.
+
 \begin{lemma}
 	For any $a,b \in A$ and $i \in \N$ we have
 	\[
@@ -88,10 +90,6 @@ A lift to the chain level of the right hand side of \cref{eq:cartan_lift} is pro
 	\big(\tau \comp F - G\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
 	\]
 \end{lemma}
-
-\begin{proof}
-	This follows from direct inspection.
-\end{proof}
 
 \subsection{Cartan boundary constructions}\label{ss:cartan_coboundary}
 
@@ -116,10 +114,10 @@ A \textit{Cartan $i$-boundary construction for $(A,\psi)$ at $p$} is an assignme
 	\]
 	consequently, over $\Fp$\,,
 	\begin{align*}
-		H(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =&\,
+		&H(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =\,
 		(g(\rho) - 1) \comp H(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
-		H(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =&\,
-		(1+g(\rho)+\dots+g(\rho^{p-1})) \comp H(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = 0.
+		&H(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =\,
+		(1+g(\rho)+\dots+g(\rho^{p-1})) \comp H(e_{2i-1})(a^{\ot p} \ot b^{\ot p}) = 0.
 	\end{align*}
 	Therefore,
 	\begin{align*}

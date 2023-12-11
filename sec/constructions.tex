@@ -53,7 +53,7 @@ Since only the existence of this effective construction will be used here, we re
 
 \subsection{May--Steenrod structure on Barratt--Eccles algebras}\label{ss:may-steenrod on barratt-eccles}
 
-To provide the cochains of simplicial sets, or more generally any $\BE$-algebra, with a natural May--Steenrod structure, it suffices to define a $\cyc$-equivariant quasi-isomorphism
+To provide the cochains of simplicial sets, or more generally any $\BE$-algebra, with a natural May--Steenrod structure, we need to define a $\cyc$-equivariant quasi-isomorphism
 \[
 \iota \colon \cW \to \BE.
 \]
@@ -84,7 +84,7 @@ Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $
 \subsection{Main diagram}
 
 Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant homotopy $H \colon \cW \to \End(A)^\vee$ from $G$ to $\tau \comp F$ for any $\BE$-algebra $A$.
-We will do so by constructing $\cyc$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$ making the following diagram commute for $r > 0$:
+We will do so by constructing $\cyc$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$ making, for each $r>0$, the following diagram commute:
 \begin{equation}\label{d:big diagram}
 	\input{sec/diagram}
 \end{equation}
@@ -102,14 +102,16 @@ where $e \in \sym_2$ is the identity element denoting, abusively, the element $(
 		&
 		\BE(r) \arrow[d,"\phi"] \arrow[r,"\id\, \ot\, e^{\ot r}"] &[10pt]
 		\BE(r) \ot \BE(2)^{\ot r} \arrow[d,"\phi^{\ot 3}"] \arrow[r,"\bcomp_{\BE}"] &
+		\BE(2r) \arrow[d,"\phi"] \arrow[r,"\tau"] &
 		\BE(2r) \arrow[d,"\phi"] \\
 		\cW(r) \arrow[r,"\psi"] \arrow[ur, in=180, out=60,"\iota"] &
 		\cO(r) \arrow[r,"\id\, \ot\, \psi_0^{\ot r}"] &
 		\cO(r) \ot \cO(2)^{\ot r} \arrow[r,"\bcomp_{\cO}"] &
-		\cO(2r),
+		\cO(2r) \arrow[r,"\tau"] &
+		\cO(2r)
 	\end{tikzcd}
 	\]
-	where the bottom composition is $F_\psi^r$\,, whereas the second is equivalent to the commutativity of
+	where the bottom composition is $\tau \comp F_\psi^r$\,, whereas the second is equivalent to the commutativity of
 	\[
 	\begin{tikzcd}
 		&[-10pt] &
@@ -132,18 +134,20 @@ where $e \in \sym_2$ is the identity element denoting, abusively, the element $(
 Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 \[
 \begin{tikzcd}[row sep=small]
-	\BE(r) \arrow[r,"\id \ot e^{\ot r}"] &[5pt]
-	\BE(r) \ot \BE(2)^{\ot r} \arrow[d,"\bcomp_{\BE}"] \\ &
-	\BE(2r) \arrow[d, "\tau"] \\
-	\cC(r) \arrow[uu,hook] \arrow[r,"\tau \comp \chains\EE f"] & \BE(2r).
+	&[-10pt]\BE(r) \arrow[r,"\id \ot e^{\ot r}"] &[5pt]
+	\BE(r) \ot \BE(2)^{\ot r} \arrow[d,"\bcomp_{\BE}"] &[-20pt] \\ &
+	&\BE(2r) \arrow[d, "\tau"] & \\
+	\cW(r) \arrow[r,"\iota"] &
+	\cC(r) \arrow[uu,hook] \arrow[r,"\tau \comp \chains\EE f"] &
+	\BE(2r) \arrow[r,"\phi"] & \End(A)^\vee(r).
 \end{tikzcd}
 \]
-Its commutativity is a consequence of the proof of the following.
+Its commutativity is equivalent to the following.
 
 \begin{lemma}\label{l:K0}
 	For any Barratt--Eccles algebra with its canonical May--Steenrod structure, we have
 	\[
-	\tau \comp F_\psi = \tau \comp \phi \comp \chains\EE f \comp \iota.
+	\tau \comp F_\psi = \phi \comp \tau \comp \chains\EE f \comp \iota.
 	\]
 \end{lemma}
 
@@ -158,14 +162,14 @@ Its commutativity is a consequence of the proof of the following.
 			\chains\EE\sym_r
 			\arrow[ur,"\id \ot e^{\ot r}", out=60,in=180]
 			\arrow[dr,"\chains\EE(\id \times e^r)"',out=-60,in=180]
-			& & \chains\EE\sym_{2r} \arrow[r,"\tau\comp\phi"] &
+			& & \chains\EE\sym_{2r} \arrow[r,"\phi\comp\tau"] &
 			\End(A^{\ot r}, A). \\
 			&& \chains\EE(\sym_r \times \sym_2^r)
 			\arrow[ur, "\chains\EE(\bcomp_{\EE})"', out=0,in=-120]
 			&
 		\end{tikzcd}
 	\end{equation*}
-	Its top composition is $\tau \comp F_\psi^r$ and its bottom composition is $\tau \comp \phi \comp \chains\EE f \comp \iota$.
+	Its top composition is $\tau \comp F_\psi^r$ and its bottom composition is $\phi \comp \tau \comp \chains\EE f \comp \iota$.
 	Additionally, it is commutative since for any pair of simplicial sets $X,Y$ and simplices $y \in Y_0$ and $x \in X$ one has $\EZ(x \ot y) = x \times y$.
 \end{proof}
 
