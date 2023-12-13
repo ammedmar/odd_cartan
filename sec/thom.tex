@@ -101,10 +101,10 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 	Let us write $L$ and $\theta_i$ instead of $L_\psi^p$ and $\theta_i^p$.
 	Since $a$ is a mod~$p$ cycle,
 	\begin{align*}
-		\bd_A \theta_i(a) & =
+		(\bd \comp\, \theta_i)(a) & =
 		\bd_A L(e_i)(a^{\ot p}) \\ & =
 %		\big(\bd \comp L(e_i) + L(e_i) \comp \bd \big) (a^{\ot p}) \\ & =
-		\big(\bd_{\Hom(A)} L(e_i)\big)(a^{\ot p}) \\ & =
+		\big(\bd_{\End(A)} L(e_i)\big)(a^{\ot p}) \\ & =
 		\big((\bd L)(e_i) - L(\bd e_i)\big)(a^{\ot p}) \\ & =
 		\big((\psi \comp \lambda - \gamma \comp \psi)(e_i) - L(\bd e_i)\big) (a^{\ot p}).
 	\end{align*}
@@ -115,11 +115,11 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 	\end{align*}
 	we have
 	\begin{align*}
-		\bd \comp\, \theta_i(a) & =
+		(\bd \comp\, \theta_i)(a) & =
 		(\psi \comp \lambda - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
 		\begin{cases}
 			\big(k^\ell - \gamma\big) \psi_i(a^{\ot p}) & i = 2\ell, \\
-			\big(k^\ell (1+\rho\dots+\rho^k) - \gamma\big) \psi_i(a^{\ot p}) & i = 2\ell+1,
+			\big(k^\ell (1+\rho+\dots+\rho^{k-1}) - \gamma\big) \psi_i(a^{\ot p}) & i = 2\ell+1,
 		\end{cases}
 		\\ & =
 		\begin{cases}
@@ -127,7 +127,7 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 			\big(k^{\ell+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i = 2\ell+1,
 		\end{cases}
 	\end{align*}
-	where we used that $\gamma$ and $\rho$ are an even and an odd permutation respectively.
+	where we used that the permutations $\gamma$ and $\rho$ are respectively even and odd.
 
 	The claim follows from the fact that $k^\ell \equiv 1$ mod $p$ if and only if $\ell = r(p-1)$ for some $r$, and $k^\ell \equiv -1$ mod $p$ if and only if $2\ell = (2r+1)(p-1)$ for some $r$.
 \end{proof}

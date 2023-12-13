@@ -80,7 +80,6 @@ A lift to the chain level of the right hand side of \cref{eq:cartan_lift} is pro
 	&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
 	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
 \end{align*}
-
 Direct inspection establishes the following.
 
 \begin{lemma}
@@ -107,23 +106,23 @@ A \textit{Cartan $i$-boundary construction for $(A,\psi)$ at $p$} is an assignme
 \end{theorem}
 
 \begin{proof}
-	Let us simplify our notation from $H_\psi^p, F_\psi^p, G_\psi^p$ to $H, F, G$.
-	Second, since $\rho$ is an even permutation,
+	Let us simplify our notation from $H_\psi^p, F_\psi^p, G_\psi^p$ to $H, F, G$, and extend scalars to $\Fp$.
+	Since $\rho$ is an even permutation,
 	\[
 	(a^{\ot p} \ot b^{\ot p}) g(\rho) = (a^{\ot p} \rho \ot b^{\ot p} \rho ) = (a^{\ot p} \ot b^{\ot p}),
 	\]
-	consequently, over $\Fp$\,,
+	and
 	\begin{align*}
-		&H(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =\,
-		(g(\rho) - 1) \comp H(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0, \\
 		&H(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =\,
-		(1+g(\rho)+\dots+g(\rho^{p-1})) \comp H(e_{2i-1})(a^{\ot p} \ot b^{\ot p}) = 0.
+		(1+g(\rho)+\dots+g(\rho^{p-1})) \comp H(e_{2i-1})(a^{\ot p} \ot b^{\ot p}) = 0, \\
+		&H(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =\,
+		(g(\rho) - 1) \comp H(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0.
 	\end{align*}
-	Therefore,
+	Therefore, since $a$ and $b$ are mod $p$ cycles,
 	\begin{align*}
-		\bd_A H(e_i)(a^{\ot p} \ot b^{\ot p}) =&
-		\bd_A H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
-		\bd_{\End(A)} H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
+		(\bd \comp H(e_i))(a^{\ot p} \ot b^{\ot p}) =&
+%		\bd_A H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
+		\bd_{\End(A)} H(e_i)(a^{\ot p} \ot b^{\ot p}) - (H(e_i) \comp \bd)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
 		\big(\tau F - G\big)(e_i)(a^{\ot p} \ot b^{\ot p}) -
 		H(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
 		C^p_\psi(i)(a,b).\qedhere
