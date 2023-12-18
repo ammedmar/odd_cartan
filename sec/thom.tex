@@ -8,8 +8,8 @@ Recall that
 \[
 \rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp)
 \]
-is defined, after extending scalar to $\Fp$, by sending an $n$-cycle $a$ to $\psi_i(a^{\ot p})$.
-Thom's \cref{t:thom} states that the map $\rD_i^p$ is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
+is defined, after extending scalar to $\Fp$, by sending a cycle $a$ to $\psi_i(a^{\ot p})$.
+Thom's \cref{t:thom} states that the map $\rD_i^p$ is $0$ unless for some $\varepsilon \in \{0,1\}$ either: $\bars{a}$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $\bars{a}$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 We will lift to the chain level Steenrod's proof of this statement.
 
 Throughout this section we fix a primitive root $k \in \Fp$\,, i.e., $k^p = 1$ and $k^\ell \neq 1$ for $\ell \in \set{1,\dots,p-1}$.
@@ -20,7 +20,7 @@ A \textit{Thom $i$-boundary construction for $(A,\psi)$ at $p$} is an assignment
 \[
 \bd \theta_i^p(a) = k_i^p(a) \psi_i(a^{\ot p})
 \]
-for some non-zero $k^p_i(a) \in \Fp$ unless, for some $\varepsilon \in \set{0,1}$, either: $n$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $n$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
+for some non-zero $k^p_i(a) \in \Fp$ unless, for some $\varepsilon \in \set{0,1}$, either: $\bars{a}$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $\bars{a}$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 
 Clearly, the existence of a Thom $i$-boundary construction for each $i \in \N$ implies Thom's Theorem \cref{t:thom}.
 
@@ -101,19 +101,19 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 	Let us write $L$ and $\theta_i$ instead of $L_\psi^p$ and $\theta_i^p$.
 	Since $a$ is a mod~$p$ cycle,
 	\begin{align*}
-		(\bd \comp\, \theta_i)(a) & =
-		\bd_A L(e_i)(a^{\ot p}) \\ & =
+		(\bd_A \comp\, \theta_i)(a) & =
+		\bd_A \comp L(e_i)(a^{\ot p}) \\ & =
 %		\big(\bd \comp L(e_i) + L(e_i) \comp \bd \big) (a^{\ot p}) \\ & =
-		\big(\bd_{\End(A)} L(e_i)\big)(a^{\ot p}) \\ & =
+		\big(\bd_{\End(A)} L(e_i) - L(e_i) \comp \bd_A \big)(a^{\ot p})\\ & =
 		\big((\bd L)(e_i) - L(\bd e_i)\big)(a^{\ot p}) \\ & =
-		\big((\psi \comp \lambda - \gamma \comp \psi)(e_i) - L(\bd e_i)\big) (a^{\ot p}).
+		\big((\gamma \comp \psi - \psi \comp \lambda)(e_i) - L(\bd e_i)\big) (a^{\ot p}).
 	\end{align*}
-	Since for any $\ell \in \N$,
+	Since $\rho$ is an even permutation, $a^{\ot p} \rho = a^{\ot p}$ and
 	\begin{align*}
-		&L(\bd e_{2\ell})(a^{\ot p}) = L(N e_{2\ell-1}) = (1+\rho^k+\dots+\rho^{kp-k})L(e_{2\ell-1}) (a^{\ot p}) = 0, \\
-		&L(\bd e_{2\ell+1})(a^{\ot p}) = L(T e_{2\ell}) = (\rho^k - 1) L(e_{2\ell})(a^{\ot p}) = 0,
+		&L(\bd e_{2\ell})(a^{\ot p}) = L(N e_{2\ell-1})(a^{\ot p}) = (1+\rho^k+\dots+\rho^{kp-k})L(e_{2\ell-1}) (a^{\ot p}) = 0, \\
+		&L(\bd e_{2\ell+1})(a^{\ot p}) = L(T e_{2\ell})(a^{\ot p}) = (\rho^k - 1) L(e_{2\ell})(a^{\ot p}) = 0.
 	\end{align*}
-	we have
+	Since $\gamma$ is an odd permutation, $a^{\ot p} \gamma = (-1)^{\bars{a}} a^{\ot p}$ and
 	\begin{align*}
 		(\bd \comp\, \theta_i)(a) & =
 		(\psi \comp \lambda - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
@@ -124,11 +124,9 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 		\\ & =
 		\begin{cases}
 			\big(k^\ell - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i = 2\ell, \\
-			\big(k^{\ell+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i = 2\ell+1,
+			\big(k^{\ell+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i = 2\ell+1.
 		\end{cases}
 	\end{align*}
-	where we used that the permutations $\gamma$ and $\rho$ are respectively even and odd.
-
 	The claim follows from the fact that $k^\ell \equiv 1$ mod $p$ if and only if $\ell = r(p-1)$ for some $r$, and $k^\ell \equiv -1$ mod $p$ if and only if $2\ell = (2r+1)(p-1)$ for some $r$.
 \end{proof}
 
@@ -136,7 +134,7 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 
 Recall that $\cC(p) = \chains \EE \cyc_p$ and $\BE(p) = \chains \EE \sym_p$.
 Let $A$ be a Barratt--Eccles algebra with structure map $\phi \colon \BE \to \End(A)$, and recall from \cref{ss:may-steenrod on barratt-eccles} the map $\iota \colon \cW \to \cC \hookrightarrow \BE$.
-The goal of this subsection is to construct explicit equivariant homotopies making the following diagram commute:
+The goal of this subsection is to construct a Thom relator by giving explicit equivariant homotopies $L_1$ and $L_2$ making the following diagram commute:
 \[
 \begin{tikzcd}
 	\cW(p) \arrow[r, "\iota"] \arrow[d,"\lambda"] \arrow[dr,phantom,"L_1"] &
