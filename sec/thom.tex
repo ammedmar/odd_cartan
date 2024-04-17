@@ -3,7 +3,7 @@
 \appendix
 \section{An effective proof of Thom's theorem}\label{s:thom}
 
-Let $(A,\psi)$ be a May--Steenrod complex.
+\noindent Let $(A,\psi)$ be a May--Steenrod complex.
 Recall that
 \[
 \rD_i^p \colon \rH_n(A; \Fp) \to \rH_{np+i}(A; \Fp)
@@ -18,9 +18,9 @@ Throughout this section we fix a primitive root $k \in \Fp$\,, i.e., $k^p = 1$ a
 
 A \textit{Thom $i$-boundary construction for $(A,\psi)$ at $p$} is an assignment of an element $\theta_i^p(a)$ in $A$ to every mod~$p$ cycle $a$ in $A$ such that, in $A \ot \Fp$,
 \[
-\bd \theta_i^p(a) = k_i^p(a) \psi_i(a^{\ot p})
+\bd \theta_i^p(a) = c_i^p(a) \, \psi_i(a^{\ot p})
 \]
-for some non-zero $k^p_i(a) \in \Fp$ unless, for some $\varepsilon \in \set{0,1}$, either: $\bars{a}$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $\bars{a}$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
+for some non-zero $c_i^p(a) \in \Fp$ unless, for some $\varepsilon \in \set{0,1}$, either: $\bars{a}$ is even and $i+\varepsilon$ is an even multiple of $(p-1)$ or $\bars{a}$ is odd and $i+\varepsilon$ is an odd multiple of $(p-1)$.
 
 Clearly, the existence of a Thom $i$-boundary construction for each $i \in \N$ implies Thom's Theorem \cref{t:thom}.
 
@@ -33,10 +33,15 @@ The linear map $\lambda \colon \cW(p) \to \cW(p)$ is defined by
 \]
 
 \begin{lemma}
-	$\lambda$ is a chain map, which is $\cyc_p$-linear if the action of $\rho$ on the target is by $\rho^k$.
+	$\lambda$ is a chain map equivariant for the group homomorphism
+	\begin{align*}
+		\cyc_p &\to \cyc_p \\
+		\rho &\mapsto \rho^k.
+	\end{align*}
 \end{lemma}
 
 \begin{proof}
+	Recall that $N$ equals $1+\rho+\dots+\rho^{p-1}$.
 	Using that $\rho N = N$ we have
 	\[
 	\bd \comp \lambda(\rho^s e_{2i}) = k^i \rho^{ks} \bd (e_{2i}) = k^i \rho^{ks} N e_{2i-1} = k^i N e_{2i-1}
@@ -48,6 +53,7 @@ The linear map $\lambda \colon \cW(p) \to \cW(p)$ is defined by
 	\end{align*}
 	since $(1+\rho+\dots+\rho^{k-1}) (1+\rho^k+\dots+\rho^{kp-k}) = kN$.
 	This proves the claim for even degrees.
+	Recall that $T$ equals $\rho - 1$.
 	For odd degrees, we have
 	\begin{multline*}
 		\bd \comp \lambda(\rho^s e_{2i+1}) = k^i (1+\rho+\dots+\rho^{k-1}) \rho^{ks} \bd (e_{2i+1}) \\
@@ -60,34 +66,31 @@ The linear map $\lambda \colon \cW(p) \to \cW(p)$ is defined by
 	This concludes the proof.
 \end{proof}
 
-\begin{remark*}
-	In both \cite[p.219]{steenrod1953cyclic} and \cite[p.159]{may1970general} the map $\cW(p) \to \cW(p)$ defined by the assignment
-	\[
-	e_{2i} \mapsto k^i e_{2i}, \qquad
-	e_{2i+1} \mapsto k^i (1+\rho+\dots+\rho^{k-1}) e_{2i+1}
-	\]
-	is claimed to be a chain map, but the $\cyc_p$-equivariant extension of this assignment is not a chain map with the usual action of $\cyc_p$ on the target $\cW(p)$.
-\end{remark*}
-
 \subsection{The element $\gamma$}
 
 Let $\gamma \in \sym_p \cong \mathrm{Bij}(\Fp, \Fp)$ be defined by $\gamma(q) = kq$.
-We remark that $\gamma$ is an odd permutation.
-We use the notation $\sigma^\gamma = \gamma \sigma \gamma^{-1}$
-and notice that $\rho^\gamma = \rho^k$.
+We remark that $\gamma$ is an odd permutation because it fixes $q = 0$ and is a $p-1$ cycle on the remaining elements since $k$ is a primitive root of unity.
+For $\sigma \in \sym_p$ we use the notation $\sigma^\gamma = \gamma \sigma \gamma^{-1}$, where $\sym_p \supset \cyc_p \cong \Fp$.
+Notice that $\rho^\gamma = \rho^k$ since $\rho^\gamma(q) = \gamma \rho(k^{-1}q) = \gamma(k^{-1} q + 1) = q + k = \rho^k(q)$ for any $q \in \Fp$.
 This implies that the induced simplicial map $\EE\sym_p \to \EE\sym_p$ restricts to a simplicial map $\EE\cyc_p \to \EE\cyc_p$.
 We denote its induced chain map by $\gamma_\ast \colon \cC(p) \to \cC(p)$, which is $\cyc_p$-equivariant if the action of $\rho$ on the target is by $\rho^k$.
 
 \subsection{Thom relators}
 
-A \textit{Thom relator for $(A, \psi)$ at $p$} is a map $L_\psi^p \colon \cW(p) \to \Hom(A^{\ot p}, A)$ with
+A \textit{Thom relator for $(A, \psi)$ at $p$} is a homotopy from $\psi \comp \lambda$ to $\gamma \comp \psi$ which is equivariant with respect to the homomorphisms $\rho \to \rho^k$.
+Explicitly, a degree 1 map
 \[
-\bd \comp L_\psi^p + L_\psi^p \comp \bd = \gamma \comp \psi - \psi \comp \lambda, \qquad
-L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
+L_\psi^p \colon \cW(p) \to \End(A)(p)
 \]
-
-% $\cyc_p$-equivariant homotopy between $\gamma \comp \psi$ and $\psi \comp \lambda$ where the action of $\rho$ on the target is by $\rho^k$.
-%Explicitly, this means that $L_\psi^p(\rho e_i) = \rho^k L_\psi^p(e_i)$.
+satisfying
+\[
+\bd_{\End(A)(p)} \comp L_\psi^p + L_\psi^p \comp \bd_{\cW(p)} = \gamma \comp \psi - \psi \comp \lambda
+\]
+and
+\[
+L_\psi^p \comp \rho = \rho^k \comp L_\psi^p \,,
+\]
+where the action of $\rho^k$ on $\End(A)(p) = \Hom(A^{\ot p}, A)$ is the usual one, explicitly described in \cref{fn:symmetric_action_on_hom}.
 
 \begin{theorem}
 	If $L_\psi^p$ is a Thom relator for $(A, \psi)$ at $p$ then
@@ -98,15 +101,13 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 \end{theorem}
 
 \begin{proof}
-	Let us write $L$ and $\theta_i$ instead of $L_\psi^p$ and $\theta_i^p$.
+	Let us write $L,\theta_i, \End(A)$, and $\cW$ instead of $L_\psi^p, \theta_i^p, \End(A)(p)$, and $\cW(p)$.
 	Since $a$ is a mod~$p$ cycle,
 	\begin{align*}
-		(\bd_A \comp\, \theta_i)(a) & =
-		\bd_A \comp L(e_i)(a^{\ot p}) \\ & =
-%		\big(\bd \comp L(e_i) + L(e_i) \comp \bd \big) (a^{\ot p}) \\ & =
-		\big(\bd_{\End(A)} L(e_i) - L(e_i) \comp \bd_A \big)(a^{\ot p})\\ & =
-		\big((\bd L)(e_i) - L(\bd e_i)\big)(a^{\ot p}) \\ & =
-		\big((\gamma \comp \psi - \psi \comp \lambda)(e_i) - L(\bd e_i)\big) (a^{\ot p}).
+		(\bd_A \comp\; \theta_i)(a) & =
+		\bd_A \comp\, L(e_i)(a^{\ot p}) \\ & =
+		\big(\bd_{\End(A)} L(e_i) - L(e_i) \comp \bd_{A^{\ot p}} \big)(a^{\ot p})\\ & =
+		\big((\gamma \comp \psi - \psi \comp \lambda)(e_i) - L(\bd_\cW e_i)\big) (a^{\ot p}).
 	\end{align*}
 	Since $\rho$ is an even permutation, $a^{\ot p} \rho = a^{\ot p}$ and
 	\begin{align*}
@@ -115,7 +116,7 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 	\end{align*}
 	Since $\gamma$ is an odd permutation, $a^{\ot p} \gamma = (-1)^{\bars{a}} a^{\ot p}$ and
 	\begin{align*}
-		(\bd \comp\, \theta_i)(a) & =
+		(\bd_A \comp\, \theta_i)(a) & =
 		(\psi \comp \lambda - \gamma \comp \psi)(e_i)(a^{\ot p}) \\ & =
 		\begin{cases}
 			\big(k^\ell - \gamma\big) \psi_i(a^{\ot p}) & i = 2\ell, \\
@@ -127,12 +128,12 @@ L_\psi^p \comp \rho = \rho^k \comp L_\psi^p.
 			\big(k^{\ell+1} - (-1)^{\bars{a}}\big) \psi_i(a^{\ot p}) & i = 2\ell+1.
 		\end{cases}
 	\end{align*}
-	The claim follows from the fact that $k^\ell \equiv 1$ mod $p$ if and only if $\ell = r(p-1)$ for some $r$, and $k^\ell \equiv -1$ mod $p$ if and only if $2\ell = (2r+1)(p-1)$ for some $r$.
+	We conclude the proof of this theorem by noticing the fact that $k^\ell \equiv 1$ mod $p$ if and only if $\ell = r(p-1)$ for some $r$, and $k^\ell \equiv -1$ mod $p$ if and only if $2\ell = (2r+1)(p-1)$ for some $r$.
 \end{proof}
 
 \subsection{Thom relators for Barratt--Eccles algebras}
 
-Recall that $\cC(p) = \chains \EE \cyc_p$ and $\BE(p) = \chains \EE \sym_p$.
+Recall that $\cC(p) = \chains\EE \cyc_p$ and $\BE(p) = \chains\EE \sym_p$.
 Let $A$ be a Barratt--Eccles algebra with structure map $\phi \colon \BE \to \End(A)$, and recall from \cref{ss:may-steenrod on barratt-eccles} the map $\iota \colon \cW \to \cC \hookrightarrow \BE$.
 The goal of this subsection is to construct a Thom relator by giving explicit equivariant homotopies $L_1$ and $L_2$ making the following diagram commute:
 \[
@@ -147,7 +148,8 @@ The goal of this subsection is to construct a Thom relator by giving explicit eq
 	\Hom(A^{\ot p}, A),
 \end{tikzcd}
 \]
-where the action of $\cyc_r$ on the complexes on the bottom line is by $\rho^k$.
+where the action of $\cyc_r$ on the complexes on the bottom line is via the homomorphism by $\rho \mapsto \rho^k$.
+Notice that the the top route around the diagram is $\gamma \comp \psi$ and the bottom route is $\psi \comp \lambda$.
 
 \subsubsection{The homotopy $L_1$}
 

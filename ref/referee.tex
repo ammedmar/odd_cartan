@@ -1,0 +1,838 @@
+\documentclass{amsart}
+\input{../aux/style}
+\input{../aux/usualcmds}
+\addbibresource{../aux/usualpapers.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\input{../aux/commands} % add commands here
+\addbibresource{../aux/bibliography.bib} % add references here
+\input{../aux/packages}
+\usepackage{enumitem}
+\setlist{label=\arabic{enumi}.,itemsep=\medskipamount, left=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\title[Referee reply]{An effective proof of the Cartan formula: Odd primes}
+\author{Medina-Mardones}
+\author{Cantero-Mor\'an}
+
+\newcommand{\ar}{\medskip\noindent\textit{Reply}:\ }
+\renewcommand{\thesection}{\arabic{section}}
+\def\subitem{\medskip\noindent$\bullet$ }
+
+\addtolength{\textwidth}{1in}
+\addtolength{\textheight}{1in}
+\calclayout
+
+\begin{document}
+\noindent\today
+
+\begin{center}
+	\Large{---Referee Replay---}
+	\bigskip
+\end{center}
+
+\maketitle
+
+We would like to thank the referee for a careful and insightful analysis of our paper, as well as for the many suggestions improving its presentation.
+We copy their report for completeness.
+A new version of the paper will be uploaded to the arXiv once all the referee's suggestions are incorporated satisfactorily.
+
+\section{Reviewer's summary}
+
+\noindent The referee recommends that this paper be accepted, but only after many corrections are made and many paragraphs revised. Some of the referee’s suggestions are routine.
+But others are designed to correct non-trivial errors or omissions and to improve the exposition for the benefit of readers. In refereed journals, articles must conform to a higher standard of mathematical correctness and readability than is the case for arXiv posts.
+Thus the referee is suggesting a careful rewriting of several paragraphs in the paper, and some reorganization, as well as corrections of routine items. It will not be sufficient to	resubmit a superficially changed manuscript, or submit a revision that still requires careful proofreading and refereeing. When paragraphs and arguments are changed and moved	around, careful proofreading by the authors is required to insure that the new version	holds together, and that new errors have not been introduced.
+
+At the same time, it seems to the referee that a previous arXiv post by the authors on this	topic is seriously deficient.
+That should be revised also, and a v2 submitted.
+In searching literature it is often easier to find arXiv posts than subsequent refereed published papers.
+It does no one a service if there are known problems in the most recent versions of arXiv posts.
+
+The term ‘effective proof’ used by the authors in the title, and frequently in the text, is odd.
+A more common mathematical term might be ‘constructive proof’, but that is not really appropriate, as from the very beginning the proofs were constructive in a crude sense.
+The theorem deals with finite complexes in each degree, so crude trial and error would produce all the equivariant chain maps and chain homotopies needed for cochain proofs of the Cartan formula in any given degree.
+The authors seem to like the term ‘effective’, so the referee is happy enough to leave it in the title and a few other places.
+However, the referee strongly recommends changing this term to ‘explicit’ in many instances in the text.
+These will be detailed in the report.
+The term ‘explicit’ seems to better capture what the authors actually accomplish.
+They construct explicit coboundary formulas for Cartan relations.
+``Effective'' is a rather vague term in a mathematical setting.
+
+\section{Reviewer's individual items}
+
+\begin{enumerate}
+	\item To begin, in the abstract, write “We explicitly construct a natural coboundary...”
+
+	\ar Changed as suggested (CAS).
+
+	\item Introduction:
+
+	\subitem Page 1, line 2. $H^*(X;\Ftwo)$ is better than $H^\vee$.
+
+	\ar CAS throughout the paper.
+
+	\subitem Page 1, line 3 of Introduction ``...constructing explicitly a degree $i$ map...”
+
+	\ar CAS.
+
+	\subitem Page 2, line 9 “... a non-explicit perspective, based on...”
+
+	\ar CAS.
+
+	\subitem line 19 “... an explicit construction...”
+
+	\ar CAS.
+
+	\subitem line 22 ”...to explicitly construct...”
+
+	\ar CAS.
+
+	\subitem line -8 “...which makes explicit...”
+
+	\ar CAS.
+
+	\subitem line -5 “...the explicit construction...”
+
+	\ar CAS.
+
+	\subitem line -2 “... an explicit version of a theorem of Thom, needed to define the Steenrod
+	operations and produce the coboundary formulas for Cartan relations.”
+
+	\ar We rather keep this instance of ``effective" instead of ``explicit."
+	The logic being that proofs with explicit constructions are effective.
+
+	\subitem lines 12, 13. $H^*(X;\Ftwo)$ makes more sense than $H^\vee$.
+
+	\ar CAS.
+
+	\subitem Also on page 2, the Cartan formula for $\beta P_s$ is not stated correctly.
+	On the right side it should be $\beta P_i[a]$ and $\beta P_j[b]$.
+	The subscripts $i + 1$ and $j + 1$ are bizarrely wrong, which indicates careless proof reading.
+
+	\ar Thank you for alerting us of this typo.
+	The updated version of the identity is below, agreeing with the one stated in \cite[p.165]{may1970general}:
+	\begin{align*}
+		P_{s}\big([a][b]\big) =&
+		\sum_{i+j=s} P_i[a] \, P_j[b], \\
+		\beta P_{s+1}\big([a][b]\big) =&
+		\sum_{i+j=s} \beta P_{i+1}[a] \, P_j[b] \ +\ (-1)^{\bars{a}} P_i[a] \, \beta P_{j+1}[b].
+	\end{align*}
+	This typo was also corrected in \S4.4.
+	We remark that the typo was writing $\beta P_s$ instead of $\beta P_{s+1}$.
+
+	\item Subsection 2.1, line 3-5. Improve to “... We use homological grading for chain complexes.
+	Differentials always have degree $-1$.
+	The linear dual of a chain group of degree $d$ is placed in degree $-d$.
+	In particular, for simplicial sets, cochains and cohomology are	indexed by non-positive integers.
+	.... a homotopy ... is a linear map h of degree $+1$ such that...”.
+
+	\ar CAS.
+
+	\item Subsection 2.3.
+
+	\subitem $\comp_\sym$ is not defined.
+	Some statement about what that means is needed.
+	Also, say that D means the diagonal homomorphism.
+	On line 5 of the Subsection, say “where $e \in \sym_2$ denotes the identity element.”
+
+	\ar We have replaced the previous sentence with: ... where $e \in \sym_2$ denotes the identity element, $\rD$ the diagonal homomorphism, and $\bcomp_{\sym}$ the usual block permutation map.
+
+	\subitem It would be appropriate to point out that although the permutation group operad structure maps $\comp_\sym$ are not group homomorphisms, the indicated compositions $f$ and $g$ are such.
+
+	\ar We added the following sentence: We remark that $f$ and $g$ are group homomorphisms despite $\bcomp_\sym$ not being one in general.
+
+	\item Subsection 2.4.
+
+	\subitem line 5 “...a natural homotopy...”
+
+	\ar CAS.
+
+	\subitem line 6. X × X should be X × Y twice.
+
+	\ar CAS.
+
+	\subitem line 12. In many instances in the text it is difficult to parse how N is precisely related to following symbols.
+	Here I would write $\AW \comp \chains(\rD)$.
+	In general I will suggest below that each time the functor N is applied to a function, the function be included in parentheses.
+
+	\ar CAS.
+
+	\item Subsection 3.1. line 3. $\phi$ is a chain map. [not $f$].
+	Replace the sentence “A similar convention is applied to homotopies.” by “A homotopy is
+	a collection of maps $\cP_1(r) \to \cP_2(r)$ of degree one.”
+
+	\ar CAS.
+
+	\item Subsection 3.2.
+
+	\subitem line 3. The referee recommends placing $\Z \leftarrow$, at the left end of the displayed resolution.
+
+	\ar Thank you for the suggestion.
+	We prefer to maintain the current format to prevent the reader from thinking that $\cW(r)$ is an augmented chain complex.
+
+	\subitem lines 5,6. The ‘definitions’ of $T, N$ are not adequate.
+	Should say $T(e_{2i+1}) = (\rho-1)e_{2i}$ and $N(e_{2i}) = (1 + \rho + \cdots + \rho^{r-1})(e_{2i-1})$.
+
+	\ar CAS.
+
+	\item Subsection 3.4.
+
+	\subitem Following the display of the $D_i^p$ it would not hurt to remind the reader that the facts that $D_i^p$ is well-defined on homology and linear are rather non-trivial consequences of the fact that $\psi \colon \cW(p) \to \Hom(A^{\ot p}, A)$ is a $\cyc_p$-equivariant chain map.
+	Thus the adjoint $\Psi \colon \cW(p) \ot A^{\ot p} \to A$ is equivariant, which means it factors through the coinvariants $\Psi \colon \cW(p) \ot A^{\ot p} \to A$.
+	It is also important that $\rho$ is an even permutation, so	$a^{\ot p}$ is $\Cp$-invariant regardless of the degree of $a$.
+	Thus by passing to coinvariants and using the boundary formulas for the $e_i$ one sees that $D_i^p(a) = \Psi(e_i \ot_\Cp a^{\ot p})$ is a cycle if $a$ is a cycle.
+	That $D_i^p$ takes boundaries to boundaries and is linear on homology requires further non-trivial arguments, involving $(\bd a)^{\ot p}$ and $(a + b)^{\ot p}$.
+
+	\ar We have included this comment as footnote. Thank you for the suggestions.
+
+	\subitem lines 6-8. The correct reference to Thom is [Ste53], not [Ste47].
+
+	\ar CAS, thank you.
+
+	\subitem Regarding Theorem 3.4.1, The sentence just above the statement of the Theorem should be
+	replaced by “In Appendix A we will prove Thom’s theorem by providing explicit coboundary formulas expressing the vanishing of the indicated cohomology classes.
+	These coboundaries then are used in the coboundary formulas that give the Cartan relations for Steenrod
+	operations.”
+
+	\medskip\noindent [The point is that explicit coboundary formulas for the Cartan relations are consequences of coboundary formulas involving all the Di classes. So the Di classes that are 0 cohomologically must be rewritten as explicit coboundaries in the coboundary formulas for Steenrod operations, even though only some of the Di classes are used to define the Steenrod operations.
+	This will be discussed further below.]
+
+	\ar We have replaced the wording with: ``For completeness, in Appendix A we will prove Thom's theorem effectively by providing explicit coboundary formulas expressing the vanishing of the indicated cohomology classes."
+
+	\subitem page 5, bottom. Replace the last two sentences by:
+	``... The notation $\beta P_s$ is motivated by the Bockstein relation $\beta P_s = \beta\, \comp P_s$, which is easily verified using the boundary formula in $\cW(p)$ with $\Z$ coefficients, $\bd(e_{2i}) = (1 + \rho + \dots + \rho^{p-1})e_{2i-1}$.
+	The motivation for the constants $\nu(n)$ will be discussed following the statement of the Cartan relations in Section 4.''
+
+	\medskip\noindent [The point is, the authors sentences are not informative, and not even completely correct.
+	In Section 4, the referee suggests more informative sentences about the $\nu(n)$.
+
+	\ar CAS.
+
+	\subitem Before these suggested sentences, and just following the definition of the $\nu(n)$ it might help
+	to give some reminders about degrees:
+	``The results of the paper apply to arbitrary $E_\infty$-algebras.
+	But the subscripts $i$ of the $\rD_i$ cannot be negative, so for a class a of degree $n$ the $P_s$ can be defined only for $2s-n \geq 0$, that is, $n/2 \leq s$.
+	In the classical case of cochains on simplicial sets, all classes have homological degrees $n \leq 0$.
+	Naturality constraints imply that no natural operation can raise these negative degrees.
+	Therefore, non-zero operations $P_s$ on simplicial sets are constrained by $s \leq 0$.
+	Thus, with the homological grading, non-zero operations $P_s(a)$ on simplicial set classes $a$ of degree $n \leq 0$ are constrained by two conditions $n/2 \leq s \leq 0$.
+	Historically, of course, cohomology was graded positively, and the Steenrod operations $P^s$ with $s \geq 0$ raised degree by $2s(p-1)$."
+
+	\ar We have incorporated this note about degrees as a footnote, thank you.
+
+	\item Subsection 4.1.
+	The referee does not like the $(-)^\vee$ notation.
+	Leibniz emphasized that	notation should be chosen to guide readers thoughts.
+	The referee suggests $(-)^{ev}$ or $(-)^{even}$.
+	So, two instances in line 1 of Subsection 4.1, and the second line of Subsection 4.2.
+	Other instances will be indicated below.
+
+	\ar We have replaced the notation $(-)^\vee$ by $(-)^\ev$ throughout the paper, thank you for the suggestion.
+
+	\item Subsection 4.2.
+
+	\subitem Line 2. $\End(A)^\ev$.
+
+	\ar CAS.
+
+	\subitem Several times in the paper the authors are too casual with the term “equivariant map”.
+	In general, equivariant maps are equivariant with respect to some homomorphism of groups, with the first group acting on the domain and the second group acting on the range.
+	The simple term “equivariant map” should only be used if the same group is acting on the domain and range, with the identity morphism understood.
+	In particular, in the first line of Subsection 4.2, the authors should say “... We define two chain maps, both equivariant for the group homomorphism \(g \colon \cyc_r \rightarrow \sym_{2r}\) defined in 2.3.”
+
+	\ar We believe that the remedy is to emphasize that the $\cyc$-module structure on $\cS^\ev$ is defined using $g$.
+	The point here is that $\cyc$-equivariance is a property of maps between $\cyc$-modules, and the $\cyc$-module structure on $\cS^\ev$ is defined using the collection of maps $\set{g \colon \cyc_r \to \sym_{2r}}$.
+	So, for any $\cyc$-module $\cC$, a map $\cC \to \cS^\ev$ is $\cyc$-equivariant if and only if $\cC(r) \to \cS(2r)$ is $g$-equivariant for each $r > 0$.
+	To clarify this we have expanded the section where the definition of the $(-)^\ev$ construction is given.
+	It now reads:
+
+	\medskip\noindent \textbf{The $(-)^\ev$ construction.}
+	Recall from \S2.3 the group homomorphism $g \colon \cyc_r \to \sym_{2r}$ defined for every $r > 0$.
+	Given an $\sym$-module $\cS$ we denote by $\cS^\ev$ the $\cyc$-module $\set{\cS(2r)}_{r>0}$ with the $\cyc_r$-action on $\cS(2r)$ defined by $g$.
+	In particular, for any $\cyc$-module $\cC$, a map $\cC \to \cS^\ev$ is $\cyc$-equivariant if and only if $\cC(r) \to \cS(2r)$ is $g$-equivariant for each $r > 0$.
+
+	\subitem That said, the authors still leave a lot of details for a reader to try to figure out here.
+	Why is the second map \(G_r\psi\) \(g\)-equivariant?
+	What about the first map \(\tau \circ F_{\psi r}\)?
+	For this, the rather obscure (at the time) definition of \(f\) and \(g\) in 2.3 has some payoff.
+	The \(g\)-equivariance of the second composition in 4.2 is a consequence of equivariance properties of the operad structure map \(\circ_O\), expressed in terms of the symmetric group operad that is used in 2.3 to ‘define’ \(g\).
+	This is an example of an underlying assumption of the authors that any reader is quite knowledgeable about operads.
+	Certainly the authors do not want to go backwards into details about operads, but the referee believes it would help here to make a comment about operads that explains the \(g\)-equivariance of the second composition in 4.2.
+
+	As for the first composition, the point is that the first composition \(\tau \circ F\) is \(g\)-equivariant because the \(F\) part (which is only implicit in the line of compositions) is \(f\)-equivariant for similar reasons to \(G\) being \(g\)-equivariant, and \(f \tau = \tau g\).
+	The details of this are not completely trivial to sort out, going back to issues such as the right group actions in the definition of operad, operad equivariance properties, etc.
+
+	\ar We have rewritten this section to include a complete proof of the equivariance claims.
+	It now reads:
+
+	\medskip\noindent \textbf{The maps $F$ and $G$.}
+	Let us denote the operad $\End(A)$ by $\cO$.
+	Then, for $r > 0$, define, omitting the superscripts of $\psi^r$ and $\psi_0^2$,
+	\begin{align*}
+		\tau \comp F_\psi \colon& \cW(r) \xra{\psi} \cO(r) \xra{\id\, \ot \psi_0^{\ot r}}
+		\cO(r) \ot \cO(2)^{\ot r} \xra{\bcomp_{\cO}}
+		\cO(2r) \xra{\tau} \cO(2r), \\
+		G_\psi \colon& \cW(r) \xra{\Delta}
+		\cW(r)^{\ot 2} \xra{\psi^{\ot 2}}
+		\cO(r)^{\ot 2} \xra{\psi_0 \ot\, \id}
+		\cO(2) \ot \cO(r)^{\ot 2} \xra{\bcomp_{\cO}}
+		\cO(2r)
+	\end{align*}
+	where $\cO(2r) \xra{\tau} \cO(2r)$ stands for the right action of $\tau$.\footnote{\label{fn:symmetric_action_on_hom}
+		We remind the reader that the right action of $\sigma \in \sym_r$ on $u \in \cO(r) = \End(A)(r) = \Hom(A^{\ot r}, A)$ produces the composition $A^{\ot r} \xra{\sigma} \ot A^{\ot r} \xra{u} A$.}
+	We will write $\tau \comp F_\psi$ for $\set{\tau \comp F_\psi^r}_{r>0}$ and $G$ for $\set{G_\psi^r}_{r>0}$.
+
+	\begin{lemma*}
+		The sets $\tau\, \comp F$ and $G$ define $\cyc$-equivariant chain maps from $\cW$ to $\End(A)^\ev$.
+	\end{lemma*}
+
+	\begin{proof}
+		Let us fix $r>0$.
+		Since the maps $\tau \comp F^r_\psi$ and $G^r_\psi$ are defined as compositions of chains maps, it suffices to verify that they are $g$-equivariant.
+		We will omit the superscripts of $\psi^r$ and $\psi_0^2$.
+		For $\tau \comp F^r_\psi$ we have:
+		\begin{align*}
+			(\tau \comp F^r_\psi)(e_i \cdot \rho) &=
+			(\bcomp_{\End(A)}(\psi(e_i \cdot \rho) \ot \psi_0^{\ot r})) \cdot \tau \\ &=
+			(\bcomp_{\End(A)}(\psi(e_i) \cdot \rho \ot \psi_0^{\ot r})) \cdot \tau \\ &=
+			(\bcomp_{\End(A)}(\psi(e_i) \ot \psi_0^{\ot r})) \cdot (\bcomp_{\sym} (\rho \times e^{\times r}))\tau \\ &=
+			(\bcomp_{\End(A)}(\psi(e_i) \ot \psi_0^{\ot r})) \cdot f(\rho)\tau \\ &=
+			(\bcomp_{\End(A)}(\psi(e_i) \ot \psi_0^{\ot r})) \cdot \tau g(\rho) \\ &=
+			(\tau \comp F^r_\psi)(e_i) \cdot g(\rho)
+		\end{align*}
+		where first and last equalities hold by definition, the second one by the $\cyc_r$-equivariance of $\psi^r$, the third one by the equivariance axiom of operadic composition, the fourth one by the definition of $f$ as given in \S2.3, and the fifth one by Lemma 2.3.1.
+		For $G^r_\psi$ we have:
+		\begin{align*}
+			G^r_\psi(e_i \cdot \rho) &=
+			\big(\bcomp_{\End(A)} \comp (\psi_0 \ot \psi \ot \psi) \comp \Delta)(e_i \cdot \rho \big) \\ &=
+			\bcomp_{\End(A)} \big(\psi_0 \ot \psi(\Delta^{(1)}(e_i \cdot \rho)) \ot \psi(\Delta^{(2)}(e_i \cdot \rho)) \big) \\ &=
+			\bcomp_{\End(A)} \big(\psi_0 \ot \psi(\Delta^{(1)}(e_i)) \cdot \rho \ot \psi(\Delta^{(2)}(e_i)) \cdot \rho \big) \\ &=
+			\bcomp_{\End(A)} \big(\psi_0 \ot \psi(\Delta^{(1)}(e_i)) \ot \psi(\Delta^{(2)}(e_i)) \big) \cdot \bcomp_{\sym}(e \times \rho \times \rho) \\ &=
+			G^r_\psi(e_i) \cdot g(\rho)
+		\end{align*}
+		where the first equality holds by definition, the second one simply introduces Sweedler's notation, the third equality holds by the $\cyc_r$-equivariance of $\psi$ and $\Delta$, the fourth one by the equivariance axiom of operadic composition, and the last one by the definition of $g$ as given in \S2.3.
+	\end{proof}
+
+	\item Subsection 4.3.
+
+	\subitem In line 1 say “A Cartan relator is ... a g-equivariant homotopy...”.
+
+	\ar This change was not made.
+	Please consult above the discussion of the second point in 10.
+
+	\subitem lines 2 3. “...a natural collection of degree one linear maps.”
+
+	\ar CAS.
+
+	\subitem Subsections 4.3, 4.5, and 4.6 are a bit of a symbol salad.
+	In fact, the proof of Lemma	4.6.1 is not formulated correctly.
+	The error can be identified and corrected by including more detailed information about the many $\bd$ formulas involved, and by being precise about
+	what $g$-equivariance means.
+	In particular, groups are acting on the right of complexes.
+	To begin:
+
+	\medskip\noindent The second displayed line in 4.3 should read
+	\[
+	\bd_\cO \comp H^r + H^r \comp \bd_\cW = \tau \comp F^r - G^r.
+	\]
+
+	\ar It now reads:
+	\[
+	\bd_{\Hom(A^{\ot 2r},\, A)} \comp \,H^r_\psi + H^r_\psi \comp \bd_{\cW(r)} = \tau \comp F^r_\psi - G^r_\psi.
+	\]
+
+	\subitem It would be very useful to point out following the third displayed line in 4.3 that the operators $\rho$ and $g(\rho)$ refer to the right group actions of $\rho$ and $g(\rho)$ on the domain and range of $H^r$, respectively.
+
+	\ar We have replaced the third displayed line with the following more explicit identity:
+	\[
+	H^r_\psi(e_i \cdot \rho) = H^r_\psi(e_i) \cdot g(\rho)
+	\]
+	for every $i \in \N$.
+
+	\subitem The right action of $g(\rho)$ on $u \in \cO(2r) = \End(A)(2r) = \Hom(A^{\ot r} \ot A^{\ot r}, A)$ is the pre-composition $u \comp g(\rho) \colon A^{\ot r} \ot A^{\ot r} \to A^{\ot r} \ot A^{\ot r} \to A$.
+
+	\ar We have added a footnote reminding the reader of this the first time the right action on $\End(r)$ is used.
+	Said footnote appears in this reply as well since we copied that part of the text above.
+
+	\item Subsection 4.4.
+
+	\subitem In the second displayed line, it should be $\beta P_i[a]$ and $\beta P_j[b]$.
+	Not subscripts $i+1$ and $j+1$.
+	This same bizarre mistake occurred earlier, on page 2.
+
+	\ar CAS.
+
+	\subitem In the fifth displayed line, the $+$ sign should be a $-$.
+	Or parentheses could be place around the full sum in the fifth displayed line.
+	Such parentheses should not be understood to be	intended.
+
+	\ar CAS.
+
+	\subitem The referee believes the $D$ equations (2) look more compatible with the $P$ relations if one uses $k = i+j$, rather than $i = j+k$.
+
+	\ar No change was made here.
+
+	\subitem The sentence above the display (2) with the $D$ equations should be replaced by more complete sentences, as hinted at in correction paragraph 8 above, pertaining to the bottom of page 5.
+	Here are suggestions, although such a discussion might better be fit in following display (2) instead of before display (2).
+
+	\medskip\noindent The real problem here is that the authors for some reason unknown to the referee never put separate parts of the paper together to write the difference $P_s(ab) - \sum_{i+j=s} P_i(a)P_j(b) - (other\ terms)$ as an explicit coboundary.
+	Which is the main goal of the paper.
+	Thom’s theorem seems to	be regarded as just another problem about finding explicit coboundary formulas for classes that are known to be 0 cohomologically.
+
+	\medskip\noindent A large part of the paper does succeed in writing $(-1)^{\bars{a}\bars{b}} D_{2k}(ab) - \sum_{i+j=k} D_{2i}(a) D_{2j}(b)$
+	as a specific coboundary, and a similar formula involving odd subscripts for the $D$’s.
+	Then what needs to be spelled out is this:
+
+	\medskip\noindent ``If one takes $2k = (2s-(|a|+|b|))(p-1)$ and multiplies the equation involving $(-1)^{\bars{a}\bars{b}} D_{2k}(ab)$ by $(-1)^s \nu(|a|)\nu(|b|)$ then one sees using the definition of the $\nu(n)$ and the $P$’s in terms of $D$’s that one has an equation expressing $P_s(ab) - \sum_{i+j=s} P_i(a)P_j(b) - (other\ terms)$ as an explicit coboundary.
+	The other terms are constants times products $D_\ell(a) D_m(b)$, where the subscripts are such that at least one of the factors, maybe both, are coboundaries by Thom’s theorem.
+	The relevant subscripts $\ell, m$ are not appropriate multiples of $(p-1)$.
+	Of course all these $D_i$ terms are cocycles, so the products are coboundaries.
+	Appendix A succeeds in writing the appropriate factor terms as coboundaries, and then the products are coboundaries in explicit ways.
+	A similar discussion applies to the formulas involving $\beta P_s(ab)$ and various odd $D_i$’s.”
+
+	\medskip\noindent After the D equations it might be appropriate to also point out that the constants $\nu(n)$ serve two other purposes.
+
+	\medskip\noindent “First, it can be easily shown that $P_s([a]) = [a]^p$ for a cohomology class $[a]$ of degree $2s$.
+	More subtly, it can be shown that $P_0([a]) = [a]$ in all degrees for the specific $E_\infty$-algebras $A = N^*(X)$, the normalized cochains of simplicial sets.
+	This result follows from the rather difficult formula for positive $n$ and a simplicial set class $[a]$ of degree $-n$ that $D_n(p-1)([a]) = (-1)^{mn} \nu(n)[a]$.”
+
+	[This last formula corrects a formula at the bottom of page 5 in the paper.
+	It is a rather tricky business, keeping track of positive and negative n’s, but the serious combinatorial difficulty is the Dn(p-1)([a]) formula for simplicial sets and a of degree -n, which is wrong on page 5.
+	Just given the definition of $\nu(n)$ for all $n$, it is easy to check $(-1)^{mn} \nu(n)\nu(-n) = 1$, which implies $P_0 = Id$, given the correct formula for $D_{n(p-1)}([a])$.
+	The authors paper is not about $P_0$, and May explained how the Cartan type formula for the $D$’s and the choice of the coefficients $\nu(n)$ imply the Cartan formula for the $P$’s for any $E_\infty$-algebra, without knowing $P_0 = Id$.
+	But the formula at the bottom of page 5 should not be stated wrong.]
+
+	\ar We have incorporated both suggestions and the subsection now reads:
+
+	\medskip\noindent\textbf{Cartan formulas}.
+	As we will see, the existence of a Cartan relator implies the Cartan formulas:
+	\begin{align*}
+		P_{s}\big([a][b]\big) =&
+		\sum_{i+j=s} P_i[a] \, P_j[b], \\
+		\beta P_{s+1}\big([a][b]\big) =&
+		\sum_{i+j=s} \beta P_{i+1}[a] \, P_j[b] \ +\ (-1)^{\bars{a}} P_i[a] \, \beta P_{j+1}[b],
+	\end{align*}
+	where $s \in \Z$ and $a$ and $b$ are any two mod $p$ cycles in $A$.
+
+	By Thom's Theorem, the Cartan formulas are equivalent to the following equations:
+	\begin{equation}\label{eq:cartan_lift}
+		\begin{split}
+			0 &= (-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
+			\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
+			0 &= (-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big)
+			-\sum_{\mathclap{i=j+k}} \big(\rD_{2j+1}[a] \, \rD_{2k}[b] \, +\, (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b]\big),
+		\end{split}
+	\end{equation}
+	ranging over $i \in \N$.
+	Explicitly, if one takes $2i = (2s-(|a|+|b|))(p-1)$ and multiplies the equation involving $(-1)^{\bars{a}\bars{b}} \rD_{2i}(ab)$ by $(-1)^s \nu(|a|)\nu(|b|)$ then one has an equation of the form
+	\[
+	0 = P_s([a][b]) - \sum_{\mathclap{s=j+k}} P_j[a] P_k[b] - \text{(other terms)}.
+	\]
+	Here, the other terms are constants times products $D_\ell[a] D_m[b]$, where the subscripts are such that at least one of the factors, maybe both, are coboundaries by Thom’s Theorem.
+	Appendix~A succeeds in writing the appropriate factor terms as coboundaries, and then the products are coboundaries in explicit ways.
+	A similar discussion applies to the formulas involving $\beta P_s([a][b])$.\footnote{\label{fn:mu}
+		The definition of the constants $\nu(n)$ is motivated by two facts.
+		First, it can be easily shown that $P_s([a]) = \overbrace{[a]\dotsb[a]}^p$ for a cohomology class $[a]$ of degree $2s$.
+		More subtly, it can be shown that $P_0([a]) = [a]$ in all degrees for the specific $E_\infty$-algebras $A = \cochains(X)$, the normalized cochains of simplicial sets.
+		This result follows from the rather difficult formula for positive $n$ and a simplicial set class $[a]$ of degree $-n$ that $D_n(p-1)([a]) = (-1)^{mn} \nu(n)[a]$.
+	}
+
+	\item Subsection 4.5.
+
+	\subitem Line 2. “... following expressions in A.”
+
+	\ar CAS, thank you.
+
+	\subitem In the last line of the display the + sign should be -. Or, parentheses could be placed around the terms in the $\Sigma$ display.
+
+	\ar CAS.
+
+	\subitem Display line in Lemma 4.5.1 should end with ``$\in A$".
+
+	\ar We replaced ``we have:" with ``the following identity holds in $A$:".
+
+	\subitem A much more detailed discussion of Lemma 4.5.1 is needed.
+	To an extent, some of needed details are part of the proof of Lemma 5.4.1, but even that leaves too much unsaid for the	reader to figure out. For one thing, the authors never clarify how the diagonal formula for $W(p)$ gets used.
+	When things are sorted out in Lemmas 4.5.1 and 5.4.1, the key fact is essentially that the adjoint of
+	\[
+	W(p) \ot W(p) \to \Hom(A^{\ot p} \ot A^{\ot p}, A)
+	\]
+	is a $\cyc_p \times \cyc_p$-equivariant map that factors through the covariant complex, $W(p) \ot W(p) \ot_{\cyc_p \times \cyc_p} A^{\ot p} \ot A^{\ot p} \to A$, where $\cyc_p \times \cyc_p$ acts on the tensor factors on the left, and trivially on $A$.
+	This map is applied to classes $\Delta(e_k) \ot (a^{\ot p} \ot b^{\ot p})$.
+	From 3.2, the classes $\Delta(e_{2k+1})$ contain terms $e_{2i+1} \ot \rho e_{2j}$.
+	The $\rho$ moves over to a $\rho^{-1}$ on the $b^{\ot p}$ factor in the covariant complex, which is $\cyc_p$ invariant.
+	The diagonal terms $\Delta(e_{2k})$ contain a total number $p(p-1)/2$ terms of form $\rho^s e_{2i+1} \ot \rho^t e_{2j-1}$.
+	These powers of $\rho$ move over to the other side in the covariant	complex, and hence the totality of these terms contribute 0, since there are a multiple of $p$ of them and $a^{\ot p} \ot b^{\ot p}$ is $\cyc_p \times \cyc_p$-invariant. What is left are diagonal terms that only involve $e_i \ot e_j$, and this along with Lemma 5.4.1 then helps explain the G part of Lemma	4.5.1.
+
+	\medskip\noindent
+	The sign $(-1)^{m|a||b|}$, $m = \frac{p-1}{2}$, that occurs in the formulas (2) is related to a shuffle permutation within the operad mechanism $A^{\ot p} \ot A^{\ot p} \cong (A^{\ot 2})^{\ot p}$.
+	The sign $(-1)^{|a|}$ that occurs in the formulas (2) involving the $D_{2j+1}$ classes occurs in the $G$ part, in the evaluations of $e_{2i} \ot e_{2j+1} \ot a^{\ot p} \ot b^{\ot p}$, moving the a term across the $e_{2j+1}$ term.
+	Some discussion about all this is needed to justify Lemma 4.5.1.
+	It is too involved to just be dismissed as `direct inspection’.
+	The authors need to figure out how to organize this, and get it right.
+
+	\ar We have added the following proof of the lemma:
+
+	\begin{proof}
+		Recall that $\rho$ is an even permutation and that $\psi \colon \cW(p) \to \End(A)(p)$ is $\cyc_p$-equivariant.
+		We will use the notation $\psi^p(e_i) = \psi_i$ and $\psi^2_0(a \ot b) = a \smallsmile b$ freely.
+		Let us first study
+		\[
+		G_\psi^p \colon \cW(p) \xra{\Delta}
+		\cW(p)^{\ot 2} \xra{\psi_0 \ot \psi^{\ot 2}}
+		\End(A)(2) \ot \End(A)(p)^{\ot 2} \xra{\bcomp_{\End(A)}}
+		\End(A)(2p).
+		\]
+		Notice that for any $j,k \in \N$ and $a,b \in A$ we have
+		\[
+		(\psi_j \smallsmile \psi_k)(a^{\ot p} \ot b^{\ot p}) = (-1)^{k\bars{a}}(\psi_j(a^{\ot p}) \smallsmile \psi_k(b^{\ot p}))
+		\]
+		by the Koszul sign convention.
+		Recall that
+		\[
+		\Delta(e_{2i}) =
+		\sum_{\mathclap{\ i=j+k}} \, e_{2j} \ot e_{2k} \ + \!\!
+		\sum_{i-1=j+k} \ \sum_{0 \leq s<t<r} \rho^s e_{2j+1} \ot \rho^t e_{2k+1},
+		\]
+		and notice that the number of integers $s$ and $t$ satisfying $0 \leq s < t < p$ is divisible by $p$, being in fact equal to $\frac{p(p-1)}{2}$.
+		Since $a^{\ot p}$ and $b{\ot p}$ are fixed by $\rho$,
+		\[
+		\sum_{i-1=j+k} \ \sum_{0 \leq s < t < r} (-1)^{\bars{a}} \, \psi_{2j+1}(a^{\ot p} \cdot \rho^s) \smallsmile \psi_{2k+1}(b^{\ot p} \cdot \rho^t)
+		= 0
+		\]
+		in $A \ot \Fp$.
+		Therefore,
+		\[
+		G_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) =
+		\sum_{\mathclap{\ i=j+k}} \ \psi_{2j}(a^{\ot p}) \smallsmile \psi_{2k}(b^{\ot p}).
+		\]
+		Additionally, since,
+		\[
+		\Delta(e_{2i+1}) =
+		\sum_{\mathclap{\ i=j+k}} \ e_{2j+1} \ot \rho e_{2k} + e_{2j} \ot e_{2k+1},
+		\]
+		we have
+		\begin{multline*}
+			G_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = \\
+			\sum_{i=j+k} \Big(
+			\big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
+			(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big)
+			\Big).
+		\end{multline*}
+		Let us now consider
+		\[
+		\tau \comp F_\psi^p \colon \cW(p) \xra{\!\psi \ot \psi_0^{\ot p}\hspace*{-5pt}}
+		\End(A)(p) \ot \End(A)(2)^{\ot r} \xra{\!\bcomp_{\End(A)}}
+		\End(A)(2p) \xra{\tau} \End(A)(2p).
+		\]
+		Recall from \S2.2 that for any $a,b \in A$,
+		\begin{align*}
+			\tau(a^{\ot p} \ot b^{\ot p}) &=
+			(-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} \, (a \ot b)^{\ot p} \\ &=
+			(-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \, (a \ot b)^{\ot p}.
+		\end{align*}
+		Therefore,
+		\begin{align*}
+			(\tau \comp F_\psi^p)(e_i)(a^{\ot p} \ot b^{\ot p}) &=
+			(-1)^{\frac{p-1}{2}\bars{a}\bars{b}} F_\psi^p(e_i)\big((a \ot b)^{\ot p}\big) \\ &=
+			(-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \psi_{i}\big((a \cp b)^{\ot p}\big),
+		\end{align*}
+		from which the lemma follows.
+	\end{proof}
+
+	\item Subsection 4.6.
+
+	\subitem In the first display write $\bd_A \zeta_i^p(a,b) = C_\psi^p(i)(a, b)$.
+
+	\ar CAS.
+
+	\subitem One can see that the ‘proof’ of Lemma 4.6.1 cannot be correct because as it is written it
+	would seem redundant to bring in both the boundary formula in W and the fact that a, b
+	are cocycles.
+
+	\medskip\noindent Here is a correct proof.
+
+	\ar The referee proposes some additional clarifications to improve readability.
+	We have incorporated some of those as detailed below.
+	The claim that our proof is wrong is unsubstantiated, since both strings of identities, ours and the referee's, are the same in different notations.
+
+	\subitem Begin by reminding that $\bd_{\End} \comp\, H - H \comp \bd_{W} = \tau \comp F - G$.
+	The first display, reminding about equivariance, is OK.
+
+	\ar CAS.
+
+	\subitem Following correction paragraph 11 above, in the second and third display lines, write $H(\bd_{\cW} e_{2i}) = \dots$ and $H(\bd_{\cW} e_{2i+1}) = \dots$.
+
+	\ar CAS.
+
+	\subitem It would also be very helpful to point out that the expressions in those two line vanish
+	because the tensor $a^p \ot a^p$ is fixed by $g(\rho)$, and since coefficients are in $\Fp$, we have $p = 0$.
+
+	\ar No change made.
+
+	\subitem Then, since a, b are cycles,
+	\[
+	\begin{split}
+		\bd_A H(e_i)(a^p \ot b^p) = \bd_{End} H(e_i)(a^p \ot b^p) - H(e_i)\bd_{A^p \ot A^p} (a^p \ot b^p) = \bd_{End} H(e_i)(a^p \ot b^p) \\
+		= (\tau \comp F - G)(e_i)(a^p \ot b^p) - H\bd_W (e_i)(a^p \ot b^p) = (\tau \comp F - G)(e_i )(a^p \ot b^p).
+	\end{split}
+	\]
+
+	\ar We replaced $\bd$ by $\bd_{\Hom}$ and $\bd_A$ for clarity.
+
+	\item Subsection 5.1 line 6. Plural “..morphisms h”.
+
+	\ar CAS, thank you.
+
+	\item Subsection 5.2. line 6. In this displayed line, every $\sym(t)$ should be $\sym_t$.
+
+	\ar CAS, thank you.
+
+	\item Subsection 5.3.
+
+	\subitem Display at bottom of page 8.
+	For clarity replace ``$(\dots,s_2,\dots)$" in the top line of the display by ``$(\dots,s_2,s_2+1\dots)$".
+	Bottom line of display is ok.
+
+	\ar CAS.
+
+	\subitem Table 1 on page 9 seems misleadingly simple, and anyway is completely trivial.
+
+	\ar Replaced ``Please consult Table~1 for a few examples" by ``Please consult Table~1 for the simplest examples".
+
+	\subitem Perhaps point out that the number of terms for $r$ and $n = 2k, 2k + 1$ is $(r - 1)^k$.
+	So $r = 5, n = 10$ gives 1024 terms and $r = 11, n = 20$ gives 10 billion terms.
+
+	\ar CAS, thank you for the suggestion.
+
+	\item Subsection 5.4.
+
+	\subitem line 2. Say ``...$g$-equivariant homotopy...” Also, in lines 3 and 4, $K_1$ and $K_2$ are $g$-equivariant.
+	$K_3$ is ordinary $\cyc_r$-equivariant, where $\cyc_r$ acts diagonally on the tensor products.
+
+	\ar As made explicit in the definition of the $(-)^\ev$ construction, at the level of $\cyc$-modules a morphisms from a $\cyc$-module to $\cS^\ev$, where $\cS$ is a $\sym$-module, is $\cyc$-equivariant if, for each arity, the corresponding map is $g$-equivariant.
+	To improve readability we have added the following sentence after the diagram:
+	``Explicitly, $K_1^r$ and $K_2^r$ are $g$-equivariant whereas $K_3^r$ is $\cyc_r$-equivariant with the diagonal action on the target."
+
+	\subitem Also line 2. ``$End(A)^{ev}$”.
+	In the big main diagram it might be better to scrap the $(-)^{ev}$ notation and just write ``$E(2r)$” twice and ``$End(A)(2r)$” once.
+	Or use the $(-)^{ev}$ notation instead of $(-)^\vee$.
+
+	\ar We have replaced the $(-)^\vee$ notation with $(-)^\ev$ throughout the paper.
+
+	\subitem In the middle of the diagram, in keeping with a suggestion in correction paragraph 5, write
+	$\tau \comp \chains\EE(f)$ and $\chains\EE(g)$ for the functorial morphisms.
+
+	\ar CAS throughout the paper.
+
+	\item Subsection 5.5.
+
+	\subitem In line 1 and in Diagram (3), replace $N E f$ by $N E(f)$.
+
+	\ar We have made this change, and the corresponding one for $g$, throughout the text.
+
+	\subitem Also replace the $End^\vee$ by $End(A)(2r)$
+
+	\ar Doing so would obfuscate its $\cyc_r$-module structure.
+
+	\subitem In the displayed line of the Lemma use $N E(f)$
+
+	\ar CAS.
+
+	\subitem In the big diagram at the start of the proof, the far right term is wrong. It should be
+	End(A)(2r).
+
+	\ar It is not wrong: by definition $\End(A^\ev)(r) = \End(A)(2r)$ with the $\cyc_r$-action defined by $g$.
+
+	\subitem In the second line after the diagram use $N E(f)$.
+
+	\ar CAS.
+
+	\subitem The last sentence of the proof concerning commutativity of the diagram is not satisfactory.
+	The right side of the diagram commutes by the definition of $\bcomp_\BE$.
+	The left side of the diagram commutes because if $y$ is a degree 0 simplex the $EZ$ map $\chains(X) \ot \chains(y) \to \chains(X \times y)$ is trivially an isomorphism, taking $x \ot y$ to the pair $(x, degen(y))$, where $degen(y)$ is the unique degenerate simplex of the point $y$ of degree equal $deg(x)$.
+
+	\ar CAS.
+
+	\medskip\noindent [The authors also get in a little trouble later for not using proper notation for simplices of products of simplicial sets.]
+
+	\item Subsection 5.6.
+
+	\subitem $N E(f)$ and $N E(g)$ in the first diagram.
+
+	\ar CAS.
+
+	\subitem Lemma 5.6.1. $\BE(2r)$ instead of $\BE^\vee$.
+
+	\ar We replaced $(-)^\vee$ by $(-)^\ev$.
+	In contrast to $\BE(2r)$, our notation $\BE^\ev(r)$ specifies the $\cyc_r$-action on this complex.
+
+	\subitem Say “... is a $g$-equivariant homotopy...”. [Not $\cyc$-equivariant.]
+
+	\ar No change made following the logic explained above in the replay to the second point of 10.
+
+	\subitem Also, $N E(f)$ and $N E(g)$ again, in the statement and a few times in the proof.
+
+	\ar CAS.
+
+	\item Subsection 5.7.
+
+	\subitem Lemma 5.6.1 is a special case of a rather general map about a pair
+	of equivariant chain maps to any $\chains(EG)$.
+	The proof can be made more conceptual, but whatever... Maybe the authors like this proof.
+
+	\ar No changes were made to the proof.
+
+	\subitem But the referee sees no reason whatsoever to bring in the $Shi$ homotopy as part of the homotopy $K2$.
+	It is messy and is not included in the paper, except for a reference.
+	This would seem to be a defect in the ultimate goal of writing down explicit coboundary formulas for everything. The general method behind Lemma 5.6.1 would more efficiently deal with $K2$.
+	As a matter of fact, the homotopies $K1$ and $K2$ can be combined to a single homotopy $K$ and a single proof given using the general form of Lemma 5.6.1.
+	This sort of shows up implicitly later in Subsection 5.9, where the authors combine their three homotopies. However, maybe the authors prefer their own proofs.
+	And, regardless how $K2$ is handled, keeping both a $K1$ and a $K2$ works in the main
+	diagram (3).
+
+	\ar We anticipate that the alternative approached suggested by the referee will be presented in upcoming work by Brumfiel and Morgan.
+	We will keep our proof as is for several reasons, including maintaining a diversity of approaches in the literature.
+
+	\subitem Assuming the authors want to keep their $Shi$ proof, which is a bad idea, the referee
+	would continue to suggest several notational changes in Subsection 5.7. Several $N E(g)$’s,
+	$N E(D)$’s, $N(\bcomp_{\EE\sym})$’s.
+
+	\ar CAS.
+
+	\subitem In the proof of Lemma 5.7.1 the boundary symbol $\bd$ in front of homotopies $H$ is used five times.
+	In each case it means a boundary in a hom complex, $\bd H = d \comp H + H \comp d$, which is
+	correct when H has degree 1.
+	This seems to be essentially the first time in the paper this
+	use of $\bd$ occurs, so some clarification would be helpful.
+
+	\ar We added the following after the first use of this notation: ``where $\bd$ denotes the boundary of $\cyc$-equivariant maps from $\cC$ to $\BE^\ev$."
+
+	\subitem Also, in the discussion of $AW(x \times y \times z)$, it only makes sense if $x, y, z$ are (possibly degenerate) simplices of the same degree.
+	Therefore, to say $x$ is a 0-simplex really means $x$ is the fully degenerate simplex of some degree corresponding to a point.
+	Presumably then $y$ and $z$ are (possibly degenerate) simplices of this same degree in $E\sym_r$. The product notation $(x \times y \times z)$ seems inappropriate, since it could be misunderstood as some kind of product of simplices.
+	A simplex in a triple product of simplicial sets is a triple of simplices $(x, y, z)$ of the same degree.
+	The triple can be non-degenerate even if the individual $x, y, z$ are degenerate.
+
+	\ar We have added more explanations.
+	It now reads:
+	``Since $\AW(x \times y \times z) = v \ot \AW(y \times z)$ for any triple of simplices $x,y,z$ with $x = v$ a $0$-simplex or the image of one via a degeneracy maps $x = \mathrm{s}(v)$, we have ..."
+
+	\item \input{federico1}
+
+	\item Subsection 5.9.
+
+	\subitem Line 1. “$... H \colon W \to End(A)^\ev ... $”
+
+	\ar CAS, thank you.
+
+	\subitem At the start of the proof of Theorem 5.9.1 clarify that for homotopies K (or H) regarded
+	as elements of hom complexes, $\bd K$ means $d \comp K + K \comp d$, and similarly for $\bd H$.
+	Following the proof requires looking back at the specifics of the $\bd K$’s, but that is ok.
+
+	\ar CAS.
+
+	\item \input{federico2}
+
+	\item \input{federico3}
+
+	\item Appendix A.1. Lines 4,5. $k_i^p$ is not a good notation for a constant, as it overlaps the
+	symbol for powers of a primitive root.
+	Better is just $c_i$.
+
+	\ar CAS.
+
+	\item Appendix A.2.
+
+	\subitem Say “$\lambda$ is a chain map equivariant for the group homomorphism $\cyc_r \to \cyc_r$
+	given by $\rho \to \rho^k$.
+
+	\ar CAS.
+
+	\subitem Also, clarify in the proof that N is the norm. And later, T is the
+	trace.
+
+	\ar CAS.
+
+	\subitem The Remark is nonsense and should be removed.
+	A quick look at both references shows
+	both those authors indicate clearly that their $\lambda$ is extended to be equivariant with respect
+	to the kth power map on $\cyc_p$.
+
+	\ar CAS.
+
+	\item Appendix A.3.
+
+	\subitem Point out that $\gamma$ is an odd permutation because it fixes $q = 0$ and is a
+	$p-1$ cycle on the remaining elements because $k$ is a primitive root of unity.
+
+	\ar CAS.
+
+	\subitem Clarify that $\sigma \in \sym_p$ and $\sym_p \supset \cyc_p \cong \Fp = {0, 1,\dots, p-1}$. Probably should include the computation $\rho^\gamma(q) = \gamma \rho(k^{-1}q) = \gamma(k^{-1} q + 1) = q + k = \rho^k(q)$.
+
+	\ar CAS.
+
+	\item Appendix A.4.
+
+	\subitem This section suffers from some of the same problems as Subsection 4.6,
+	and discussed in correction paragraphs 11 and 13.
+	Clarifications are needed for the various
+	uses of the symbol $\bd$.
+	To begin: Line 3. $\bd_{End(A)} \comp L^p_\psi + L^p_\psi \comp \bd_{\cW} = \gamma \comp \psi - \psi \comp \lambda$.
+
+	\ar CAS.
+
+	\subitem It should also be clarified that the $\gamma$ in $\gamma \comp \psi$ means the right action of $\gamma$ on $Hom(A^{\ot p} , A)$.
+	This right action is the pre-composition $\psi \comp \gamma \colon A^{\ot p} \to A^{\ot p} \to A$.
+
+	\ar We added ``where the action of $\rho^k$ on $\End(A)(p) = \Hom(A^{\ot p}, A)$ is the usual one, explicitly described in \cref{fn:symmetric_action_on_hom}."
+
+	\subitem In the four line display, on the second line it should be $\bd_{A^{\ot p}}$ in front of the $a^{\ot p}$ term.
+
+	\ar CAS.
+
+	\subitem The third line is completely useless and should be removed.
+	It isn’t even clear what is meant.
+
+	\ar CAS.
+
+	\subitem In the fourth line, $\bd(e_i)$ should be $\bd_{\cW}(e_i)$.
+	Then that line follows immediately from the second line, the vanishing of $\bd_{A^{\ot p}}(a^{\ot p})$, and the improved definition of Thom relator L in line 3.
+
+	\ar CAS.
+
+	\subitem The final long display should begin with $(\bd_A \comp \theta_i)(a) = \dots$ The lines of that display are not so easy to follow but look correct.
+
+	\subitem The line after the display begins “The claim...”. What claim? Presumably Thom’s Theorem 3.4.1 is meant.
+
+	\ar We replaced this sentence by ``We conclude the proof of this theorem by noticing the fact that ..."
+
+	\item A.5.
+
+	\subitem A sentence could be added after the diagram pointing out that the top route
+	around the diagram is $\gamma \comp \psi$ and the bottom route is $\psi \comp \lambda$.
+
+	\ar CAS.
+
+	\subitem A.5.1. This works in some sense, but has the defect that the recursively defined homotopy
+	L1 is not as explicit as other homotopies in the paper.
+	This decreases the explicitness of the final formula for a coboundary version of the Cartan relation.
+	Details needed for that, including using results of the Appendix, were outlined in correction paragraph 12.
+	There are other ways of dealing with $L1$, similar to an alternate approach to $K3$, exploiting a
+	retraction $\xi \colon \cC(r) \to \cW(r)$.
+	It would seem that it might be easier to find a closed formula for the recursive homotopy $L1$ than it was for $K3$, so the authors should give it a try.
+
+	\ar \textcolor{blue}{For Federico to deal with following the style of this referee replay.}
+\end{enumerate}
+
+\section{Other changes}
+
+\begin{enumerate}
+	\item 3.1. Explicitly state the $\cyc$-module structure on $\cW$ using the following sentence:
+	``We denote by $\cW$ the set $\set{\cW(r)}_{r > 0}$ regarded as a $\cyc$-module with $(\rho^s e_i) \cdot \rho = \rho^{s+1} e_i$.''
+
+	\item 5.1. Typo. Replace ``and on morphism $h$" by ``and on \textbf{a} morphism $h$".
+
+	\item Add \verb|\noindent| to the beginning of each section.
+\end{enumerate}
+\end{document}

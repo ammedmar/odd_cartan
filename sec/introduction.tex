@@ -2,11 +2,11 @@
 
 \section{Introduction} \label{s:introduction}
 
-Steenrod introduced in \cite{steenrod1947products} his celebrated square operations
+\noindent Steenrod introduced in \cite{steenrod1947products} his celebrated square operations
 \[
-\Sq^k \colon \rH^\vee(X; \Ftwo) \to \rH^\vee(X; \Ftwo)
+\Sq^k \colon \rH^*(X; \Ftwo) \to \rH^*(X; \Ftwo)
 \]
-on the mod~2 cohomology of simplicial sets, constructing effectively a degree $i$ map
+on the mod~2 cohomology of simplicial sets, constructing explicitly a degree $i$ map
 \[
 \cp_i \colon \cochains(X) \ot \cochains(X) \to \cochains(X)
 \]
@@ -26,22 +26,22 @@ This relation in cohomology implies the existence, for any pair of mod $2$ cocyc
 Inspired by the application of cup-$i$ products in the theory of topological phases (refer to \cite{kapustin2015cobordism, gaiotto2016spin, kapustin2017fermionic} for examples), Kapustin inquired about the construction of natural cochains $\zeta_i(\alpha, \beta)$ as in \eqref{e:lift cartan even}.
 This was presented in \cite{medina2020cartan} and later used in \cite{barkeshli2021classification} to classify symmetry-protected fermionic $(2+1)$-dimensional invertible phases.
 
-Not long after Steenrod's construction was introduced, a non-effective perspective based on group homology was developed, which allowed the definition not only of Steenrod squares but also of Steenrod operations
+Not long after Steenrod's construction was introduced, a non-explicit perspective based on group homology was developed, which allowed the definition not only of Steenrod squares but also of Steenrod operations
 \begin{align*}
-	P^s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp) \\
-	\beta P^s \colon& \rH^\vee(X; \Fp) \to \rH^\vee(X; \Fp)
+	P^s \colon& \rH^*(X; \Fp) \to \rH^*(X; \Fp) \\
+	\beta P^s \colon& \rH^*(X; \Fp) \to \rH^*(X; \Fp)
 \end{align*}
 for odd primes.
 The interaction of these with the cup product are also controlled by Cartan formulas:
 \begin{align*}
-	\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
-	\beta\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b].
+	P_{s}\big([a][b]\big) =&
+	\sum_{i+j=s} P_i[a] \, P_j[b], \\
+	\beta P_{s+1}\big([a][b]\big) =&
+	\sum_{i+j=s} \beta P_{i+1}[a] \, P_j[b] \ +\ (-1)^{\bars{a}} P_i[a] \, \beta P_{j+1}[b].
 \end{align*}
 
-By extending the concept of cup-$i$ products to other primes via the introduction of cup-$(p,i)$ products, an effective construction of Steenrod operations was introduced in \cite{medina2021may_st} and implemented in the computer algebra system \texttt{ComCH} \cite{medina2021comch}.
-The goal of this paper is to utilize these cup-$(p,i)$ products to lift the Cartan formulas to the cochain level, and to effectively construct natural coboundaries that generalize $\zeta_i(a,b)$ in \cref{e:lift cartan even} for odd primes.
+By extending the concept of cup-$i$ products to other primes via the introduction of cup-$(p,i)$ products, an explicit construction of Steenrod operations was introduced in \cite{medina2021may_st} and implemented in the computer algebra system \texttt{ComCH} \cite{medina2021comch}.
+The goal of this paper is to utilize these cup-$(p,i)$ products to lift the Cartan formulas to the cochain level, and to explicitly construct natural coboundaries that generalize $\zeta_i(a,b)$ in \cref{e:lift cartan even} for odd primes.
 Our method for constructing these odd Cartan coboundaries is solely based on the combinatorial structure of simplices, which enables a computer to carry out the process locally, focusing on individual simplices sequentially.
 An actual implementation of such algorithm is left to future work.
 

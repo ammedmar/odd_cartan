@@ -2,7 +2,7 @@
 
 \section{Effective constructions}\label{s:effective}
 
-We now turn to the effective construction of natural Cartan relators for the cochains of simplicial sets, or, more generally, Barratt--Eccles algebras.
+\noindent We now turn to the effective construction of natural Cartan relators for the cochains of simplicial sets, or, more generally, Barratt--Eccles algebras.
 
 \subsection{The construction $\EE$}
 
@@ -14,17 +14,17 @@ The symmetric monoidal functor $\EE \colon \Set \to \sSet$ is defined on an obje
 	\dege_i(x_0,\dots,x_n) &= (x_0, \dots, x_i, x_i, \dots, x_n),
 \end{split}
 \]
-and on morphism $h$ by
+and on a morphism $h$ by
 \[
 (\EE h)(x_0,\dots,x_n) = (h(x_0),\dots,h(x_n)).
 \]
 If $X$ is equipped with a group action then $\EE X$ is as well, defined by
 \[
-(x_0,\dots,x_n) \gamma = (x_0 \gamma, \dots, x_n \gamma).
+(x_0,\dots,x_n) \cdot \gamma = (x_0 \gamma, \dots, x_n \gamma).
 \]
 Notice that in this case each $(\EE X)_n$ is a set with a group action and each $\face_i$ and $\dege_i$ is equivariant.
 
-\subsection{The Barratt--Eccles operad}
+\subsection{The Barratt--Eccles operad}\label{ss:barratt-eccles}
 
 The usual block permutation map
 \[
@@ -36,15 +36,16 @@ The simplicial Barratt--Eccles operad $\rE\sym$ is obtained by applying the func
 We denote its composition by
 \[
 \bcomp_{\rE\sym} \colon
-\rE\sym(r) \times \rE\sym(s_1) \times\dots\times \rE\sym(s_r) \to
-\rE\sym(s_1+\dots+s_r).
+\rE\sym_r \times \rE\sym_{s_1} \times\dots\times \rE\sym_{s_r} \to
+\rE\sym_{s_1+\dots+s_r}.
 \]
 
 The (algebraic) Barratt--Eccles operad $\BE$ is defined by $\BE(r) = \chains\EE\sym_r$ with composition given by
 \[
 \bcomp_{\BE} \defeq \bcomp_{\EE} \comp \EZ \colon \BE(r) \ot \BE(s_1) \ot\dotsb\ot \BE(s_r) \to \BE(s_1+\dots+s_r).
 \]
-It is an $E_\infty$-operad and for any simplicial set $X$, Berger and Fresse \cite{berger2004combinatorial} explicitly constructed a natural operad morphism
+The Barratt--Eccles operad is an $E_\infty$-operad.
+For any simplicial set $X$, Berger and Fresse \cite{berger2004combinatorial} explicitly constructed a natural operad morphism
 \[
 \phi \colon \BE \to \End(\cochains(X))
 \]
@@ -57,25 +58,26 @@ To provide the cochains of simplicial sets, or more generally any $\BE$-algebra,
 \[
 \iota \colon \cW \to \BE.
 \]
-We recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module
+We now recall from \cite{medina2021may_st} a closed form formula for one such map which factors through the $\cyc$-module
 \[
-\cC = \{\chains\EE\cyc_r\}_{r\in\N}.
+\cC \defeq \{\chains\EE\cyc_r\}_{r>0}.
 \]
 For $r,n\in\N$, let
 \begin{equation*}
 	\iota(e_{n}) =
 	\begin{cases}
-		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, {s_1}, {s_1+1}, {s_2}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m, \\
+		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, {s_1}, {s_1+1}, {s_2}, {s_2+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m, \\
 		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, 1, {s_1}, {s_1+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m+1,
 	\end{cases}
 \end{equation*}
 where the sum is over all $s_1, \dots, s_m \in \{0, \dots, r-1\} \cong \cyc_r$.
-Please consult \cref{f:small values of psi} for a few examples.
+Please consult \cref{f:small values of psi} for the simplest examples.
+We remark that the number of basic summands above for $r$ and $n = 2m, 2m + 1$ is $(r-1)^m$.
 
 \begin{table}
 	\centering
 	\input{aux/table}
-	\caption{The elements $\psi(e_n)$ for small values of $r$ and $n$.}
+	\caption{The elements $\psi^r(e_n)$ for small values of $r$ and $n$.}
 	\label{f:small values of psi}
 \end{table}
 
@@ -83,19 +85,20 @@ Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $
 
 \subsection{Main diagram}
 
-Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant homotopy $H \colon \cW \to \End(A)^\vee$ from $G$ to $\tau \comp F$ for any $\BE$-algebra $A$.
+Our goal is to construct a natural Cartan relator for $\BE$-algebras, that is to say, a natural $\cyc$-equivariant homotopy $H \colon \cW \to \End(A)^\ev$ from $G$ to $\tau \comp F$ for any $\BE$-algebra $A$.
 We will do so by constructing $\cyc$-equivariant chain homotopies $K_1$, $K_2$, and $K_3$ making, for each $r>0$, the following diagram commute:
 \begin{equation}\label{d:big diagram}
 	\input{sec/diagram}
 \end{equation}
 where $e \in \sym_2$ is the identity element denoting, abusively, the element $(e) \in \BE(2)_0$.
+Explicitly, $K_1^r$ and $K_2^r$ are $g$-equivariant whereas $K_3^r$ is $\cyc_r$-equivariant with the diagonal action on the target.
 
 \begin{lemma}\label{l:main_diag}
-	The top composition in diagram \eqref{d:big diagram} agrees with $\tau \comp F^r$ whereas the bottom one does so with $G^r$.
+	In diagram \eqref{d:big diagram}, the top composition agrees with $\tau \comp F^r$ and the bottom one does so with $G^r$.
 \end{lemma}
 
 \begin{proof}
-	Let us write $\cO$ instead of $\End(A)$ for a Barratt--Eccles algebra $A$ as in \cref{ss:cartan_relators}, where the maps $\tau \comp F_\psi^r$ and $G_\psi^r$ are defined.
+	Let us write $\cO$ instead of $\End(A)$ for a Barratt--Eccles algebra $A$ as in \cref{ss:cartan_relators}, where the maps $\tau \comp F_\psi^r$ and $G_\psi^r$ are defined, and omit the superscripts of $\psi^r$ and $\psi_0^2$.
 	The first claim is equivalent to the commutativity of
 	\[
 	\begin{tikzcd}
@@ -129,17 +132,17 @@ where $e \in \sym_2$ is the identity element denoting, abusively, the element $(
 	Both of these diagrams are commutative since $\phi$ is an operad map and, by definition, $\psi = \phi \comp \iota$.
 \end{proof}
 
-\subsection{Comparing $F$ and $\phi \comp \chains\EE f \comp \iota$}
+\subsection{Comparing $F$ and $\phi \comp \chains\EE(f) \comp \iota$}
 
 Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 \[
 \begin{tikzcd}[row sep=small]
-	&[-10pt]\BE(r) \arrow[r,"\id \ot e^{\ot r}"] &[5pt]
+	&[-10pt]\BE(r) \arrow[r,"\id \, \ot e^{\ot r}"] &[5pt]
 	\BE(r) \ot \BE(2)^{\ot r} \arrow[d,"\bcomp_{\BE}"] &[-20pt] \\ &
 	&\BE(2r) \arrow[d, "\tau"] & \\
 	\cW(r) \arrow[r,"\iota"] &
-	\cC(r) \arrow[uu,hook] \arrow[r,"\tau \comp \chains\EE f"] &
-	\BE(2r) \arrow[r,"\phi"] & \End(A)^\vee(r).
+	\cC(r) \arrow[uu,hook] \arrow[r,"\tau \comp \chains\EE(f)"] &
+	\BE(2r) \arrow[r,"\phi"] & \End(A)^\ev(r).
 \end{tikzcd}
 \]
 Its commutativity is equivalent to the following.
@@ -147,7 +150,7 @@ Its commutativity is equivalent to the following.
 \begin{lemma}\label{l:K0}
 	For any Barratt--Eccles algebra with its canonical May--Steenrod structure, we have
 	\[
-	\tau \comp F_\psi = \phi \comp \tau \comp \chains\EE f \comp \iota.
+	\tau \comp F_\psi = \phi \comp \tau \comp \chains\EE(f) \comp \iota.
 	\]
 \end{lemma}
 
@@ -170,8 +173,9 @@ Its commutativity is equivalent to the following.
 		\end{tikzcd}
 	\end{equation*}
 	Its top composition is $\tau \comp F_\psi^r$ as in the proof of \cref{l:main_diag}.
-	Its bottom composition is $\phi \comp \tau \comp \chains\EE f \comp \iota$ since $f \colon \cyc_r \hookrightarrow \sym_r \xra{\id \times e^r} \sym_r \times \sym_2^r \xra{\bcomp_{\sym}} \sym_{2r}$.
-	It is commutative since for any pair of simplicial sets $X,Y$ and simplices $y \in Y_0$ and $x \in X$ one has $\EZ(x \ot y) = x \times y$.
+	Its bottom composition is $\phi \comp \tau \comp \chains\EE(f) \comp \iota$ since $f \colon \cyc_r \hookrightarrow \sym_r \xra{\id \times e^r} \sym_r \times \sym_2^r \xra{\bcomp_{\sym}} \sym_{2r}$.
+	The right side of the diagram commutes by the definition of $\bcomp_\BE$.
+	The left side of the diagram commutes because, if $v$ is $0$-simplex, the $\EZ$ map $\chains(X) \ot v \to \chains(X \times v)$ is trivially an isomorphism, taking $x \ot v$ to $x \times \mathrm{s}(v)$, where $\mathrm{s}(v)$ is the unique degenerate simplex of $v$ whose whose dimension agrees with that of $x$.
 \end{proof}
 
 \subsection{The homotopy $K_1$}\label{ss:K1}
@@ -180,27 +184,27 @@ Let us focus on the following part of Diagram \eqref{d:big diagram}:
 \[
 \begin{tikzcd}[column sep=large]
 	\cC(r)
-	\arrow[r,bend left,"\tau \comp \chains\EE f"]
-	\arrow[r,bend right,"\chains\EE g"']
+	\arrow[r,bend left,"\tau \comp \chains\EE(f)"]
+	\arrow[r,bend right,"\chains\EE(g)"']
 	\arrow[r,phantom,"K_1^r"]
-	& \BE^\vee(r).
+	& \BE^\ev(r).
 \end{tikzcd}
 \]
 We will show that it is homotopy commutative.
-More precisely, let $K_1 \colon \cC \to \BE^\vee$ be defined by
+More precisely, let $K_1 \colon \cC \to \BE^\ev$ be defined by
 \[
 K_1(a_0,\dots,a_n) =
 \sum_{i=0}^n \ (-1)^i (g(a_0), \dots, g(a_i), f(a_i) \tau, \dots, f(a_n) \tau).
 \]
 
 \begin{lemma}\label{l:K1}
-	$K_1 \colon \cC \to \BE^\vee$ is a $\cyc$-equivariant homotopy from $\chains \EE g$ to $\tau \comp \chains \EE f$.
+	$K_1 \colon \cC \to \BE^\ev$ is a $\cyc$-equivariant homotopy from $\chains\EE(g)$ to $\tau \comp \chains\EE(f)$.
 \end{lemma}
 
 \begin{proof}
 	We need to show that
 	\[
-	\bd \comp K_1 + K_1 \comp \bd = \tau \comp \chains \EE f - \chains \EE g,
+	\bd \comp K_1 + K_1 \comp \bd = \tau \comp \chains\EE(f) - \chains\EE(g),
 	\qquad
 	K_1 \comp \rho = g(\rho) \comp K_1.
 	\]
@@ -222,7 +226,7 @@ K_1(a_0,\dots,a_n) =
 		\sum_{i=0}^n (g_0, \dots, \widehat{g_i}, f_i\tau, \dots, f_n \tau) -
 		(g_0, \dots, g_i, \widehat{f_i\tau}, \dots, f_n \tau) \\ &=
 		(f_0\tau, \dots, f_n\tau) - (g_0, \dots, g_n) \\ &=
-		(\tau \comp \chains \EE f - \chains \EE g)(a_0,\dots,a_n).
+		(\tau \comp \chains\EE(f) - \chains\EE(g))(a_0,\dots,a_n).
 	\end{align*}
 	Recall from \cref{l:conjugated} that $f \comp \tau = \tau \comp g$, hence
 	\begin{align*}
@@ -239,7 +243,7 @@ Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 \begin{equation*}
 	\begin{tikzcd}[row sep=small]
 		\cC(r)
-		\arrow[r,"\chains\EE g"]
+		\arrow[r,"\chains\EE(g)"]
 		\arrow[d,"\Delta_{\AW}"']
 		\arrow[ddr,phantom,"K_2^r",shift left=0pt]
 		&[5pt] \BE(2r)
@@ -252,40 +256,41 @@ Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 		\arrow[uu,"\bcomp_\BE"']
 	\end{tikzcd}
 \end{equation*}
-We will show that it is homotopy commutative.
-More precisely, let $K_2 \colon \cC \to \BE^\vee$ be the composition
+We will show that, for each $r$, a certain $g$-equivariant map $K_2^r$ makes it homotopy commutative.
+More precisely, let $K_2 \colon \cC \to \BE^\ev$ be the composition
 \[
-K_2 = \chains\bcomp_{\EE\sym} \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE\rD.
+K_2 = \chains(\bcomp_{\EE\sym}) \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE(\rD).
 \]
 
 \begin{lemma}\label{l:K2}
-	$K_2$ is a $\cyc$-equivariant homotopy from $\bcomp_{\BE} \comp (e \ot \id) \comp \Delta_{\AW}$ to $\chains\EE g$.
+	$K_2$ is a $\cyc$-equivariant homotopy from $\bcomp_{\BE} \comp (e \ot \id) \comp \Delta_{\AW}$ to $\chains\EE(g)$.
 \end{lemma}
 
 \begin{proof}
 	We need to prove the following identities:
 	\[
-	\bd K_2 = \chains\EE g - \bcomp_{\BE} \comp (e \ot \id) \comp \Delta_{\AW},
+	\bd K_2 = \chains\EE(g) - \bcomp_{\BE} \comp (e \ot \id) \comp \Delta_{\AW},
 	\qquad
-	K_2 \comp \rho = g(\rho) \comp K_2.
+	K_2 \comp \rho = g(\rho) \comp K_2,
 	\]
+	where $\bd$ denotes the boundary of $\cyc$-equivariant maps from $\cC$ to $\BE^\ev$.
 	Since $\bd \Shi = \id - \EZ \comp \AW$ we have that
 	\[
 	\bd K_2 =
-	\chains\bcomp_{\EE\sym} \comp \chains\EE(e \times \id) \comp \chains\EE\rD -
-	\chains\bcomp_{\EE\sym} \comp \EZ \comp \AW \comp \chains\EE(e \times \id) \comp \chains\EE\rD.
+	\chains(\bcomp_{\EE\sym}) \comp \chains\EE(e \times \id) \comp \chains\EE(\rD) -
+	\chains(\bcomp_{\EE\sym}) \comp \EZ \comp \AW \comp \chains\EE(e \times \id) \comp \chains\EE(\rD).
 	\]
-	Recall that $g$ is the composition $\cyc_r \hookrightarrow \sym_r \xra{\rD} \sym_r^{\times 2} \xra{e \times \id} \sym_2 \times \sym_r^{\times 2} \xra{\bcomp_{\sym}} \sym_{2r}$\,, and that $\bcomp_{\BE} = \chains\bcomp_{\EE\sym} \comp \EZ$, so
+	Recall that $g$ is the composition $\cyc_r \hookrightarrow \sym_r \xra{\rD} \sym_r^{\times 2} \xra{e \times \id} \sym_2 \times \sym_r^{\times 2} \xra{\bcomp_{\sym}} \sym_{2r}$\,, and that $\bcomp_{\BE} = \chains(\bcomp_{\EE\sym}) \comp \EZ$, so
 	\[
 	\bd K_2 =
-	\chains\EE g -
-	\bcomp_{\BE} \comp \AW \comp \chains\EE(e \times \id) \comp \chains\EE\rD.
+	\chains\EE(g) -
+	\bcomp_{\BE} \comp \AW \comp \chains\EE(e \times \id) \comp \chains\EE(\rD).
 	\]
-	Recall that $\Delta_{\AW} = \AW \comp \chains\EE\rD$.
-	Since for any triple of simplices $x,y,z$ we have $\AW(x \times y \times z) = x \ot \AW(y \times z)$ if $x$ is a $0$-simplex, we have
+	Recall that $\Delta_{\AW} = \AW \comp \chains\EE(\rD)$.
+	Since $\AW(x \times y \times z) = v \ot \AW(y \times z)$ for any triple of simplices $x,y,z$ with $x = v$ a $0$-simplex or the image of one via a degeneracy maps $x = \mathrm{s}(v)$, we have
 	\[
 	\bd K_2 =
-	\chains\EE g -
+	\chains\EE(g) -
 	\bcomp_{\BE} \comp \chains\EE(e \times \id) \comp \Delta_{\AW}
 	\]
 	as stated in the first identity to prove.
@@ -298,12 +303,12 @@ K_2 = \chains\bcomp_{\EE\sym} \comp \Shi \comp \chains\EE(e \times \id) \comp \c
 		\arrow[dr,in=180,out=-90,"\Delta_{\AW}"]
 		&[-20pt]
 		\chains\EE\sym_r
-		\rar["\chains\EE\rD"] &[-10pt]
+		\rar["\chains\EE(\rD)"] &[-10pt]
 		\chains\EE\sym_r^{\times 2}
 		\rar["\chains\EE(e \times \id)"]
 		\dar["\AW"'] &[7pt]
 		\chains\EE(\sym_2 \times \sym_r^{\times 2})
-		\rar["\chains\bcomp_{\EE\!\sym}"]
+		\rar["\chains(\bcomp_{\EE\!\sym})"]
 		\dar["\AW"']
 		\drar["\id",out=-10,in=150] &[-5pt]
 		\chains\EE\sym_{2r} \\ &
@@ -315,7 +320,7 @@ K_2 = \chains\bcomp_{\EE\sym} \comp \Shi \comp \chains\EE(e \times \id) \comp \c
 		\rar["\EZ"]
 		\uar["\Shi",phantom,shift right=30pt] &
 		\chains\EE(\sym_2 \times \sym_r^{\times 2}).
-		\uar["\chains\bcomp_{\EE\!\sym}"']
+		\uar["\chains(\bcomp_{\EE\!\sym})"']
 	\end{tikzcd}
 	\]
 
@@ -323,9 +328,9 @@ K_2 = \chains\bcomp_{\EE\sym} \comp \Shi \comp \chains\EE(e \times \id) \comp \c
 	Therefore,
 	\begin{align*}
 		K_2 \comp \rho &=
-		\chains\bcomp_{\EE\sym} \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE\rD \comp \rho \\ &=
-		\chains\bcomp_{\EE\sym} \comp (\id \times \rho \times \rho) \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE\rD \\ &=
-		g(\rho) \comp \chains\bcomp_{\EE\sym} \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE\rD \\ &=
+		\chains(\bcomp_{\EE\sym}) \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE(\rD) \comp \rho \\ &=
+		\chains(\bcomp_{\EE\sym}) \comp (\id \times \rho \times \rho) \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE(\rD) \\ &=
+		g(\rho) \comp \chains(\bcomp_{\EE\sym}) \comp \Shi \comp \chains\EE(e \times \id) \comp \chains\EE(\rD) \\ &=
 		g(\rho) \comp K_2. \qedhere
 	\end{align*}
 \end{proof}
@@ -382,7 +387,7 @@ Please consult \cref{f:small values of K} for a few examples.
 
 \subsection{Main construction}
 
-With Diagram~\eqref{d:big diagram} in mind, let us define $H \colon \cW \to \End^\vee(A)$ as the composition
+With Diagram~\eqref{d:big diagram} in mind, let us define $H \colon \cW \to \End(A)^\ev$ as the composition
 \[
 H = \phi \comp K_1 \comp \iota \ +\ \phi \comp K_2 \comp \iota \ -\ \phi \comp \bcomp_{\BE} \comp (e \ot \id) \comp K_3.
 \]
@@ -401,14 +406,16 @@ H = \phi \comp K_1 \comp \iota \ +\ \phi \comp K_2 \comp \iota \ -\ \phi \comp \
 %	where $C^p(i)(a, b)$ is the lift of the Cartan formula defined in {\rm \cref{ss:cartan_coboundary}}.
 \end{theorem}
 
-\begin{proof} Combining \cref{l:main_diag,l:K0,l:K1,l:K2,l:K3} we have
+\begin{proof}
+	Recall that if $h$ is an element in a $\Hom$ complex, then $\bd h$ is defined as usual as $\bd \comp h - (-1)^{\deg(h)} h \comp \bd$.
+	Combining \cref{l:main_diag,l:K0,l:K1,l:K2,l:K3} we have
 	\begin{align*}
 		\bd H &=
 		\phi \comp \bd K_1 \comp \iota \ +\
 		\phi \comp \bd K_2 \comp \iota \ -\
 		\phi \comp \bcomp_{\BE} \comp (e \ot \id) \comp \bd K_3 \\ &=
-		\phi \comp \chains\EE f \comp \iota \ +\
-		\phi \comp (-\chains\EE g + \bd K_2) \comp \iota \ -\
+		\phi \comp \chains\EE(f) \comp \iota \ +\
+		\phi \comp (-\chains\EE(g) + \bd K_2) \comp \iota \ -\
 		\phi \comp \bcomp_{\BE} \comp (e \ot \id) \comp \bd K_3 \\ &=
 		\tau \comp F - \phi \comp \bcomp_{\BE} \comp (e \ot \id) \comp (\Delta_{\AW} \comp \iota + \bd K_3) \\ &=
 		\tau \comp F - G,

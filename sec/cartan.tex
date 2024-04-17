@@ -2,99 +2,216 @@
 
 \section{The Cartan formula}\label{s:cartan}
 
-Throughout this section $(A,\psi)$ denotes a May--Steenrod complex.
+\noindent Throughout this section $(A,\psi)$ denotes a May--Steenrod complex.
 
-\subsection{The $(-)^\vee$ construction}
+\subsection{The $(-)^\ev$ construction}
 
-%Consider the group homomorphism $g \colon \cyc_r \to \sym_{2r}$ defined by
-%\[
-%\rho \mapsto (1,2,\dots,r)(r+1,r+2,\dots,2r).
-%\]
-Given an $\sym$-module $\cS$ we denote by $\cS^\vee$ the $\cyc$-module $\set{\cS(2r)}_{r>0}$ with $\cyc_r$-action on $\cS(2r)$ given by the action of $g(\rho)$, as defined in \cref{ss:f and g}.
+Recall from \cref{ss:f and g} the group homomorphism $g \colon \cyc_r \to \sym_{2r}$ defined for every $r > 0$.
+Given an $\sym$-module $\cS$ we denote by $\cS^\ev$ the $\cyc$-module $\set{\cS(2r)}_{r>0}$ with the $\cyc_r$-action on $\cS(2r)$ defined by $g$.
+In particular, for any $\cyc$-module $\cC$, a map $\cC \to \cS^\ev$ is $\cyc$-equivariant if and only if $\cC(r) \to \cS(2r)$ is $g$-equivariant for each $r > 0$.
 
 \subsection{The maps $F$ and $G$}
 
-We define two $\cyc$-equivariant chain maps
-\[
-\tau \comp F_\psi,\, G_\psi \colon \cW \to \End(A)^\vee
-\]
-as follows.
 Let us denote the operad $\End(A)$ by $\cO$.
-Then, for $r \in \N$,
+Then, for $r > 0$, define, omitting the superscripts of $\psi^r$ and $\psi_0^2$,
 \begin{align*}
-	\tau \comp F_\psi^r \colon& \cW(r) \xra{\psi} \cO(r) \xra{\id\, \ot \psi_0^{\ot r}}
+	\tau \comp F_\psi \colon& \cW(r) \xra{\psi} \cO(r) \xra{\id\, \ot \psi_0^{\ot r}}
 	\cO(r) \ot \cO(2)^{\ot r} \xra{\bcomp_{\cO}}
 	\cO(2r) \xra{\tau} \cO(2r), \\
-	G_\psi^r \colon& \cW(r) \xra{\Delta}
+	G_\psi \colon& \cW(r) \xra{\Delta}
 	\cW(r)^{\ot 2} \xra{\psi^{\ot 2}}
 	\cO(r)^{\ot 2} \xra{\psi_0 \ot\, \id}
 	\cO(2) \ot \cO(r)^{\ot 2} \xra{\bcomp_{\cO}}
-	\cO(2r).
+	\cO(2r)
 \end{align*}
-We will remove $\psi$ from the notation when it is clear from the context.
+where $\cO(2r) \xra{\tau} \cO(2r)$ stands for the right action of $\tau$.\footnote{\label{fn:symmetric_action_on_hom}
+We remind the reader that the right action of $\sigma \in \sym_r$ on $u \in \cO(r) = \End(A)(r) = \Hom(A^{\ot r}, A)$ produces the composition $A^{\ot r} \xra{\sigma} \ot A^{\ot r} \xra{u} A$.}
+We will write $\tau \comp F_\psi$ for $\set{\tau \comp F_\psi^r}_{r>0}$ and $G$ for $\set{G_\psi^r}_{r>0}$.
+
+\begin{lemma*}
+	The sets $\tau\, \comp F$ and $G$ define $\cyc$-equivariant chain maps from $\cW$ to $\End(A)^\ev$.
+\end{lemma*}
+
+\begin{proof}
+	Let us fix $r>0$.
+	Since the maps $\tau \comp F^r_\psi$ and $G^r_\psi$ are defined as compositions of chains maps, it suffices to verify that they are $g$-equivariant.
+	We will omit the superscripts of $\psi^r$ and $\psi_0^2$.
+	For $\tau \comp F^r_\psi$ we have:
+	\begin{align*}
+		(\tau \comp F^r_\psi)(e_i \cdot \rho) &=
+		(\bcomp_{\End(A)}(\psi(e_i \cdot \rho) \ot \psi_0^{\ot r})) \cdot \tau \\ &=
+		(\bcomp_{\End(A)}(\psi(e_i) \cdot \rho \ot \psi_0^{\ot r})) \cdot \tau \\ &=
+		(\bcomp_{\End(A)}(\psi(e_i) \ot \psi_0^{\ot r})) \cdot (\bcomp_{\sym} (\rho \times e^{\times r}))\tau \\ &=
+		(\bcomp_{\End(A)}(\psi(e_i) \ot \psi_0^{\ot r})) \cdot f(\rho)\tau \\ &=
+		(\bcomp_{\End(A)}(\psi(e_i) \ot \psi_0^{\ot r})) \cdot \tau g(\rho) \\ &=
+		(\tau \comp F^r_\psi)(e_i) \cdot g(\rho)
+	\end{align*}
+	where first and last equalities hold by definition, the second one by the $\cyc_r$-equivariance of $\psi^r$, the third one by the equivariance axiom of operadic composition, the fourth one by the definition of $f$ as given in \cref{ss:f and g}, and the fifth one by \cref{l:conjugated}.
+	For $G^r_\psi$ we have:
+	\begin{align*}
+		G^r_\psi(e_i \cdot \rho) &=
+		\big(\bcomp_{\End(A)} \comp (\psi_0 \ot \psi \ot \psi) \comp \Delta)(e_i \cdot \rho \big) \\ &=
+		\bcomp_{\End(A)} \big(\psi_0 \ot \psi(\Delta^{(1)}(e_i \cdot \rho)) \ot \psi(\Delta^{(2)}(e_i \cdot \rho)) \big) \\ &=
+		\bcomp_{\End(A)} \big(\psi_0 \ot \psi(\Delta^{(1)}(e_i)) \cdot \rho \ot \psi(\Delta^{(2)}(e_i)) \cdot \rho \big) \\ &=
+		\bcomp_{\End(A)} \big(\psi_0 \ot \psi(\Delta^{(1)}(e_i)) \ot \psi(\Delta^{(2)}(e_i)) \big) \cdot \bcomp_{\sym}(e \times \rho \times \rho) \\ &=
+		G^r_\psi(e_i) \cdot g(\rho)
+	\end{align*}
+	where the first equality holds by definition, the second one simply introduces Sweedler's notation, the third equality holds by the $\cyc_r$-equivariance of $\psi$ and $\Delta$, the fourth one by the equivariance axiom of operadic composition, and the last one by the definition of $g$ as given in \cref{ss:f and g}.
+\end{proof}
 
 \subsection{Cartan relators}\label{ss:cartan_relators}
 
 A \textit{Cartan relator} for $(A,\psi)$ is a $\cyc$-equivariant homotopy from $G_\psi$ to $\tau \comp F_\psi$.
-Explicitly, a Cartan relator for $(A,\psi)$ is a natural collection of linear maps
+Explicitly, a Cartan relator for $(A,\psi)$ is a collection of natural degree one linear maps
 \[
-\set{H^r \colon \cW(r) \to \Hom(A^{\ot 2r}, A)}_{r>0}
+\set{H^r_\psi \colon \cW(r) \to \Hom(A^{\ot 2r}, A)}_{r>0}
 \]
 satisfying, for every $r > 0$,
 \[
-\bd \comp H^r + H^r \comp \bd = \tau \comp F^r - G^r,
+\bd_{\Hom(A^{\ot 2r},\, A)} \comp \,H^r_\psi + H^r_\psi \comp \bd_{\cW(r)} = \tau \comp F^r_\psi - G^r_\psi,
 \]
 and
 \[
-H^r \comp \rho = g(\rho) \comp H^r.
+H^r_\psi(e_i \cdot \rho) = H^r_\psi(e_i) \cdot g(\rho)
 \]
+for every $i \in \N$.
+
+We will omit $\psi$ from the notation when clear from the context.
 
 \subsection{Cartan formulas}
 
 As we will see, the existence of a Cartan relator implies the Cartan formulas:
 \begin{align*}
-	\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \rP_i[a] \, \rP_j[b], \\
-	\beta\rP_s\big([a][b]\big) =&
-	\sum_{i+j=s} \beta\rP_{i+1}[a] \, \rP_j[b] \ +\ (-1)^{\bars{a}} \rP_i[a] \, \beta\rP_{j+1}[b],
+	P_{s}\big([a][b]\big) =&
+	\sum_{i+j=s} P_i[a] \, P_j[b], \\
+	\beta P_{s+1}\big([a][b]\big) =&
+	\sum_{i+j=s} \beta P_{i+1}[a] \, P_j[b] \ +\ (-1)^{\bars{a}} P_i[a] \, \beta P_{j+1}[b],
 \end{align*}
-holding for each integer $s$ and mod $p$ cycles $a$ and $b$ in $A$.
-Please observe that by Thom's \cref{t:thom}, the Cartan formulas are equivalent to the following equations:
+\anibal{Maybe replace indices $i,j$ for $j,k$}
+
+\anibal{Check uniformity: $P$ vs $\rP$}
+
+where $s \in \Z$ and $a$ and $b$ are any two mod $p$ cycles in $A$.
+
+By Thom's \cref{t:thom}, the Cartan formulas are equivalent to the following equations:
 \begin{equation}\label{eq:cartan_lift}
 	\begin{split}
-		0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
+		0 &= (-1)^{\frac{(p-1)}{2}\bars{a}\bars{b}} \, \rD_{2i}\big([a][b]\big) \,-\!
 		\sum_{i=j+k} \rD_{2j}[a] \, \rD_{2k}[b], \\
-		0 &= (-1)^{\floor{p/2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \\ & \quad
-		\,-\!\sum_{i=j+k} \rD_{2j+1}[a] \, \rD_{2k}[b] \, +\, (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b],
+		0 &= (-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \, \rD_{2i+1}\big([a][b]\big) \\ & \quad
+		-\sum_{\mathclap{i=j+k}} \big(\rD_{2j+1}[a] \, \rD_{2k}[b] \, +\, (-1)^{\bars{a}}\rD_{2j}[a] \, \rD_{2k+1}[b]\big),
 	\end{split}
 \end{equation}
 ranging over $i \in \N$.
+Explicitly, if one takes $2i = (2s-(|a|+|b|))(p-1)$ and multiplies the first identity above by $(-1)^s \nu(|a|)\nu(|b|)$ then one has an equation of the form
+\[
+0 = P_s([a][b]) - \sum_{\mathclap{s=j+k}} P_j[a] P_k[b] - \text{(other terms)}.
+\]
+Here, the other terms are constants times products $D_\ell[a] D_m[b]$, where the subscripts are such that at least one of the factors, maybe both, are coboundaries by Thom’s theorem.
+\cref{s:thom} succeeds in writing the appropriate factor terms as coboundaries, and then the products are coboundaries in explicit ways.
+A similar discussion applies to the formulas involving $\beta P_s([a][b])$.\footnote{\label{fn:mu}
+The definition of the constants $\nu(n)$ is motivated by two facts.
+First, it can be easily shown that $P_s([a]) = [a]^p$ for a cohomology class $[a]$ of degree $2s$.
+More subtly, it can be shown that $P_0([a]) = [a]$ in all degrees for the specific $E_\infty$-algebras $A = \cochains(X)$, the normalized cochains of simplicial sets.
+This result follows from the rather difficult formula for positive $n$ and a simplicial set class $[a]$ of degree $-n$ that $\rD_n(p-1)([a]) = (-1)^{mn} \nu(n)[a]$.
+}
+
+\anibal{Check numbers carefully}
 
 \subsection{Chain level lift}
 
-A lift to the chain level of the right hand side of \cref{eq:cartan_lift} is provided by the following expressions:
-\begin{align*}
-	&C_\psi^p(2i)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
-	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big), \\
-	&C_\psi^p(2i+1)(a,b) \defeq (-1)^{\floor{p/2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \cp b)^{\ot p}\big) \\
-	&\quad -\sum_{i=j+k} \big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
-	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big).
-\end{align*}
-Direct inspection establishes the following.
+A lift to the chain level of the right hand side of \cref{eq:cartan_lift} is provided by the following expressions in $A$:
 
-\begin{lemma}
-	For any $a,b \in A$ and $i \in \N$ we have
+\begin{align*}
+	&C_\psi^p(2i)(a,b) \defeq (-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \psi_{2i}\big((a \cp b)^{\ot p}\big) \ -
+	\sum_{i=j+k}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big), \\
+	&C_\psi^p(2i+1)(a,b) \defeq (-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \psi_{2i+1}\big((a \cp b)^{\ot p}\big) \\
+	&\quad -\sum_{i=j+k} \Big(
+	\big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
+	(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big)
+	\Big).
+\end{align*}
+
+\begin{lemma}\label{l:F_and_G_give_C}
+	For any $a,b \in A$ and $i \in \N$ the following identity holds in $A \ot \Fp$
 	\[
 	C^p_\psi(i)(a,b) =
-	\big(\tau \comp F - G\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
+	\big(\tau \comp F^p_\psi - G^p_\psi\big)(e_i)(a^{\ot p} \ot b^{\ot p}).
 	\]
 \end{lemma}
+
+\begin{proof}
+	Recall that $\rho$ is an even permutation and that $\psi \colon \cW(p) \to \End(A)(p)$ is $\cyc_p$-equivariant.
+	We will use the notation $\psi^p(e_i) = \psi_i$ and $\psi^2_0(a \ot b) = a \smallsmile b$ freely.
+	Let us first study
+	\[
+	G_\psi^p \colon \cW(p) \xra{\Delta}
+	\cW(p)^{\ot 2} \xra{\psi_0 \ot \psi^{\ot 2}}
+	\End(A)(2) \ot \End(A)(p)^{\ot 2} \xra{\bcomp_{\End(A)}}
+	\End(A)(2p).
+	\]
+	Notice that for any $j,k \in \N$ and $a,b \in A$ we have
+	\[
+	(\psi_j \smallsmile \psi_k)(a^{\ot p} \ot b^{\ot p}) = (-1)^{k\bars{a}}(\psi_j(a^{\ot p}) \smallsmile \psi_k(b^{\ot p}))
+	\]
+	by the Koszul sign convention.
+	Recall that
+	\[
+	\Delta(e_{2i}) =
+	\sum_{\mathclap{\ i=j+k}} \, e_{2j} \ot e_{2k} \ + \!\!
+	\sum_{i-1=j+k} \ \sum_{0 \leq s<t<r} \rho^s e_{2j+1} \ot \rho^t e_{2k+1},
+	\]
+	and notice that the number of integers $s$ and $t$ satisfying $0 \leq s < t < p$ is divisible by $p$, being in fact equal to $\frac{p(p-1)}{2}$.
+	Since $a^{\ot p}$ and $b^{\ot p}$ are fixed by $\rho$,
+	\[
+	\sum_{i-1=j+k} \ \sum_{0 \leq s < t < r} (-1)^{\bars{a}} \, \psi_{2j+1}(a^{\ot p} \cdot \rho^s) \smallsmile \psi_{2k+1}(b^{\ot p} \cdot \rho^t)
+	= 0
+	\]
+	in $A \ot \Fp$.
+	Therefore,
+	\[
+	G_\psi^p(e_{2i})(a^{\ot p} \ot b^{\ot p}) =
+	\sum_{\mathclap{\ i=j+k}} \ \psi_{2j}(a^{\ot p}) \smallsmile \psi_{2k}(b^{\ot p}).
+	\]
+	Additionally, since,
+	\[
+	\Delta(e_{2i+1}) =
+	\sum_{\mathclap{\ i=j+k}} \ e_{2j+1} \ot \rho e_{2k} + e_{2j} \ot e_{2k+1},
+	\]
+	we have
+	\begin{multline*}
+		G_\psi^p(e_{2i+1})(a^{\ot p} \ot b^{\ot p}) = \\
+		\sum_{i=j+k} \Big(
+		\big(\psi_{2j+1}(a^{\ot p})\big) \cp \big(\psi_{2k}(b^{\ot p})\big)\ +\
+		(-1)^{\bars{a}}\big(\psi_{2j}(a^{\ot p})\big) \cp \big(\psi_{2k+1}(b^{\ot p})\big)
+		\Big).
+	\end{multline*}
+	Let us now consider
+	\[
+	\tau \comp F_\psi^p \colon \cW(p) \xra{\!\psi \ot \psi_0^{\ot p}\hspace*{-5pt}}
+	\End(A)(p) \ot \End(A)(2)^{\ot r} \xra{\!\bcomp_{\End(A)}}
+	\End(A)(2p) \xra{\tau} \End(A)(2p).
+	\]
+	Recall from \cref{ss:shuffle} that for any $a,b \in A$,
+	\begin{align*}
+		\tau(a^{\ot p} \ot b^{\ot p}) &=
+		(-1)^{\frac{(p-1)p}{2}\bars{a}\bars{b}} \, (a \ot b)^{\ot p} \\ &=
+		(-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \, (a \ot b)^{\ot p}.
+	\end{align*}
+	Therefore,
+	\begin{align*}
+		(\tau \comp F_\psi^p)(e_i)(a^{\ot p} \ot b^{\ot p}) &=
+		(-1)^{\frac{p-1}{2}\bars{a}\bars{b}} F_\psi^p(e_i)\big((a \ot b)^{\ot p}\big) \\ &=
+		(-1)^{\frac{p-1}{2}\bars{a}\bars{b}} \psi_{i}\big((a \cp b)^{\ot p}\big),
+	\end{align*}
+	from which the lemma follows.
+\end{proof}
 
 \subsection{Cartan boundary constructions}\label{ss:cartan_coboundary}
 
 A \textit{Cartan $i$-boundary construction for $(A,\psi)$ at $p$} is an assignment of an element $\zeta_i^p(a,b)$ in $A$ to any pair $(a,b)$ of mod~$p$ cycles in $A$ such that, after extending scalars to $\Fp$, we have
 \[
-\bd \zeta_i^p(a,b) = C_\psi^p(i)(a, b).
+\bd_A \zeta_i^p(a,b) = C_\psi^p(i)(a, b).
 \]
 
 \begin{theorem}
@@ -106,25 +223,29 @@ A \textit{Cartan $i$-boundary construction for $(A,\psi)$ at $p$} is an assignme
 \end{theorem}
 
 \begin{proof}
-	Let us simplify our notation from $H_\psi^p, F_\psi^p, G_\psi^p$ to $H, F, G$, and extend scalars to $\Fp$.
+	Let us simplify our notation by removing the superscripts $p$ and subscripts $\psi$, and writing $\bd_{\End}$ and $\bd_\cW$ instead of $\bd_{\End(A)(p)}$, and $\bd_{\cW(p)}$.
+	Recall that
+	\[
+	\bd_{\End} \comp\, H - H \comp \bd_{\cW} = \tau \comp F - G.
+	\]
 	Since $\rho$ is an even permutation,
 	\[
-	(a^{\ot p} \ot b^{\ot p}) g(\rho) = (a^{\ot p} \rho \ot b^{\ot p} \rho ) = (a^{\ot p} \ot b^{\ot p}),
+	(a^{\ot p} \ot b^{\ot p}) \cdot g(\rho) = (a^{\ot p} \cdot \rho \ot b^{\ot p} \cdot \rho ) = (a^{\ot p} \ot b^{\ot p}),
 	\]
 	and
 	\begin{align*}
-		&H(\bd e_{2i})(a^{\ot p} \ot b^{\ot p}) =\,
+		&H(\bd_{\cW} e_{2i})(a^{\ot p} \ot b^{\ot p}) =\,
 		(1+g(\rho)+\dots+g(\rho^{p-1})) \comp H(e_{2i-1})(a^{\ot p} \ot b^{\ot p}) = 0, \\
-		&H(\bd e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =\,
+		&H(\bd_{\cW} e_{2i+1})(a^{\ot p} \ot b^{\ot p}) =\,
 		(g(\rho) - 1) \comp H(e_{2i})(a^{\ot p} \ot b^{\ot p}) = 0.
 	\end{align*}
 	Therefore, since $a$ and $b$ are mod $p$ cycles,
 	\begin{align*}
-		(\bd \comp H(e_i))(a^{\ot p} \ot b^{\ot p}) =&
-%		\bd_A H(e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&
-		\bd_{\End(A)} H(e_i)(a^{\ot p} \ot b^{\ot p}) - (H(e_i) \comp \bd)(a^{\ot p} \ot b^{\ot p}) \\ =& \,
+		(\bd_A \comp H(e_i))(a^{\ot p} \ot b^{\ot p}) =&
+		\bd_{\End} H(e_i)(a^{\ot p} \ot b^{\ot p}) - (H(e_i) \comp \bd_{A^{\ot 2p}})(a^{\ot p} \ot b^{\ot p}) \\ =& \,
 		\big(\tau F - G\big)(e_i)(a^{\ot p} \ot b^{\ot p}) -
-		H(\bd e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
-		C^p_\psi(i)(a,b).\qedhere
+		H(\bd_\cW e_i)(a^{\ot p} \ot b^{\ot p}) \\ =&\,
+		C(i)(a,b),
 	\end{align*}
+	where the last equality is the content of \cref{l:F_and_G_give_C}.
 \end{proof}
