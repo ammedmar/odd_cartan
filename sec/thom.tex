@@ -176,6 +176,25 @@ The following claim is easily verified.
 \end{lemma}
 Since $\cW(p)$ has a preferred basis, \cref{t:recursive_homotopy} applies and produces the desired equivariant homotopy $L_1$.
 
+It is not difficult to verify that these maps are as follows:
+\begin{align*}
+    \mu(e_{2i}) &= \sum k^i (0,s_1,s_1+1,\ldots,s_i,s_i+1)  \\
+    \mu(e_{2i+1}) &= \sum\sum_{j=0}^{k-1} k^i (j,j+1,s_1,s_1+1,\ldots,s_i,s_i+1)\\
+    \nu(e_{2i}) &= \sum(0,s_1,s_1+k,\ldots,s_i,s_i+k) \\
+    \nu(e_{2i+1}) &= \sum (0,k,s_1,s_1+k,\ldots,s_i,s_i+k) \\
+    L_1(e_{2i}) &= -\sum\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell} (0,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1) \\
+    L_1(e_{2i+1}) &= \sum_{s_0=0}\sum_{\ell = 0}^i\sum_{j=1}^{k-1} k^{i-\ell} (s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
+\end{align*}
+where the first sum in each formula iterates along all $s_1,\ldots,s_i$ in $\cyc_r$, and the action of $\rho$ transforms a simplex $(a_1,\ldots,a_n)$ into $(a_1+k,\ldots,a_n+k)$. The first values of $L_1$ for $p=3$ are computed in Table \ref{f:small values of L_1}. 
+
+\begin{table}
+	\centering
+	\input{aux/table3}
+	\caption{The elements $L_1(e_n)$ for $p=3, k=2$ and small values of $n$.}
+	\label{f:small values of L_1}
+\end{table}
+
+
 \subsubsection{The homotopy $L_2$}
 
 Since $\gamma_\ast \colon \chains\EE\cyc_p \to \chains\EE\cyc_p$ is the restriction of the chain map $\chains\EE\,(-)^\gamma \colon \chains\EE\sym_p \to \chains\EE\sym_p$ induced by $(-)^\gamma$, the conjugation by $\gamma$, it suffices to construct a $\cyc$-equivariant homotopy $L_2 \colon \chains\EE\sym_p \to \chains\EE\sym_p$ from $\chains\EE\,(-)^\gamma$ to $\gamma$, where $\rho$ acts as $\rho^k$ on the target.

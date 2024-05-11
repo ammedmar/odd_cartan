@@ -336,19 +336,19 @@ K_2 = \chains(\bcomp_{\EE\sym}) \comp \Shi \comp \chains\EE(e \times \id) \comp 
 \end{proof}
 
 \subsection{The homotopy $K_3$}\label{ss:coproduct}
-
-Using the bijection $\cyc_r \cong \set{0,\dots,r-1}$, we denote by $\alpha(a_1,\dots,a_\ell)$ the number of increasing consecutive pairs $a_i < a_{i+1}$ in a basis element of $\cC(r)$.
-For two such elements $(s_1,\dots,s_j)$ and $(t_1,\dots,t_k)$ we denote respectively by $\varphi(0,s_1,\dots,s_j;t_1,\dots,t_k)$ and $\varphi(1,s_1,\dots,s_j;t_1,\dots,t_k)$ the following expressions in $\cC(r) \ot \cC(r)$:
-\[
-\alpha(s_1,\dots,s_j,t_1) \cdot
-(0,s_1,s_1+1,\dots,s_j,s_j+1) \ot
+\begin{definition}
+    Given elements $s_1,\dots,s_j,t_1,\dots,t_k$ of $\cyc_r$, we define the generators $\varphi^{\mathrm{even}}(s_1,\dots,s_j;t_1,\dots,t_k)$ and $\varphi^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k)$ of $\cC(r) \ot \cC(r)$ as follows:
+\begin{align*}
+ (0,s_1,s_1+1,\dots,s_j,s_j+1) &\ot
 (t_1,t_1+1,\dots,t_k,t_k+1),
-\]
-and
-\[
-- \alpha(s_1-1,\dots,s_j-1,t_1-1) \cdot
-(0,1,s_1,s_1+1,\dots,s_j,s_j+1)\ot (t_1,t_1+1,\dots,t_k,t_k+1).
-\]
+\\
+(0,1,s_1,s_1+1,\dots,s_j,s_j+1)&\ot (t_1,t_1+1,\dots,t_k,t_k+1).
+\end{align*}
+Using the bijection $\cyc_r \cong \set{0,\dots,r-1}$, we denote by $\alpha(s_1,\dots,s_\ell)$ the number of increasing consecutive pairs $s_i < s_{i+1}$ in a sequence $(s_1,\ldots,s_\ell)$ of elements of $\cyc_r$.
+\end{definition} 
+\begin{example}
+    Let us consider the case $r = 5$. To compute $\alpha(2,4,1,3,1,0,4)$ we count the number of increasing consecutive pairs $(2,4),(1,3),(0,4)$, which is $3$. To compute $\alpha(3,1,0,2,4,3)$ we count the number of increasing consecutive pairs $(0,2),(2,4)$, which is $2$.
+\end{example}
 
 Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 \[
@@ -360,15 +360,28 @@ Let us focus on the following part of Diagram~\eqref{d:big diagram}:
 \end{tikzcd}
 \]
 We will show that it is homotopy commutative.
-More precisely, let $K_3^r \colon \cW(r) \to \cC(r)^{\ot 2}$ be defined by
+More precisely, let $K_3^r \colon \cW(r) \to \cC(r)^{\ot 2}$ be defined on basis elements by
 \[
 \begin{split}
-	K_3^r(e_{2i}) &= \sum \, \varphi(0,s_1,\dots,s_j;t_1,\dots,t_k), \\
-	K_3^r(e_{2i+1}) &= \sum \, \varphi(1,s_1,\dots,s_j;t_1,\dots,t_k),
+	K_3^r(e_{2i}) &= \sum \, \alpha(s_1,\ldots,s_j,t_1)\cdot\varphi^{\mathrm{even}}(s_1,\dots,s_j;t_1,\dots,t_k), \\
+	K_3^r(e_{2i+1}) &= -\sum \, \alpha(s_1-1,\ldots,s_j-1,t_1-1)\cdot \varphi^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k),
 \end{split}
 \]
-where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
+and extended equivariantly, where the sums are taken over all $s_1,\dots,s_j,t_1,\dots,t_k \in \cyc_r$ with $i+1 = j+k$.
 Please consult \cref{f:small values of K} for a few examples.
+
+\begin{example}
+    Let $r=5$. The summand indexed by $(s_1,\ldots,s_6;t_1,t_2,t_3) = (2,4,1,3,1,0;4,2,1)$ in $K_3^5(e_{16})$ is
+    \[
+        3\cdot (0,2,3,4,0,1,2,3,4,1,2,0,1)\otimes (4,0,2,3,1,2)
+    \]
+    because $\alpha(2,4,1,3,1,0,4)=3$. The summand indexed by $(s_1,\ldots,s_5;t_1,t_2) =(4,2,1,3,0;4,1)$ in $K_3^5(e_{13})$ is
+    \[
+        -2\cdot (0,1,4,0,2,3,1,2,3,4,0,1)\otimes(4,0,1,2)
+    \]
+    because $\alpha(3,1,0,2,4,3)=2$.
+\end{example}
+Observe that the numbers $\alpha(s_1,\ldots,s_\ell)$ are always non-negative, and therefore all non-trivial summands in $K_3^r(e_{2i})$ have positive coefficients and all non-trivial summands in $K_3^r(e_{2i+1})$ have negative coefficients. Observe also that the summands in $K_3^r(e_{2i})$ are in bijection with the summands in $K_3^r(e_{2i+1})$ and the bijection changes the sign of the coefficient of each summand.
 
 \begin{lemma}\label{l:K3}
 	$K_3$ is a $\cyc$-equivariant homotopy from $\Delta_{\AW} \comp \iota$ to $(\iota \ot \iota) \comp \Delta$.
@@ -377,6 +390,7 @@ Please consult \cref{f:small values of K} for a few examples.
 \begin{proof}
 	We devote \cref{s:postponed} to the proof of this statement.
 \end{proof}
+
 
 \begin{table}
 	\centering
