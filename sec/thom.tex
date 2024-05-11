@@ -136,24 +136,42 @@ where the action of $\rho^k$ on $\End(A)(p) = \Hom(A^{\ot p}, A)$ is the usual o
 Recall that $\cC(p) = \chains\EE \cyc_p$ and $\BE(p) = \chains\EE \sym_p$.
 Let $A$ be a Barratt--Eccles algebra with structure map $\phi \colon \BE \to \End(A)$, and recall from \cref{ss:may-steenrod on barratt-eccles} the map $\iota \colon \cW \to \cC \hookrightarrow \BE$.
 The goal of this subsection is to construct a Thom relator by giving explicit equivariant homotopies $L_1$ and $L_2$ making the following diagram commute:
-\[
-\begin{tikzcd}
-	\cW(p) \arrow[r, "\iota"] \arrow[d,"\lambda"] \arrow[dr,phantom,"L_1"] &
-	\cC(p) \arrow[r, hook] \arrow[d, "\gamma_\ast"] \arrow[dr,phantom,"L_2"] &
-	\BE(p) \arrow[r,"\phi"] \arrow[d,"\gamma"] &
-	\Hom(A^{\ot p}, A) \arrow[d,"\gamma"] \\
-	\cW(p) \arrow[r, "\iota"] &
-	\cC(p) \arrow[r, hook] &
-	\BE(p) \arrow[r,"\phi"] &
-	\Hom(A^{\ot p}, A),
-\end{tikzcd}
-\]
+\begin{equation}\label{d:thom_diagram}
+	\begin{tikzcd}
+		\cW(p) \arrow[r, "\iota"] \arrow[d,"\lambda"] \arrow[dr,phantom,"L_1"] &
+		\cC(p) \arrow[r, hook] \arrow[d, "\gamma_\ast"] \arrow[dr,phantom,"L_2"] &
+		\BE(p) \arrow[r,"\phi"] \arrow[d,"\gamma"] &
+		\Hom(A^{\ot p}, A) \arrow[d,"\gamma"] \\
+		\cW(p) \arrow[r, "\iota"] &
+		\cC(p) \arrow[r, hook] &
+		\BE(p) \arrow[r,"\phi"] &
+		\Hom(A^{\ot p}, A),
+	\end{tikzcd}
+\end{equation}
 where the action of $\cyc_r$ on the complexes on the bottom line is via the homomorphism by $\rho \mapsto \rho^k$.
 Notice that the the top route around the diagram is $\gamma \comp \psi$ and the bottom route is $\psi \comp \lambda$.
 
 \subsubsection{The homotopy $L_1$}
 
-Let us consider the endomorphisms $\xi$ and $\eta$ of $\cC(p)$ given by
+Let us focus on the following part of Diagram~\eqref{d:thom_diagram}
+\[
+\begin{tikzcd}
+	\cW(p) \arrow[r, "\iota"] \arrow[d,"\lambda"] \arrow[dr,phantom,"L_1"] &
+	\cC(p) \arrow[d, "\gamma_\ast"]\\
+	\cW(p) \arrow[r, "\iota"] &
+	\cC(p)
+\end{tikzcd}
+\]
+and define $\mu = \iota \comp \lambda$ and $\nu = \gamma \comp \iota$.\anibal{This should be $\gamma_\ast$, no?}
+Explicitly, these maps are given on basis elements by
+\begin{align*}
+	\mu(e_{2i}) &= \sum k^i (0,s_1,s_1+1,\ldots,s_i,s_i+1),  \\
+	\mu(e_{2i+1}) &= \sum\sum_{j=0}^{k-1} k^i (j,j+1,s_1,s_1+1,\ldots,s_i,s_i+1), \\
+	\nu(e_{2i}) &= \sum(0,s_1,s_1+k,\ldots,s_i,s_i+k), \\
+	\nu(e_{2i+1}) &= \sum (0,k,s_1,s_1+k,\ldots,s_i,s_i+k). \\
+\end{align*}
+
+Let us consider the idempotent homotopy identity $(\xi,\eta)$ on $\cC(p)$ given by
 \[
 \xi(\rho^{s_0},\dots,\rho^{s_n}) =
 \begin{cases}
@@ -163,29 +181,25 @@ Let us consider the endomorphisms $\xi$ and $\eta$ of $\cC(p)$ given by
 \]
 and
 \[
-\eta(\rho^{s_0},\dots,\rho^{s_n}) = (\rho^0,\rho^{s_0},\dots,\rho^{s_n})
+\eta(\rho^{s_0},\dots,\rho^{s_n}) = (\rho^0,\rho^{s_0},\dots,\rho^{s_n}).
 \]
-respectively, and denote by $\mu = \iota \comp \lambda$ and $\nu = \gamma \comp \iota$.
-The following claim is easily verified.
+Notice that $\xi \comp (\mu - \nu) = 0$ so, since $\cW(p)$ has a preferred basis, \cref{t:recursive_homotopy} produces the desired equivariant homotopy $L_1$ recursively.
+We will now provide a closed form formula for it.
 
-\begin{lemma}
-	The pair $(\xi,\eta)$ is an idempotent homotopy identity and
-	\[
-	\xi \comp (\mu - \nu) = 0.
-	\]
-\end{lemma}
-Since $\cW(p)$ has a preferred basis, \cref{t:recursive_homotopy} applies and produces the desired equivariant homotopy $L_1$.
+\begin{lemma*}
+	\anibal{I do not understand the formulas}
+	\begin{align*}
+		L_1(e_{2i}) &= -\sum\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell} (0,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1) \\
+		L_1(e_{2i+1}) &= \sum_{s_0=0}\sum_{\ell = 0}^i\sum_{j=1}^{k-1} k^{i-\ell} (s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
+	\end{align*}
+	where the first sum in each formula iterates along all $s_1,\ldots,s_i$ in $\cyc_r$, and the action of $\rho$ transforms a simplex $(a_1,\ldots,a_n)$ into $(a_1+k,\ldots,a_n+k)$.
+\end{lemma*}
 
-It is not difficult to verify that these maps are as follows:
-\begin{align*}
-    \mu(e_{2i}) &= \sum k^i (0,s_1,s_1+1,\ldots,s_i,s_i+1)  \\
-    \mu(e_{2i+1}) &= \sum\sum_{j=0}^{k-1} k^i (j,j+1,s_1,s_1+1,\ldots,s_i,s_i+1)\\
-    \nu(e_{2i}) &= \sum(0,s_1,s_1+k,\ldots,s_i,s_i+k) \\
-    \nu(e_{2i+1}) &= \sum (0,k,s_1,s_1+k,\ldots,s_i,s_i+k) \\
-    L_1(e_{2i}) &= -\sum\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell} (0,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1) \\
-    L_1(e_{2i+1}) &= \sum_{s_0=0}\sum_{\ell = 0}^i\sum_{j=1}^{k-1} k^{i-\ell} (s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
-\end{align*}
-where the first sum in each formula iterates along all $s_1,\ldots,s_i$ in $\cyc_r$, and the action of $\rho$ transforms a simplex $(a_1,\ldots,a_n)$ into $(a_1+k,\ldots,a_n+k)$. The first values of $L_1$ for $p=3$ are computed in Table \ref{f:small values of L_1}. 
+ \begin{proof}
+ 	\anibal{Missing. It should recall earlier formulas I think.}
+ \end{proof}
+
+The first values of $L_1$ for $p=3$ are computed in Table \ref{f:small values of L_1}.
 
 \begin{table}
 	\centering
@@ -193,7 +207,6 @@ where the first sum in each formula iterates along all $s_1,\ldots,s_i$ in $\cyc
 	\caption{The elements $L_1(e_n)$ for $p=3, k=2$ and small values of $n$.}
 	\label{f:small values of L_1}
 \end{table}
-
 
 \subsubsection{The homotopy $L_2$}
 

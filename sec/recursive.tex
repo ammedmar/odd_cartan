@@ -4,13 +4,10 @@
 
 \noindent In this section we give a recursive procedure to construct equivariant homotopies for maps between a bounded-below chain complex of free $\Z[G]$-modules and a chain complex equipped with a contraction.
 
-
-\begin{definition}
-	A \textit{homotopy identity} is a pair $(\xi,\eta)$, where $\xi \colon D \to D$ is a chain map and $\eta$ is a homotopy from $\xi$ to $\id_D$. We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \comp \eta = 0$.
-\end{definition}
-In a homotopy identity $\xi \comp \xi$ is homotopic to $\xi$ via the homotopy $\xi \comp \eta$. If the homotopy identity is idempotent, then the homotopy vanishes, thus $\xi \comp \xi = \xi$.
-
-
+A \textit{homotopy identity} is a pair $(\xi,\eta)$, where $\xi \colon D \to D$ is a chain map and $\eta$ is a homotopy from $\xi$ to $\id_D$.
+We say that $(\xi, \eta)$ is \textit{idempotent} if $\xi \comp \eta = 0$.
+The composition $\xi \comp \xi$ is homotopic to $\xi$ via the homotopy $\xi \comp \eta$.
+If the homotopy identity is idempotent, then the homotopy vanishes, thus $\xi \comp \xi = \xi$.
 
 \begin{theorem}\label{t:recursive_homotopy}
 	Let $C$ a bounded-below chain complex of free $\Z[G]$-modules with a basis.
@@ -19,7 +16,7 @@ In a homotopy identity $\xi \comp \xi$ is homotopic to $\xi$ via the homotopy $\
 	\begin{equation}\label{eq:lemma def}
 		H(b) = \eta \comp (\mu - \nu - H \comp \bd)(b)
 	\end{equation}
-	and extended linearly, is a $G$-equivariant homotopy from $\nu$ to $\mu$.
+	is a $G$-equivariant homotopy from $\nu$ to $\mu$.
 \end{theorem}
 
 \begin{proof}
@@ -51,41 +48,3 @@ In a homotopy identity $\xi \comp \xi$ is homotopic to $\xi$ via the homotopy $\
 	\]
 	Using this language, an idempotent homotopy identity is a strong deformation retract satisfying (i), and we remark that \cref{t:recursive_homotopy} is an adaptation of \cite[p.367]{Lambe-Stasheff}.
 \end{remark*}
-
-
-%\subsection{Equivariant homotopy construction}\label{ss:equivariant homotopy general}
-%
-%\begin{lemma}
-%	Let $G$ be a group, $C$ a bounded-below graded chain complex of free $\Z[G]$-modules with a basis, and $D$ a graded chain complex of $\Z[G]$-modules together with a $\Z$-linear endomorphism $\eta$ satisfying for some chain endomorphism $\varepsilon$ that:
-%	\begin{enumerate}
-%		\item $\bd \comp \, \eta + \eta \comp \bd = \id_C - \varepsilon$,
-%		\item $\varepsilon \comp \eta = 0$.
-%	\end{enumerate}
-%	Then, for any pair of $\Z[G]$-linear chain maps $\mu,\nu \colon C \to D$ with $\varepsilon \comp (\mu-\nu) = 0$, the $\Z[G]$-linear map $K \colon C \to D$ recursively defined on basis elements by
-%	\[
-%	K(b) = \eta \comp (\mu - \nu - K \comp \bd)(b),
-%	\]
-%	satisfies
-%	\[
-%	\bd \comp \, K + K \comp \bd = \mu - \nu.
-%	\]
-%\end{lemma}
-%
-%\begin{proof}
-%	We will use an induction argument.
-%	Suppressing composition symbols we have
-%	\begin{align*}
-%		(\bd K+ 'bd)(b)
-%		&= \bd \eta(\mu-\nu-K\bd)(b) + K\bd(b) \\
-%		&= (\id_C - \varepsilon - \eta\bd)(\mu-\nu - K\bd)(b) + K\bd(b).
-%	\end{align*}
-%	If $b$ is a cycle we are done since $\varepsilon(\mu-\nu) = 0$ by assumption, in particular if $b$ is of lowest degree. For an arbitrary $b$, since $\varepsilon \eta = 0$ we have $\varepsilon K \bd(b) \defeq \varepsilon \eta(\mu-\nu-K)(\bd b) = 0$, so $\varepsilon(\mu-\nu-K\partial) = 0$.
-%	Additionally, by the induction assumption $\bd K (\bd b) = (\mu-\nu-K\bd)(\bd b) = (\mu-\nu)(\bd b)$ we have $\eta \bd (\mu-\nu - K\bd)(b) = 0$.
-%	Therefore, we are left with
-%	\begin{align*}
-%		(\bd K+ K\bd)(b) &=
-%		\id_C(\mu-\nu-K\bd)(b)+K\bd(b) \\&=
-%		(\mu-\nu)(b)
-%	\end{align*}
-%	as desired.
-%\end{proof}

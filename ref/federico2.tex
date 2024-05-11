@@ -1,21 +1,25 @@
-\textcolor{blue}{For Federico to deal with following the style of this referee replay.} Section 6
+Section 6
 
 \subitem It is the referee's opinion that Definition 6.0.1 and the Remark following the proof of Theorem 6.0.2 are backwards. The primary concept is a contraction, as defined in the Remark. So that Remark could become Definition 6.0.1, ending with the three displayed conditions (i), (ii), (iii). Instead of ``...$\eta$ is a homotopy,,,'', in that definition, say ``...$\eta\colon D\to D$ is a homotopy...''.
 
-In the spirit of the authors notation, one can define contractions without referring to a $D'$. So the referee would probably recommed that. Just a $\xi$ and a homotopy $\eta$, both $D\to D$ with $d\eta+\eta d = \id-\xi$, along with conditions (i), (ii), (iii). In the $D'$ notation, $D' = Image(\xi)$, $f$ is the inclusion, $g = \xi$. Note $\xi\circ\xi = \xi$, which corresponds to $gf=\id$, follows from $\xi-\xi\circ\xi = (d\eta-\eta d)(\xi) = d(\eta\xi) + (\eta\xi)d = 0$. It is amusing that the condition (i) $\xi\circ\eta=0$ is actually a consequence of the other conditions, but this is sort of irrelevant since in the examples of the paper all the contraction properties are trivially verified. At least, after one of the authors examples of a contraction pair $(\xi,\eta)$ is corrected.
+In the spirit of the authors notation, one can define contractions without referring to a $D'$. So the referee would probably recommend that. Just a $\xi$ and a homotopy $\eta$, both $D\to D$ with $d\eta+\eta d = \id-\xi$, along with conditions (i), (ii), (iii). In the $D'$ notation, $D' = Image(\xi)$, $f$ is the inclusion, $g = \xi$. Note $\xi\circ\xi = \xi$, which corresponds to $gf=\id$, follows from $\xi-\xi\circ\xi = (d\eta-\eta d)(\xi) = d(\eta\xi) + (\eta\xi)d = 0$. It is amusing that the condition (i) $\xi\circ\eta=0$ is actually a consequence of the other conditions, but this is sort of irrelevant since in the examples of the paper all the contraction properties are trivially verified. At least, after one of the authors examples of a contraction pair $(\xi,\eta)$ is corrected.
 
-The referee thinks the term ìdempotent homotopy identity' is useless and should be scrapped. Changed to `contraction' each time it is used in the paper. It is not important thta for constructing the recursive homotopies not all the contraction properties are needed. The paragraph following the Conditions (i), (ii) and (iii) in the Remark can be removed. 
+The referee thinks the term ìdempotent homotopy identity' is useless and should be scrapped.
+Changed to `contraction' each time it is used in the paper. It is not important thta for constructing the recursive homotopies not all the contraction properties are needed. The paragraph following the Conditions (i), (ii) and (iii) in the Remark can be removed.
 
-\ar We have removed the remark and the definition and left only a definition of contraction. In particular the term idempotent homotopy has been scrapped.
+\ar As we describe in the remark after Theorem 6.0.2, contractions are a special type of contractions.
+Therefore, we prefer to maintain the added generality of the theorem which additionally makes clear the essential hypothesis of its proof.
 
 \subitem Theorem 6.0.2. In the statement change ``idempotent homotopy identity $(\xi,\eta)$'' to ``contraction $(\xi,\eta)$.'' Also, after display (4) add ``and extended equivariantly is a...''
 
-\ar We have written ``and extended linearly...'' since the scalars $\mathbb{Z}[G]$ already include the action of the group.
+\ar As explained in the previous point we are keeping the hypothesis of the theorem.
+Regarding the second point, we describe the map as $\Z[G]$-linear, so the scalars already include the action of the group.
 
 \subitem The proof of Theorem 6.0.2 is wrong. The first lines of the proof down to and including display (5) are OK. After that the proof should continue with ``...in the lowest degree, $b$, $\mu(b)$ and $\nu(b)$ are cycles, so (5) reduces to $\xi\circ (\mu-\nu) = 0$, which gives the base case of the induction.''
 
-The mistake in the proof is in the next display, claiming to ``use (4)''. The problem is $\partial b$ is not a basis element, so (4) does not apply. A correct inductive step proving (5) is simply 
+The mistake in the proof is in the next display, claiming to ``use (4)''.
+The problem is $\partial b$ is not a basis element, so (4) does not apply.
+A correct inductive step proving (5) is simply
 $\mu(\partial b) - \nu(\partial b) - \partial H(\partial b) = H\partial(\partial b) = 0.$ Then (5) follows since $\eta(0) = 0$, $\xi H=0$ and $\xi\circ (\mu-\nu) = 0$.
 
 \ar CAS. Many thanks.
-

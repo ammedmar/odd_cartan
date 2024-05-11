@@ -11,7 +11,6 @@ A \textit{$\cyc$-module} $\cP$ is a set $\{\cP(r)\}_{r>0}$ with $\cP(r)$ a chain
 A \textit{$\cyc$-equivariant map} $\phi \colon \cP_1 \to \cP_2$ is a set $\set{\phi^r \colon \cP_1(r) \to \cP_2(r)}_{r>0}$ with each $\phi^r$ a $\cyc_r$-equivariant map.
 We say $\phi$ is a chain map or a quasi-isomorphism if each $\phi(r)$ is one.
 A homotopy is a collection $\set{\cP_1(r) \to \cP_2(r)}_{r>0}$ of degree $1$ maps.
-%When convenient, we will abuse notation and denote $\phi(r)$ simply as $\phi$.
 There are evident forgetful functors to the category of $\cyc$-modules from those of $\sym$-modules and operads, which we will use without further notice.
 
 \subsection{Minimal cyclic resolution}
@@ -82,18 +81,18 @@ With this in mind, one defines the Steenrod operations
 	\beta P_s \colon& H_\bullet(A; \Fp) \to H_{\bullet + 2s(p-1) - 1}(A; \Fp),
 \end{align*}
 by sending the class represented by a cycle $a \in A \ot \Fp$ of degree $n$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
-\begin{equation*}
-	(-1)^s \nu(n) \, \rD^p_{(2s-n)(p-1)-\varepsilon}[a] \,,
-\end{equation*}
+\[
+(-1)^s \nu(n) \, \rD^p_{(2s-n)(p-1)-\varepsilon}[a] \,,
+\]
 where $\nu(n) = (-1)^{n(n-1)m/2}(m!)^n$ and $m = \frac{p-1}{2}$.\footnote{
-A note about degrees:
-The results of this paper apply to arbitrary $E_\infty$-algebras.
-But the subscripts $i$ of the $\rD_i$ cannot be negative, so for a class a of degree $n$ the $P_s$ can be defined only for $2s-n \geq 0$, that is, $n/2 \leq s$.
-In the classical case of cochains on simplicial sets, all classes have homological degrees $n \leq 0$.
-Naturality constraints imply that no natural operation can raise these negative degrees.
-Therefore, non-zero operations $P_s$ on simplicial sets are constrained by $s \leq 0$.
-Thus, with the homological grading, non-zero operations $P_s(a)$ on simplicial set classes $a$ of degree $n \leq 0$ are constrained by two conditions $n/2 \leq s \leq 0$.
-Historically, of course, cohomology was graded positively, and the Steenrod operations $P^s$ with $s \geq 0$ raised degree by $2s(p-1)$.
+	A note about degrees:
+	The results of this paper apply to arbitrary $E_\infty$-algebras.
+	But the subscripts $i$ of the $\rD_i$ cannot be negative, so for a class a of degree $n$ the $P_s$ can be defined only for $2s-n \geq 0$, that is, $n/2 \leq s$.
+	In the classical case of cochains on simplicial sets, all classes have homological degrees $n \leq 0$.
+	Naturality constraints imply that no natural operation can raise these negative degrees.
+	Therefore, non-zero operations $P_s$ on simplicial sets are constrained by $s \leq 0$.
+	Thus, with the homological grading, non-zero operations $P_s(a)$ on simplicial set classes $a$ of degree $n \leq 0$ are constrained by two conditions $n/2 \leq s \leq 0$.
+	Historically, of course, cohomology was graded positively, and the Steenrod operations $P^s$ with $s \geq 0$ raised degree by $2s(p-1)$.
 }
 The notation $\beta P_s$ is motivated by the Bockstein relation $\beta P_s = \beta\, \comp P_s$, which is easily verified using the boundary formula in $\cW(p)$ with $\Z$ coefficients,
 \[

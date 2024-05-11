@@ -1,13 +1,24 @@
-\textcolor{blue}{For Federico to deal with following the style of this referee replay.} Subsection 7.1
+Subsection 7.1
 
-\subitem Add to line 3. ``...following diagram commute, where $\cyc$ acts diagonally on the tensor products.''
+\subitem Add to line 3: ``...following diagram commute, where $\cyc$ acts diagonally on the tensor products.''
 
 \ar CAS.
 
-\subitem Line 7. The definition of $\xi$ and $\eta$ do not work to define a contraction. To begin with, if $\xi$ made sense, $Image(\xi) = \mathbb{Z}\{\rho^0\}\otimes \mathbb{Z}[\cyc_r]$, all in degree $0$, which does not even have the same homology as $\cC(r)\otimes \cC(r)$. If one tries to check the homotopy condition $d\eta+\eta d = \id-\xi$, it will fail.
+\subitem Line 7.
+The definition of $\xi$ and $\eta$ do not work to define a contraction.
+To begin with, if $\xi$ made sense, $Image(\xi) = \mathbb{Z}\{\rho^0\}\otimes \mathbb{Z}[\cyc_r]$, all in degree $0$, which does not even have the same homology as $\cC(r)\otimes \cC(r)$.
+If one tries to check the homotopy condition $d\eta+\eta d = \id-\xi$, it will fail.
 
-There are two possible choices for $D'=Image(\xi)$. One is $Image(\xi) = \mathbb{Z}\{\rho^0\}\otimes \cC(r)$. Then, writing the cyclic group elements as integers $s_i$ from $0$ to $p-1$ and $\cW$ simplices as tuples $s = (s_0,\ldots,s_k)$, one gets $\xi(s\otimes t) = (0)\otimes t$ if $deg(s) = 0$ and $0$ otherwise. For this choice, the authors $\eta$ does work. In fact, one can begin with their $\eta$ and simply compute $d\eta+\eta d$ to find the correct $\xi$. 
+There are two possible choices for $D'=Image(\xi)$.
+One is $Image(\xi) = \mathbb{Z}\{\rho^0\}\otimes \cC(r)$.
+Then, writing the cyclic group elements as integers $s_i$ from $0$ to $p-1$ and $\cW$ simplices as tuples $s = (s_0,\ldots,s_k)$, one gets $\xi(s\otimes t) = (0)\otimes t$ if $deg(s) = 0$ and $0$ otherwise.For this choice, the authors $\eta$ does work.
+In fact, one can begin with their $\eta$ and simply compute $d\eta+\eta d$ to find the correct $\xi$.
 
-The other choice for $\xi$ is $\xi(s\otimes t) = (0)\otimes (0)$ if $deg(s\otimes t)=0$ and $0$ otherwise. With image $\mathbb{Z}\{\rho^0\}\otimes \mathbb{Z}\{\rho^0\}$. For this choice a somewhat different $\eta$ must be used. Based on what comes later, the referee assumes the first choice is intended. It is the better choice.
+The other choice for $\xi$ is $\xi(s\otimes t) = (0)\otimes (0)$ if $deg(s\otimes t)=0$ and $0$ otherwise.
+With image $\mathbb{Z}\{\rho^0\}\otimes \mathbb{Z}\{\rho^0\}$.
+For this choice a somewhat different $\eta$ must be used.
+Based on what comes later, the referee assumes the first choice is intended.
+It is the better choice.
 
-\ar The first choice was the one intended. Thus, we have changed the condition $deg(s\otimes t) = 0$ for the condition $deg(s) = 0$ in the definition of $\xi$.
+\ar The first choice was the one intended.
+Thus, we have changed the condition $deg(s\otimes t) = 0$ for the condition $deg(s) = 0$ in the definition of $\xi$.

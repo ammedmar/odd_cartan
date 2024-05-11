@@ -7,14 +7,14 @@
 \subsection{The recursively defined homotopy $K$}
 
 We can apply the recursive construction of the previous section to obtain a $\cyc$-equivariant homotopy $K$ making the following diagram commute, where $\cyc$ acts diagonally on the tensor products.:
-\begin{equation*}
-	\begin{tikzcd}[column sep=large]
-		\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K"]&
-		\cC \arrow[d,"\Delta_{\AW}"] \\
-		\cW^{\ot 2} \arrow[r,"\iota^{\ot 2}"'] &
-		\cC^{\ot 2}.
-	\end{tikzcd}
-\end{equation*}
+\[
+\begin{tikzcd}[column sep=large]
+	\cW \arrow[r,"\iota"] \arrow[d,"\Delta"'] \arrow[dr,phantom,"K"]&
+	\cC \arrow[d,"\Delta_{\AW}"] \\
+	\cW^{\ot 2} \arrow[r,"\iota^{\ot 2}"'] &
+	\cC^{\ot 2}.
+\end{tikzcd}
+\]
 To do so, we consider the endomorphisms $\xi$ and $\eta$ of $\cC(r) \ot \cC(r)$ given by
 \[
 \xi(s \ot t) =
@@ -36,148 +36,122 @@ It can be easily verified that the pair $(\xi,\eta)$ is an idempotent homotopy i
 Using the bijection $\cyc_r \cong \set{0,1,\dots,r-1} \subset \Z$ the group $\cyc_r$ receives a total order.
 It additionally has a cyclic order, which is the ternary relation defined on elements $a,b,c \in \cyc_r$ as follows:
 $a \prec b \prec c$ if there are representatives $\bar{a},\bar{b},\bar{c}$ of the classes $[a],[b],[c]$ in $\Z/r\Z$ such that $\bar{a} < \bar{b} < \bar{c} < \bar{a}+r$.
-
-{For $(s_1,\dots,s_j)$ in $\EE\cyc_r$ and $t\in \cyc_r$, we use the following notation:
+For $(s_1,\dots,s_j)$ in $\EE\cyc_r$ and $t\in \cyc_r$, we use the following notation:
 \begin{align*}
-    \theta_q(s_1,\ldots,s_j;t) &= \begin{cases}
-        1 & \text{if $q>1$ and $s_{q-1}+1\prec s_q\prec t$}\\
-        1 & \text{if $q=1$ and $0\prec s_q\prec t$} \\
-        0 & \text{otherwise}
-    \end{cases}
-    % \\
-    % \theta_q^{\mathrm{odd}}(s_1,\ldots,s_j;t) &= \begin{cases}
-    %     1 & \text{if $q>1$ and $s_{q-1}\prec s_q\prec t$}\\
-    %     1 & \text{if $q=1$ and $1\prec s_q\prec t$} \\
-    %     0 & \text{otherwise}
-    % \end{cases}
+	\theta_q(s_1,\ldots,s_j;t) &=
+	\begin{cases}
+		1 & \text{if $q>1$ and $s_{q-1}+1\prec s_q\prec t$}\\
+		1 & \text{if $q=1$ and $0\prec s_q\prec t$} \\
+		0 & \text{otherwise}
+	\end{cases}
 \end{align*}
-
-% \color{blue}
-% For $(s_1,\dots,s_j)$ in $\EE\cyc_r$ we use the following notation:
-% \[
-% s_q^- =
-% \begin{cases}
-% 	s_{q-1}+1 & \text{if } q>1, \\
-% 	0 & \text{if } q=1,
-% \end{cases}
-% \]
-%  and for each $1\leq q\leq j$, write $\theta_q^{\mathrm{even}}(s_1,\dots,s_j;t_1,\dots,t_k)$ for
-% \[
-% (0,s_1,s_1+1,\dots,s_j,s_j+1)\ot (t_1,t_1+1,\dots,t_k,t_k+1)
-% \]
-% if $s_q^- \prec s_q \prec t_1$ and $0$ otherwise, and $\theta_q^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k)$ for
-% \[
-% (0,1,s_1,s_1+1,\dots,s_j,s_j+1)\ot (t_1,t_1+1,\dots,t_k,t_k+1)
-% \]
-% if $s_q^- \prec s_q \prec t_1$ and $0$ otherwise. 
-% }
 
 Lemma \ref{l:K3} is a consequence of the following two lemmas.
 
 \begin{lemma}
 	The map $K$ is defined by the following expressions
 	\begin{align} \label{eq:homotopyK'1}
-		K(e_{2i}) &= \sum_{i+1 = j+k} \sum_{q=1}^j \
+		K(e_{2i}) &= \ \sum_{\mathclap{i+1 = j+k}} \quad \sum_{q=1}^j \
 		\theta_q(s_1,\dots,s_j;t_1)\cdot \varphi^{\mathrm{even}}(s_1,\dots,s_j;t_1,\dots,t_k), \\ \label{eq:homotopyK'2}
-		K(e_{2i+1}) &= -\sum_{i+1 = j+k} \sum_{q=1}^j \
+		K(e_{2i+1}) &= -\sum_{\mathclap{i+1 = j+k}} \quad \sum_{\mathclap{q=1}}^j \
 		\theta_q(s_1-1,\dots,s_j-1;t_1-1)\cdot \varphi^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k),
 	\end{align}
 	where the sum is taken over all $s_1,\dots,s_j,t_1,\dots,t_k\in \{0,1,\dots,r-1\}$.
 \end{lemma}
 
 \begin{proof}
- 	Let us proceed by induction on the degree. In degree $0$ we have
-    \begin{align*}
-        \mu(e_0) &= (\iota\otimes \iota)\circ \Delta(e_0) = (\iota\otimes \iota)(e_0\otimes e_0) = (0)\otimes (0),\\
-        \nu(e_0) &= \Delta_{\AW}\circ \iota(e_0) = \Delta_{\AW}((0)) = (0)\otimes (0).
-    \end{align*}
+	Let us proceed by induction on the degree. In degree $0$ we have
+	\begin{align*}
+		\mu(e_0) &= (\iota\otimes \iota)\circ \Delta(e_0) = (\iota\otimes \iota)(e_0\otimes e_0) = (0)\otimes (0),\\
+		\nu(e_0) &= \Delta_{\AW}\circ \iota(e_0) = \Delta_{\AW}((0)) = (0)\otimes (0).
+	\end{align*}
 	Therefore
 	\[
 	K(e_0) = \eta \comp (\mu-\nu-K \comp \partial)(e_0) = 0.
 	\]
 	which agrees with \eqref{eq:homotopyK'1} for $i=0$. For the induction step, we distinguish two cases, depending on the parity of the degree:
 
- \medskip
-    
-    \noindent\emph{Case 1: Odd degree.} Suppose that we have proven that \eqref{eq:homotopyK'1} holds in some degree $2i$ with $i\geq 0$. Let us prove that \eqref{eq:homotopyK'2} holds in degree $2i+1$. By definition
+	\medskip\noindent\emph{Case 1: Odd degree.}
+	Suppose that we have proven that \eqref{eq:homotopyK'1} holds in some degree $2i$ with $i\geq 0$. Let us prove that \eqref{eq:homotopyK'2} holds in degree $2i+1$. By definition
 	\[K(e_{2i+1}) = \eta \comp (\mu-\nu-K \comp \partial)(e_{2i+1}).\]
 	Observe now that all summands in $\nu(e_{2i+1})$ start with $0$, and so do all summands in $\mu(e_{2i+1})$. As a consequence, $\eta \comp \nu(e_{2i+1}) = \eta \comp \mu(e_{2i+1}) = 0$, so we are left with
 	\[K(e_{2i+1}) = -\eta \comp K \comp \partial(e_{2i+1}) = -\eta \comp K (\rho e_{2i}) + \eta \comp K (e_{2i}).
 	\]
 	The summand $\eta \comp K (e_{2i})$ vanishes, because all terms in $K(e_{2i})$ start with $0$. We now claim that $\eta \comp K (\rho e_{2i})$ equals the right-hand side of \eqref{eq:homotopyK'2}. By the induction hypothesis, we can compute $K(e_{2i})$ using \eqref{eq:homotopyK'1}. The claim then follows after noticing that $\eta(\rho\varphi^{\mathrm{even}}(s_1,\ldots,s_j;t_1,\ldots,t_k))$ equals
- \begin{align*}
-      &\varphi^{\mathrm{odd}}(s_1+1,\ldots,s_j+1;t_1+1,\ldots,t_k+1).
-\end{align*}
+	\[
+	\varphi^{\mathrm{odd}}(s_1+1,\ldots,s_j+1;t_1+1,\ldots,t_k+1).
+	\]
 
-\medskip
-    
-    \noindent\emph{Case 2: Even degree.} Suppose that we have proven that \eqref{eq:homotopyK'2} holds in some degree $2i-1$ with $i>0$. Let us prove that \eqref{eq:homotopyK'1} holds in degree $2i$. By definition,
+	\medskip\noindent\emph{Case 2: Even degree.}
+	Suppose that we have proven that \eqref{eq:homotopyK'2} holds in some degree $2i-1$ with $i>0$. Let us prove that \eqref{eq:homotopyK'1} holds in degree $2i$. By definition,
 	\begin{equation}\label{eq:rota}
-    \begin{split}
-	    K(e_{2i}) &= \eta \comp (\mu-\nu-K \comp \partial)(e_{2i})\\
-     &= \eta \comp\mu(e_{2i})- \eta\comp\nu(e_{2i})- \eta\comp K \comp \partial(e_{2i}).
-	\end{split}
-    \end{equation}
+		\begin{split}
+			K(e_{2i}) &= \eta \comp (\mu-\nu-K \comp \partial)(e_{2i})\\
+			&= \eta \comp\mu(e_{2i})- \eta\comp\nu(e_{2i})- \eta\comp K \comp \partial(e_{2i}).
+		\end{split}
+	\end{equation}
 	Again, the middle summand vanishes
-    \[\eta \comp \nu(e_{2i}) = 0
-    \]
-    because all terms of $\nu(e_{2i})$ start with $0$. Regarding the first summand, we have:
-    \begin{equation*}%\label{eq:hK1}
-    \begin{split}
-        \eta\comp \mu(e_{2i}) &= \sum_{j+k=i+1}\sum_{0\leq s_1<t_1<r} (0,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots,t_k,t_k+1)
-        \\
-    &= \sum_{j+k=i+1}\theta_1(s_1,\dots,s_j;t_1)\cdot \varphi^{\mathrm{even}}(s_1,\dots,s_j;t_1,\dots,t_k).
+	\[\eta \comp \nu(e_{2i}) = 0
+	\]
+	because all terms of $\nu(e_{2i})$ start with $0$.
+	Regarding the first summand, we have:
+	\[
+	\begin{split}
+		\eta\comp \mu(e_{2i}) &= \sum_{\mathclap{j+k=i+1}\ \ } \hspace*{14pt} \sum_{\ \quad \mathclap{0 \leq s_1<t_1<r}} \ (0,s_1,s_1+1,\ldots,s_j,s_j+1)\otimes (t_1,t_1+1,\ldots,t_k,t_k+1)
+		\\
+		&= \ \sum_{\mathclap{j+k=i+1}} \ \theta_1(s_1,\dots,s_j;t_1) \cdot \varphi^{\mathrm{even}}(s_1,\dots,s_j;t_1,\dots,t_k).
 	\end{split}
-    \end{equation*}
-	By the induction hypothesis, we can use \eqref{eq:homotopyK'2} to compute the third summand $-\eta \comp K \comp \partial(e_{2i})$, which equals the following:
-	\begin{equation*}%\label{eq:hK2}
-    \begin{split}
-        \eta\circ N&\sum_{j+k=i}\sum_{q=1}^{j}\theta_q(s_1-1,\dots,s_j-1;t_1-1)\cdot \varphi^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k) \\
-     	&= \sum_{q=1}^{j}\sum_{j+k=i}\theta_q(s_1-1,\dots,s_j-1;t_1-1)\cdot \eta\circ N\varphi^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k) \\
-     &= \sum_{q=1}^{j}\sum_{j+k=i}\theta_{q+1}(s_0,s_1,\dots,s_{j};t_1)\cdot \varphi^{\mathrm{even}}(s_0,s_1,\dots,s_{j};t_1\dots,t_k)
-\\ &= \sum_{j+k = i+1}\sum_{q=2}^{j}\theta_q(s_1,\dots,s_{j};t_1)\cdot \varphi^{\mathrm{even}}(s_1,\dots,s_{j};t_1,\dots,t_k).
+	\]
+	By the induction hypothesis, we can use \eqref{eq:homotopyK'2} to compute the third summand; $-\eta \comp K \comp \partial(e_{2i})$, which is equal to
+	\[
+	\begin{split}
+		\eta\circ N&\sum_{j+k=i}\sum_{q=1}^{j}\theta_q(s_1-1,\dots,s_j-1;t_1-1)\cdot \varphi^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k) \\ &=
+		\sum_{q=1}^{j}\sum_{j+k=i}\theta_q(s_1-1,\dots,s_j-1;t_1-1)\cdot \eta\circ N\varphi^{\mathrm{odd}}(s_1,\dots,s_j;t_1,\dots,t_k) \\ &= \sum_{q=1}^{j}\sum_{j+k=i}\theta_{q+1}(s_0,s_1,\dots,s_{j};t_1)\cdot \varphi^{\mathrm{even}}(s_0,s_1,\dots,s_{j};t_1\dots,t_k) \\ &=
+		\sum_{\mathclap{j+k = i+1}} \quad \sum_{q=2}^{j} \theta_q(s_1,\dots,s_{j};t_1)\cdot \varphi^{\mathrm{even}}(s_1,\dots,s_{j};t_1,\dots,t_k).
 	\end{split}
-    \end{equation*}
+	\]
 	Adding the three summands of \eqref{eq:rota} we obtain identity \eqref{eq:homotopyK'1}.
 \end{proof}
 
-\begin{lemma} For any $(s_1,\ldots,s_j,t_1)$ in $\EE\cyc_r$ we have
-    \[
-    \alpha(s_1,\ldots,s_j,t_1) = \sum_{q=1}^j\theta_q(s_1,\ldots,s_j;t_1).
-    \]
+\begin{lemma}
+	For any $(s_1,\ldots,s_j,t_1)$ in $\EE\cyc_r$ we have
+	\[
+	\alpha(s_1,\ldots,s_j,t_1) = \sum_{q=1}^j\theta_q(s_1,\ldots,s_j;t_1).
+	\]
 \end{lemma}
+
 \begin{proof}
-	% Observe first that if $s_{i+1} = s_i+1$ for some $i$, or $s_1 = 0$ (in the first case) or $s_1=1$ (in the second case) we get degenerate summands, so we do not treat these cases in the following computations.
 	For an integer $m$, we will write $[m]$ for its class in $\Z/r\Z$. Let $s_1,\ldots,s_j,t_1$ be elements of $\{0,1,\ldots,r-1\}$ and write $(s_1',\dots,s'_j)$ for the only sequence of integers such that:
 	\begin{enumerate}
 		\item $[s'_i] = [s_i]$,
 		\item $0< s_1'< r$,
 		\item $1 < s_{i+1}' - s_i' \leq r$.
 	\end{enumerate}
-    Then we can rewrite the definition of $\theta_q$ as follows:
-    \begin{align*}
-        \theta_1(s_1,\ldots,s_j;t_1) &= 
-        \begin{cases}
-            1 & \text{if $\not\exists t\in [t_1], t\in [0,s_1']$} \\
-            0 & \text{if $\exists t\in [t_1], t\in [0,s_1']$}
-        \end{cases}
-        \\
-        \theta_q(s_1,\ldots,s_j;t_1) &= 
-        \begin{cases}
-            1 & \text{if $\not\exists t\in [t_1], t\in (s_{q-1}',s_q']$}\\
-            0 & \text{if $\exists t\in [t_1], t\in (s_{q-1}',s_q']$} 
-        \end{cases} 
-        & q>1
-    \end{align*}
-%	Then $\theta_q(0,s_1,\dots,s_j;t_1,\dots,t_k)$ will vanish for $q>1$ if and only if the interval $(s_{q-1}',s_q']$ contains a representative of $[t_1]$, and will vanish for $q=1$ if and only if the interval $[0,s_1']$ contains a representative of $[t_1]$.
-	Therefore the number of vanishing summands in $\sum_{q=1}^j\theta_q(s_1,\dots,s_j;t_1)$ equals the number $\ell$ of representatives of $[t_1]$ that lie in the interval $[0,s_j']$. If $s_j'=kr+s_j$ is the integer division of $s_j'$ by $r$, then 
-    \[
-        \ell = \begin{cases}
-                k & \text{if $s_j<t_1$} \\
-                k+1 & \text{if $s_j\geq t_1$}
-        \end{cases}
-    \]
-    Now, $k$ equals the number of non-decreasing consecutive pairs in the sequence $(s_1,\ldots,s_j)$ and $\ell$ equals the number of non-decreasing consecutive pairs in the sequence $(s_1,\ldots,s_j,t_1)$.	
-    
-    Finally, $\sum_{q=1}^j\theta_q(s_1,\dots,s_j;t_1) = j-\ell$ equals the number of increasing consecutive pairs in the sequence $(s_1,\ldots,s_j,t_1)$, which is $\alpha(s_1,\dots,s_j,t_1)$.
+	Then we can rewrite the definition of $\theta_q$.
+	For $q = 1$,
+	\[
+	\theta_1(s_1,\ldots,s_j;t_1) =
+	\begin{cases}
+		1 & \text{if $\nexists t\in [t_1], t\in [0,s_1']$}, \\
+		0 & \text{if $\exists t\in [t_1], t\in [0,s_1']$}.
+	\end{cases}
+	\]
+	Whereas, for $q > 1$,
+	\[
+	\theta_q(s_1,\ldots,s_j;t_1) =
+	\begin{cases}
+		1 & \text{if $\nexists t\in [t_1], t\in (s_{q-1}',s_q']$}, \\
+		0 & \text{if $\exists t\in [t_1], t\in (s_{q-1}',s_q']$}.
+	\end{cases}
+	\]
+	Therefore the number of vanishing summands in $\sum_{q=1}^j\theta_q(s_1,\dots,s_j;t_1)$ equals the number $\ell$ of representatives of $[t_1]$ that lie in the interval $[0,s_j']$. If $s_j'=kr+s_j$ is the integer division of $s_j'$ by $r$, then
+	\[
+	\ell = \begin{cases}
+		k & \text{if $s_j<t_1$} \\
+		k+1 & \text{if $s_j\geq t_1$}
+	\end{cases}
+	\]
+	Now, $k$ equals the number of non-decreasing consecutive pairs in the sequence $(s_1,\ldots,s_j)$ and $\ell$ equals the number of non-decreasing consecutive pairs in the sequence $(s_1,\ldots,s_j,t_1)$.
+
+	Finally, $\sum_{q=1}^j\theta_q(s_1,\dots,s_j;t_1) = j-\ell$ equals the number of increasing consecutive pairs in the sequence $(s_1,\ldots,s_j,t_1)$, which is $\alpha(s_1,\dots,s_j,t_1)$.
 \end{proof}
