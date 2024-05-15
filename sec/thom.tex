@@ -211,41 +211,48 @@ We will now provide a closed form formula for it.
 \end{lemma*}
 
 We remark that to obtain $L_1$, the above formulas are extended equivariantly with the action of $\cyc_p$ given by the homomorphisms $\rho \mapsto \rho^k$.
-Additionally, we mention that nested sums above are independent of each other.
+Additionally, we mention that the nested sums above are independent of each other.
+Please consult Table \ref{f:small values of L_1} for the first values of $L_1$ when $p = 3$ .
 
 \begin{proof}
     We will write $L$ instead of $L_1$ to lighten the notation. In degree zero, our formula reduces to $L(e_{0}) = 0$, which agrees with $\eta\circ (\mu - \nu - L\circ \bd)$, because $\mu(e_0) = \nu(e_0)$ and $\bd (e_0) = 0$. For the induction step we distinguish two cases, depending on the parity of the degree.
 
-    \medskip\noindent\emph{Case 1: Odd degree.} Let us assume by induction that our formula for $L(e_{2i})$ is valid, and let us prove that the formula for $L(e_{2i+1})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i+1})$. Since the first entry of each summand in $\nu(e_{2i+1})$ is $0$, the term $\eta\circ \nu(e_{2i+1})$ vanishes. The term $\eta\circ \mu(e_{2i+1})$ is
+    \medskip\noindent\emph{Case 1: Odd degree.} Let us assume by induction that our formula for $L(e_{2i})$ is valid, and let us prove that the formula for $L(e_{2i+1})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i+1})$. Since the first entry of each summand in $\nu(e_{2i+1})$ is $0$, the term $\eta \circ \nu(e_{2i+1})$ vanishes.
+    Notice that
     \[
-    \sum\sum_{j=1}^{k-1} k^{i}(0,j,j+1,s_1,s_1+1, \ldots,s_i,s_i+1)
+    \eta \circ \mu(e_{2i+1}) = k^{i} \, \sum_{j=1}^{k-1} \, \sum \, \big(0,j,j+1,s_1,s_1+1,\dots,s_i,s_i+1\big),
     \]
-    \anibal{there seems to be a $-\ell$ wrong above}\federico{that $\ell$ is zero, I erase it}
-    which agrees with the summands indexed by $\ell=0$ of our formula for $L(e_{2i+1})$. Finally, to compute the term $-\eta\circ L\circ \bd(e_{2i+1})$, recall that $\bd (e_{2i+1}) = \rho e_{2i} - e_{2i}$ and observe that all summands in $\eta\circ L(e_{2i})$ have $0$ as first entry, so $\eta\circ L(e_{2i}) = 0$. On the other hand, $\rho L(e_{2i})$ is
+    which agrees with the summands indexed by $\ell=0$ in our formula for $L(e_{2i+1})$.
+    Finally, to compute the term $-\eta\circ L\circ \bd(e_{2i+1})$, recall that $\bd (e_{2i+1}) = \rho e_{2i} - e_{2i}$ and observe that all summands in $\eta\circ L(e_{2i})$ have $0$ as first entry, so $\eta \circ L(e_{2i}) = 0$.
+    On the other hand,
     \[
-    \sum_{\ell = 1}^i k^{i-\ell} \sum_{j=1}^{k-1} \, \sum \
+    L(e_{2i}) \cdot \rho \ = \
+    \sum_{\ell = 1}^i k^{i-\ell} \, \sum_{j=1}^{k-1} \, \sum \
     \begin{aligned}
     	\big(&k,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k, \\
     	&s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\
     	&s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1\big)
     \end{aligned}
     \]
-%    \begin{eqnarray*}
-%	    \sum\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell} (k,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\  \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
-%    \end{eqnarray*}
-    because $\rho$ acts on $L(e_{2i})$ adding $k$ to each entry. Thus $\eta(\rho L\circ \bd(e_{2i+1}))$ encompasses all the summands of $L(e_{2i+1})$ indexed by $\ell>0$.
-    \anibal{are you sure? It looks different, since $s_0$ doesn't appear.}\federico{$s_0$ is the $0$ that appears when applying $\eta$}
+    because $\rho$ acts on $L(e_{2i})$ adding $k$ to each entry.
+    \anibal{Doesn't seem to follow...}
+    Thus $\eta(\rho L\circ \bd(e_{2i+1}))$ agrees with the summands of $L(e_{2i+1})$ indexed by $\ell>0$.
 
     \medskip\noindent\emph{Case 2: Even degree.}
-    Let us assume now that our formula is valid for $L(e_{2i-1})$ and let us prove that the formula for $L(e_{2i})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i})$. Since the first entry of all summands of $\mu(e_{2i})$ and $\nu(e_{2i})$ is $0$, the terms $\eta\circ \mu(e_{2i})$ and $\eta\circ \nu(e_{2i})$ vanish. The term $-L\circ \bd(e_{2i})$ is $-N L(e_{2i-1})$, which can be described with the same formula as $L(e_{2i-1})$, but removing the condition $s_0 = 0$:
-    \begin{align*}
-        -N L(e_{2i-1}) &= -\sum\sum_{\ell = 0}^{i-1}\sum_{j=1}^{k-1} k^{i-\ell-1} (s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
-    \end{align*}
-	\anibal{Run out of time at the moment to change the format to the three lines I used above.}
-    Applying $\eta$ to this sum and renaming each $s_j$ as $s_{j+1}$ and replacing $\ell-1$ by $\ell$, we obtain the formula for $L(e_{2i})$ given in the statement.
+    Let us assume now that our formula is valid for $L(e_{2i-1})$ and let us prove that the formula for $L(e_{2i})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i})$.
+    Since $0$ is the first entry of all summands of $\mu(e_{2i})$ and $\nu(e_{2i})$, the terms $\eta \circ \mu(e_{2i})$ and $\eta\circ \nu(e_{2i})$ vanish.
+    The term $-L\circ \bd(e_{2i})$ is $-N L(e_{2i-1})$, which can be described with the same formula as $L(e_{2i-1})$, but removing the condition $s_0 = 0$.
+    Explicitly,
+    \[
+   	-N L(e_{2i-1}) = -\sum_{\ell = 0}^{i-1} k^{i-\ell-1} \sum_{j=1}^{k-1} \ \sum \
+   	\begin{aligned}
+   		\big(&s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k, \\
+   		&s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\
+   		&s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1\big).
+   	\end{aligned}
+    \]
+	The formula for $L(e_{2i})$ given in the statement is obtained by applying $\eta$ to this sum, renaming each $s_j$ as $s_{j+1}$, and replacing $\ell-1$ by $\ell$.
  \end{proof}
-
-The first values of $L_1$ for $p=3$ are computed in Table \ref{f:small values of L_1}.
 
 \begin{table}
 	\centering
@@ -262,7 +269,7 @@ Let
 \[
 L_2(\sigma_0,\dots,\sigma_n) = \sum (-1)^i (\sigma_0\gamma,\dots,\sigma_i\gamma,\sigma_i^\gamma,\dots,\sigma_n^\gamma),
 \]
-which is $\cyc$-equivariant since
+which, when restricted to $\chains\EE\cyc_p$, is equivariant with respect to the homomorphisms $\rho \mapsto \rho^k$ as the following computation verifies:
 \begin{align*}
 	(L_2 \comp \rho)(\rho^{s_0},\dots,\rho^{s_n}) &=
 	L_2(\rho^{s_0}\rho, \dots, \rho^{s_n}\rho) \\ &=
@@ -278,3 +285,4 @@ which is $\cyc$-equivariant since
     \item The whole Section A.5.1
 \end{itemize}
 the other convention is used. There is a clarification at the beginning of Section A.5 relating both notations, but I think that at that point it is the $(s_0,\ldots,s_i)$ notation rather than the $(\rho^{s_0},\ldots,\rho^{s_i})$ notation that is used, so the clarification is unnecessary. Thus, I think it would be better to remove the clarification  at the beginning of Section $A.5$ and add a clarification in Section A.5.2)}
+\anibal{I see your point, but notice that the target of the map is in $\chains\EE\sym_p$, so at most we can change the first line.}
