@@ -82,15 +82,11 @@ We will omit $\psi$ from the notation when clear from the context.
 
 As we will see, the existence of a Cartan relator implies the Cartan formulas:
 \begin{align*}
-	P_{s}\big([a][b]\big) =&
-	\sum_{i+j=s} P_i[a] \, P_j[b], \\
-	\beta P_{s+1}\big([a][b]\big) =&
-	\sum_{i+j=s} \beta P_{i+1}[a] \, P_j[b] \ +\ (-1)^{\bars{a}} P_i[a] \, \beta P_{j+1}[b],
+	\rP_{s}\big([a][b]\big) =&
+	\sum_{j+k=s} \rP_j[a] \, \rP_k[b], \\
+	\beta \rP_{s+1}\big([a][b]\big) =&
+	\sum_{j+k=s} \beta \rP_{j+1}[a] \, \rP_k[b] \ +\ (-1)^{\bars{a}} \rP_j[a] \, \beta \rP_{k+1}[b],
 \end{align*}
-\anibal{Maybe replace indices $i,j$ for $j,k$}
-
-\anibal{Check uniformity: $P$ vs $\rP$}
-
 where $s \in \Z$ and $a$ and $b$ are any two mod $p$ cycles in $A$.
 
 By Thom's \cref{t:thom}, the Cartan formulas are equivalent to the following equations:
@@ -105,18 +101,16 @@ By Thom's \cref{t:thom}, the Cartan formulas are equivalent to the following equ
 ranging over $i \in \N$.
 Explicitly, if one takes $2i = (2s-(|a|+|b|))(p-1)$ and multiplies the first identity above by $(-1)^s \nu(|a|)\nu(|b|)$ then one has an equation of the form
 \[
-0 = P_s([a][b]) - \sum_{\mathclap{s=j+k}} P_j[a] P_k[b] - \text{(other terms)}.
+0 = \rP_s([a][b]) - \sum_{\mathclap{s=j+k}} \rP_j[a] \rP_k[b] - \text{(other terms)}.
 \]
 Here, the other terms are constants times products $D_\ell[a] D_m[b]$, where the subscripts are such that at least one of the factors, maybe both, are coboundaries by Thom’s theorem.
 \cref{s:thom} succeeds in writing the appropriate factor terms as coboundaries, and then the products are coboundaries in explicit ways.
-A similar discussion applies to the formulas involving $\beta P_s([a][b])$.\footnote{\label{fn:mu}
+A similar discussion applies to the formulas involving $\beta \rP_s([a][b])$.\footnote{\label{fn:mu}
 The definition of the constants $\nu(n)$ is motivated by two facts.
-First, it can be easily shown that $P_s([a]) = [a]^p$ for a cohomology class $[a]$ of degree $2s$.
-More subtly, it can be shown that $P_0([a]) = [a]$ in all degrees for the specific $E_\infty$-algebras $A = \cochains(X)$, the normalized cochains of simplicial sets.
+First, it can be easily shown that $\rP_s([a]) = [a]^p$ for a cohomology class $[a]$ of degree $2s$.
+More subtly, it can be shown that $\rP_0([a]) = [a]$ in all degrees for the specific $E_\infty$-algebras $A = \cochains(X)$, the normalized cochains of simplicial sets.
 This result follows from the rather difficult formula for positive $n$ and a simplicial set class $[a]$ of degree $-n$ that $\rD_n(p-1)([a]) = (-1)^{mn} \nu(n)[a]$.
 }
-
-\anibal{Check numbers carefully}
 
 \subsection{Chain level lift}
 

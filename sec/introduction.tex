@@ -23,21 +23,21 @@ This relation in cohomology implies the existence, for any pair of mod $2$ cocyc
 	\sum_{i=j+k} (\alpha \smallsmile_j \alpha) \cp_0 (\beta \cp_k \beta).
 \end{equation}
 
-Inspired by the application of cup-$i$ products in the theory of topological phases (refer to \cite{kapustin2015cobordism, gaiotto2016spin, kapustin2017fermionic} for examples), Kapustin inquired about the construction of natural cochains $\zeta_i(\alpha, \beta)$ as in \eqref{e:lift cartan even}.
+Inspired by the application of cup-$i$ products in the theory of topological phases of matter (refer to \cite{kapustin2015cobordism, gaiotto2016spin, kapustin2017fermionic} for examples), Kapustin inquired about the construction of natural cochains $\zeta_i(\alpha, \beta)$ as in \eqref{e:lift cartan even}.
 This was presented in \cite{medina2020cartan} and later used in \cite{barkeshli2021classification} to classify symmetry-protected fermionic $(2+1)$-dimensional invertible phases.
 
 Not long after Steenrod's construction was introduced, a non-explicit perspective based on group homology was developed, which allowed the definition not only of Steenrod squares but also of Steenrod operations
 \begin{align*}
-	P^s \colon& \rH^*(X; \Fp) \to \rH^*(X; \Fp) \\
-	\beta P^s \colon& \rH^*(X; \Fp) \to \rH^*(X; \Fp)
+	\rP_s \colon& \rH^*(X; \Fp) \to \rH^*(X; \Fp) \\
+	\beta \rP_s \colon& \rH^*(X; \Fp) \to \rH^*(X; \Fp)
 \end{align*}
 for odd primes.
 The interaction of these with the cup product are also controlled by Cartan formulas:
 \begin{align*}
-	P_{s}\big([a][b]\big) =&
-	\sum_{i+j=s} P_i[a] \, P_j[b], \\
-	\beta P_{s+1}\big([a][b]\big) =&
-	\sum_{i+j=s} \beta P_{i+1}[a] \, P_j[b] \ +\ (-1)^{\bars{a}} P_i[a] \, \beta P_{j+1}[b].
+	\rP_{s}\big([a][b]\big) =&
+	\sum_{j+k=s} \rP_j[a] \, \rP_k[b], \\
+	\beta \rP_{s+1}\big([a][b]\big) =&
+	\sum_{j+k=s} \beta \rP_{j+1}[a] \, \rP_k[b] \ +\ (-1)^{\bars{a}} \rP_j[a] \, \beta \rP_{k+1}[b].
 \end{align*}
 
 By extending the concept of cup-$i$ products to other primes via the introduction of cup-$(p,i)$ products, an explicit construction of Steenrod operations was introduced in \cite{medina2021may_st} and implemented in the computer algebra system \texttt{ComCH} \cite{medina2021comch}.
@@ -45,4 +45,7 @@ The goal of this paper is to utilize these cup-$(p,i)$ products to lift the Cart
 Our method for constructing these odd Cartan coboundaries is solely based on the combinatorial structure of simplices, which enables a computer to carry out the process locally, focusing on individual simplices sequentially.
 An actual implementation of such algorithm is left to future work.
 
-We also remark that, in \cite{brumfiel2023explicit}, Greg Brumfiel and John Morgan indicate that a result similar to ours is expected in an upcoming paper.
+A cornerstone in the definition of Steenrod operations is a result attributed to Thom by Steenrod \cite{steenrod1953cyclic}, which characterizes the image in mod $p$ homology of the inclusion of the cyclic group of order $p$ into the symmetric group $\sym_p$.
+Since this theorem plays an indirect role in our constructions, we present an effective proof of it in \cref{s:thom}.
+
+Finally, we remark that in \cite{brumfiel2023explicit} Greg Brumfiel and John Morgan indicate that a result similar to ours is expected in their upcoming work.
