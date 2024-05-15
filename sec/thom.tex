@@ -218,9 +218,9 @@ Additionally, we mention that nested sums above are independent of each other.
 
     \medskip\noindent\emph{Case 1: Odd degree.} Let us assume by induction that our formula for $L(e_{2i})$ is valid, and let us prove that the formula for $L(e_{2i+1})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i+1})$. Since the first entry of each summand in $\nu(e_{2i+1})$ is $0$, the term $\eta\circ \nu(e_{2i+1})$ vanishes. The term $\eta\circ \mu(e_{2i+1})$ is
     \[
-    \sum\sum_{j=1}^{k-1} k^{i-\ell}(0,j,j+1,s_1,s_1+1, \ldots,s_i,s_i+1)
+    \sum\sum_{j=1}^{k-1} k^{i}(0,j,j+1,s_1,s_1+1, \ldots,s_i,s_i+1)
     \]
-    \anibal{there seems to be a $-\ell$ wrong above}
+    \anibal{there seems to be a $-\ell$ wrong above}\federico{that $\ell$ is zero, I erase it}
     which agrees with the summands indexed by $\ell=0$ of our formula for $L(e_{2i+1})$. Finally, to compute the term $-\eta\circ L\circ \bd(e_{2i+1})$, recall that $\bd (e_{2i+1}) = \rho e_{2i} - e_{2i}$ and observe that all summands in $\eta\circ L(e_{2i})$ have $0$ as first entry, so $\eta\circ L(e_{2i}) = 0$. On the other hand, $\rho L(e_{2i})$ is
     \[
     \sum_{\ell = 1}^i k^{i-\ell} \sum_{j=1}^{k-1} \, \sum \
@@ -234,7 +234,7 @@ Additionally, we mention that nested sums above are independent of each other.
 %	    \sum\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell} (k,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\  \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
 %    \end{eqnarray*}
     because $\rho$ acts on $L(e_{2i})$ adding $k$ to each entry. Thus $\eta(\rho L\circ \bd(e_{2i+1}))$ encompasses all the summands of $L(e_{2i+1})$ indexed by $\ell>0$.
-    \anibal{are you sure? It looks different, since $s_0$ doesn't appear.}
+    \anibal{are you sure? It looks different, since $s_0$ doesn't appear.}\federico{$s_0$ is the $0$ that appears when applying $\eta$}
 
     \medskip\noindent\emph{Case 2: Even degree.}
     Let us assume now that our formula is valid for $L(e_{2i-1})$ and let us prove that the formula for $L(e_{2i})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i})$. Since the first entry of all summands of $\mu(e_{2i})$ and $\nu(e_{2i})$ is $0$, the terms $\eta\circ \mu(e_{2i})$ and $\eta\circ \nu(e_{2i})$ vanish. The term $-L\circ \bd(e_{2i})$ is $-N L(e_{2i-1})$, which can be described with the same formula as $L(e_{2i-1})$, but removing the condition $s_0 = 0$:
@@ -270,4 +270,11 @@ which is $\cyc$-equivariant since
 	\sum (-1)^i (\rho^{s_0} \gamma \rho^k,\dots,\rho^{s_i} \gamma \rho^k,(\rho^{s_i})^\gamma \rho^k ,\dots,(\rho^{s_n})^\gamma \rho^k) \\ &=
 	(\rho^k \comp L_2)(\rho^{s_0},\dots,\rho^{s_n}).
 \end{align*}
-\anibal{I looked at it without the rhos and it is harder to read}
+\anibal{I looked at it without the rhos and it is harder to read}\federico{ok, then maybe it would be good to say that we are using a different notation than before. Moreover: this notation is only used here: in the rest of the paper,
+\begin{itemize}
+    \item Section 5.3, definition of $\iota$ and Table 1,
+    \item Section 5.8, definition of $K_3$ and Table 2
+    \item The whole Section 7,
+    \item The whole Section A.5.1
+\end{itemize}
+the other convention is used. There is a clarification at the beginning of Section A.5 relating both notations, but I think that at that point it is the $(s_0,\ldots,s_i)$ notation rather than the $(\rho^{s_0},\ldots,\rho^{s_i})$ notation that is used, so the clarification is unnecessary. Thus, I think it would be better to remove the clarification  at the beginning of Section $A.5$ and add a clarification in Section A.5.2)}
