@@ -162,7 +162,7 @@ Let us focus on the following part of Diagram~\eqref{d:thom_diagram}
 	\cC(p)
 \end{tikzcd}
 \]
-and define $\mu = \iota \comp \lambda$ and $\nu = \gamma \comp \iota$.\anibal{This should be $\gamma_\ast$, no?}
+and define $\mu = \iota \comp \lambda$ and $\nu = \gamma_* \comp \iota$.
 Explicitly, these maps are given on basis elements by
 \begin{align*}
 	\mu(e_{2i}) &= \sum k^i (0,s_1,s_1+1,\ldots,s_i,s_i+1),  \\
@@ -170,6 +170,7 @@ Explicitly, these maps are given on basis elements by
 	\nu(e_{2i}) &= \sum(0,s_1,s_1+k,\ldots,s_i,s_i+k), \\
 	\nu(e_{2i+1}) &= \sum (0,k,s_1,s_1+k,\ldots,s_i,s_i+k). \\
 \end{align*}
+where the sum iterates over all $s_1,\ldots,s_i$ in $\cyc_r$.
 
 Let us consider the idempotent homotopy identity $(\xi,\eta)$ on $\cC(p)$ given by
 \[
@@ -179,24 +180,41 @@ Let us consider the idempotent homotopy identity $(\xi,\eta)$ on $\cC(p)$ given 
 	\hfil0 & \text{otherwise}.
 \end{cases}
 \]
-and
+and \federico{in both these formulas it would be more convenient to follow the notation in the formulas of the previous display and the last subsection here}
 \[
 \eta(\rho^{s_0},\dots,\rho^{s_n}) = (\rho^0,\rho^{s_0},\dots,\rho^{s_n}).
 \]
 Notice that $\xi \comp (\mu - \nu) = 0$ so, since $\cW(p)$ has a preferred basis, \cref{t:recursive_homotopy} produces the desired equivariant homotopy $L_1$ recursively.
 We will now provide a closed form formula for it.
 
-\begin{lemma*}
-	\anibal{I do not understand the formulas}
+\begin{lemma*} The following are explicit formulas for $L_1$. The nested sums in each formulas are independent of each other.
 	\begin{align*}
-		L_1(e_{2i}) &= -\sum\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell} (0,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1) \\
-		L_1(e_{2i+1}) &= \sum_{s_0=0}\sum_{\ell = 0}^i\sum_{j=1}^{k-1} k^{i-\ell} (s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
+		L_1(e_{2i}) &= -\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell}\sum (0,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1) \\
+		L_1(e_{2i+1}) &= \sum_{\ell = 0}^i\sum_{j=1}^{k-1} k^{i-\ell} \sum(s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
 	\end{align*}
-	where the first sum in each formula iterates along all $s_1,\ldots,s_i$ in $\cyc_r$, and the action of $\rho$ transforms a simplex $(a_1,\ldots,a_n)$ into $(a_1+k,\ldots,a_n+k)$.
+	where the first sum in each formula iterates along all $s_1,\ldots,s_i$ in $\cyc_r$ and $s_0$ takes always the value $0$ by convention.
+    This formula extends equivariantly with the action of $\rho$ that transforms a simplex $(a_0,\ldots,a_n)$ into $(a_0+k,\ldots,a_n+k)$.
 \end{lemma*}
 
- \begin{proof}
- 	\anibal{Missing. It should recall earlier formulas I think.}
+\begin{proof}
+    We will write $L$ instead of $L_1$ to lighten the notation. In degree zero, our formula reduces to $L(e_{0}) = 0$, which agrees with $\eta\circ (\mu - \nu - L\circ \bd)$, because $\mu(e_0) = \nu(e_0)$ and $\bd (e_0) = 0$. For the induction step we distinguish two cases, depending on the parity of the degree.
+    
+    \medskip\noindent\emph{Case 1: Odd degree.} Let us assume by induction that our formula for $L(e_{2i})$ is valid, and let us prove that the formula for $L(e_{2i+1})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i+1})$. Since the first entry of each summand in $\nu(e_{2i+1})$ is $0$, the term $\eta\circ \nu(e_{2i+1})$ vanishes. The term $\eta\circ \mu(e_{2i+1})$ is
+    \[
+    \sum\sum_{j=1}^{k-1} k^{i-\ell}(0,j,j+1,s_1,s_1+1, \ldots,s_i,s_i+1)
+    \]
+    which agrees with the summands indexed by $\ell=0$ of our formula for $L(e_{2i+1})$. Finally, to compute the term $-\eta\circ L\circ \bd(e_{2i+1})$, recall that $\bd (e_{2i+1}) = \rho e_{2i} - e_{2i}$ and observe that all summands in $\eta\circ L(e_{2i})$ have $0$ as first entry, so $\eta\circ L(e_{2i}) = 0$. On the other hand, $\rho L(e_{2i})$ is 
+    \begin{eqnarray*}
+    \sum\sum_{\ell = 1}^i\sum_{j=1}^{k-1} k^{i-\ell} (k,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1,\\  \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
+    \end{eqnarray*}
+    because $\rho$ acts on $L(e_{2i})$ adding $k$ to each entry. Thus $\eta(\rho L\circ \bd(e_{2i+1}))$ encompasses all the summands of $L(e_{2i+1})$ indexed by $\ell>0$. 
+    
+    \medskip\noindent\emph{Case 2: Even degree.}
+    Let us assume now that our formula is valid for $L(e_{2i-1})$ and let us prove that the formula for $L(e_{2i})$ agrees with $\eta\circ (\mu - \nu - L\circ \bd)(e_{2i})$. Since the first entry of all summands of $\mu(e_{2i})$ and $\nu(e_{2i})$ is $0$, the terms $\eta\circ \mu(e_{2i})$ and $\eta\circ \nu(e_{2i})$ vanish. The term $-L\circ \bd(e_{2i})$ is $-N L(e_{2i-1})$, which can be described with the same formula as $L(e_{2i-1})$, but removing the condition $s_0 = 0$:
+    \begin{align*}
+        -N L(e_{2i-1}) &= -\sum\sum_{\ell = 0}^{i-1}\sum_{j=1}^{k-1} k^{i-\ell-1} (s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k,s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\ & \qquad\qquad\qquad \qquad \quad s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1)
+    \end{align*}
+    Applying $\eta$ to this sum and renaming each $s_j$ as $s_{j+1}$ and replacing $\ell-1$ by $\ell$, we obtain the formula for $L(e_{2i})$ given in the statement.  
  \end{proof}
 
 The first values of $L_1$ for $p=3$ are computed in Table \ref{f:small values of L_1}.
