@@ -52,6 +52,10 @@ For any simplicial set $X$, Berger and Fresse \cite{berger2004combinatorial} exp
 on its (normalized) cochains.
 Since only the existence of this effective construction will be used here, we refer to the original source for details, and to the specialized computer algebra system \texttt{ComCH} for an implementation.
 
+\begin{remark*}
+	All operations $\cochains(X)^{\ot r} \to \cochains(X)$ resulting from the map $\phi$ are obtained as compositions of the duals of the Alexander--Whitney diagonal and a join map \cite{medina2020prop1, medina2021prop2}.
+\end{remark*}
+
 \subsection{May--Steenrod structure on Barratt--Eccles algebras}\label{ss:may-steenrod on barratt-eccles}
 
 To provide the cochains of simplicial sets, or more generally any $\BE$-algebra, with a natural May--Steenrod structure, we need to define a $\cyc$-equivariant quasi-isomorphism
@@ -64,11 +68,11 @@ We now recall from \cite{medina2021may_st} a closed form formula for one such ma
 \]
 For $r,n\in\N$, let
 \[
-	\iota(e_{n}) =
-	\begin{cases}
-		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, {s_1}, {s_1+1}, {s_2}, {s_2+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m, \\
-		\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, 1, {s_1}, {s_1+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m+1,
-	\end{cases}
+\iota(e_{n}) =
+\begin{cases}
+	\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, {s_1}, {s_1+1}, {s_2}, {s_2+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m, \\
+	\displaystyle{\sum_{s_1, \dots, s_m}} \big(0, 1, {s_1}, {s_1+1}, \dots, {s_{m}}, {s_{m}+1} \big) & n = 2m+1,
+\end{cases}
 \]
 where the sum is over all $s_1, \dots, s_m \in \{0, \dots, r-1\} \cong \cyc_r$.
 Please consult \cref{f:small values of psi} for the simplest examples.
@@ -82,6 +86,12 @@ We remark that the number of basic summands above for $r$ and $n = 2m, 2m + 1$ i
 \end{table}
 
 Given a Barratt--Eccles algebra $\phi \colon \BE \to \End(A)$ we will consider $A$ as a May--Steenrod complex with the structure defined by $\phi$ and $\iota$.
+
+\begin{remark*}
+	In \cite{medina2021may_st}, the map $(\phi \comp \iota)(e_i) \colon A^{\ot r} \to A$ is referred to as the cup-$(r,i)$ product of the May--Steenrod complex $A$.
+	For simplicial sets, a natural $\cyc_p$-equivariant chain map $\cW(p) \to \End(\cochains(X))(p)$ is constructed in \cite{medina2024connected}, for $p$ prime, using a Poincar\'e duality algebra structure on the chains of standard augmented simplices.
+	The resulting maps $\cochains(X)^{\ot p} \to \cochains(X)$ agree with the cup-$(p,i)$ products only for $p=2$, where they recover the axiomatically characterized cup-$i$ products of Steenrod \cite{steenrod1947products, medina2023fast_sq, medina2022axiomatic}, and for $p=3$, but they differ for higher primes.
+\end{remark*}
 
 \subsection{Main diagram}
 

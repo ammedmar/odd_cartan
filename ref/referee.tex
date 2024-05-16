@@ -824,17 +824,60 @@ They construct explicit coboundary formulas for Cartan relations.
 	retraction $\xi \colon \cC(r) \to \cW(r)$.
 	It would seem that it might be easier to find a closed formula for the recursive homotopy $L1$ than it was for $K3$, so the authors should give it a try.
 
-	\ar \textcolor{blue}{For Federico to deal with following the style of this referee replay.} The explicit homotopy has been added after Lemma A.5.2, together with a table for small values.
+	\ar The explicit homotopy has been added together with a table for small values.
+	Explicitly, in A.5.1 we prove the next statement, where $k$ is he chosen primitive unit.
+
+	\begin{lemma*}
+		The following are closed form formulas for $L_1$.
+		\begin{align*}
+			L_1(e_{2i}) =
+			- &\sum_{\ell = 1}^i k^{i-\ell} \sum_{j=1}^{k-1} \, \sum \
+			\begin{aligned}
+				\big(&0,s_1,s_1+k,\ldots,s_{\ell-1},s_{\ell-1}+k, \\
+				&s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\
+				&s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1\big)
+			\end{aligned} \\[5pt]
+			L_1(e_{2i+1}) =
+			&\sum_{\ell = 1}^i k^{i-\ell} \sum_{j=1}^{k-1} \, \sum \
+			\begin{aligned}
+				\big(&s_0,s_0+k,\ldots,s_{\ell-1},s_{\ell-1}+k, \\
+				&s_{\ell},s_{\ell}+j,s_{\ell}+j+1, \\
+				&s_{\ell+1},s_{\ell+1}+1,\ldots,s_i,s_i+1\big)
+			\end{aligned}
+		\end{align*}
+		were $\sum$ is over all $s_1,\dots,s_i \in \cyc_p \cong \set{0,\dots,p-1}$ with $s_0 = 0$ fixed.
+	\end{lemma*}
 \end{enumerate}
 
 \section{Other changes}
 
 \begin{enumerate}
+	\item Add \verb|\noindent| to the beginning of each section.
+
+	\item Add to acknowledgment: We also extend our gratitude to the referee for their detailed and perceptive analysis of our paper.
+
+	\item Introduction. Add paragraph about the Appendix:
+
+	\medskip An important result used in the definition of Steenrod operations is a theorem attributed to Thom by Steenrod \cite{steenrod1953cyclic}, which characterizes the image in mod $p$ homology of the inclusion of the cyclic group of order $p$ into the symmetric group $\sym_p$.
+	Since this theorem plays an indirect role in our constructions, we present an effective proof of it in Appendix A.
+
 	\item 3.1. Explicitly state the $\cyc$-module structure on $\cW$ using the following sentence:
 	``We denote by $\cW$ the set $\set{\cW(r)}_{r > 0}$ regarded as a $\cyc$-module with $(\rho^s e_i) \cdot \rho = \rho^{s+1} e_i$.''
 
 	\item 5.1. Typo. Replace ``and on morphism $h$" by ``and on \textbf{a} morphism $h$".
 
-	\item Add \verb|\noindent| to the beginning of each section.
+	\item 5.2 Add remark about the action of the Barratt--Eccles operad on simplicial cochains:
+
+	\begin{remark*}
+		All operations $\cochains(X)^{\ot r} \to \cochains(X)$ resulting from the map $\phi$ are obtained as compositions of the duals of the Alexander--Whitney diagonal and a join map \cite{medina2020prop1, medina2021prop2}.
+	\end{remark*}
+
+	\item 5.3 Add remark about forthcoming work constructing alternative cup-$(p,i)$ products for simplicial cochains.
+
+	\begin{remark*}
+		In \cite{medina2021may_st}, the map $(\phi \comp \iota)(e_i) \colon A^{\ot r} \to A$ is referred to as the cup-$(r,i)$ product of the May--Steenrod complex $A$.
+		For simplicial sets, a natural $\cyc_p$-equivariant chain map $\cW(p) \to \End(\cochains(X))(p)$ is constructed in \cite{medina2024connected}, for $p$ prime, using a Poincar\'e duality algebra structure on the chains of standard augmented simplices.
+		The resulting maps $\cochains(X)^{\ot p} \to \cochains(X)$ agree with the cup-$(p,i)$ products only for $p=2$, where they recover the axiomatically characterized cup-$i$ products of Steenrod \cite{steenrod1947products, medina2023fast_sq, medina2022axiomatic}, and for $p=3$, but they differ for higher primes.
+	\end{remark*}
 \end{enumerate}
 \end{document}
