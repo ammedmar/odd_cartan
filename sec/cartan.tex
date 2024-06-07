@@ -24,8 +24,9 @@ Then, for $r > 0$, define, omitting the superscripts of $\psi^r$ and $\psi_0^2$,
 	\cO(2) \ot \cO(r)^{\ot 2} \xra{\bcomp_{\cO}}
 	\cO(2r)
 \end{align*}
-where $\cO(2r) \xra{\tau} \cO(2r)$ stands for the right action of $\tau$.\footnote{\label{fn:symmetric_action_on_hom}
-We remind the reader that the right action of $\sigma \in \sym_r$ on $u \in \cO(r) = \End(A)(r) = \Hom(A^{\ot r}, A)$ produces the composition $A^{\ot r} \xra{\sigma} \ot A^{\ot r} \xra{u} A$.}
+where $\cO(2r) \xra{\tau} \cO(2r)$ stands for the right action of $\tau$.\footnote{
+We remind the reader that the right action of $\sigma \in \sym_r$ on $u \in \cO(r) = \End(A)(r) = \Hom(A^{\ot r}, A)$ produces the composition $A^{\ot r} \xra{\sigma} A^{\ot r} \xra{u} A$.\label{fn:symmetric_action_on_hom}
+}
 We will write $\tau \comp F_\psi$ for $\set{\tau \comp F_\psi^r}_{r>0}$ and $G$ for $\set{G_\psi^r}_{r>0}$.
 
 \begin{lemma*}
@@ -103,13 +104,13 @@ Explicitly, if one takes $2i = (2s-(|a|+|b|))(p-1)$ and multiplies the first ide
 \[
 0 = \rP_s([a][b]) - \sum_{\mathclap{s=j+k}} \rP_j[a] \rP_k[b] - \text{(other terms)}.
 \]
-Here, the other terms are constants times products $D_\ell[a] D_m[b]$, where the subscripts are such that at least one of the factors, maybe both, are coboundaries by Thom’s theorem.
+Here, the other terms are constants times products $\rD_\ell[a] \rD_m[b]$, where the subscripts are such that at least one of the factors, maybe both, are coboundaries by Thom’s theorem.
 \cref{s:thom} succeeds in writing the appropriate factor terms as coboundaries, and then the products are coboundaries in explicit ways.
-A similar discussion applies to the formulas involving $\beta \rP_s([a][b])$.\footnote{\label{fn:mu}
+A similar discussion applies to the formulas involving $\beta \rP_s([a][b])$.\footnote{
 We thank the referee for the following note: The definition of the constants $\nu(n)$ is motivated by two facts.
-First, it can be easily shown that $\rP_s([a]) = [a]^p$ for a cohomology class $[a]$ of degree $2s$.
-More subtly, it can be shown that $\rP_0([a]) = [a]$ in all degrees for the specific $E_\infty$-algebras $A = \cochains(X)$, the normalized cochains of simplicial sets.
-This result follows from the rather difficult formula for positive $n$ and a simplicial set class $[a]$ of degree $-n$ that $\rD_n(p-1)([a]) = (-1)^{mn} \nu(n)[a]$.
+First, it can be easily shown that $\rP_s[a] = [a]^p$ for a cohomology class $[a]$ of degree $2s$.
+More subtly, it can be shown that $\rP_0[a] = [a]$ in all degrees for the specific $E_\infty$-algebras $A = \cochains(X)$, the normalized cochains of simplicial sets.
+This result follows from the rather difficult formula for positive $n$ and a simplicial set class $[a]$ of degree $-n$ that $\rD_{n(p-1)}[a] = (-1)^{mn} \nu(n)[a]$ where $m = \frac{p-1}{2}$.\label{fn:mu}
 }
 
 \subsection{Chain level lift}
@@ -218,7 +219,7 @@ A \textit{Cartan $i$-boundary construction for $(A,\psi)$ at $p$} is an assignme
 
 \begin{proof}
 	Let us simplify our notation by removing the superscripts $p$ and subscripts $\psi$, and writing $\bd_{\End}$ and $\bd_\cW$ instead of $\bd_{\End(A)(p)}$, and $\bd_{\cW(p)}$.
-	Recall that
+	Recall from \cref{ss:cartan_relators} that
 	\[
 	\bd_{\End} \comp\, H - H \comp \bd_{\cW} = \tau \comp F - G.
 	\]

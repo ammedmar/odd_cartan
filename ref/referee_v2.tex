@@ -1,0 +1,87 @@
+\documentclass{amsart}
+\input{../aux/style}
+\input{../aux/usualcmds}
+\addbibresource{../aux/usualpapers.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\input{../aux/commands} % add commands here
+\addbibresource{../aux/bibliography.bib} % add references here
+\input{../aux/packages}
+\usepackage{enumitem}
+\setlist{label=\arabic{enumi}.,itemsep=\medskipamount, left=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\title[Referee reply]{An effective proof of the Cartan formula: Odd primes}
+\author{Medina-Mardones}
+\author{Cantero-Mor\'an}
+
+\newcommand{\ar}{\medskip\noindent\textit{Reply}:\ }
+\renewcommand{\thesection}{\arabic{section}}
+\def\subitem{\medskip\noindent$\bullet$ }
+
+\addtolength{\textwidth}{1in}
+\addtolength{\textheight}{1in}
+\calclayout
+
+\begin{document}
+\noindent\today
+
+\begin{center}
+	\Large{---Referee Replay V2---}
+	\bigskip
+\end{center}
+
+\maketitle
+
+\noindent We would like to thank the referee again for a careful and insightful analysis of our paper, as well as for the many suggestions improving its presentation.
+We copy their report for completeness.
+A new version of the paper will be uploaded to the arXiv once all suggestions are incorporated satisfactorily.
+
+\section{Reviewer's summary}
+
+\noindent The referee has examined version 2 of the above-named paper and finds only a few points to comment on.
+Therefore, after these points are addressed, the referee recommends publication of the paper.
+
+\section{Reviewer's individual items}
+
+\begin{enumerate}
+	\item The authors should take responsibility for a final thorough proof-reading. This means every paragraph should be examined. For example, the authors have included some footnotes copying suggestions from the referee’s first reading, but at least two of those have typos:
+
+	\subitem Footnote 3, Page 7: There is an extra $\otimes$ symbol.
+
+	\ar Fixed, thank you.
+
+	\subitem Footnote 4, Page 8: In the last line of the footnote, there is an incorrectly formatted subscript. Should be $\rD_n(p-1)([a]) = \ldots$.
+
+	\ar Fixed, thank you.
+
+	\item Page 6: After further consideration, the referee no longer agrees with their previous review assertion that “...the Bockstein relation $\beta P_s = \beta \circ P_s$, which is easily verified using the boundary formula in $W(p)$ with $\mathbb{Z}$ coefficients, $d(e_{2k}) = (1 + \rho + \cdots + \rho^{p-1})e_{2k-1}$.” This should be cleaned up.
+
+	For integral cochains $e_{2i}$ and $a$, with $a$ a cycle mod $p$, one needs to work out rather carefully the full boundary $d(e_{2i} \otimes a^{\otimes p})$, and then work carefully in the coinvariant complex mentioned in footnote 1. There is a proof given in the reference \cite{May70}, as Proposition 2.3(v). The present paper is not about that relation, so perhaps the authors could replace the referee’s offending overly simplified phrase by “...the Bockstein relation $\beta P_s = \beta \circ P_s$, which can be verified using boundary computations in $W \otimes_{C_p} A^{\otimes p}$ with $\mathbb{Z}$ coefficients.” Or perhaps just refer to \cite{May70} without further discussion.
+
+	\ar We followed the second proposed path. It now reads: ``The notation $\beta \rP_s$ is motivated by the Bockstein relation $\beta \rP_s = \beta\, \comp \rP_s$.
+	For a proof of this relation, the interested reader may consult \cite[Prop.~2.3(v)]{may1970general}.''
+
+	\item Theorem 4.6.1 proof, Page 10. A reminder about where “Cartan relator” is defined would be helpful. This could be in line 2 of the proof, before the first display say “Recall from 4.3 that ....” Or, in the statement of the theorem say “If $H\Psi$ is a Cartan relator for $(A,\Psi)$, as in 4.3, then ...”
+
+	\ar We added the reference in the proof. Thank you for the suggestion.
+
+	\item Subsection 5.5, Page 13. There seems to be some confusion about the referee's two comments. In the diagram called Diagram (3), the far right term was changed to the $(\text{ev})$ notation. But in the big diagram at the start of the proof of Lemma 5.5.1, the far right term is still wrong, despite the author's protests. The referee still thinks it should be $\text{End}(A)(2r)$. Which is the same as $\text{Hom}(A^{\otimes 2r}, A)$. The author's $\text{End}(A^{\otimes r}, A)$ term doesn’t even make sense. An alternative would be to use the $(\text{ev})$ notation again, but the big diagram in the proof of 5.5.1 basically translates the more abstract symbols of Diagram (3) to more concrete symbols, so why not continue that.
+
+	\ar Thank you for finding this typo, it now reads $\End(A)(2r)$ as suggested.
+
+	\item The referee is generally satisfied with the author's handling of corrections and suggestions from the first report. There were some referee suggestions the authors argued against, which is OK. They were optional.
+
+	\ar Thank you for your understanding.
+
+	\item A couple of the author's long explicit chain homotopy formulas are too complicated for the referee to check in detail. There are always dangers of typos, as well as formula errors of some kind. But the theoretical methods used for producing these chain homotopies are correct and some such explicit formulas certainly follow. So the referee prefers the authors do the detailed proof reading of these claimed formulas.
+
+	\ar We have checked them again before sending this reply.
+\end{enumerate}
+
+\section{Other changes}
+
+\begin{enumerate}
+	\item Erase the indentation space for footnotes.
+\end{enumerate}
+\end{document}
